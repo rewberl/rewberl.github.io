@@ -1,0 +1,9 @@
+.social-icons {
+  margin: 1em 0;
+  a {
+    padding: 4px 8px;
+    &:hover {
+      color: #376689;
+    }
+  }
+}

@@ -90,11 +90,12 @@ html {
 }
 .sidebar-nav-item {
   display: block;
-  line-height: 1.75;
+  line-height: 2;
+  font-size: 1.25rem;
 }
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
-  text-decoration: bold;
+  text-decoration: underline;
 }
 .sidebar-nav-item.active {
   font-weight: bold;
@@ -252,8 +253,9 @@ a.sidebar-nav-item:focus {
 
 /* Ashes */
 .theme-base-ash .sidebar {
-  background-color: #1c2023;
+  color: #38586F;
+  background-color: #1C2023;
 }
 .theme-base-ash .content a,
 .theme-base-ash .related-posts li a:hover {
-  color: #376689;
+  color: #646B6F;

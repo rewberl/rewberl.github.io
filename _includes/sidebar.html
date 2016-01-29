@@ -8,7 +8,7 @@
       </h1>
       <p class="lead">{{ site.description }}</p>
     </div>
-
+	
     <nav class="sidebar-nav">
       <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
 
@@ -28,6 +28,12 @@
 
     </nav>
 
+	<div class="social-icons">
+		<a href="https://twitter.com/rewberl" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+<!--		<a href="https://linkedin.com/in/rewberl" title="{{ site.owner.name}} on LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>	-->
+		<a href="https://github.com/rewberl" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	</div><!-- /.social-icons -->
+	
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
   </div>
 </div>
