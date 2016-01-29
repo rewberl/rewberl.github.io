@@ -4,7 +4,6 @@ highlighter:      pygments
 
 # Permalinks
 permalink:        pretty
-relative_permalinks: true
 
 # Setup
 title:            'Richard E.W. Berl'
@@ -27,3 +26,5 @@ github:
   
 # Gems
 gems: [jekyll-paginate]
+paginate: 5
+paginate_path: "page:num"
