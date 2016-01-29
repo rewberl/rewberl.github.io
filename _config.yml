@@ -7,7 +7,7 @@ permalink:        pretty
 
 # Setup
 title:            'Richard E.W. Berl'
-description:      'Researcher in the transmission and evolution of culture in humans and non-human animals. Also a dad and data scientist-in-training.'
+description:      'Cultural evolution.<br>Cultural transmission.<br>Data science.<br>Dad.'
 url:              http://rewberl.github.io
 baseurl:          /
 
@@ -22,7 +22,7 @@ version:          2.1.0
 
 github:
   repo:           https://github.com/rewberl/rewberl.github.io
-  
+
 # Gems
 gems: [jekyll-paginate]
 paginate: 5

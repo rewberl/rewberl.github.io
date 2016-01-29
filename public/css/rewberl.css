@@ -7,3 +7,28 @@
     }
   }
 }
+
+body.bg {
+  background: url(/public/img/darwin-notebook-crop.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
+}
+
+code,
+pre {
+  font-family: "PT Mono", Menlo, Monaco, "Courier New", monospace;
+}
+
+.gist .gist-file {
+  font-family: "PT Mono", Menlo, Monaco, "Courier New", monospace !important;
+}
+
+.page-title,
+.post-title {
+  font-family: "PT Serif", serif;
+}
