@@ -253,9 +253,9 @@ a.sidebar-nav-item:focus {
 
 /* Ashes */
 .theme-base-ash .sidebar {
-  color: #38586F;
+  color: #95AEC7;
   background-color: #1C2023;
 }
 .theme-base-ash .content a,
 .theme-base-ash .related-posts li a:hover {
-  color: #646B6F;
+  color: #95AEC7;
