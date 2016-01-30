@@ -12,7 +12,7 @@ order: 3
 <dt><a href="https://michaelcgavin.com/">Biocultural Diversity & Conservation Research Group at Colorado State University﻿﻿</a></dt>
 <dd>Draws on theory and methods from geography, anthropology, ecology, evolutionary biology, and economics to examine biocultural approaches to conservation, as well as the geography and evolution of cultural diversity.</dd>
 <dt><a href="https://evolution-institute.org/social-evolution-forum/">Social Evolution Forum</a></dt>
-<dd>Brings evolutionary experts together with other experts for a respectful and constructive dialogue, resulting in a new agenda for basic scientific research, policy formulation, and policy implementation.</dd>
+<dd>Brings evolutionary experts together, resulting in a new agenda for basic scientific research, policy formulation, and policy implementation.</dd>
 </dl>
 
 ## Science
@@ -59,7 +59,7 @@ order: 3
 
 <dl>
 <dt><a href="https://developers.google.com/edu/python/">Codecademy Python</a></dt>
-<dd>Learn to program in Python, a powerful language used by sites like YouTube and Dropbox.</dd>
+<dd>Learn to program in Python.</dd>
 <dt><a href="https://developers.google.com/edu/python/">Google's Python Class</a></dt>
 <dd>A free class for people with a little bit of programming experience who want to learn Python.</dd>
 </dl>
