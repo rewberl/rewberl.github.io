@@ -4,9 +4,9 @@ title: Resources
 order: 3
 ---
 
----
+<br>
 
-## Cultural Evolution
+# Cultural Evolution
 
 <dl>
 <dt><a href="https://michaelcgavin.com/">Biocultural Diversity & Conservation Research Group at Colorado State University﻿﻿</a></dt>
@@ -19,7 +19,7 @@ order: 3
 <dd>Brings evolutionary experts together, resulting in a new agenda for basic scientific research, policy formulation, and policy implementation.</dd>
 </dl>
 
-## Science
+# Science
 
 <dl>
 <dt><a href="http://radiolab.org/">Radiolab</a></dt>
@@ -28,16 +28,18 @@ order: 3
 <dd>Serious scientific answers to absurd hypothetical questions.</dd>
 </dl>
 
-## Data Science
+# Data Science
 
 <dl>
 <dt><a href="http://datasciencemasters.org/">Open-Source Data Science Masters</a></dt>
 <dd>The open-source curriculum for learning data science. Foundational in both theory and technologies, breaks down the core competencies necessary to making use of data.</dd>
+<dt><a href="http://www.wzchen.com/data-science-books/">Free Data Science Books</a></dt>
+<dd>Top recommendations of quality data science books that are either available for free or pay what you want, by Quora data scientist William Chen.</dd>
 <dt><a href="http://partiallyderivative.com/">Partially Derivative</a></dt>
 <dd>A podcast about the data of everything.</dd>
 </dl>
 
-### Data Science for Social Good
+## Data Science for Social Good
 <dl>
 <dt><a href="http://dssg.uchicago.edu/">Data Science for Social Good Fellowship</a></dt>
 <dd>Training data scientists to tackle problems that really matter.</dd>
@@ -49,7 +51,7 @@ order: 3
 <dd>Non-profit that builds operational solutions to the world's biggest challenges using data science.</dd>
 </dl>
 
-### Statistics
+## Statistics
 
 <dl>
 <dt><a href="http://nature.com/collections/qghhqm">Nature Web Collection: Statistics for Biologists</a></dt>
@@ -60,7 +62,7 @@ order: 3
 <dd>Three biostatistics professors who are fired up about the new era where data are abundant and statisticians are scientists.</dd>
 </dl>
 
-### R
+## R
 
 <dl>
 <dt><a href="http://swirlstats.com/">swirl</a></dt>
@@ -69,7 +71,7 @@ order: 3
 <dd>Make it easy to learn about and use some favorite packages.</dd>
 </dl>
 
-### Python
+## Python
 
 <dl>
 <dt><a href="https://developers.google.com/edu/python/">Codecademy Python</a></dt>
@@ -78,11 +80,9 @@ order: 3
 <dd>A free class for people with a little bit of programming experience who want to learn Python.</dd>
 </dl>
 
-## Data Visualization & Design
+# Data Visualization & Design
 
 <dl>
-<dt><a href="http://edwardtufte.com/">The Work of Edward Tufte</a></dt>
-<dd>A statistician and artist and Professor Emeritus of Political Science, Statistics, and Computer Science at Yale University.</dd>
 <dt><a href="http://99percentinvisible.org/">99% Invisible</a></dt>
 <dd>A show about all the thought that goes into the things we don’t think about — the unnoticed architecture and design that shape our world.</dd>
 </dl>
