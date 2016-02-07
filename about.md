@@ -90,14 +90,18 @@ function hide(block) {
 <tr><td><strong>R</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
 <tr><td colspan="2" style="padding-left: 2rem;">dplyr, tidyr, data.table, ggplot2, knitr (and many more!)</td></tr>
 <tr><td><strong>Python</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td colspan="2" style="padding-left: 2rem;">2.7, 3.x</td></tr>
 <tr><td><strong>SQL</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td colspan="2" style="padding-left: 2rem;">MySQL, SQLite</td></tr>
 <tr><td colspan="2"><strong>Other Languages</strong></td></tr>
 <tr><td style="padding-left: 2rem;">HTML/CSS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Logo</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Java</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td style="padding-left: 2rem;">JavaScript</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td colspan="2"><strong>Tools</strong></td></tr>
-<tr><td style="padding-left: 2rem;">CLI</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td colspan="2"><strong>Other Tools</strong></td></tr>
+<tr><td style="padding-left: 2rem;">Excel</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">ArcGIS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Unix CLI</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Git</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Photoshop</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
 </table>
