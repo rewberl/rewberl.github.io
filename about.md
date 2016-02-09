@@ -85,7 +85,7 @@ function hide(block) {
 <dt><strong>Quantitative</strong></dt>
 <dd>Analytic Geometry & Calculus A/B; Statistical Methods I/II; Biological Data Analysis</dd>
 <dt><strong>Domain Expertise</strong></dt>
-<dd>Genetics & Evolutionary Biology; Population Ecology; Physical Anthropology; Social & Cultural Anthropology; Human Evolution; Human Nature; Psychology</dd>
+<dd>Genetics & Evolutionary Biology; Population Ecology; Physical Anthropology; Social & Cultural Anthropology; Human Evolution; Human Nature; Psychology; Personality</dd>
 <dt><strong>Communication</strong></dt>
 <dd>Writing, Research & Presentation; Oral Communications</dd>
 </dl>
@@ -123,7 +123,7 @@ function hide(block) {
 <tr><td style="padding-left: 2rem;">Logo</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Java</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td style="padding-left: 2rem;">JavaScript</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td colspan="2"><strong>Other Tools</strong></td></tr>
+<tr><td colspan="2"><strong>Tools</strong></td></tr>
 <tr><td style="padding-left: 2rem;">Excel</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></td></tr>
 <tr><td style="padding-left: 2rem;">ArcGIS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Unix CLI</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
