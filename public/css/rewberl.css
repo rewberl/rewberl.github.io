@@ -17,7 +17,7 @@ h6 {
 }
 
 body.bg {
-  background: url(/public/img/darwin-notebook-crop.jpg) no-repeat center center fixed;
+  background: url(/public/img/tree_crop.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -37,7 +37,7 @@ body.bg {
   }
 }
 
-.circular {
+.circular100 {
 	width: 100px;
 	height: 100px;
 	border-radius: 50px;
@@ -46,10 +46,21 @@ body.bg {
   background-repeat: no-repeat;
   background-position: center;
   background-size: auto 100px;
-	}
+}
+
+.circular200 {
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 200px;
+}
 
 /*    Usage:    */
-/*    <div class="circular" style="background-image: url(http://99percentinvisible.org/wp-content/uploads/2016/01/99PISocialShareImage_V1.jpg)"></div>    */
+/*    <div class="circular100" style="background-image: url(http://99percentinvisible.org/wp-content/uploads/2016/01/99PISocialShareImage_V1.jpg)"></div>    */
 
 code,
 pre {
@@ -85,3 +96,12 @@ tbody tr:nth-child(odd) th {
 .boxes {
     display: none;
 }
+
+/* Ashes */
+.theme-base-ash .sidebar {
+  color: #95AEC7;
+  background-color: #1C2023;
+}
+.theme-base-ash .content a,
+.theme-base-ash .related-posts li a:hover {
+  color: #95AEC7;
