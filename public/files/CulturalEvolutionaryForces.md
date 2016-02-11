@@ -82,16 +82,44 @@
 
     (Rendell et al. 2011, p69)
 
+* ##### Opportunity providing
+
+    >
+
+    (Hoppitt & Laland 2013)
+
+* ##### Inadvertent coaching
+
+    >
+
+    (Hoppitt & Laland 2013)
 
 
 
-## Social Learning Strategies ("If/When To Copy")
+
+## Social Learning Strategies ("When/Where To Copy")
 
 > "evolved psychological rule specifying under what circumstances an individual learns from others and/or from whom they learn"
 
 (Rendell et al. 2011, p68)
 
+* ##### Copy if uncertain
 
+* ##### Copy if personal information outdated
+
+    * ###### Copy if new environment (?)
+
+    * ###### Copy if environmental conditions change (?)
+
+* ##### Copy if dissatisfied
+
+* ##### Copy depending on reproductive Strategies
+
+* ##### Copy if demonstrators consistent ("Copy if consensus?")
+
+* ##### Copy if established behavior is unproductive
+
+* ##### Copy if asocial learning is costly
 
 
 ## Transmission Biases (“Who/What To Copy”)
@@ -117,15 +145,6 @@
 
     (Henrich and Gil-White 2001, p175)
 
-### CONTENT ("Direct")
-
-> "individuals are more likely to learn or remember some cultural variants based on their content"
-
-(Richerson and Boyd 2005, p69)
-
-> "individuals choose one of two or more alternative traits to adopt according to some intrinsic quality of the trait"
-
-(Hoppitt and Laland 2013, p240)
 
 ### CONTEXT
 
@@ -153,12 +172,35 @@
 
         (Henrich and McElreath 2003, p130)
 
-        * ###### Dominance
-
         * ###### Status
             > “the amount of deference received”
 
             (Henrich and Gil-White 2001, p166)
+
+    * ##### Dominance
+    >
+
+    (Henrich and Gil-White 2001)
+
+    * ##### Success
+
+    * ##### Familiarity
+
+        * ###### Affiliation/Friendship
+        >
+
+        (Hoppitt & Laland 2003, p225)
+
+    * ##### Kinship
+
+    * ##### Knowledge
+
+    * ##### Size
+
+    * ##### Age
+
+    * ##### Gender
+
 
 #### Frequency
 
@@ -180,10 +222,51 @@
 
     (Hoppitt and Laland 2013, p240)
 
+* ##### Anti-Conformity
+
+* ##### Increasing Frequency ("Popularity?")
+
+
+### CONTENT ("Direct")
+
+> "based on... judgments about the properties of the variants themselves"
+
+> "one cultural variant is simply more attractive than others"
+
+(Richerson and Boyd 1985, p10;135)
+
+> "individuals are more likely to learn or remember some cultural variants based on their content"
+
+(Richerson and Boyd 2005, p69)
+
+> "individuals choose one of two or more alternative traits to adopt according to some intrinsic quality of the trait"
+
+(Hoppitt and Laland 2013, p240)
+
+* ##### Emotional
+
+    * ###### Disgust
+
+    * ###### Fear
+
+* ##### Social
+
+* ##### Survival
+
+    * ###### Dietary
+    >
+
+    (Hoppitt & Laland 2003, p227)
+
+* ##### Functional
+
+* ##### Cultural Attractiveness
+
+* ##### Minimally Counterintuitive
 
 
 
-## Macro(co)evolutionary Forces
+## Macro(co)evolutionary Forces ("Why To Copy")
 
 ##### Natural selection
 
