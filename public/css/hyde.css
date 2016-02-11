@@ -250,12 +250,3 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
 }
-
-/* Ashes */
-.theme-base-ash .sidebar {
-  color: #95AEC7;
-  background-color: #1C2023;
-}
-.theme-base-ash .content a,
-.theme-base-ash .related-posts li a:hover {
-  color: #95AEC7;
