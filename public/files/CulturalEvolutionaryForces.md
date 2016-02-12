@@ -271,6 +271,10 @@
 
     (Henrich & Broesch 2011, p1141)
 
+    * ##### Narrative Ability
+    > "a means of pursuing fitness interests by manipulating other individuals' representations of their environment"
+
+    (Sugiyama 1996, p420)
 
 #### Frequency
 
@@ -435,4 +439,5 @@
 1. Nichols, S. (2002). On the genealogy of norms: A case for the role of emotion in cultural evolution. Philosophy of Science, 69(2), 234–255.
 1. Rendell, L., Fogarty, L., Hoppitt, W. J. E., Morgan, T. J. H., Webster, M. M., & Laland, K. N. (2011). Cognitive culture: Theoretical and empirical insights into social learning strategies. Trends in Cognitive Sciences, 15(2), 68–76.
 1. Richerson, P. J., & Boyd, R. (2005). Not by genes alone: How culture transformed human evolution. University of Chicago Press.
+1. Sugiyama, M. S. (1996). On the origins of narrative: Storyteller bias as a fitness-enhancing strategy. Human Nature, 7(4), 403–425.
 1. Wood, L. A., Kendal, R. L., & Flynn, E. G. (2012). Context-dependent model-based biases in cultural transmission: Children’s imitation is affected by model age over model knowledge state. Evolution and Human Behavior, 33(4), 387–394.
