@@ -122,6 +122,8 @@
 * ##### Copy if asocial learning is costly
 
 
+
+
 ## Transmission Biases (“Who/What To Copy”)
 
 ### UNBIASED
@@ -171,6 +173,10 @@
         > “the amounts and kinds of deference different models receive [used by naive individuals] as cues of underlying skill”
 
         (Henrich and McElreath 2003, p130)
+
+        > "individuals adopt the behavior of successful individuals"
+
+        (Bell 2003)
 
         * ###### Status
             > “the amount of deference received”
@@ -266,6 +272,7 @@
 
 
 
+
 ## Macro(co)evolutionary Forces ("Why To Copy")
 
 ##### Natural selection
@@ -296,6 +303,7 @@
 
 
 ## References
+1. Bell, A. V. (2013). Evolutionary thinking in microeconomic models: Prestige bias and market bubbles. PloS one, 8(3), e59805.
 1. Berl, R. E. W., & Hewlett, B. S. (2015). Cultural variation in the use of overimitation by the Aka and Ngandu of the Congo Basin. PLOS ONE. doi:10.1371/journal.pone.0120180
 1. Boyd, R., & Richerson, P. J. (1985). Culture and the evolutionary process. University of Chicago Press.
 1. Henrich, J., & Gil-White, F. J. (2001). The evolution of prestige: Freely conferred deference as a mechanism for enhancing the benefits of cultural transmission. Evolution and Human Behavior, 22(3), 165–196.
