@@ -162,7 +162,7 @@
     (Boyd and Richerson 1985, p243)
 
     * ##### Prestige
-        > skilled or successful individuals in the immediate circumstances
+        > "skilled or successful individuals in the immediate circumstances"
 
         (Miller & Dollard 1941, via Henrich and Gil-White 2001, p183)
 
@@ -178,6 +178,12 @@
 
         (Bell 2003)
 
+        > "cross-domain success"
+
+        > "because more direct cues of success and skill may be noisy, unreliable or unavailable, learners should also weight perceived success or prestige in other locally valued domains"
+
+        (Henrich & Broesch 2011)
+
         * ###### Status
             > “the amount of deference received”
 
@@ -189,6 +195,9 @@
     (Henrich and Gil-White 2001)
 
     * ##### Success
+    > "a potential indicator of the adaptive value of cultural variants possessed by an individual"
+
+    (Henrich & Broesch 2011, p1140)
 
     * ##### Familiarity
 
@@ -200,12 +209,67 @@
     * ##### Kinship
 
     * ##### Knowledge
+    > "a potential indicator of the adaptive value of cultural variants possessed by an individual"
+
+    (Henrich & Broesch 2011, p1140)
 
     * ##### Size
 
     * ##### Age
+    > "First, older individuals have had more years to acquire know-how through both social learning and experience. Second, merely by getting to be old, individuals have passed through a selective filter... Third, children may focus on somewhat older models as a way of scaffolding themselves up to increasingly complex skills"
+
+    (Henrich & Broesch 2011, p1141)
+
+    > "children may find a ‘copy adult over child’ strategy relatively easy to implement compared to a ‘copy task-knowledgeable individual’ strategy"
+
+    (Wood et al. 2012, p388)
 
     * ##### Gender
+    > "if there are divisions in the skills or specializations of community members based on individual-level factors (e.g. sex), learners should target their attention using cues related to these factors"
+
+    (Henrich & Broesch 2011, p1141)
+
+    * ##### Health
+    > "Healthier individuals in ancestral environments could have more children and invest more heavily in their offspring. If being healthy reveals itself in appearance or activity, learners ought to be sensitive to this..."
+
+    (Henrich & Broesch 2011, supp.)
+
+    * ##### Happiness
+    > "since positive affect, or more simply happiness, correlates with health outcomes... learners may use positive affect as a cue of whom to learn from"
+
+    (Henrich & Broesch 2011)
+
+    * ##### Self-Similarity
+
+        * ###### Gender
+        > "if there has been a division of labor between males and females during much of human history, then humans should have evolved a tendency to learn from people of their same sex"
+
+        (Henrich & Broesch 2011, supp.)
+
+        * ###### Ethnicity
+        > "learners should focus their learning efforts on models who share their ‘ethnic markers’ (cues of dialect, language, dress) because this gives them the best chance to acquire the mental representations (social norms, values, and expectations) that will permit them to effectively coordinate, exchange and cooperate with others in their social group"
+
+        (Henrich & Broesch 2011, supp.)
+
+        * ###### Personality
+        > "provide cues that permit learners to select models likely to possess mental representations that are suited to the learners’ endowments"
+
+        (Henrich & Broesch 2011, supp.)
+
+        * ###### Physical Attributes
+        > "provide cues that permit learners to select models likely to possess mental representations that are suited to the learners’ endowments"
+
+        (Henrich & Broesch 2011, supp.)
+
+    * ##### Access
+    > "learners must balance the costs of accessing high-quality models against the quality of information available for transmission"
+
+    (Henrich & Broesch 2011, p1141)
+
+    * ##### Network Centrality
+    > "if there is a distribution in the perceived quality of potential models (e.g. variation in perceived success or suitability), the overall patterns of model selections for different kinds of cultural information should reflect this at the network or community level"
+
+    (Henrich & Broesch 2011, p1141)
 
 
 #### Frequency
@@ -219,6 +283,17 @@
 (Hoppitt and Laland 2013, p240)
 
 * ##### Conformity
+    >
+
+    (Boyd & Richerson 1985)
+
+    >
+
+    (Henrich & Boyd 1998)
+
+    > "individuals are predisposed to adopt the most popular cultural trait in a group"
+
+    (Mesoudi et al. 2006a, p337)
 
     > "positive frequency-dependent social learning for which the probability of acquiring a trait increases disproportionately with the number of demonstrators performing it"
 
@@ -250,12 +325,49 @@
 (Hoppitt and Laland 2013, p240)
 
 * ##### Emotional
+    > "emotional selection operates to select memes that strongly trigger specific emotions rather than generalized anxiety"
+
+    (Heath et al. 2001, p1032)
+
+    > "...emotional responses will affect the cultural viability of norms as well as other cultural items... Norms prohibiting actions that elicit negative affect will... be more likely to survive than affectively neutral norms"
+
+    (Nichols 2002, p235)
+
+    * ###### Entertainment
+    > "people will value stories that produce favorable emotional reactions (especially positive and neutral emotions, e.g., interest, joy, or surprise)... stories succeed when they are able to evoke strong emotion, but only because these stories are better crafted and more entertaining"
+
+    (Heath et al. 2001)
 
     * ###### Disgust
+    > "people... would be willing to pass along legends that elicit greater levels of disgust"
+
+    (Heath et al. 2001)
+
+    > "norms prohibiting “core-disgusting” actions (i.e., actions that are likely to elicit core disgust) will enjoy greater cultural fitness than norms prohibiting actions that are unlikely to elicit core disgust (or other emotions)"
+
+    (Nichols 2002)
 
     * ###### Fear
 
 * ##### Social
+> "information concerning interactions and relationships between a number of third parties"
+
+    (Mesoudi et al. 2006b, p407)
+
+    * ###### Gossip
+    > "[information concerning] particularly intense and salient social interactions and relationships"
+
+    (Mesoudi et al. 2006b, p407)
+
+    * ###### Non-Social
+    > "information concerning a single individual’s interactions with the physical environment"
+
+    (Mesoudi et al. 2006b, p407)
+
+    * ###### Physical
+    > "information solely concerning [the] physical environment"
+
+    (Mesoudi et al. 2006b, p407)
 
 * ##### Survival
 
@@ -265,6 +377,14 @@
     (Hoppitt & Laland 2003, p227)
 
 * ##### Functional
+    > "people will be more likely to pass along information that is plausible and that contains some useful, practical information or a moral lesson"
+
+    (Heath et al. 2001, p1032)
+
+* ##### Moral
+    > "people will be more likely to pass along information that is plausible and that contains some useful, practical information or a moral lesson"
+
+    (Heath et al. 2001, p1032)
 
 * ##### Cultural Attractiveness
 
@@ -306,7 +426,13 @@
 1. Bell, A. V. (2013). Evolutionary thinking in microeconomic models: Prestige bias and market bubbles. PloS one, 8(3), e59805.
 1. Berl, R. E. W., & Hewlett, B. S. (2015). Cultural variation in the use of overimitation by the Aka and Ngandu of the Congo Basin. PLOS ONE. doi:10.1371/journal.pone.0120180
 1. Boyd, R., & Richerson, P. J. (1985). Culture and the evolutionary process. University of Chicago Press.
+1. Heath, C., Bell, C., & Sternberg, E. (2001). Emotional selection in memes: The case of urban legends. Journal of Personality and Social Psychology, 81(6), 1028.
+1. Henrich, J., & Broesch, J. (2011). On the nature of cultural transmission networks: Evidence from Fijian villages for adaptive learning biases. Philosophical Transactions of the Royal Society B-Biological Sciences, 366(1567), 1139–1148.
 1. Henrich, J., & Gil-White, F. J. (2001). The evolution of prestige: Freely conferred deference as a mechanism for enhancing the benefits of cultural transmission. Evolution and Human Behavior, 22(3), 165–196.
 1. Hoppitt, W., & Laland, K. N. (2013). Social learning: An introduction to mechanisms, methods, and models. Princeton University Press.
+1. Mesoudi, A., Whiten, A., & Dunbar, R. (2006b). A bias for social information in human cultural transmission. British Journal of Psychology, 97(3), 405–423.
+1. Mesoudi, A., Whiten, A., & Laland, K. N. (2006a). Towards a unified science of cultural evolution. Behavioral and Brain Sciences, 29(4), 329–346.
+1. Nichols, S. (2002). On the genealogy of norms: A case for the role of emotion in cultural evolution. Philosophy of Science, 69(2), 234–255.
 1. Rendell, L., Fogarty, L., Hoppitt, W. J. E., Morgan, T. J. H., Webster, M. M., & Laland, K. N. (2011). Cognitive culture: Theoretical and empirical insights into social learning strategies. Trends in Cognitive Sciences, 15(2), 68–76.
 1. Richerson, P. J., & Boyd, R. (2005). Not by genes alone: How culture transformed human evolution. University of Chicago Press.
+1. Wood, L. A., Kendal, R. L., & Flynn, E. G. (2012). Context-dependent model-based biases in cultural transmission: Children’s imitation is affected by model age over model knowledge state. Evolution and Human Behavior, 33(4), 387–394.
