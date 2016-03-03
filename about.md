@@ -32,7 +32,7 @@ function hide(block) {
 <td style="text-align: left;"><a href="/public/pdf/rewberl_cv.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-lg"></i></a>
 &nbsp;&nbsp;Curriculum Vitae</td>
 <td style="text-align: right;"><a href="email.me" rel="nofollow" onclick="this.href='mailto:' + 'rewberl' + '@' + 'colostate' + '.' + 'edu'"><i class="fa fa-envelope-o fa-lg"></i></a>
-&nbsp;&nbsp;rewberl <i class="fa fa-at"></i> colostate <i class="fa fa-circle"></i> edu</td>
+&nbsp;&nbsp;rewberl <span class="avoidwrap"><i class="fa fa-at"></i> colostate <i class="fa fa-circle"></i> edu</span></td>
 </tr>
 </table>
 
@@ -40,8 +40,8 @@ function hide(block) {
 
 <div class="boxes" id="boxes1" markdown="block">
 <table>
-<tr><td><strong style="font-size: 1.25rem;">Ph.D. Human Dimensions of Natural Resources</strong></td><td style="text-align: right;"><em>In Progress</em></td></tr>
-<tr><td><strong style="font-size: 1.25rem;">Certificate in Data Analysis</strong></td><td style="text-align: right;"><em>In Progress</em></td></tr>
+<tr><td><strong style="font-size: 1.25rem;">Ph.D. Human Dimensions of Natural Resources</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>In Progress</em></span></td></tr>
+<tr><td><strong style="font-size: 1.25rem;">Certificate in Data Analysis</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>In Progress</em></span></td></tr>
 <tr><td style="padding-left: 2rem;">Colorado State University, Fort Collins, CO</td><td></td></tr>
 </table>
 
@@ -116,24 +116,30 @@ function hide(block) {
 <tr><td colspan="2" style="padding-left: 2rem;">dplyr; tidyr; data.table; ggplot2; knitr; sp; ape; ade4; adehabitat (and many more!)</td></tr>
 <tr><td><strong>Python</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td colspan="2" style="padding-left: 2rem;">2.7; 3.x</td></tr>
-<tr><td><strong>SQL</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td colspan="2" style="padding-left: 2rem;">MySQL; SQLite</td></tr>
+<tr><td><strong>Databases</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td colspan="2" style="padding-left: 2rem;">MySQL; SQLite; PostgreSQL</td></tr>
 <tr><td colspan="2"><strong>Other Languages</strong></td></tr>
 <tr><td style="padding-left: 2rem;">HTML/CSS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Logo</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Java</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td style="padding-left: 2rem;">JavaScript</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td colspan="2"><strong>Tools</strong></td></tr>
-<tr><td style="padding-left: 2rem;">Excel</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></td></tr>
+<tr><td colspan="2"><strong>Other Analysis Tools</strong></td></tr>
+<tr><td style="padding-left: 2rem;">MATLAB</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td style="padding-left: 2rem;">SAS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td style="padding-left: 2rem;">SPSS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Minitab</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td style="padding-left: 2rem;">JMP</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">ArcGIS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Excel</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></td></tr>
+<tr><td colspan="2"><strong>Additional Tools</strong></td></tr>
 <tr><td style="padding-left: 2rem;">CLI (Unix; Windows)</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Markdown</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">LaTeX</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Git</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">ArcGIS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Photoshop</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
 </table>
+
+<!-- Add systematic key/legend for star meanings, e.g. basic functions, advanced tasks, "full-stack"? -->
 
 <a id="skills-close" href="javascript:hide('boxes2');"><i class="fa fa-caret-square-o-up" style="float: right; font-size: 1.5rem; margin-bottom: .5rem;"></i></a>
 </div>
