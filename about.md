@@ -43,8 +43,8 @@ function hide(block) {
 <div class="boxes" id="boxes1" markdown="block">
 <table>
 <tr><td><strong style="font-size: 1.25rem;">Ph.D. Human Dimensions of Natural Resources</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>In Progress</em></span></td></tr>
-<tr><td><strong style="font-size: 1.25rem;">Certificate in Applied Statistics</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>In Progress</em></span></td></tr>
-<tr><td><strong style="font-size: 1.25rem;">Certificate in Biological Data Analysis</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>In Progress</em></span></td></tr>
+<tr><td><strong style="font-size: 1rem;">Certificate in Applied Statistics</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>In Progress</em></span></td></tr>
+<tr><td><strong style="font-size: 1rem;">Certificate in Biological Data Analysis</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>In Progress</em></span></td></tr>
 <tr><td style="padding-left: 2rem;">Colorado State University, Fort Collins, CO</td><td></td></tr>
 </table>
 
@@ -97,12 +97,12 @@ function hide(block) {
 <br>
 <h3>Online Coursework</h3>
 <dl>
-<dt><strong>Quantitative</strong></dt>
-<dd>Multivariable Calculus (MIT OpenCourseWare)</dd>
 <dt><strong>Data Science</strong></dt>
 <dd>Data Scientist’s Toolbox; Getting & Cleaning Data; Exploratory Data Analysis; Reproducible Research (Coursera/Johns Hopkins University)</dd>
 <dt><strong>Python</strong></dt>
 <dd>Google's Python Class (Google for Education); Python (Codecademy); R Programming (Coursera/Johns Hopkins University); Programming for Everybody; Python Data Structures (Coursera/University of Michigan); Interactive Programming in Python I (Coursera/Rice University)</dd>
+<dt><strong>Quantitative</strong></dt>
+<dd>Multivariable Calculus (MIT OpenCourseWare)</dd>
 <dt><strong>Domain Expertise</strong></dt>
 <dd>Genomic Technologies (Coursera/Johns Hopkins University)</dd>
 </dl>
