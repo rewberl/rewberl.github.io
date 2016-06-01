@@ -43,16 +43,17 @@ function hide(block) {
 <div class="boxes" id="boxes1" markdown="block">
 <table>
 <tr><td><strong style="font-size: 1.25rem;">Ph.D. Human Dimensions of Natural Resources</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>In Progress</em></span></td></tr>
-<tr><td><strong style="font-size: 1.25rem;">Certificate in Data Analysis</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>In Progress</em></span></td></tr>
+<tr><td><strong style="font-size: 1.25rem;">Certificate in Applied Statistics</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>In Progress</em></span></td></tr>
+<tr><td><strong style="font-size: 1.25rem;">Certificate in Biological Data Analysis</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>In Progress</em></span></td></tr>
 <tr><td style="padding-left: 2rem;">Colorado State University, Fort Collins, CO</td><td></td></tr>
 </table>
 
 <h4>Relevant Coursework</h4>
 <dl>
 <dt><strong>Quantitative</strong></dt>
-<dd>Linear Algebra; Design & Data Analysis I/II; Probability; Regression Models; Generalized Regression Models; Applied Bayesian Statistics; Statistical Learning & Data Mining</dd>
+<dd>Linear Algebra; Regression Models; Generalized Regression Models; Probability; Mathematical Statistics; Computational & Simulation Methods; Industrial & Organizational Statistics; Multivariate Analysis; Applied Bayesian Statistics; Statistical Learning & Data Mining</dd>
 <dt><strong>Domain Expertise</strong></dt>
-<dd>Anthropology & Sustainable Development</dd>
+<dd>Human Dimensions of Natural Resources; Anthropology & Sustainable Development</dd>
 <dt><strong>Communication</strong></dt>
 <dd>Citizen Science</dd>
 </dl>
@@ -96,12 +97,14 @@ function hide(block) {
 <br>
 <h3>Online Coursework</h3>
 <dl>
+<dt><strong>Quantitative</strong></dt>
+<dd>Multivariable Calculus (MIT OpenCourseWare)</dd>
 <dt><strong>Data Science</strong></dt>
-<dd>Data Scientist’s Toolbox; Getting & Cleaning Data; Exploratory Data Analysis; Reproducible Research (Johns Hopkins University)</dd>
+<dd>Data Scientist’s Toolbox; Getting & Cleaning Data; Exploratory Data Analysis; Reproducible Research (Coursera/Johns Hopkins University)</dd>
 <dt><strong>Python</strong></dt>
-<dd>Google's Python Class (Google for Education); Python (Codecademy); R Programming (Johns Hopkins University); Programming for Everybody; Python Data Structures (University of Michigan); Interactive Programming in Python I (Rice University)</dd>
+<dd>Google's Python Class (Google for Education); Python (Codecademy); R Programming (Coursera/Johns Hopkins University); Programming for Everybody; Python Data Structures (Coursera/University of Michigan); Interactive Programming in Python I (Coursera/Rice University)</dd>
 <dt><strong>Domain Expertise</strong></dt>
-<dd>Genomic Technologies (Johns Hopkins University)</dd>
+<dd>Genomic Technologies (Coursera/Johns Hopkins University)</dd>
 </dl>
 
 <a id="education-close" href="javascript:hide('boxes1');"><i class="fa fa-caret-square-o-up" style="float: right; font-size: 1.5rem; margin-bottom: .5rem;"></i></a>
@@ -115,7 +118,7 @@ function hide(block) {
 
 <table>
 <tr><td><strong>R</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
-<tr><td colspan="2" style="padding-left: 2rem;">dplyr; tidyr; data.table; ggplot2; knitr; tm; stringr; sp; ape; ade4; adehabitat (and many more!)</td></tr>
+<tr><td colspan="2" style="padding-left: 2rem;">dplyr; tidyr; data.table; ggplot2; knitr; tm; stringr; sp; ape; ade4; adehabitat; lavaan (and many more!)</td></tr>
 <tr><td><strong>Python</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td colspan="2" style="padding-left: 2rem;">2.7; 3.x</td></tr>
 <tr><td><strong>Databases</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
