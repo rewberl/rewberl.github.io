@@ -24,10 +24,10 @@ function hide(block) {
 <br>
 
 <div class="circular200 fa-pull-left" style="background-image: url(/public/img/profile_small.jpg); margin: 0rem 2rem 2rem 0rem;"></div>
-<p>I take an evolutionary approach to the study of <strong>sociality</strong>, <strong>social learning</strong>, and <strong>culture</strong> in humans, canids, and other non-human animals. Through an interdisciplinary perspective that integrates evolutionary biology, animal behavior, and evolutionary cultural anthropology, I investigate the concept of <strong>cultural evolution</strong> in order to illuminate our place in the natural world.</p>
-<p>To this end, my research is focused on examining the effects of <strong>cultural transmission biases</strong>&mdash;including the concept and influence of <strong><em>"prestige"</em></strong>&mdash;on the dynamics of social learning and cultural evolutionary processes.</p>
-<p>Past and ongoing projects include the study of cross-cultural differences in <strong>imitation and emulation</strong>, social learning and variation in the social behavior of <strong>gray wolves</strong> (<a href="http://eol.org/pages/328607/overview" target="_blank"><em>Canis lupus</em></a>) in captivity and in the wild, and the genetic, cultural, linguistic, and demographic history of <strong>the Chabu</strong>, an isolated group of hunter-gatherers in southwestern Ethiopia.</p>
-<p>I intend to apply this knowledge of cultural evolutionary processes and a solid foundation in statistics toward a career in <strong>data science</strong>, using a data-centric approach informed by evolutionary theory and cross-cultural anthropology to <strong><em>enhance social good</em></strong> and <strong><em>conserve biocultural diversity</em></strong>.</p>
+<p>I take an evolutionary approach to the study of <strong>sociality</strong>, <strong>social learning</strong>, and <strong>culture</strong> in humans, canids, and other non-human animals. Through a multidisciplinary approach that integrates evolutionary biology, animal behavior, and evolutionary cultural anthropology, I use our understanding of <strong>cultural evolution</strong> to illuminate our place in the natural world.</p>
+<p>To this end, my research is focused on examining the effects of cognitive biases on <strong>cultural transmission</strong>&mdash;including the cultural determinants, consequences, and influence of the concept of <strong>prestige</strong>&mdash;on the dynamics of social learning and cultural evolutionary processes.</p>
+<p>Past and ongoing projects include the study of cross-cultural differences in the use of <strong>social learning mechanisms</strong> such as imitation and emulation, of social learning and variation in the social behavior of <strong>gray wolves</strong> (<a href="http://eol.org/pages/328607/overview" target="_blank"><em>Canis lupus</em></a>) in captivity and in the wild, and the genetic, cultural, linguistic, and of the demographic and linguistic history of the <strong>Chabu</strong>, an isolated group of hunter-gatherers in southwestern Ethiopia.</p>
+<p>I intend to apply this knowledge of how culture evolves and how humans and other species learn, along with a solid foundation in statistics and programming, toward a career in <strong>data science</strong>, using a data-centric approach informed by evolutionary theory and cross-cultural anthropology to <strong><em>enhance social good</em></strong> and <strong><em>conserve biocultural diversity</em></strong> for underprivileged groups worldwide.</p>
 
 <table style="margin: 1.5rem 0rem;">
 <tr>
@@ -51,11 +51,11 @@ function hide(block) {
 <h4>Relevant Coursework</h4>
 <dl>
 <dt><strong>Quantitative</strong></dt>
-<dd>Linear Algebra; Regression Models; Generalized Regression Models; Probability; Mathematical Statistics; Computational & Simulation Methods; Industrial & Organizational Statistics; Multivariate Analysis; Applied Bayesian Statistics; Statistical Learning & Data Mining</dd>
+<dd>Linear Algebra; Regression Models; Generalized Regression Models; Probability; Mathematical Statistics; Computational & Simulation Methods; Multivariate Analysis; Applied Bayesian Statistics; Statistical Learning & Data Mining; Machine Learning</dd>
 <dt><strong>Domain Expertise</strong></dt>
 <dd>Human Dimensions of Natural Resources; Anthropology & Sustainable Development</dd>
 <dt><strong>Communication</strong></dt>
-<dd>Citizen Science</dd>
+<dd>Citizen Science; Science Communication; Outreach</dd>
 </dl>
 
 
@@ -86,11 +86,11 @@ function hide(block) {
 <h4>Relevant Coursework</h4>
 <dl>
 <dt><strong>Quantitative</strong></dt>
-<dd>Analytic Geometry & Calculus A/B; Statistical Methods I/II; Biological Data Analysis</dd>
+<dd>Analytic Geometry & Calculus; Statistical Methods; Biological Data Analysis</dd>
 <dt><strong>Domain Expertise</strong></dt>
 <dd>Genetics & Evolutionary Biology; Population Ecology; Physical Anthropology; Social & Cultural Anthropology; Human Evolution; Human Nature; Psychology; Personality</dd>
 <dt><strong>Communication</strong></dt>
-<dd>Writing, Research & Presentation; Oral Communications</dd>
+<dd>Writing, Research, & Presentation; Oral Communications</dd>
 </dl>
 
 

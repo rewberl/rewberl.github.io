@@ -11,6 +11,13 @@ Coming soon...
 
 <br>
 
+# Outreach
+As a fellow in the <a href="http://gaussi.colostate.edu/" target="_blank">GAUSSI program</a> at Colorado State University, I and a group of my colleagues are working on an activity to teach the basic concepts of evolution by natural selection to a class of 5th-graders at Skyview Elementary in Windsor, CO.
+
+After the materials are finalized, they will be posted here for open access distribution... so stay tuned!
+
+<br>
+
 # Publications
 **Berl, R.E.W.** & Hewlett, B.S. 2015. Cultural variation in the use of overimitation by the Aka and Ngandu of the Congo Basin. PLoS ONE 10(3): e0120180. doi: <a href="http://dx.doi.org/10.1371/journal.pone.0120180" target="_blank">10.1371/journal.pone.0120180</a>
 &nbsp;&nbsp;<a href="http://dx.doi.org/10.1371/journal.pone.0120180" target="_blank"><i class="ai ai-open-access ai-lg"></i></a>
