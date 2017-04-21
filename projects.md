@@ -12,7 +12,7 @@ order: 2
 
 <strong style="font-size: 1.25rem;"><a href="/beasts">Beasts Evolve!</a></strong>
 
-A classroom game designed to help understand the theory of evolution by natural selection by creating a fictional population of “beasts” and observing evolution in action.
+A free game for the classroom and home, designed to help understand the theory of evolution by natural selection by creating fictional “beasts” and observing evolution in action.
 
 <br>
 
@@ -21,7 +21,7 @@ A classroom game designed to help understand the theory of evolution by natural 
 ## Current Projects
 
 **The Effects of Social Transmission Biases on Human Cultural Evolution**
-<br>PIs: Dr. Michael Gavin, Colorado State University and Dr. Fiona Jordan, University of Bristol
+<br>PIs: <a href="https://michaelcgavin.com/" target="_blank">Dr. Michael Gavin</a>, Colorado State University and <a href="http://excd.org/" target="_blank">Dr. Fiona Jordan</a>, University of Bristol
 <br>Co-Investigator: Alarna Samarasinghe, University of Bristol
 
 How influential are the personal characteristics of those we choose to learn from (model biases) and the characteristics of the information itself (content biases) in determining what and how people learn? We intend to examine this from cultural evolutionary and sociolinguistic contexts to identify the relative effect of prestige on cultural transmission and its interactions with narrative content.
@@ -29,7 +29,7 @@ How influential are the personal characteristics of those we choose to learn fro
 <br>
 
 **Demography, Subsistence, Culture, and Genetic Variation of the Chabu Hunter-Gatherers of Southwest Ethiopia**
-<br>Co-PIs: Dr. Barry Hewlett, Samuel Dira, Dr. Bonnie Hewlett, and Zachary Garfield, Washington State University Vancouver
+<br>Co-PIs: <a href="http://anthro.vancouver.wsu.edu/faculty/hewlett/" target="_blank">Dr. Barry Hewlett</a>, Samuel Dira, <a href="http://anthro.vancouver.wsu.edu/faculty/bonnie-hewlett/" target="_blank">Dr. Bonnie Hewlett</a>, and Zachary Garfield, Washington State University Vancouver
 
 The Chabu are one of the last remaining hunter-gatherer societies in Africa. They are thought to be a linguistic isolate, are ethnographically unknown, and are not recognized as a legitimate ethnic group by the Ethiopian government. We are working to understand who the Chabu are and their relationships with other groups across Ethiopia and East Africa, with the aim of preserving their culture and their human rights, which are under threat from encroaching coffee plantations.
 
