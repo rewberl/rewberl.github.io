@@ -92,5 +92,5 @@ order: 3
 <dt><a href="http://99percentinvisible.org/" target="_blank">99% Invisible</a></dt>
 <dd>A show about all the thought that goes into the things we don’t think about — the unnoticed architecture and design that shape our world.</dd>
 <dt><a href="https://personal.sron.nl/~pault/colourschemes.pdf" target="_blank">Paul Tol's Color Schemes</a></dt>
-<dd>Ready-made color schemes for each type of scientific data as a function of the number of colors needed, with colors that are distinct for all readers, including color-blind people.</dd>
+<dd>Ready-made color schemes for each type of scientific data as a function of the number of colors needed, with colors that are distinct for all readers including people with color blindness.</dd>
 </dl>

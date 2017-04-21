@@ -6,25 +6,70 @@ order: 2
 
 <br>
 
+# Science Communication & Outreach
+<br>
+<div class="circular200 fa-pull-left" style="background-image: url(/public/img/monster.jpg); margin: 0rem 2rem 2rem 0rem;"></div>
+
+<strong style="font-size: 1.25rem;"><a href="/beasts">Beasts Evolve!</a></strong>
+
+A classroom game designed to help understand the theory of evolution by natural selection by creating a fictional population of “beasts” and observing evolution in action.
+
+<br>
+
 # Academic
-Coming soon...
+
+## Current Projects
+
+**The Effects of Social Transmission Biases on Human Cultural Evolution**
+<br>PIs: Dr. Michael Gavin, Colorado State University and Dr. Fiona Jordan, University of Bristol
+<br>Co-Investigator: Alarna Samarasinghe, University of Bristol
+
+How influential are the personal characteristics of those we choose to learn from (model biases) and the characteristics of the information itself (content biases) in determining what and how people learn? We intend to examine this from cultural evolutionary and sociolinguistic contexts to identify the relative effect of prestige on cultural transmission and its interactions with narrative content.
 
 <br>
 
-# Outreach
-As a fellow in the <a href="http://gaussi.colostate.edu/" target="_blank">GAUSSI program</a> at Colorado State University, I and a group of my colleagues are working on an activity to teach the basic concepts of evolution by natural selection to a class of 5th-graders at Skyview Elementary in Windsor, CO.
+**Demography, Subsistence, Culture, and Genetic Variation of the Chabu Hunter-Gatherers of Southwest Ethiopia**
+<br>Co-PIs: Dr. Barry Hewlett, Samuel Dira, Dr. Bonnie Hewlett, and Zachary Garfield, Washington State University Vancouver
 
-After the materials are finalized, they will be posted here for open access distribution... so stay tuned!
+The Chabu are one of the last remaining hunter-gatherer societies in Africa. They are thought to be a linguistic isolate, are ethnographically unknown, and are not recognized as a legitimate ethnic group by the Ethiopian government. We are working to understand who the Chabu are and their relationships with other groups across Ethiopia and East Africa, with the aim of preserving their culture and their human rights, which are under threat from encroaching coffee plantations.
+
+
 
 <br>
 
-# Publications
+## Recent Presentations
+
+<strong><a href="https://docs.google.com/presentation/d/1NOtSsd4jfI1cCleJEYSE18n9hil1qMp7AJGGcdIyh9k/edit?usp=sharing" target="_blank">Cultural Relativism and Applications in Human Dimensions of Natural Resources</a></strong>
+<br>November 10, 2016 (with Bethy Astella)
+<br>NRRT 605 Human Dimensions of Natural Resources Theory, Fort Collins, CO
+
+<strong><a href="https://docs.google.com/presentation/d/1WY3gFokUTLfSRnTDpBXnf7O50tINZRxvpFkBBuPMevY/edit?usp=sharing" target="_blank">Cultural Evolution and Genome-Culture Coevolution</a></strong>
+<br>September 23, 2016
+<br>GAUSSI Program Meeting, Fort Collins, CO
+
+<strong><a href="https://docs.google.com/presentation/d/1T65LvY2jw-6yh8Vg_7hHUfEtrS9qMcoYfrJ2QjiKWVc/edit?usp=sharing" target="_blank">5 Minutes of Science: Prestige and Cultural Transmission</a></strong>
+<br>September 23, 2016
+<br>GAUSSI Program Meeting, Fort Collins, CO
+
+<a href="/presentations">Past Presentations</a>
+
+<br>
+
+## Publications
 **Berl, R.E.W.** & Hewlett, B.S. 2015. Cultural variation in the use of overimitation by the Aka and Ngandu of the Congo Basin. PLoS ONE 10(3): e0120180. doi: <a href="http://dx.doi.org/10.1371/journal.pone.0120180" target="_blank">10.1371/journal.pone.0120180</a>
 &nbsp;&nbsp;<a href="http://dx.doi.org/10.1371/journal.pone.0120180" target="_blank"><i class="ai ai-open-access ai-lg"></i></a>
 &nbsp;&nbsp;<a href="/public/pdf/berl2015cultural_variation_in_the_use_of_overimitation_by_the_aka_and_ngandu_of_the.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-lg"></i></a>
 
+<ul>
+<li>Supplementary Info</li>
+    <ul>
+    <li><a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0120180#pone.0120180.s007" target="_blank">Full dataset used in analyses and the generation of figures</a></li>
+    <li><a href="https://gist.github.com/rewberl/903bb39d00b4184d4f22af6882c5c48b" target="_blank">R code to recreate figures</a></li>
+    </ul>
+</ul>
 
-## Non-Peer Reviewed
+
+### Non-Peer Reviewed
 Hewlett, B.S., **Berl, R.E.W.**, & Roulette, C.J. 2016. Teaching and overimitation among Aka hunter-gatherers. In: Terashima, H. & Hewlett, B.S., editors. Social learning and innovation in contemporary hunter-gatherers. Springer. pp. 35–45. doi: <a href="http://dx.doi.org/10.1007/978-4-431-55997-9_3" target="_blank">10.1007/978-4-431-55997-9_3</a>
 &nbsp;&nbsp;<a href="/public/pdf/hewlett2016teaching_and_overimitation_among_aka_hunter-gatherers.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-lg"></i></a>
 
