@@ -1,0 +1,42 @@
+<div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="{{ site.baseurl }}">
+          {{ site.title }}
+        </a>
+      </h1>
+      <p class="lead">{{ site.description }}</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      {% comment %}
+        The code below dynamically generates a sidebar nav of pages with
+        `layout: page` in the front-matter. See readme for usage.
+      {% endcomment %}
+
+      {% assign pages_list = site.pages | sort:"order" %}
+      {% for node in pages_list %}
+        {% if node.title != null %}
+          {% if node.layout == "page" %}
+            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+    </nav>
+
+	<div class="social-icons">
+        <a href="https://twitter.com/rewberl" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+<!--		<a href="https://linkedin.com/in/rewberl" title="{{ site.owner.name}} on LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>	-->
+		<a href="https://github.com/rewberl" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+        <i class="fa fa-ellipsis-h fa-lg"></i>
+		<a href="https://scholar.google.com/citations?user=9TFJPiMAAAAJ&hl=en" target="_blank"><i class="ai ai-google-scholar-square ai-2x"></i></a>
+        <a href="https://colostate.academia.edu/RichardBerl" target="_blank"><i class="ai ai-academia-square ai-2x"></i></a>
+        <a href="https://www.researchgate.net/profile/Richard_Berl" target="_blank"><i class="ai ai-researchgate-square ai-2x"></i></a>
+
+	</div><!-- /.social-icons -->
+
+    <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
+  </div>
+</div>
