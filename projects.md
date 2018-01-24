@@ -39,17 +39,9 @@ The Chabu are one of the last remaining hunter-gatherer societies in Africa. The
 
 ## Recent Presentations
 
-<strong><a href="https://docs.google.com/presentation/d/1NOtSsd4jfI1cCleJEYSE18n9hil1qMp7AJGGcdIyh9k/edit?usp=sharing" target="_blank">Cultural Relativism and Applications in Human Dimensions of Natural Resources</a></strong>
-<br>November 10, 2016 (with Bethy Astella)
-<br>NRRT 605 Human Dimensions of Natural Resources Theory, Fort Collins, CO
-
-<strong><a href="https://docs.google.com/presentation/d/1WY3gFokUTLfSRnTDpBXnf7O50tINZRxvpFkBBuPMevY/edit?usp=sharing" target="_blank">Cultural Evolution and Genome-Culture Coevolution</a></strong>
-<br>September 23, 2016
-<br>GAUSSI Program Meeting, Fort Collins, CO
-
-<strong><a href="https://docs.google.com/presentation/d/1T65LvY2jw-6yh8Vg_7hHUfEtrS9qMcoYfrJ2QjiKWVc/edit?usp=sharing" target="_blank">5 Minutes of Science: Prestige and Cultural Transmission</a></strong>
-<br>September 23, 2016
-<br>GAUSSI Program Meeting, Fort Collins, CO
+<strong><a href="https://docs.google.com/presentation/d/1Kq3VGqkP1h9dWwjdB-vivzjCr1NzHSnbhLcTRrYQdqY/edit?usp=sharing" target="_blank">Toward a Unified Framework of Prestige</a></strong>
+<br>September 13, 2017
+<br>Inaugural Meeting of the Cultural Evolution Society, Max Planck Institute for the Science of Human History, Jena, Germany
 
 <a href="/presentations">Past Presentations</a>
 
