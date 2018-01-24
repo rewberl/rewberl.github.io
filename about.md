@@ -3,7 +3,7 @@ layout: page
 title: About
 order: 1
 ---
-<!-- Source: http://www.randomsnippets.com/2011/04/10/how-to-hide-show-or-toggle-your-div-with-jquery/ -->
+<!-- Source: https://www.randomsnippets.com/2011/04/10/how-to-hide-show-or-toggle-your-div-with-jquery/ -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <script type="text/javascript">
 function show(block) {
@@ -26,7 +26,7 @@ function hide(block) {
 <div class="circular200 fa-pull-left" style="background-image: url(/public/img/profile_small.jpg); margin: 0rem 2rem 2rem 0rem;"></div>
 <p>I take an evolutionary approach to the study of <strong>sociality</strong>, <strong>social learning</strong>, and <strong>culture</strong> in humans, canids, and other non-human animals. Through a multidisciplinary approach that integrates evolutionary biology, animal behavior, and evolutionary cultural anthropology, I use our understanding of <strong>cultural evolution</strong> to illuminate our place in the natural world.</p>
 <p>To this end, my research is focused on examining the effects of cognitive biases on <strong>cultural transmission</strong>&mdash;including the cultural determinants, consequences, and influence of the concept of <strong>prestige</strong>&mdash;on the dynamics of social learning and cultural evolutionary processes.</p>
-<p>Past and ongoing projects include the study of cross-cultural differences in the use of <strong>social learning mechanisms</strong> such as imitation and emulation, of social learning and variation in the social behavior of <strong>gray wolves</strong> (<a href="http://eol.org/pages/328607/overview" target="_blank"><em>Canis lupus</em></a>) in captivity and in the wild, and the genetic, cultural, linguistic, and of the demographic and linguistic history of the <strong>Chabu</strong>, an isolated group of hunter-gatherers in southwestern Ethiopia.</p>
+<p>Past and ongoing projects include the study of cross-cultural differences in the use of <strong>social learning mechanisms</strong> such as imitation and emulation, of social learning and variation in the social behavior of <strong>gray wolves</strong> (<a href="https://eol.org/pages/328607/overview" target="_blank"><em>Canis lupus</em></a>) in captivity and in the wild, and the genetic, cultural, linguistic, and of the demographic and linguistic history of the <strong>Chabu</strong>, an isolated group of hunter-gatherers in southwestern Ethiopia.</p>
 <p>I intend to apply this knowledge of how culture evolves and how humans and other species learn, along with a solid foundation in statistics and programming, toward a career in <strong>data science</strong>, using a data-centric approach informed by evolutionary theory and cross-cultural anthropology to <strong><em>enhance social good</em></strong> and <strong><em>conserve biocultural diversity</em></strong>.</p>
 
 <table style="margin: 1.5rem 0rem;">
@@ -43,19 +43,18 @@ function hide(block) {
 <div class="boxes" id="boxes1" markdown="block">
 <table>
 <tr><td><strong style="font-size: 1.25rem;">Ph.D. Human Dimensions of Natural Resources</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>In Progress</em></span></td></tr>
-<tr><td><strong style="font-size: 1rem;">Certificate in Applied Statistics</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>In Progress</em></span></td></tr>
-<tr><td><strong style="font-size: 1rem;">Certificate in Biological Data Analysis</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>In Progress</em></span></td></tr>
+<tr><td><strong style="font-size: 1rem;">Certificate in Applied Statistics</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>2017</em></span></td></tr>
 <tr><td style="padding-left: 2rem;">Colorado State University, Fort Collins, CO</td><td></td></tr>
 </table>
 
 <h4>Relevant Coursework</h4>
 <dl>
 <dt><strong>Quantitative</strong></dt>
-<dd>Linear Algebra; Regression Models; Generalized Regression Models; Probability; Mathematical Statistics; Computational & Simulation Methods; Multivariate Analysis; Applied Bayesian Statistics; Statistical Learning & Data Mining; Machine Learning</dd>
+<dd>Linear Algebra; Regression Models; Generalized Regression Models; Probability; Mathematical Statistics; Computational, Graphical, & Simulation Methods; Machine Learning; Industrial & Organizational Statistics</dd>
 <dt><strong>Domain Expertise</strong></dt>
-<dd>Human Dimensions of Natural Resources; Anthropology & Sustainable Development</dd>
+<dd>Human Dimensions of Natural Resources; Anthropology & Sustainable Development; Indigenous Environmental Stewardship & Law</dd>
 <dt><strong>Communication</strong></dt>
-<dd>Citizen Science; Science Communication; Outreach</dd>
+<dd>Citizen Science; Science Communication</dd>
 </dl>
 
 
@@ -118,31 +117,33 @@ function hide(block) {
 
 <table>
 <tr><td><strong>R</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
-<tr><td colspan="2" style="padding-left: 2rem;">dplyr; tidyr; data.table; ggplot2; knitr; tm; stringr; sp; ape; ade4; adehabitat; lavaan (and many more!)</td></tr>
-<tr><td><strong>Python</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td colspan="2" style="padding-left: 2rem;">2.7; 3.x</td></tr>
+<tr><td colspan="2" style="padding-left: 2rem;">RStudio; RMarkdown; tidyverse (dplyr, tidyr, ggplot2, etc.); shiny; tm; psych; lavaan; semTools; network; sna; sp; car <em>(and many more!)</em></td></tr>
+<tr><td><strong>Python</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td colspan="2" style="padding-left: 2rem;">Anaconda; Jupyter Notebook; pandas; numpy; matplotlib</td></tr>
 <tr><td><strong>Databases</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td colspan="2" style="padding-left: 2rem;">MySQL; SQLite; PostgreSQL</td></tr>
+<tr><td colspan="2" style="padding-left: 2rem;">MySQL</td></tr>
+<tr><td colspan="2"><strong>Data Analysis Tools</strong></td></tr>
+<tr><td style="padding-left: 2rem;"><em>(Other than R and Python)</em></td><td style="text-align: right;"></td></tr>
+<tr><td style="padding-left: 2rem;">MATLAB</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">SAS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">JMP</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">SPSS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Minitab</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Excel</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></td></tr>
+<tr><td colspan="2"><strong>Technical Tools</strong></td></tr>
+<tr><td style="padding-left: 2rem;">CLI (Unix, Windows)</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Markdown</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">LaTeX</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Git</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">ArcGIS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Photoshop</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Flash</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td colspan="2"><strong>Languages</strong></td></tr>
+<tr><td style="padding-left: 2rem;"><em>(Other than R script and Python)</em></td><td style="text-align: right;"></td></tr>
 <tr><td style="padding-left: 2rem;">HTML/CSS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Logo</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Java</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
 <tr><td style="padding-left: 2rem;">JavaScript</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td colspan="2"><strong>Data Analysis Tools</strong></td></tr>
-<tr><td style="padding-left: 2rem;">MATLAB</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">SAS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">SPSS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Minitab</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">JMP</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Excel</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></td></tr>
-<tr><td colspan="2"><strong>Technical Tools</strong></td></tr>
-<tr><td style="padding-left: 2rem;">CLI (Unix; Windows)</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Markdown</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">LaTeX</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Git</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">ArcGIS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Photoshop</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Flash</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></td></tr>
 </table>
 
 <!-- Add systematic key/legend for star meanings, e.g. basic functions, advanced tasks, "full-stack"? -->
