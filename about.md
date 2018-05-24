@@ -124,20 +124,20 @@ function hide(block) {
 <tr><td colspan="2" style="padding-left: 2rem;">MySQL</td></tr>
 <tr><td colspan="2"><strong>Data Analysis Tools</strong></td></tr>
 <tr><td style="padding-left: 2rem;"><em>(Other than R and Python)</em></td><td style="text-align: right;"></td></tr>
-<tr><td style="padding-left: 2rem;">MATLAB</td><td style="text-align: right;"><i class="fas fa-star"></i><span class="fa-stack"><i class="far fa-star fa-stack"></i><i class="fas fa-star-half fa-stack"></i></span><i class="far fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">SAS</td><td style="text-align: right;"><i class="fas fa-star"></i><span class="fa-stack"><i class="far fa-star fa-stack"></i><i class="fas fa-star-half fa-stack"></i></span><i class="far fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">JMP</td><td style="text-align: right;"><i class="fas fa-star"></i><span class="fa-stack"><i class="far fa-star fa-stack"></i><i class="fas fa-star-half fa-stack"></i></span><i class="far fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">SPSS</td><td style="text-align: right;"><i class="fas fa-star"></i><span class="fa-stack"><i class="far fa-star fa-stack"></i><i class="fas fa-star-half fa-stack"></i></span><i class="far fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Minitab</td><td style="text-align: right;"><i class="fas fa-star"></i><span class="fa-stack"><i class="far fa-star fa-stack"></i><i class="fas fa-star-half fa-stack"></i></span><i class="far fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Excel</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="fa-stack"><i class="far fa-star fa-stack"></i><i class="fas fa-star-half fa-stack"></i></span></td></tr>
+<tr><td style="padding-left: 2rem;">MATLAB</td><td style="text-align: right;"><i class="fas fa-star"></i><span class="fa-stack fa-1x"><i class="far fa-star fa-stack-1x"></i><i class="fas fa-star-half fa-stack-1x"></i></span><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">SAS</td><td style="text-align: right;"><i class="fas fa-star"></i><span class="fa-stack fa-1x"><i class="far fa-star fa-stack-1x"></i><i class="fas fa-star-half fa-stack-1x"></i></span><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">JMP</td><td style="text-align: right;"><i class="fas fa-star"></i><span class="fa-stack fa-1x"><i class="far fa-star fa-stack-1x"></i><i class="fas fa-star-half fa-stack-1x"></i></span><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">SPSS</td><td style="text-align: right;"><i class="fas fa-star"></i><span class="fa-stack fa-1x"><i class="far fa-star fa-stack-1x"></i><i class="fas fa-star-half fa-stack-1x"></i></span><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Minitab</td><td style="text-align: right;"><i class="fas fa-star"></i><span class="fa-stack fa-1x"><i class="far fa-star fa-stack-1x"></i><i class="fas fa-star-half fa-stack-1x"></i></span><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Excel</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="fa-stack fa-1x"><i class="far fa-star fa-stack-1x"></i><i class="fas fa-star-half fa-stack-1x"></i></span></td></tr>
 <tr><td colspan="2"><strong>Technical Tools</strong></td></tr>
 <tr><td style="padding-left: 2rem;">CLI (Unix, Windows)</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Markdown</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="fa-stack"><i class="far fa-star fa-stack"></i><i class="fas fa-star-half fa-stack"></i></span></td></tr>
+<tr><td style="padding-left: 2rem;">Markdown</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="fa-stack fa-1x"><i class="far fa-star fa-stack-1x"></i><i class="fas fa-star-half fa-stack-1x"></i></span></td></tr>
 <tr><td style="padding-left: 2rem;">LaTeX</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Git</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></td></tr>
 <tr><td style="padding-left: 2rem;">ArcGIS</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Photoshop</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Flash</td><td style="text-align: right;"><i class="fas fa-star"></i><span class="fa-stack"><i class="far fa-star fa-stack"></i><i class="fas fa-star-half fa-stack"></i></span><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Flash</td><td style="text-align: right;"><i class="fas fa-star"></i><span class="fa-stack fa-1x"><i class="far fa-star fa-stack-1x"></i><i class="fas fa-star-half fa-stack-1x"></i></span><i class="far fa-star"></i></td></tr>
 <tr><td colspan="2"><strong>Languages</strong></td></tr>
 <tr><td style="padding-left: 2rem;"><em>(Other than R script and Python)</em></td><td style="text-align: right;"></td></tr>
 <tr><td style="padding-left: 2rem;">HTML/CSS</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></td></tr>
