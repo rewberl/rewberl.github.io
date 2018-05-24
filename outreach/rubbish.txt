@@ -1,0 +1,40 @@
+hr            {margin-top: 2em 0 0 0; border: none; height: 1px;  background-color: black}
+
+table, th, td {border: 1px solid black; border-collapse: collapse;}
+table         {width: 100%}
+th, td        {padding: 0.5em; text-align: center}
+tr.trait      {height: 4em}
+
+
+<table>
+  <tr>
+    <th></th>
+    <th>A.<br>Primary Sense</th>
+    <th>B.<br>Dentition and Diet</th>
+    <th>C.<br>Locomotion and Terrain</th>
+  </tr>
+  <tr class="trait">
+    <th>1.</th>
+    <td>Big Eyes<br>(<em>Sight</em>)</td>
+    <td>Sharp Teeth<br>(<em>Meat</em>)</td>
+    <td>Two Legs & Two Arms<br>(<em>Flat Land</em>)</td>
+  </tr>
+  <tr class="trait">
+    <th>2.</th>
+    <td>Big Ears<br>(<em>Sound</em>)</td>
+    <td>Blunt Teeth<br>(<em>Plants</em>)</td>
+    <td>Four Legs<br>(<em>Rough Land</em>)</td>
+  </tr>
+  <tr class="trait">
+    <th>3.</th>
+    <td>Big Snout<br>(<em>Smell</em>)</td>
+    <td>Mixed Teeth<br>(<em>Meat and Plants</em>)</td>
+    <td>Two Legs & Two Wings<br>(<em>Air</em>)</td>
+  </tr>
+  <tr class="trait">
+    <th>4.</th>
+    <td>Big Feet<br>(<em>Touch</em>)</td>
+    <td>Beak<br>(<em>Insects and Grains</em>)</td>
+    <td>Four Flippers<br>(<em>Water</em>)</td>
+  </tr>
+</table>
