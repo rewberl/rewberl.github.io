@@ -31,14 +31,14 @@ function hide(block) {
 
 <table style="margin: 1.5rem 0rem;">
 <tr>
-<td style="text-align: left;"><a href="/public/pdf/rewberl_cv.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-lg"></i></a>
+<td style="text-align: left;"><a href="/public/pdf/rewberl_cv.pdf" target="_blank"><i class="far fa-file-pdf-o fa-lg"></i></a>
 &nbsp;&nbsp;Curriculum Vitae</td>
-<td style="text-align: right;"><a href="email.me" rel="nofollow" onclick="this.href='mailto:' + 'rewberl' + '@' + 'colostate' + '.' + 'edu'"><i class="fa fa-envelope-o fa-lg"></i></a>
-&nbsp;&nbsp;rewberl <span class="avoidwrap"><i class="fa fa-at"></i> colostate <i class="fa fa-circle"></i> edu</span></td>
+<td style="text-align: right;"><a href="email.me" rel="nofollow" onclick="this.href='mailto:' + 'rewberl' + '@' + 'colostate' + '.' + 'edu'"><i class="far fa-envelope fa-lg"></i></a>
+&nbsp;&nbsp;rewberl <span class="avoidwrap"><i class="fas fa-at"></i> colostate <i class="fas fa-circle"></i> edu</span></td>
 </tr>
 </table>
 
-## <a id="education-btn" href="javascript:show('boxes1');">Education</a><a id="education-open" href="javascript:show('boxes1');"><i class="fa fa-caret-square-o-down" style="float: right;"></i></a>
+## <a id="education-btn" href="javascript:show('boxes1');">Education</a><a id="education-open" href="javascript:show('boxes1');"><i class="far fa-caret-square-down" style="float: right;"></i></a>
 
 <div class="boxes" id="boxes1" markdown="block">
 <table>
@@ -106,49 +106,49 @@ function hide(block) {
 <dd>Genomic Technologies (Coursera/Johns Hopkins University)</dd>
 </dl>
 
-<a id="education-close" href="javascript:hide('boxes1');"><i class="fa fa-caret-square-o-up" style="float: right; font-size: 1.5rem; margin-bottom: .5rem;"></i></a>
+<a id="education-close" href="javascript:hide('boxes1');"><i class="far fa-caret-square-up" style="float: right; font-size: 1.5rem; margin-bottom: .5rem;"></i></a>
 </div>
 
 
 
-## <a id="skills-btn" href="javascript:show('boxes2');">Skills</a><a id="skills-open" href="javascript:show('boxes2');"><i class="fa fa-caret-square-o-down" style="float: right;"></i></a>
+## <a id="skills-btn" href="javascript:show('boxes2');">Skills</a><a id="skills-open" href="javascript:show('boxes2');"><i class="far fa-caret-square-down" style="float: right;"></i></a>
 
 <div class="boxes" id="boxes2" markdown="block">
 
 <table>
-<tr><td><strong>R</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
+<tr><td><strong>R</strong></td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></td></tr>
 <tr><td colspan="2" style="padding-left: 2rem;">RStudio; RMarkdown; tidyverse (dplyr, tidyr, ggplot2, etc.); shiny; tm; psych; lavaan; semTools; network; sna; sp; car <em>(and many more!)</em></td></tr>
-<tr><td><strong>Python</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td><strong>Python</strong></td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></td></tr>
 <tr><td colspan="2" style="padding-left: 2rem;">Anaconda; Jupyter Notebook; pandas; numpy; matplotlib</td></tr>
-<tr><td><strong>Databases</strong></td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td><strong>Databases</strong></td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></td></tr>
 <tr><td colspan="2" style="padding-left: 2rem;">MySQL</td></tr>
 <tr><td colspan="2"><strong>Data Analysis Tools</strong></td></tr>
 <tr><td style="padding-left: 2rem;"><em>(Other than R and Python)</em></td><td style="text-align: right;"></td></tr>
-<tr><td style="padding-left: 2rem;">MATLAB</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">SAS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">JMP</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">SPSS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Minitab</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Excel</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">MATLAB</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star-half"></i><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">SAS</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star-half"></i><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">JMP</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star-half"></i><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">SPSS</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star-half"></i><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Minitab</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star-half"></i><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Excel</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star-half"></i></td></tr>
 <tr><td colspan="2"><strong>Technical Tools</strong></td></tr>
-<tr><td style="padding-left: 2rem;">CLI (Unix, Windows)</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Markdown</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">LaTeX</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Git</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">ArcGIS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Photoshop</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Flash</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">CLI (Unix, Windows)</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Markdown</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star-half"></i></td></tr>
+<tr><td style="padding-left: 2rem;">LaTeX</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Git</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">ArcGIS</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Photoshop</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Flash</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star-half"></i><i class="far fa-star"></i></td></tr>
 <tr><td colspan="2"><strong>Languages</strong></td></tr>
 <tr><td style="padding-left: 2rem;"><em>(Other than R script and Python)</em></td><td style="text-align: right;"></td></tr>
-<tr><td style="padding-left: 2rem;">HTML/CSS</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Logo</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Java</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
-<tr><td style="padding-left: 2rem;">JavaScript</td><td style="text-align: right;"><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td></tr>
+<tr><td style="padding-left: 2rem;">HTML/CSS</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Logo</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Java</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">JavaScript</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></td></tr>
 </table>
 
 <!-- Add systematic key/legend for star meanings, e.g. basic functions, advanced tasks, "full-stack"? -->
 
-<a id="skills-close" href="javascript:hide('boxes2');"><i class="fa fa-caret-square-o-up" style="float: right; font-size: 1.5rem; margin-bottom: .5rem;"></i></a>
+<a id="skills-close" href="javascript:hide('boxes2');"><i class="far fa-caret-square-up" style="float: right; font-size: 1.5rem; margin-bottom: .5rem;"></i></a>
 </div>
 
 
