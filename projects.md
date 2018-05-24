@@ -6,9 +6,27 @@ order: 2
 
 <br>
 
+# Data Science for Social Good
+<br>
+<div class="circular200 fa-pull-left" style="background-image: url(/public/img/twpseedlings.jpg); margin: 0rem 2rem 2rem 0rem;"></div>
+
+<strong style="font-size: 1.25rem;">Pine Ridge Reforestation Project</strong>
+
+A Lean Six Sigma approach to improving the survival of Rocky Mountain ponderosa pine seedlings planted on the Pine Ridge Reservation. Done in collaboration with <a href="https://www.treeswaterpeople.org/" target="_blank">Trees, Water & People</a>, <a href="https://printreleaf.com/" target="_blank">PrintReleaf</a>, <a href="http://villageearth.org/" target="_blank">Village Earth</a>, and <a href="http://www.lakotasolarenterprises.com/" target="_blank">Lakota Solar Enterprises</a> and the Oglala Lakota Tribe.
+
+<ul>
+<li><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0120180#pone.0120180.s007" target="_blank">Project Report
+  &nbsp;&nbsp;<i class="ai ai-open-access ai-lg"></i>
+  &nbsp;&nbsp;<i class="fa fa-file-pdf-o fa-lg"></i></a></li>
+<li>GitHub Repository
+  &nbsp;&nbsp;<i class="fa fa-github fa-lg"></i></li>
+</ul>
+
+<br>
+
 # Science Communication & Outreach
 <br>
-<div class="circular200 fa-pull-left" style="background-image: url(/public/img/monster.jpg); margin: 0rem 2rem 2rem 0rem;"></div>
+<div class="circular200 fa-pull-left" style="background-image: url(/public/img/monster_square.jpg); margin: 0rem 2rem 2rem 0rem;"></div>
 
 <strong style="font-size: 1.25rem;"><a href="/beasts">Beasts Evolve!</a></strong>
 
