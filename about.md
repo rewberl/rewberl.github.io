@@ -118,32 +118,32 @@ function hide(block) {
 <table>
 <tr><td><strong>R</strong></td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></td></tr>
 <tr><td colspan="2" style="padding-left: 2rem;">RStudio; RMarkdown; tidyverse (dplyr, tidyr, ggplot2, etc.); shiny; tm; psych; lavaan; semTools; network; sna; sp; car <em>(and many more!)</em></td></tr>
-<tr><td><strong>Python</strong></td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></td></tr>
+<tr><td><strong>Python</strong></td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i></td></tr>
 <tr><td colspan="2" style="padding-left: 2rem;">Anaconda; Jupyter Notebook; pandas; numpy; matplotlib</td></tr>
-<tr><td><strong>Databases</strong></td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></td></tr>
+<tr><td><strong>Databases</strong></td><td style="text-align: right;"><i class="fas fa-star"></i></td></tr>
 <tr><td colspan="2" style="padding-left: 2rem;">MySQL</td></tr>
 <tr><td colspan="2"><strong>Data Analysis Tools</strong></td></tr>
 <tr><td style="padding-left: 2rem;"><em>(Other than R and Python)</em></td><td style="text-align: right;"></td></tr>
-<tr><td style="padding-left: 2rem;">MATLAB</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star-half"></i><i class="far fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">SAS</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star-half"></i><i class="far fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">JMP</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star-half"></i><i class="far fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">SPSS</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star-half"></i><i class="far fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Minitab</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star-half"></i><i class="far fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Excel</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star-half"></i></td></tr>
+<tr><td style="padding-left: 2rem;">MATLAB</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star-half"></i></td></tr>
+<tr><td style="padding-left: 2rem;">SAS</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star-half"></i></td></tr>
+<tr><td style="padding-left: 2rem;">JMP</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star-half"></i></td></tr>
+<tr><td style="padding-left: 2rem;">SPSS</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star-half"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Minitab</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star-half"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Excel</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i></td></tr>
 <tr><td colspan="2"><strong>Technical Tools</strong></td></tr>
-<tr><td style="padding-left: 2rem;">CLI (Unix, Windows)</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Markdown</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star-half"></i></td></tr>
-<tr><td style="padding-left: 2rem;">LaTeX</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Git</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">ArcGIS</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">CLI (Unix, Windows)</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Markdown</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i></td></tr>
+<tr><td style="padding-left: 2rem;">LaTeX</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Git</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">ArcGIS</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Photoshop</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Flash</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star-half"></i><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Flash</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star-half"></i></td></tr>
 <tr><td colspan="2"><strong>Languages</strong></td></tr>
 <tr><td style="padding-left: 2rem;"><em>(Other than R script and Python)</em></td><td style="text-align: right;"></td></tr>
 <tr><td style="padding-left: 2rem;">HTML/CSS</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></td></tr>
 <tr><td style="padding-left: 2rem;">Logo</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">Java</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></td></tr>
-<tr><td style="padding-left: 2rem;">JavaScript</td><td style="text-align: right;"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">Java</td><td style="text-align: right;"><i class="fas fa-star"></i></td></tr>
+<tr><td style="padding-left: 2rem;">JavaScript</td><td style="text-align: right;"><i class="fas fa-star"></i></td></tr>
 </table>
 
 <!-- Add systematic key/legend for star meanings, e.g. basic functions, advanced tasks, "full-stack"? -->
