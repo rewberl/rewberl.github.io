@@ -40,6 +40,10 @@ The Chabu are one of the last remaining hunter-gatherer societies in Africa. The
 
 ## Recent Presentations
 
+<strong><a href="https://docs.google.com/presentation/d/1WBsvZj8PzXGe2Q5kpK2V679Yw8uEY9aj2gs-50tL-VM/edit?usp=sharing" target="_blank">The Universe is Made of Stories</a></strong>
+<br>February 12, 2018
+<br>Three Minute Challenge, Vice President for Research Fellows Program, Colorado State University, Fort Collins, CO
+
 <strong><a href="https://docs.google.com/presentation/d/1Kq3VGqkP1h9dWwjdB-vivzjCr1NzHSnbhLcTRrYQdqY/edit?usp=sharing" target="_blank">Toward a Unified Framework of Prestige</a></strong>
 <br>September 13, 2017
 <br>Inaugural Meeting of the Cultural Evolution Society, Max Planck Institute for the Science of Human History, Jena, Germany
