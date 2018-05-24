@@ -109,8 +109,3 @@ tbody tr:nth-child(odd) th {
 .theme-base-ash .content a,
 .theme-base-ash .related-posts li a:hover {
   color: #95AEC7;
-
-/* FontAwesome */
-.icon-invisible {
-    visibility: hidden;
-}
