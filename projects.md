@@ -10,15 +10,17 @@ order: 2
 <br>
 <div class="circular200 fa-pull-left" style="background-image: url(/public/img/twpseedlings.jpg); margin: 0rem 2rem 2rem 0rem;"></div>
 
-<strong style="font-size: 1.25rem;">Pine Ridge Reforestation Project</strong>
+<strong style="font-size: 1.25rem;">Pine Ridge Reforestation</strong>
 
 A Lean Six Sigma approach to improving the survival of Rocky Mountain ponderosa pine seedlings planted on the Pine Ridge Reservation. Done in collaboration with <a href="https://www.treeswaterpeople.org/" target="_blank">Trees, Water & People</a>, <a href="https://printreleaf.com/" target="_blank">PrintReleaf</a>, <a href="http://villageearth.org/" target="_blank">Village Earth</a>, and <a href="http://www.lakotasolarenterprises.com/" target="_blank">Lakota Solar Enterprises</a> and the Oglala Lakota Tribe.
 
+<br>
+
 <ul>
 <li><a href="/public/pdf/rewberl_pineridgereport.pdf" target="_blank">Project Report</a>
-  &nbsp;&nbsp;<a href="/public/pdf/rewberl_pineridgereport.pdf" target="_blank"><i class="fab fa-creative-commons fa-lg"></i><i class="fab fa-creative-commons-by fa-lg"></i><i class="fab fa-creative-commons-sa fa-lg"></i></a>
-  &nbsp;&nbsp;<a href="/public/pdf/rewberl_pineridgereport.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a></li>
-<li>GitHub Repository</li>
+  &nbsp;&nbsp;<a href="/public/pdf/rewberl_pineridgereport.pdf" target="_blank"><i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-sa"></i></a>
+  &nbsp;&nbsp;<a href="/public/pdf/rewberl_pineridgereport.pdf" target="_blank"><i class="far fa-file-pdf"></i></a></li>
+<li><a href="https://github.com/rewberl/pineridge" target="_blank">GitHub Repository</a></li>
 </ul>
 
 <br>
