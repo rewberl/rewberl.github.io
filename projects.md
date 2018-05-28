@@ -8,7 +8,7 @@ order: 2
 
 # Data Science for Social Good
 <br>
-<div class="circular200 fa-pull-left" style="background-image: url(/public/img/twpseedlings.jpg); margin: 0rem 2rem 2rem 0rem;"></div>
+<div class="circular200 fa-pull-left" style="background-image: url(/public/img/twpseedlings_sm.jpg); margin: 0rem 2rem 2rem 0rem;"></div>
 
 <strong style="font-size: 1.25rem;">Pine Ridge Reforestation</strong>
 
