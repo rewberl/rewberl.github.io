@@ -20,7 +20,7 @@ A Lean Six Sigma approach to improving the survival of Rocky Mountain ponderosa 
 <li><a href="/public/pdf/rewberl_pineridgereport.pdf" target="_blank">Project Report</a>
   &nbsp;&nbsp;<a href="/public/pdf/rewberl_pineridgereport.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
   &nbsp;&nbsp;<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-sa"></i></a></li>
-<li><a href="https://github.com/rewberl/pineridge" target="_blank">GitHub Repository</a></li>
+<li><a href="https://github.com/rewberl/pineridge" target="_blank">GitHub repository with R code</a></li>
 </ul>
 
 <br>
