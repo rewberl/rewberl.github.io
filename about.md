@@ -31,7 +31,7 @@ function hide(block) {
 
 <table style="margin: 1.5rem 0rem;">
 <tr>
-<td style="text-align: left;"><a href="/public/pdf/rewberl_cv.pdf" target="_blank"><i class="far fa-file-pdf-o fa-lg"></i></a>
+<td style="text-align: left;"><a href="/public/pdf/rewberl_cv.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
 &nbsp;&nbsp;Curriculum Vitae</td>
 <td style="text-align: right;"><a href="email.me" rel="nofollow" onclick="this.href='mailto:' + 'rewberl' + '@' + 'colostate' + '.' + 'edu'"><i class="far fa-envelope fa-lg"></i></a>
 &nbsp;&nbsp;rewberl <span class="avoidwrap"><i class="fas fa-at"></i> colostate <i class="fas fa-circle"></i> edu</span></td>
