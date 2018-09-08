@@ -26,6 +26,9 @@ function hide(block) {
 <div class="circular200 fa-pull-left" style="background-image: url(/public/img/profile_small.jpg); margin: 0rem 2rem 2rem 0rem;"></div>
 
 <p>I am a <strong>social data scientist</strong> with a background in <strong>evolution</strong>, <strong>social learning biases</strong>, and <strong>cultural change</strong>, and a passion for applying my work toward the improvement of <strong>social good</strong> and <strong>environmental sustainability</strong> for all.</p>
+
+<br><br>
+
 <p>Past and present projects include:</p>
 <ul>
 <li>determining the effects of <strong>cognitive biases</strong> on <strong>cultural transmission</strong> and the dynamics of <strong>cultural evolution</strong>, specifically the influence of <strong>prestige</strong> in determining what and from whom people choose to learn, and how the concept of prestige varies across cultures;</li>
