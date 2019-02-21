@@ -1,8 +1,9 @@
-name: "TEST"
+name: "Introduction to Applied Statistical Computing with R · Richard E.W. Berl"
 output_dir: "."
-output:
-  html_document:
-    highlight: haddock
-    theme: readable
-    toc: yes
-    toc_float: yes
+navbar:
+  title: "NR 592"
+  left:
+    - text: "Syllabus"
+      href: index.html
+    - text: "Course Schedule"
+      href: schedule_spring2019.html

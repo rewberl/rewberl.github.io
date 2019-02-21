@@ -15,7 +15,7 @@ output:
     theme: readable
     toc: yes
     toc_float: yes
-  pdf_document: 
+  pdf_document:
     highlight: haddock
     toc: yes
 always_allow_html: yes
@@ -220,3 +220,6 @@ I acknowledge, with respect, that the land we are on today is the traditional an
 CSU is founded as a land grant institution, and I accept that our mission must encompass access to education and inclusion. And, significantly, that CSU's founding came at a dire cost to Native Nations and peoples whose land this university was built upon. This acknowledgment is the education and inclusion we must practice in recognizing our institutional history, responsibility, and commitment.
 
 _Adapted from [Land Acknowledgment at CSU](https://president.colostate.edu/speeches-and-writing/land-acknowledgment-at-csu-december-11-2018/) at the [Office of the Vice President for Diversity](https://diversity.colostate.edu/)._
+
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
