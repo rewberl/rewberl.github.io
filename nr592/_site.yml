@@ -1,0 +1,8 @@
+name: "TEST"
+output_dir: "."
+output:
+  html_document:
+    highlight: haddock
+    theme: readable
+    toc: yes
+    toc_float: yes

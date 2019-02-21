@@ -1,0 +1,222 @@
+---
+title: |
+  | Introduction to Applied Statistical Computing with R
+  | &nbsp;
+  | SYLLABUS
+author: |
+  | &nbsp;
+  | Richard E.W. Berl
+date: |
+  | Spring 2019
+  | &nbsp;
+output:
+  html_document:
+    highlight: haddock
+    theme: readable
+    toc: yes
+    toc_float: yes
+  pdf_document: 
+    highlight: haddock
+    toc: yes
+always_allow_html: yes
+---
+
+## Course Information
+
+**Section**  
+Seminar in Natural Resources (NR 592, Section 1)  
+1 course credit
+
+**Instructor**  
+Richard E.W. Berl, Human Dimensions of Natural Resources  
+*(He/Him)*  
+Forestry 201  
+rewberl@colostate.edu  
+[rewberl.github.io](https://rewberl.github.io)
+
+**Website**  
+[https://rewberl.github.io/nr592/](https://rewberl.github.io/nr592/)
+
+**Meeting Times**  
+Tuesdays and Thursdays, 10:00am - 10:50am, location TBD  
+Office hours by appointment
+
+**Overview**  
+In this course, you will learn how to program using the R statistical environment and become proficient in performing statistical analyses and data visualizations using real data relevant to your own research.
+
+**Objectives**  
+
+* AAAAAAA
+
+* Reproducible research
+
+
+<br>
+
+
+## Course Materials
+
+**Prerequisites**  
+This course is open to graduate students only. There are no prerequisites, but it is expected that  students have had some exposure to statistics.
+
+**Texts and Resources**  
+There are no required texts. We will use a variety of freely-available online resources and the occasional academic paper. Please refer to the [Course Schedule](./schedule_spring2019.html) for links to required weekly readings.
+
+You are encouraged to seek additional information on your own, especially to go into more depth on the concepts covered in this course or to explore additional topics of interest to you. Some useful general resources are listed below. In addition, resources specific to each week's topics are listed on the [Course Schedule](./schedule_spring2019.html).
+
+* Chang, W. Cookbook for R. Available: http://www.cookbook-r.com/
+
+* Ismay, C., & Kim, A. Y. ModernDive: An introduction to statistical and data sciences via R. Available: https://moderndive.com/
+
+* Kabacoff, R. Quick-R. Available: https://www.statmethods.net/
+
+* Kross, S., et al. swirl: Learn R, in R. Available: https://swirlstats.com/students.html
+
+* Mangiafico, S. S. Summary and analysis of extension program evaluation in R. Available: http://rcompanion.org/handbook/
+
+* McDonald, J. H. Handbook of biological statistics. Available: http://www.biostathandbook.com/
+
+    * Mangiafico, S. S. An R companion for the handbook of biological statistics. Available: http://rcompanion.org/rcompanion/  
+
+<!-- end of list -->
+  
+* Navarro, D. Learning statistics with R. Available: https://learningstatisticswithr.com/
+
+* Peng, R. D. R programming for data science. Available: https://bookdown.org/rdpeng/rprogdatascience/
+
+* Phillips, N. D. YaRrr! The pirate's guide to R. Available: https://bookdown.org/ndphillips/YaRrr/
+
+* Rseek. Available: https://rseek.org/
+
+* RStudio. RStudio cheat sheets. Available: https://www.rstudio.com/resources/cheatsheets/
+
+* Stack Overflow. Questions tagged [R]. Available: https://stackoverflow.com/questions/tagged/r
+
+* Trochim, W. M. K. Social research methods knowledge base. Available: https://www.socialresearchmethods.net/
+
+* Venables, W. N., et al. An introduction to R. Available: https://colinfay.me/intro-to-r/
+
+* Wickham, H. Advanced R. Available: https://adv-r.hadley.nz/
+
+* Wickham, H., & Grolemund, G. R for data science. Available: https://r4ds.had.co.nz/
+
+
+<br>
+
+
+## [Course Schedule](./schedule_spring2019.html)
+
+**See the [Course Schedule](./schedule_spring2019.html) page for details.**
+
+Lecture notes will be made available by the end of the day of class. They will not be exhaustive, so students should plan to attend class and take their own notes while working along.
+
+Required reading should be done by the second class meeting of the week (Thursday) in which it is listed.
+
+Weekly homework assignments are due by the first class meeting (Tuesday) following the week in which they are listed. Due dates for each assignment are listed on the [Course Schedule](./schedule_spring2019.html).
+
+All assignments, the project proposal, and the project report should be submitted through [Canvas](https://colostate.instructure.com/courses/83430/assignments). Assignment submissions should include your R script (\*.R) or R Markdown (\*.Rmd) file, as well as any other files specified in the assignment.
+
+
+<br>
+
+
+## Course Policies
+
+**Assignments and Grading**  
+Final grades for the course will be made up of contributions from the following assignments:
+
+```{r assignments, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
+library(knitr)
+library(kableExtra)
+
+kable_styling(kable(data.frame("Assignment"=c("Homework Assignments (x6)",
+                                "Project Proposal",
+                                "Project Presentation",
+                                "Project Report",
+                                "Class Participation"),
+                 "Percentage of Final Grade"=c("10% each, drop lowest (50% total)",
+                                               "5%",
+                                               "10%",
+                                               "30%",
+                                               "5%"),
+                 "Due Date"=c(paste0("Weekly (see ",
+                                     "[", "Course Schedule", "](",
+                                     "/schedule_spring2019.html", ")", ")"),
+                              "April 23",
+                              "Week of May 13",
+                              "May 17, 11:59pm",
+                              "Ongoing")),
+      col.names=c("Assignment","Percentage of Final Grade","Due Date")),
+position="left", bootstrap_options=c("bordered","striped","responsive"))
+```
+
+Letter grades will be assigned according to the following distribution:
+
+```{r grades, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
+kable_styling(kable(data.frame("Percentage Score"=c("98-100%","92-97%","90-91%",
+                                                    "88-89%","82-87%","80-81%",
+                                                    "78-79%","72-77%","70-71%",
+                                                    "65-69%","<65%"),
+                 "Letter Grade"=c("A+","A","A-",
+                                  "B+","B","B-",
+                                  "C+","C","C-",
+                                  "D","F")),
+      col.names=c("Percentage Score","Letter Grade")),
+full_width=F, position="left", font_size=12,
+bootstrap_options=c("bordered","striped","responsive"))
+```
+
+**Late Work**  
+Late assignments will not be accepted unless the student has an unusual or extenuating circumstance that has been discussed with me at least two business days prior to the assignment due date, and has received confirmation of an extension.
+
+**Attendance**  
+Attendance is expected at all class meetings. However, I will accommodate student participation in University-sanctioned extracurricular/co-curricular activities. Students must inform me prior to the anticipated absence and take the initiative to contact me or other students in the course to catch up on missed material. I will make reasonable efforts to enable students to make up work which must be accomplished under my supervision (e.g., presentations). In the event of a conflict in regard to this policy, individuals may appeal using established University procedures.
+
+For the purposes of this regulation, University-sanctioned activities include competitions, events and professional meetings in which students are officially representing the institution.
+
+_Adapted from [Section I.14.4](https://tilt.colostate.edu/integrity/resourcesFaculty/howShouldI.cfm) of the [Academic Faculty & Administrative Professional Manual](https://facultycouncil.colostate.edu/faculty-manual/)._
+
+**Academic Integrity & Plagiarism**  
+This course will adhere to the CSU Academic Integrity Policy as found on the Student' Responsibilities page of the [CSU General Catalog](http://catalog.colostate.edu/general-catalog/policies/students-responsibilities/#academic-integrity) and in the [Student Conduct Code](https://tilt.colostate.edu/integrity/knowTheCode/).
+
+Discussing weekly assignments with other students is allowed, but it is expected that all work you submit is your own. Any code or text in your assignments should be entirely developed and written by you. Any external content, such as functions, data sets, metadata, or images, should be fully cited in an established reference style of your choice. Representing work duplicated from other students or from external or online resources as your own, or reusing prior work, will be considered a violation.
+
+At a minimum, violations will result in a grading penalty in this course and a report to the Student Resolution Center.
+
+Please consult with me at least two business days prior to the deadline for submission of your work if you have any questions about whether it adheres to the Academic Integrity Policy.
+
+_Adapted from the [Academic Integrity Program](https://tilt.colostate.edu/integrity/resourcesFaculty/howShouldI.cfm) at [The Institute for Learning and Teaching](https://tilt.colostate.edu/)._
+
+**Disability Access**  
+If you are a student who will need accommodations in this class due to a disability or chronic health condition, I will need an accommodation letter from the Student Disability Center (SDC) before they are implemented. Please contact me as soon as possible to arrange office hours to give me the letter and/or to further discuss your needs.
+
+If you do not already have these letters, please contact the SDC as soon as possible to initiate the accommodation process. The SDC is located in room 121 of the TILT building. Contact them at 970-491-6385 or visit [www.disabilitycenter.colostate.edu](www.disabilitycenter.colostate.edu).
+
+_Adapted from the [Faculty/GTA Information](https://disabilitycenter.colostate.edu/info-for-faculty/#1519163201592-08353203-518c) at the [Student Disability Center](https://disabilitycenter.colostate.edu/)._
+
+**Title IX Information**  
+CSU's Discrimination, Harassment, Sexual Harassment, Sexual Misconduct, Domestic Violence, Dating Violence, Stalking, and Retaliation policy designates faculty and employees of the University as "Responsible Employees." This designation is consistent with federal law and guidance, and requires faculty to report information regarding students who may have experienced any form of sexual harassment, sexual misconduct, relationship violence, stalking or retaliation. This includes information shared with faculty in person, electronic communications or in class assignments. As "Responsible Employees," faculty may refer students to campus resources (see below), together with informing the Office of Support and Safety Assessment to help ensure student safety and welfare. Information regarding sexual harassment, sexual misconduct, relationship violence, stalking and retaliation is treated with the greatest degree of confidentiality possible while also ensuring student and campus safety.
+
+Any student who may be the victim of sexual harassment, sexual misconduct, relationship violence, stalking or retaliation is encouraged to report to CSU through one or more of the following resources:  
+
+* Emergency Response 911  
+* Deputy Title IX Coordinator/Office of Support and Safety Assessment (970) 491-1350  
+* Colorado State University Police Department (non-emergency) (970) 491-6425  
+
+_From [Title IX - Sexual Assault, Sexual Violence, Sexual Harassment](https://oeo.colostate.edu/title-ix-sexual-assault-sexual-violence-sexual-harassment/) at the [Office of Equal Opportunity](https://oeo.colostate.edu/)._
+
+**Non-Discrimination Statement**  
+Colorado State University does not discriminate on the basis of race, age, creed, color, religion, national origin or ancestry, sex, gender, disability, veteran status, genetic information, sexual orientation, gender identity or expression, or pregnancy and will not discharge or in any other manner discriminate against employees or applicants because they have inquired about, discussed, or disclosed their own pay or the pay of another employee or applicant. The University complies with the Titles VI and VII of the Civil Rights Act of 1964, as amended, related Executive Orders 11246 and 11375, Title IX of the Education Amendments Act of 1972, Sections 503 and 504 of the Rehabilitation Act of 1973, Section 402 of the Vietnam Era Veterans' Readjustment Assistance Act of 1974, as amended, the Age Discrimination in Employment Act of 1967, as amended, The Pregnancy Discrimination Act of 1978, Americans with Disabilities Act of 1990, the Civil Rights Act of 1991, the ADA Amendments Act of 2008, the Genetic Information Nondiscrimination Act of 2008, and all civil rights laws of the State of Colorado. Accordingly, equal access and opportunity in treatment, employment, admissions, programs and activities shall be extended to all persons. The University shall promote equal opportunity and treatment in employment through a positive and continuing affirmative action program for ethnic minorities, women, persons with disabilities, and veterans. The Office of Equal Opportunity is located in 101 Student Services Building.
+
+The Title IX Coordinator is the Executive Director of the Office of Support and Safety Assessment, 123 Student Services Building, Fort Collins, CO 80523-2026, (970) 491-7407.
+
+The Section 504 and ADA Coordinator is the Associate Vice President for Human Capital, Office of Equal Opportunity, 101 Student Services Building, Fort Collins, CO 80523-0160, (970) 491-5836.
+
+_From the [Non-Discrimination Statement](https://oeo.colostate.edu/non-discrimination-statement/) at the [Office of Equal Opportunity](https://oeo.colostate.edu/)._
+
+**Land Acknowledgement**  
+I acknowledge, with respect, that the land we are on today is the traditional and ancestral homelands of the Arapaho, Cheyenne, and Ute Nations and peoples. This was also a site of trade, gathering, and healing for numerous other Native tribes. We recognize the Indigenous peoples as original stewards of this land and all the relatives within it.  As these words of acknowledgment are written and read, the ties Nations have to their traditional homelands are renewed and reaffirmed. 
+
+CSU is founded as a land grant institution, and I accept that our mission must encompass access to education and inclusion. And, significantly, that CSU's founding came at a dire cost to Native Nations and peoples whose land this university was built upon. This acknowledgment is the education and inclusion we must practice in recognizing our institutional history, responsibility, and commitment.
+
+_Adapted from [Land Acknowledgment at CSU](https://president.colostate.edu/speeches-and-writing/land-acknowledgment-at-csu-december-11-2018/) at the [Office of the Vice President for Diversity](https://diversity.colostate.edu/)._

@@ -1,0 +1,313 @@
+---
+title: |
+  | Introduction to Applied Statistical Computing with R
+  | &nbsp;
+  | COURSE SCHEDULE
+author: |
+  | &nbsp;
+  | Richard E.W. Berl
+date: |
+  | Spring 2019
+  | &nbsp;
+output:
+  html_document:
+    highlight: haddock
+    theme: readable
+    toc: yes
+    toc_float: yes
+  pdf_document: 
+    highlight: haddock
+    toc: yes
+---
+
+## Prior to Week 1
+
+### Homework
+
+1. **[Install R](https://cran.cnr.berkeley.edu/)**
+
+1. **[Install RStudio](https://www.rstudio.com/products/rstudio/download/#download)**
+
+1. **Remember to bring your laptop to class!**
+
+### Resources
+
+* Torfs, P., & Brauer, C. A (very) short introduction to R. Available: https://cran.r-project.org/doc/contrib/Torfs+Brauer-Short-R-Intro.pdf
+
+* Short, T. R reference card. Available: https://cran.r-project.org/doc/contrib/Short-refcard.pdf
+
+* RStudio. RStudio IDE cheat sheet. Available: https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf
+
+    **Note:** Resources are readings and materials available for your benefit if you would like additional detail on a topic. They are not required, but often are very helpful (especially things like cheat sheets and reference documents).
+
+
+<br>
+
+
+## Week 1: Introduction to R programming and data structures
+
+### Lectures
+
+* Tuesday, March 26: **Lecture 01** (pdf / Rmd)
+
+* Thursday, March 28: **Lecture 02** (pdf / Rmd)
+
+### Homework
+
+1. **Required Reading**  
+
+    a. FitzJohn, R. Nice R code: Designing projects. Available: https://nicercode.github.io/blog/2013-04-05-projects/
+    
+    a. Navarro, D. Section 2.1: Introduction to psychological measurement through Section 2.2: Scales of measurement. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/studydesign.html
+    
+    a. Wickham, H. Welcome through Section 3: Functions. In _The tidyverse style guide_. Available: https://style.tidyverse.org/
+    
+        * Skim and refer back later when writing scripts
+        
+<!-- end of list -->
+
+1. **Assignment 1** (Due April 2)
+
+### Resources
+
+**Computing Workflow**
+
+* Wilson, G., et al. (2017). Good enough practices in scientific computing. PLOS Computational Biology, 13(6), e1005510. doi: [10.1371/journal.pcbi.1005510](https://doi.org/10.1371/journal.pcbi.1005510)
+
+**Statistics & Measurement**
+
+* Navarro, D. Chapter 1: Why do we learn statistics? In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/why-do-we-learn-statistics.html
+
+* McDonald, J. H. Types of biological variables. In _Handbook of biological statistics_. Available: http://www.biostathandbook.com/variabletypes.html
+
+**Markdown & R Markdown**
+
+* Pritchard, A. Markdown cheatsheet. Available: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+* RStudio. R Markdown reference guide. Available: https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
+
+* Xie, Y., Allaire, J. J., & Grolemund, G. R Markdown: The definitive guide. Available: https://bookdown.org/yihui/rmarkdown/
+
+**Git & GitHub**
+
+* Bryan, J., et al. Happy Git and GitHub for the useR. Available: https://happygitwithr.com/index.html
+
+* FitzJohn, R., & Falster, D. Nice R code: Introduction to version control using git. Available: https://nicercode.github.io/git/
+
+* GitHub Guides. Git handbook. Available: https://guides.github.com/introduction/git-handbook/
+
+* GitHub. GitHub Desktop. Available: https://desktop.github.com/
+
+
+<br>
+
+
+## Week 2: Importing, working with, and exploring data
+
+### Lectures
+
+* Tuesday, April 2: **Lecture 03** (pdf / Rmd)
+
+* Thursday, April 4: **Lecture 04** (pdf / Rmd)
+
+### Homework
+
+1. **Required Reading**  
+
+    a. Wickham, H. (2014). Tidy data. Journal of Statistical Software, 59(10), 1-23. doi: [	10.18637/jss.v059.i10](https://www.jstatsoft.org/article/view/v059i10)
+
+    a. Tukey, J. W. (1977). Preface. In _Exploratory data analysis_ (pp. v-ix). Reading, MA: Addison-Wesley. Available: [here](/materials/tukey1977preface.pdf)
+
+1. **Assignment 2** (Due April 9)
+
+### Resources
+
+**Data Wrangling**
+
+* RStudio. Data wrangling with dplyr and tidyr cheat sheet. Available: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
+
+* Wickham, H., & Grolemund, G. Chapter 12: Tidy data. In _R for data science_. Available: https://r4ds.had.co.nz/tidy-data.html
+
+**Exploratory Data Analysis**
+
+* Peng, R. D. Exploratory data analysis with R. Available: https://bookdown.org/rdpeng/exdata/
+
+* Wickham, H., & Grolemund, G. Chapter 7: Exploratory data analysis. In _R for data science_. Available: https://r4ds.had.co.nz/exploratory-data-analysis.html
+
+* Navarro, D. Chapter 5: Descriptive statistics. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/descriptives.html
+
+
+<br>
+
+
+## Week 3: Information design and data visualization
+
+### Lectures
+
+* Tuesday, April 9: **Lecture 05** (pdf / Rmd)
+
+* Thursday, April 11: **Lecture 06** (pdf / Rmd)
+
+### Homework
+
+1. **Required Reading**  
+
+    a. Healy, K. Chapter 1: Look at data. In _Data visualization: A practical introduction_. Available: https://socviz.co/lookatdata.html
+    
+    a. Wilke, C. O. Telling a story and making a point. In _Fundamentals of data visualization_. Available: https://serialmentor.com/dataviz/telling-a-story.html
+    
+1. **Assignment 3** (Due April 16)
+
+1. Start thinking about **Project Proposal** (Due April 23)
+
+### Resources
+
+* Wickham, H., et al. Create elegant data visualizations using the grammar of graphics: ggplot2. Available: https://ggplot2.tidyverse.org/
+
+* Wickham, H., & Grolemund, G. Chapter 3: Data visualization. In _R for data science_. Available: https://r4ds.had.co.nz/data-visualisation.html
+
+* Wickham, H., & Grolemund, G. Chapter 28: Graphics for communication. In _R for data science_. Available: https://r4ds.had.co.nz/graphics-for-communication.html
+
+* RStudio. Data visualization with ggplot2 cheat sheet. Available: https://www.rstudio.com/wp-content/uploads/2015/12/ggplot2-cheatsheet.pdf
+
+* Healy, K. Data visualization: A practical introduction. Available: https://socviz.co/
+
+* Wilke, C. O. Fundamentals of data visualization. Available: https://serialmentor.com/dataviz/
+
+* BBC Open Source. BBC visual and data journalism cookbook for R graphics. Available: https://bbc.github.io/rcookbook/
+
+* Geckoboard. Play your charts right: Tips for effective data visualization. Available: https://www.geckoboard.com/learn/data-literacy/data-visualization-tips/
+
+* Rost, L. C. (2018). Your friendly guide to colors in data visualisation. Chartable. Available: https://blog.datawrapper.de/colorguide/
+
+* Tol, P. (2018). Colour schemes. SRON Netherlands Institute for Space Research. Available: https://personal.sron.nl/~pault/data/colourschemes.pdf
+
+
+<br>
+
+
+## Week 4: Hypothesis testing and basic linear models
+
+### Lectures
+
+* Tuesday, April 16: **Lecture 07** (pdf / Rmd)
+
+* Thursday, April 18: **Lecture 08** (pdf / Rmd)
+
+### Homework
+
+1. **Required Reading**  
+
+    a. McDonald, J. H. Basic concepts of hypothesis testing. In _Handbook of biological statistics_. Available: http://www.biostathandbook.com/hypothesistesting.html
+    
+    a. McDonald, J. H. Correlation and linear regression. In _Handbook of biological statistics_. Available: http://www.biostathandbook.com/linearregression.html
+    
+        * For information on conducting these tests in R, see: Mangiafico, S. S. Correlation and linear regression. In _An R companion for the handbook of biological statistics_. Available: http://rcompanion.org/rcompanion/e_01.html
+
+            <!-- end of list -->
+
+    a. Joselson, N. (2016). Eugenics and statistics, discussing Karl Pearson and R. A. Fisher. Available: https://njoselson.github.io/Fisher-Pearson/
+
+1. **Assignment 4** (Due April 23)
+
+1. **Project Proposal** (Due April 23)
+
+### Resources
+
+**Hypothesis Testing**
+
+* McDonald, J. H. Choosing a statistical test. In _Handbook of biological statistics_. Available: http://www.biostathandbook.com/testchoice.html
+
+    * For information on conducting these tests in R, see: Mangiafico, S. S. An R companion for the handbook of biological statistics. Available: http://rcompanion.org/rcompanion/
+
+**Linear Models**
+
+* Wickham, H., & Grolemund, G. Chapter 23: Model basics. In _R for data science_. Available: https://r4ds.had.co.nz/model-basics.html
+
+* Wickham, H., & Grolemund, G. Chapter 24: Model building. In _R for data science_. Available: https://r4ds.had.co.nz/model-building.html
+
+* Faraway, J. J. Practical regression and anova using R. Available: https://cran.r-project.org/doc/contrib/Faraway-PRA.pdf
+
+* Scholer, F. ANOVA - Type I/II/III SS explained. Available: https://mcfromnz.wordpress.com/2011/03/02/anova-type-iiiiii-ss-explained/
+
+**Meta-Science**
+
+* Aschwanden, C. (2015). Science isn't broken. FiveThirtyEight. Available: https://fivethirtyeight.com/features/science-isnt-broken/
+
+* Angwin, J., et al. (2016). Machine bias. ProPublica. Available: https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
+
+* Rodriguez-Lonebear, D. (2016). Chapter 14: Building a data revolution in Indian country. In Kukutai, T., & Taylor, J. (Eds.), _Indigenous data sovereignty_ (pp. 253-272). Available: http://press-files.anu.edu.au/downloads/press/n2140/pdf/ch14.pdf
+
+
+<br>
+
+
+## Week 5: Advanced statistical methods
+
+### Lectures
+
+* Tuesday, April 23: **Lecture 09** (pdf / Rmd)
+
+* Thursday, April 25: **Lecture 10** (pdf / Rmd)
+
+### Homework
+
+1. **Required Reading**  
+
+1. **Assignment 5** (Due April 30)
+
+### Resources
+
+
+<br>
+
+
+## Week 6: Additional topics in statistical computing
+
+### Lectures
+
+* Tuesday, April 30: **Lecture 11** (pdf / Rmd)
+
+* Thursday, May 2: **Lecture 12** (pdf / Rmd)
+
+### Homework
+
+1. **Required Reading**  
+
+1. **Assignment 6** (Due May 7)
+
+1. Start working on **Project Report** (Due May 17, 11:59pm)
+
+1. Start working on **Project Presentation** (Due week of May 13)
+
+### Resources
+
+
+<br>
+
+
+## Week 7: Additional topics and analyses for individual projects
+
+### Lectures
+
+* Tuesday, May 7: **Lecture 13** (pdf / Rmd)
+
+* Thursday, May 9: **Lecture 14** (pdf / Rmd)
+
+### Homework
+
+1. **Required Reading**  
+
+1. **Project Report** (Due May 17, 11:59pm)
+
+1. **Project Presentation** (Due week of May 13)
+
+### Resources
+
+
+<br>
+
+
+## Week 8: Project presentations
+
+Meeting date and time TBD
