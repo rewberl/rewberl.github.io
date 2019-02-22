@@ -1,0 +1,27 @@
+---
+title: "Week 2, Lecture 03: Importing, working with, and exploring data, Part I"
+author: "Richard E.W. Berl"
+date: "Spring 2019"
+output:
+  html_document:
+    highlight: haddock
+    theme: flatly
+  pdf_document: 
+    highlight: haddock
+---
+
+## Data cleaning
+
+### Finding and fixing missing data
+
+## Problems with data
+
+### Missing data
+
+### Confounds
+
+
+
+## What is EDA?
+
+### EDA is NOT "fishing," "data dredging," or "p-hacking"

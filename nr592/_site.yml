@@ -1,7 +1,7 @@
 name: "Introduction to Applied Statistical Computing with R · Richard E.W. Berl"
 output_dir: "."
 navbar:
-  title: "NR 592"
+  title: "n(R) 592"
   left:
     - text: "Syllabus"
       href: index.html

@@ -9,6 +9,8 @@ author: |
 date: |
   | Spring 2019
   | &nbsp;
+  | Last Updated: 2019-02-21
+  | &nbsp;
 output:
   html_document:
     highlight: haddock
@@ -62,7 +64,7 @@ output:
     
     a. Wickham, H. Welcome through Section 3: Functions. In _The tidyverse style guide_. Available: https://style.tidyverse.org/
     
-        * Skim and refer back later when writing scripts
+        * Skim and refer back later when writing code
         
 <!-- end of list -->
 
@@ -90,13 +92,15 @@ output:
 
 **Git & GitHub**
 
-* Bryan, J., et al. Happy Git and GitHub for the useR. Available: https://happygitwithr.com/index.html
+* Bryan, J., et al. Happy Git and GitHub for the useR. Available: https://happygitwithr.com/
 
 * FitzJohn, R., & Falster, D. Nice R code: Introduction to version control using git. Available: https://nicercode.github.io/git/
 
 * GitHub Guides. Git handbook. Available: https://guides.github.com/introduction/git-handbook/
 
 * GitHub. GitHub Desktop. Available: https://desktop.github.com/
+
+* Zabor, E. C. Creating websites in R. Available: https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html
 
 
 <br>
@@ -116,7 +120,7 @@ output:
 
     a. Wickham, H. (2014). Tidy data. Journal of Statistical Software, 59(10), 1-23. doi: [	10.18637/jss.v059.i10](https://www.jstatsoft.org/article/view/v059i10)
 
-    a. Tukey, J. W. (1977). Preface. In _Exploratory data analysis_ (pp. v-ix). Reading, MA: Addison-Wesley. Available: [here](/materials/tukey1977preface.pdf)
+    a. Tukey, J. W. (1977). Preface. In _Exploratory data analysis_ (pp. v-ix). Reading, MA: Addison-Wesley. Available: [here](./resources/tukey1977preface.pdf)
 
 1. **Assignment 2** (Due April 9)
 
@@ -154,7 +158,7 @@ output:
 
     a. Healy, K. Chapter 1: Look at data. In _Data visualization: A practical introduction_. Available: https://socviz.co/lookatdata.html
     
-    a. Wilke, C. O. Telling a story and making a point. In _Fundamentals of data visualization_. Available: https://serialmentor.com/dataviz/telling-a-story.html
+    a. Wilke, C. O. Chapter 29: Telling a story and making a point. In _Fundamentals of data visualization_. Available: https://serialmentor.com/dataviz/telling-a-story.html
     
 1. **Assignment 3** (Due April 16)
 
@@ -298,11 +302,19 @@ output:
 
 1. **Required Reading**  
 
+    a. rOpenSci. Introduction. In _Reproducibility in science_. Available: https://ropensci.github.io/reproducibility-guide/sections/introduction/
+
 1. **Project Report** (Due May 17, 11:59pm)
 
 1. **Project Presentation** (Due week of May 13)
 
 ### Resources
+
+* Hillier, A., Kelly, R. P., & Klinger, T. (2016). Narrative style influences citation frequency in climate change science. PLOS ONE, 11(12), e0167983. doi: [10.1371/journal.pone.0167983](https://doi.org/10.1371/journal.pone.0167983)
+
+* Ratliff, W. The David Attenborough style of scientific presentation. Available: https://www.dropbox.com/s/j1vv2baheiduvip/David%20Attenborough%20talk%20technique%202018.pdf
+
+* rOpenSci. Reproducibility in science. Available: https://ropensci.github.io/reproducibility-guide/
 
 
 <br>
@@ -312,5 +324,10 @@ output:
 
 Meeting date and time TBD
 
+
+<br>
+
+
+([pdf](./schedule_spring2019.pdf) / [Rmd](./schedule_spring2019.Rmd))
 
 <div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

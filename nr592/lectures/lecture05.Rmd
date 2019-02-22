@@ -1,0 +1,13 @@
+---
+title: "Week 3, Lecture 05: Information design and data visualization, Part I"
+author: "Richard E.W. Berl"
+date: "Spring 2019"
+output:
+  html_document:
+    highlight: haddock
+    theme: flatly
+  pdf_document: 
+    highlight: haddock
+---
+
+SummarySE

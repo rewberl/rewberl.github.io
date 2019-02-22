@@ -1,0 +1,118 @@
+---
+title: "Week 1, Lecture 01: Introduction to R programming and data structures, Part I"
+author: "Richard E.W. Berl"
+date: "Spring 2019"
+output:
+  html_document:
+    highlight: haddock
+    theme: flatly
+  pdf_document: 
+    highlight: haddock
+---
+
+## Introduction
+
+
+## Things I Will Not Cover
+
+### Rmarkdown (kinda) / R Notebook
+
+#### LaTeX
+
+### Git / GitHub
+
+Version Control  
+You may already have it covered (e.g.Dropbox)
+
+### Tibbles, Piping
+
+
+
+## Concepts
+
+### Scripts
+
+#### Commenting
+
+Ctrl+Shift+C (Windows)
+
+### Objects
+
+#### Variables
+
+Assignment  
+Manipulation
+
+#### Functions
+
+### Packages
+
+### Projects
+
+Working directory  
+Relative paths
+
+
+
+## Data Types & Classes
+
+### Numeric
+
+Continuous (floating point)  
+- Real  
+- Complex  
+Discrete  
+- Binary (logical/boolean)  
+- Integer
+
+### Ordinal
+
+Ordered factor
+
+### Categorical
+
+String (character)
+Factor
+
+### Date  
+lubridate
+
+
+
+## Data Structures
+
+### Vectors
+
+Can only have one type
+
+### Matrices
+
+### Data Frames
+
+### Lists
+
+
+
+## Operations
+
+### Common Functions
+str()
+names()
+class()
+dim()
+length()
+nrow()
+ncol()
+gc()
+?
+View()
+
+### Subsetting
+
+### Conditionals
+
+### Iteration
+
+#### Loops
+
+#### Apply

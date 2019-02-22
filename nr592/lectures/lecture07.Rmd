@@ -1,0 +1,19 @@
+---
+title: "Week 2, Lecture 03: Importing, cleaning, and working with data"
+author: "Richard E.W. Berl"
+date: "Spring 2019"
+output:
+  html_document:
+    highlight: haddock
+    theme: flatly
+  pdf_document: 
+    highlight: haddock
+---
+
+## Regression
+
+### Linear regression
+
+### ANOVA
+
+### Logistic regression
