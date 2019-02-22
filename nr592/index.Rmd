@@ -26,8 +26,7 @@ always_allow_html: yes
 ## Course Information
 
 **Section**  
-Seminar in Natural Resources (NR 592, Section 1)  
-1 credit
+NR 592, Section 1: Seminar in Natural Resources (1 credit)
 
 **Instructor**  
 Richard E.W. Berl, Human Dimensions of Natural Resources  

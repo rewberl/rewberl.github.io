@@ -304,6 +304,8 @@ output:
 
     a. rOpenSci. Introduction. In _Reproducibility in science_. Available: https://ropensci.github.io/reproducibility-guide/sections/introduction/
 
+<!-- end of list -->
+
 1. **Project Report** (Due May 17, 11:59pm)
 
 1. **Project Presentation** (Due week of May 13)
