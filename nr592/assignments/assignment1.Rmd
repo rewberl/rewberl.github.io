@@ -1,0 +1,33 @@
+---
+title: "Assignment 1"
+author: "<INSERT YOUR NAME HERE>"
+date: "<INSERT THE DATE HERE>"
+output:
+  html_document:
+    highlight: haddock
+    theme: flatly
+  pdf_document: 
+    highlight: haddock
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+
+### 1.1
+
+Write a function to calculate the mean of three numbers.
+
+```{r 1.1}
+
+```
+
+### 1.2
+
+Plug three numbers into your function to show that it works.
+
+```{r 1.2}
+
+```

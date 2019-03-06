@@ -9,7 +9,7 @@ author: |
 date: |
   | Spring 2019
   | &nbsp;
-  | Last Updated: 2019-02-22
+  | Last Updated: 2019-03-05
   | &nbsp;
 output:
   html_document:
@@ -40,7 +40,7 @@ output:
 
 * RStudio. RStudio IDE cheat sheet. Available: https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf
 
-    **Note:** Resources are readings and materials available for your benefit if you would like additional detail on a topic. They are not required, but often are very helpful (especially things like cheat sheets and reference documents).
+    **Note:** "Resources" are readings and materials available for your benefit if you would like additional detail on a topic. They are not required, but often are very helpful (especially things like cheat sheets and reference documents).
 
 
 <br>
@@ -60,9 +60,9 @@ output:
 
     a. FitzJohn, R. Nice R code: Designing projects. Available: https://nicercode.github.io/blog/2013-04-05-projects/
     
-    a. Navarro, D. Section 2.1: Introduction to psychological measurement through Section 2.2: Scales of measurement. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/studydesign.html
+    a. Navarro, D. Section 2.1: Introduction to psychological measurement, through Section 2.2: Scales of measurement. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/studydesign.html
     
-    a. Wickham, H. Welcome through Section 3: Functions. In _The tidyverse style guide_. Available: https://style.tidyverse.org/
+    a. Wickham, H. Welcome, through Section 3: Functions. In _The tidyverse style guide_. Available: https://style.tidyverse.org/
     
         * Skim and refer back later when writing code
         
@@ -72,9 +72,11 @@ output:
 
 ### Resources
 
-**Computing Workflow**
+**Computing**
 
 * Wilson, G., et al. (2017). Good enough practices in scientific computing. PLOS Computational Biology, 13(6), e1005510. doi: [10.1371/journal.pcbi.1005510](https://doi.org/10.1371/journal.pcbi.1005510)
+
+* Navarro, D. Chapter 8: Basic programming. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/scripting.html
 
 **Statistics & Measurement**
 
@@ -94,7 +96,7 @@ output:
 
 * Bryan, J., et al. Happy Git and GitHub for the useR. Available: https://happygitwithr.com/
 
-* FitzJohn, R., & Falster, D. Nice R code: Introduction to version control using git. Available: https://nicercode.github.io/git/
+* FitzJohn, R., & Falster, D. Nice R code: Introduction to version control using Git. Available: https://nicercode.github.io/git/
 
 * GitHub Guides. Git handbook. Available: https://guides.github.com/introduction/git-handbook/
 
@@ -119,6 +121,10 @@ output:
 1. **Required Reading**  
 
     a. Wickham, H. (2014). Tidy data. Journal of Statistical Software, 59(10), 1-23. doi: [	10.18637/jss.v059.i10](https://www.jstatsoft.org/article/view/v059i10)
+    
+        * "Informal and code heavy" version in the `tidyr` package vignette, available: https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html
+
+            <!-- end of list -->
 
     a. Tukey, J. W. (1977). Preface. In _Exploratory data analysis_ (pp. v-ix). Reading, MA: Addison-Wesley. Available: [here](./resources/tukey1977preface.pdf)
 
@@ -132,6 +138,8 @@ output:
 
 * Wickham, H., & Grolemund, G. Chapter 12: Tidy data. In _R for data science_. Available: https://r4ds.had.co.nz/tidy-data.html
 
+* Navarro, D. Chapter 7: Pragmatic matters. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/datahandling.html
+
 **Exploratory Data Analysis**
 
 * Peng, R. D. Exploratory data analysis with R. Available: https://bookdown.org/rdpeng/exdata/
@@ -139,6 +147,14 @@ output:
 * Wickham, H., & Grolemund, G. Chapter 7: Exploratory data analysis. In _R for data science_. Available: https://r4ds.had.co.nz/exploratory-data-analysis.html
 
 * Navarro, D. Chapter 5: Descriptive statistics. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/descriptives.html
+
+**Problems with Data**
+
+* van Buuren, S. Section 1.1: The problem of missing data, through Section 1.4: Multiple imputation in a nutshell. In _Flexible imputation of missing data_. Available: https://stefvanbuuren.name/fimd/sec-problem.html
+
+* Navarro, D. Section 2.7: Confounds, artifacts and other threats to validity. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/studydesign.html#confounds-artifacts-and-other-threats-to-validity
+
+* McDonald, J. H. Confounding variables. In _Handbook of biological statistics_. Available: http://www.biostathandbook.com/confounding.html
 
 
 <br>
@@ -224,11 +240,19 @@ output:
 
     * For information on conducting these tests in R, see: Mangiafico, S. S. An R companion for the handbook of biological statistics. Available: http://rcompanion.org/rcompanion/
 
+        <!-- end of list -->
+    
+* Navarro, D. Chapter 11: Hypothesis testing. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/hypothesistesting.html
+
 **Linear Models**
 
 * Wickham, H., & Grolemund, G. Chapter 23: Model basics. In _R for data science_. Available: https://r4ds.had.co.nz/model-basics.html
 
 * Wickham, H., & Grolemund, G. Chapter 24: Model building. In _R for data science_. Available: https://r4ds.had.co.nz/model-building.html
+
+* Navarro, D. Chapter 15: Linear regression. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/regression.html
+
+* Navarro, D. Chapter 16: Factorial ANOVA. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/anova2.html
 
 * Faraway, J. J. Practical regression and anova using R. Available: https://cran.r-project.org/doc/contrib/Faraway-PRA.pdf
 
@@ -262,6 +286,17 @@ output:
 
 ### Resources
 
+**Dimensionality Reduction**
+
+Principal Components Analysis
+
+Exploratory Factor Analysis
+
+Cluster Analysis
+
+**Structural Equation Modeling**
+
+Confirmatory Factor Analysis
 
 <br>
 
@@ -285,6 +320,10 @@ output:
 1. Start working on **Project Presentation** (Due week of May 13)
 
 ### Resources
+
+**Geospatial Mapping**
+
+Grossenbacher, T. Beautiful thematic maps with ggplot2 (only). Avalable: https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/
 
 
 <br>

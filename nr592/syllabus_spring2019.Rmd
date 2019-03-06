@@ -9,7 +9,7 @@ author: |
 date: |
   | Spring 2019
   | &nbsp;
-  | Last Updated: 2019-02-22
+  | Last Updated: 2019-03-05
   | &nbsp;
 output:
   html_document:
@@ -39,7 +39,7 @@ rewberl@colostate.edu
 [https://rewberl.github.io/nr592/](https://rewberl.github.io/nr592/)
 
 **Meeting Times**  
-Tuesdays and Thursdays, 10:00am - 10:50am, location TBD  
+Tuesdays and Thursdays, 10:00am - 10:50am, Animal Science 31  
 Office hours by appointment
 
 **Overview**  

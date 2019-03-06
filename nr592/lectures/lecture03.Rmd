@@ -25,3 +25,8 @@ output:
 ## What is EDA?
 
 ### EDA is NOT "fishing," "data dredging," or "p-hacking"
+
+
+## Descriptive statistics
+
+### Confidence intervals
