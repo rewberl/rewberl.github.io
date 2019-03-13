@@ -74,7 +74,7 @@ The Chabu are one of the last remaining hunter-gatherer societies in Africa. The
 ## Publications
 **\*** Co-first authors
 
-Gopalan, S.**\***, **Berl, R.E.W.\***, Belbin, G., Negash, A.N., Gignoux, C.R., Feldman, M.W., Hewlett, B.S., & Henn, B.M. 2015. Hunter-gatherer genomes reveal diverse demographic trajectories following the rise of farming in Eastern Africa. (*in review*). Preprint: <a href="https://www.biorxiv.org/content/10.1101/517730v1.abstract" target="_blank">*bioRxiv*, 517730</a>
+Gopalan, S.**\***, **Berl, R.E.W.\***, Belbin, G., Negash, A.N., Gignoux, C.R., Feldman, M.W., Hewlett, B.S., & Henn, B.M. (*in review*). Hunter-gatherer genomes reveal diverse demographic trajectories following the rise of farming in Eastern Africa. Preprint: <a href="https://www.biorxiv.org/content/10.1101/517730v1.abstract" target="_blank">*bioRxiv*, 517730</a>
 &nbsp;&nbsp;<a href="https://www.biorxiv.org/content/10.1101/517730v1.abstract" target="_blank"><i class="ai ai-biorxiv ai-lg"></i></a>
 &nbsp;&nbsp;<a href="/public/pdf/gopalan2019hunter-gatherer_genomes_reveal_diverse_demographic_trajectories.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
 
