@@ -15,6 +15,8 @@ order: 3
 <dd>Investigates how the startling (yet not infinite!) variety in human culture has evolved.</dd>
 <dt><a href="https://www.shh.mpg.de/en" target="_blank">Max Planck Institute for the Science of Human History</a></dt>
 <dd>Exploring the history of humanity using the state-of-the-art analytical and genetic methods.</dd>
+<dt><a href="https://culturalevolutionsociety.org/" target="_blank">Cultural Evolution Society</a></dt>
+<dd>A professional scientific society that advances the theory and practice of cultural evolutionary studies.</dd>
 <dt><a href="https://evolution-institute.org/social-evolution-forum/" target="_blank">Social Evolution Forum</a></dt>
 <dd>Brings evolutionary experts together, resulting in a new agenda for basic scientific research, policy formulation, and policy implementation.</dd>
 </dl>
@@ -71,6 +73,10 @@ order: 3
 # R
 
 <dl>
+<dt><a href="https://rewberl.github.io/nr592/" target="_blank">n(R) 592</a></dt>
+<dd>My R course for graduate students. First taught Spring 2019 for the College of Natural Resources at Colorado State University.</dd>
+<dt><a href="https://learningstatisticswithr.com/" target="_blank">Learning Statistics with R</a></dt>
+<dd>An online textbook by Danielle Navarro that covers the contents of an introductory statistics class focusing on the use of the R statistical software.</dd>
 <dt><a href="https://swirlstats.com/" target="_blank">swirl</a></dt>
 <dd>Teaches you R programming and data science interactively, at your own pace, and right in the R console.</dd>
 <dt><a href="https://rstudio.com/resources/cheatsheets/" target="_blank">RStudio Cheat Sheets</a></dt>

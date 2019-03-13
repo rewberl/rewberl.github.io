@@ -25,20 +25,20 @@ function hide(block) {
 
 <div class="circular200 fa-pull-left" style="background-image: url(/public/img/profile_small.jpg); margin: 0rem 2rem 2rem 0rem;"></div>
 
-<p>I am a <strong>social data scientist</strong> with a background in <strong>evolution</strong>, <strong>social learning biases</strong>, and <strong>cultural change</strong>, and a passion for applying my work toward the improvement of <strong>social good</strong> and <strong>environmental sustainability</strong> for all.</p>
+<p>I am an <strong>evolutionary social scientist</strong> with a background in <strong>behavior</strong> and <strong>cultural change</strong> and a passion for conserving <strong>biocultural diversity</strong> and improving <strong>social good</strong> and <strong>environmental sustainability</strong>.</p>
 
 <br><br>
 
 <p>Past and present projects include:</p>
 <ul>
 <li>determining the effects of <strong>cognitive biases</strong> on <strong>cultural transmission</strong> and the dynamics of <strong>cultural evolution</strong>, specifically the influence of <strong>prestige</strong> in determining what and from whom people choose to learn, and how the concept of prestige varies across cultures;</li>
-<li>improving <strong>reforestation</strong> efforts on Pine Ridge Reservation through the use of the <strong>Lean Six Sigma</strong> methodology and the application of <strong>machine learning</strong> techniques, with the aim of increasing seedling survival under future conditions of <strong>climate change</strong>;</li>
+<li>improving <strong>reforestation</strong> efforts on Pine Ridge Reservation through the use of the <strong>Lean Six Sigma</strong> methodology and the application of <strong>machine learning</strong> techniques, ensuring long-term survival of seedlings under future conditions of <strong>climate change</strong>;</li>
 <li>illuminating the genetic, demographic, cultural, and linguistic history of the <strong>Chabu</strong>, an isolated and threatened group of hunter-gatherers in southwestern Ethiopia, and using these data to advocate for their <strong>rights</strong> and <strong>sovereignty</strong>;</li>
-<li>investigating differences in the use of the <strong>social learning mechanisms</strong> of imitation and emulation between young children in Western cultures and in hunter-gatherers and horticulturalists in the Central African Republic; and</li>
+<li>investigating differences in the use of the <strong>social learning</strong> mechanisms of imitation and emulation between young children in Western cultures and in non-Western hunter-gatherers and horticulturalists in the Central African Republic; and</li>
 <li>describing variation in the social behavior of <strong>gray wolves</strong> (<a href="https://eol.org/pages/328607/overview" target="_blank"><em>Canis lupus</em></a>) between captivity and the wild, as well as their potential for social learning and cultural variation in behavior.</li>
 </ul>
 
-<p>Through the use of a <strong>data-centric</strong> approach informed by <strong>statistics</strong> and by theory from <strong>social science</strong> on how we learn and how culture evolves, I intend to continue my career in <strong>social data science</strong> in pursuit of the goals of <strong>enhancing social good</strong> and <strong>conserving biocultural diversity</strong>.</p>
+<p>Through the use of a <strong>data-centric</strong> scientific approach informed by <strong>statistics</strong> and by theory from <strong>social science</strong> on how we learn and how culture evolves, my career combines my expertise in <strong>data science</strong> and <strong>social science</strong> to address issues that involve complex interactions between <strong>humans</strong>, <strong>society</strong>, and the <strong>environment</strong>.</p>
 
 <table style="margin: 1.5rem 0rem;">
 <tr>
@@ -53,7 +53,7 @@ function hide(block) {
 
 <div class="boxes" id="boxes1" markdown="block">
 <table>
-<tr><td><strong style="font-size: 1.25rem;">Ph.D. Human Dimensions of Natural Resources</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>Antic. 2018</em></span></td></tr>
+<tr><td><strong style="font-size: 1.25rem;">Ph.D. Human Dimensions of Natural Resources</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>2019</em></span></td></tr>
 <tr><td><strong style="font-size: 1rem;">Graduate Certificate in Applied Statistics</strong></td><td style="text-align: right;"><span class="avoidwrap"><em>2017</em></span></td></tr>
 <tr><td style="padding-left: 2rem;">Colorado State University, Fort Collins, CO</td><td></td></tr>
 </table>
@@ -98,7 +98,7 @@ function hide(block) {
 <dt><strong>Quantitative</strong></dt>
 <dd>Analytic Geometry & Calculus; Statistical Methods; Biological Data Analysis</dd>
 <dt><strong>Domain Expertise</strong></dt>
-<dd>Genetics & Evolutionary Biology; Population Ecology; Physical Anthropology; Social & Cultural Anthropology; Human Evolution; Human Nature; Psychology; Personality</dd>
+<dd>Genetics & Evolutionary Biology; Population Ecology; Physical Anthropology; Social & Cultural Anthropology; Human Evolution; Human Nature; Technology & Culture; Psychology; Personality</dd>
 <dt><strong>Communication</strong></dt>
 <dd>Writing, Research, & Presentation; Oral Communications</dd>
 </dl>

@@ -59,22 +59,28 @@ The Chabu are one of the last remaining hunter-gatherer societies in Africa. The
 
 ## Recent Presentations
 
-<strong><a href="https://docs.google.com/presentation/d/1WBsvZj8PzXGe2Q5kpK2V679Yw8uEY9aj2gs-50tL-VM/edit?usp=sharing" target="_blank">The Universe is Made of Stories</a></strong>
-<br>February 12, 2018
-<br>Three Minute Challenge, Vice President for Research Fellows Program, Colorado State University, Fort Collins, CO
+<strong><a href="https://docs.google.com/presentation/d/1qairhtd0OvDC2WDiaB9rP2j_nBl1IksoTmjVgHvmdIw/edit?usp=sharing" target="_blank">Tell Me a Story: Comparing the Effects of Prestige and Content Biases on Cultural Transmission</a></strong>
+<br>October 24, 2018
+<br>Second Meeting of the Cultural Evolution Society, Arizona State University, Tempe, AZ
 
-<strong><a href="https://docs.google.com/presentation/d/1Kq3VGqkP1h9dWwjdB-vivzjCr1NzHSnbhLcTRrYQdqY/edit?usp=sharing" target="_blank">Toward a Unified Framework of Prestige</a></strong>
-<br>September 13, 2017
-<br>Inaugural Meeting of the Cultural Evolution Society, Max Planck Institute for the Science of Human History, Jena, Germany
+<strong><a href="https://docs.google.com/presentation/d/1v0It3DyVYsoUA9ll6lO80Yg94gK8MLHOZ-OTZdlfKL4/edit?usp=sharing" target="_blank">Demographic and Cultural History of the Chabu Hunter-Gatherers of Southwestern Ethiopia</a></strong>
+<br>October 23, 2018
+<br>Second Meeting of the Cultural Evolution Society, Arizona State University, Tempe, AZ
 
 <a href="/presentations">Past Presentations</a>
 
 <br>
 
 ## Publications
-**Berl, R.E.W.** & Hewlett, B.S. 2015. Cultural variation in the use of overimitation by the Aka and Ngandu of the Congo Basin. PLoS ONE 10(3): e0120180. doi: <a href="https://dx.doi.org/10.1371/journal.pone.0120180" target="_blank">10.1371/journal.pone.0120180</a>
+**\*** Co-first authors
+
+Gopalan, S.**\***, **Berl, R.E.W.\***, Belbin, G., Negash, A.N., Gignoux, C.R., Feldman, M.W., Hewlett, B.S., & Henn, B.M. 2015. Hunter-gatherer genomes reveal diverse demographic trajectories following the rise of farming in Eastern Africa. (*in review*). Preprint: <a href="https://www.biorxiv.org/content/10.1101/517730v1.abstract" target="_blank">*bioRxiv*, 517730</a>
+&nbsp;&nbsp;<a href="https://www.biorxiv.org/content/10.1101/517730v1.abstract" target="_blank"><i class="ai ai-biorxiv ai-lg"></i></a>
+&nbsp;&nbsp;<a href="/public/pdf/gopalan2019hunter-gatherer_genomes_reveal_diverse_demographic_trajectories.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
+
+**Berl, R.E.W.** & Hewlett, B.S. 2015. Cultural variation in the use of overimitation by the Aka and Ngandu of the Congo Basin. *PLOS ONE 10*(3): e0120180. doi: <a href="https://dx.doi.org/10.1371/journal.pone.0120180" target="_blank">10.1371/journal.pone.0120180</a>
 &nbsp;&nbsp;<a href="https://dx.doi.org/10.1371/journal.pone.0120180" target="_blank"><i class="ai ai-open-access ai-lg"></i></a>
-&nbsp;&nbsp;<a href="/public/pdf/berl2015cultural_variation_in_the_use_of_overimitation_by_the_aka_and_ngandu_of_the.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
+&nbsp;&nbsp;<a href="/public/pdf/berl2015cultural_variation_in_the_use_of_overimitation_by_the_aka_and_ngandu.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
 
 <ul>
 <li>Supplementary Info</li>
@@ -86,8 +92,8 @@ The Chabu are one of the last remaining hunter-gatherer societies in Africa. The
 
 
 ### Non-Peer Reviewed
-Hewlett, B.S., **Berl, R.E.W.**, & Roulette, C.J. 2016. Teaching and overimitation among Aka hunter-gatherers. In: Terashima, H. & Hewlett, B.S., editors. Social learning and innovation in contemporary hunter-gatherers. Springer. pp. 35–45. doi: <a href="https://dx.doi.org/10.1007/978-4-431-55997-9_3" target="_blank">10.1007/978-4-431-55997-9_3</a>
+Hewlett, B.S., **Berl, R.E.W.**, & Roulette, C.J. 2016. Teaching and overimitation among Aka hunter-gatherers. In: Terashima, H. & Hewlett, B.S., editors. *Social learning and innovation in contemporary hunter-gatherers*. Springer. pp. 35–45. doi: <a href="https://dx.doi.org/10.1007/978-4-431-55997-9_3" target="_blank">10.1007/978-4-431-55997-9_3</a>
 &nbsp;&nbsp;<a href="/public/pdf/hewlett2016teaching_and_overimitation_among_aka_hunter-gatherers.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
 
-**Berl, R.E.W.** 2015. On the value of conserving human cultural diversity. Northwest Science 89(1): 100-101. doi: <a href="https://dx.doi.org/10.3955/046.089.0110" target="_blank">10.3955/046.089.0110</a>
+**Berl, R.E.W.** 2015. On the value of conserving human cultural diversity. *Northwest Science 89*(1): 100-101. doi: <a href="https://dx.doi.org/10.3955/046.089.0110" target="_blank">10.3955/046.089.0110</a>
 &nbsp;&nbsp;<a href="/public/pdf/berl2015on_the_value_of_conserving_human_cultural_diversity.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>

@@ -7,6 +7,14 @@ title: Presentations
 
 <br>
 
+<strong><a href="https://docs.google.com/presentation/d/1qairhtd0OvDC2WDiaB9rP2j_nBl1IksoTmjVgHvmdIw/edit?usp=sharing" target="_blank">Tell Me a Story: Comparing the Effects of Prestige and Content Biases on Cultural Transmission</a></strong>
+<br>October 24, 2018
+<br>Second Meeting of the Cultural Evolution Society, Arizona State University, Tempe, AZ
+
+<strong><a href="https://docs.google.com/presentation/d/1v0It3DyVYsoUA9ll6lO80Yg94gK8MLHOZ-OTZdlfKL4/edit?usp=sharing" target="_blank">Demographic and Cultural History of the Chabu Hunter-Gatherers of Southwestern Ethiopia</a></strong>
+<br>October 23, 2018
+<br>Second Meeting of the Cultural Evolution Society, Arizona State University, Tempe, AZ
+
 <strong><a href="https://docs.google.com/presentation/d/1WBsvZj8PzXGe2Q5kpK2V679Yw8uEY9aj2gs-50tL-VM/edit?usp=sharing" target="_blank">The Universe is Made of Stories</a></strong>
 <br>February 12, 2018
 <br>Three Minute Challenge, Vice President for Research Fellows Program, Colorado State University, Fort Collins, CO
