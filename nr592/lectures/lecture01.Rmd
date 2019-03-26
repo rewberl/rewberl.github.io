@@ -1,8 +1,8 @@
 ---
 title: |
-  | Week 1, Lecture 01:
   | &nbsp;
-  | Introduction to R programming and data structures, Part I
+  | Introduction to R programming and data structures
+  | Week 1, Lecture 01:
 author: |
   | &nbsp;
   | Richard E.W. Berl
@@ -15,9 +15,10 @@ output:
     theme: flatly
     toc: yes
     toc_float: yes
-  pdf_document: 
+  pdf_document:
     highlight: haddock
     toc: yes
+header-includes: \usepackage{pmboxdraw}
 ---
 
 ## Introduction  
@@ -227,6 +228,8 @@ output:
 
 * Tibbles (`tibble` package) and piping (`magrittr` package)  
 
+* Statistical theory (_except when necessary_)
+
 <br>
 
 ## Setting up a computing workflow
@@ -299,6 +302,10 @@ Run current line/selection of code:
 * Ctrl+Enter (Windows)  
 * Command+Enter (Mac)  
 
+Clear console:  
+
+* Ctrl+L (Windows & Mac)  
+
 Source: [RStudio Keyboard Shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)
 
 ### Objects
@@ -362,34 +369,6 @@ c * 2
 
 Use spacing to your advantage to make your code more easily readable. If you have a line of code that goes over 80 characters (the thin line on the right side of your script pane), insert returns after operators (+, -, etc.) for clean breaks in your code. R will auto-indent the next line for you.
 
-
-**Reassignment**
-
-```{r}
-a
-b
-
-a = a + b
-a
-
-a = a + b
-a
-
-a = a + b
-a
-```
-
-What is the value of `b`?
-
-```{r}
-b
-```
-
-Why didn't `b` change?
-
-We never reassigned it (`b = ...`), only the value of `a`.
-
-
 ### Scripts
 
 **Always work in scripts!**
@@ -399,155 +378,7 @@ Open a new R script:
 * Ctrl+Shift+N (Windows)  
 * Command+Shift+N (Mac)  
 
-
-#### Commenting  
-
-```{r}
-# "This line is commented out."
-"This line is not commented out."
-```
-
-Comment/uncomment line:  
-
-* Ctrl+Shift+C (Windows)  
-* Command+Shift+C (Mac)  
-
-**An example of well-commented code:**
-
-```{r}
-# Load iris data
-data(iris)
-
-# View structure of iris data
-str(iris)
-
-# Subset iris data to Species versicolor
-irisVe = subset(x=iris, subset=Species == "versicolor")
-
-# Find correlation between sepal length and petal length in versicolor
-cor(x=irisVe$Sepal.Length, y=irisVe$Petal.Length)  # Result: 0.754049
-```
-
-You can read about the iris data set by entering `?iris` in the console. Notice where R. A. Fisher's paper was published. We'll address this, and the dark side of the origins of statistics, in Week 4.
-
-
-### Packages
-
-### Projects
-
-Working directory  
-Relative paths
-
-
-
-## Data types and classes
-
-### Numeric
-
-Continuous (floating point)  
-- Real  
-- Complex  
-Discrete  
-- Binary (logical/boolean)  
-- Integer
-
-### Ordinal
-
-Ordered factor
-
-### Categorical
-
-String (character)
-Factor
-
-### Date  
-lubridate
-
-### Coercion
-
-
-
-## Data structures
-
-### Vectors
-
-Can only have one type
-
-### Matrices
-
-### Data Frames
-
-### Lists
-
-### Functions
-
-```{r}
-a
-b
-c
-
-mean(x=c(a, b, c))
-```
-
-Let's make our own function to add the variable `a` to the variable `b`.
-
-```{r, error=TRUE}
-a_plus_b = function(a, b){
-  aPlusB = a + b
-  return(aPlusB)
-}
-
-a_plus_b(a=1, b=5)
-```
-
-What if we just use `aPlusB` instead of the whole function?
-
-```{r, error=TRUE}
-aPlusB(a=1, b=5)
-```
-
-Why doesn't this work?
-
-`aPlusB` is a variable, not a function. You can't pass other variables to it.
-
-Let's see what value is stored for the `aPlusB` variable.
-
-```{r, error=TRUE}
-aPlusB
-```
-
-Why doesn't this work?
-
-`aPlusB` only exists inside the `a_plus_b` function. It doesn't have a value assigned to it in the "global environment" that we're working in. (Look in the "Environment" tab in RStudio.) `aPlusB` is called an "internal variable" because it only assigned inside the function when it's called, and is removed as soon as the function is finished running.
-
-
-
-## Operations
-
-### Common Functions
-str()
-names()
-class()
-dim()
-length()
-nrow()
-ncol()
-rownames()
-colnames()
-gc()
-?
-View()
-rm()
-
-### Subsetting
-
-### Conditionals
-
-### Iteration
-
-#### Loops
-
-#### Apply
+Source: [RStudio Keyboard Shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)
 
 
 <br><br>

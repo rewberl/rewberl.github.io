@@ -1,0 +1,336 @@
+---
+title: |
+  | &nbsp;
+  | Introduction to R programming and data structures
+  | Week 1, Lecture 02:
+author: |
+  | &nbsp;
+  | Richard E.W. Berl
+date: |
+  | Spring 2019
+  | &nbsp;
+output:
+  html_document:
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    highlight: haddock
+    toc: yes
+header-includes: \usepackage{pmboxdraw}
+---
+
+## Basic concepts in R (cont.)
+
+### Objects
+
+#### Variables
+
+**Reassignment**
+
+```{r}
+a = 1
+b = 2
+c = 42
+a
+b
+
+a = a + b
+a
+
+a = a + b
+a
+
+a = a + b
+a
+```
+
+What is the value of `b`?
+
+```{r}
+b
+```
+
+Why didn't `b` change?
+
+We never reassigned it (`b = ...`), only the value of `a`.
+
+
+### Scripts
+
+**Always work in scripts!**
+
+Open a new R script:
+
+* Ctrl+Shift+N (Windows)  
+* Command+Shift+N (Mac)  
+
+Source: [RStudio Keyboard Shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)
+
+#### Commenting  
+
+```{r}
+# "This line is commented out."
+"This line is not commented out."
+```
+
+Comment/uncomment line:  
+
+* Ctrl+Shift+C (Windows)  
+* Command+Shift+C (Mac)  
+
+**An example of well-commented code:**
+
+```{r}
+# Load iris data
+data(iris)
+
+# View structure of iris data
+str(iris)
+
+# Subset iris data to Species versicolor
+irisVe = subset(x=iris, subset=Species == "versicolor")
+
+# Find correlation between sepal length and petal length in versicolor
+cor(x=irisVe$Sepal.Length, y=irisVe$Petal.Length)  # Result: 0.754049
+```
+
+You can read about the iris data set by entering `?iris` in the console. Notice where R. A. Fisher's paper was published. We'll address this, and the dark side of the origins of statistics, in Week 4.
+
+
+### Packages
+
+Packages are collections of functions and data sets useful for conducting different types of analyses.
+
+You can get a list of packages that come installed with R using the command (more detail available by removing the `rownames()` wrapper):
+
+```{r}
+rownames(installed.packages(priority="high"))
+```
+
+Additional packages can be installed using the `install.packages()` function, for example:
+
+```{r, eval=FALSE}
+install.packages("ggplot2")
+install.packages(c("dplyr","tidyr"))
+```
+
+Notice that if you're installing multiple packages at once, the list of packages **must** be given as a vector.
+
+Load packages using the `library()` function:
+
+```{r, eval=FALSE}
+library(ggplot2)
+```
+
+You can only load packages one at a time. Sometimes load order matters, because if two packages have functions with the same name, the last one loaded is the one R will assume you are referring to. To specify which one you want, you can put the package name before your function call, like so: `dplyr::arrange()`.
+
+`install.packages()` has to have the package name in quotes. For `library()`, quotes are optional.
+
+Lists of packages useful for specific tasks, such as machine learning or Bayesian inference, are available on the [Task Views](https://cran.r-project.org/web/views/) page of [CRAN](https://cran.r-project.org/) ("Comprehensive R Archive Network"), which is an official site run by the developers of R.
+
+
+## Data types and classes
+
+### Nominal (or Categorical)
+
+<em>"A nominal scale variable (also referred to as a categorical variable) is one in which there is no particular relationship between the different possibilities: for these kinds of variables it doesn't make any sense to say that one of them is "bigger" or "better" than any other one, and it absolutely doesn't make any sense to average them... In short, nominal scale variables are those for which the only thing you can say about the different possibilities is that they are different. That's it."</em>
+
+Source: [Navarro, Section 2.2](https://learningstatisticswithr.com/book/studydesign.html#scales)
+
+In R:
+
+* **Factor**
+
+We'll come back to these later, when we get to data frames.
+
+
+### Ordinal (or Ranked)
+
+<em>"Ordinal scale variables have a bit more structure than nominal scale variables, but not by a lot. An ordinal scale variable is one in which there is a natural, meaningful way to order the different possibilities, but you can’t do anything else."</em>
+
+Source: [Navarro, Section 2.2](https://learningstatisticswithr.com/book/studydesign.html#scales)
+
+In R:  
+
+* **Ordered factor**
+
+
+### Measurement
+
+#### Continuous
+
+<em>"A continuous variable is one in which, for any two values that you can think of, it’s always logically possible to have another value in between."</em>
+
+Source: [Navarro, Section 2.2](https://learningstatisticswithr.com/book/studydesign.html#scales)
+
+In R:  
+
+* **Numeric**
+
+#### Discrete
+
+<em>"A discrete variable is, in effect, a variable that isn’t continuous. For a discrete variable, it’s sometimes the case that there’s nothing in the middle."</em>
+
+Source: [Navarro, Section 2.2](https://learningstatisticswithr.com/book/studydesign.html#scales)
+
+In R:  
+
+* **Integer**  
+
+```{r}
+m = 5L
+n = 1L
+m + n
+```
+
+* **Logical** (_sometimes_)  
+
+```{r}
+r = 300 > 1
+r
+s = 5 == 4
+s
+r + s
+```
+
+This behavior is useful for summing how many of something are present or fit a certain condition, using the `sum()` function.
+
+### Other types
+
+See the following for a list of all basic classes included in R:
+
+```{r, eval=FALSE}
+?methods::`character-class`
+```
+
+#### Character (or String)
+
+```{r, error=TRUE}
+x = "apple"
+y = "orange"
+z = "2.5"
+
+x + y
+
+z
+b
+z + b
+```
+
+Very common, used to represent plain text. If you want them to be meaningful as data (e.g. Condition A vs. Condition B), you should coerce the variable to a factor (see below).
+
+#### Date and Time
+
+In R these are:  
+
+* Date  
+* POSIXct  
+* POSIXlt
+
+For example, see:
+
+```{r}
+Sys.Date()
+str(Sys.Date())
+Sys.time()
+str(Sys.time())
+```
+
+These are **awful** to deal with in R. Avoid doing analyses on dates and times whenever possible. If you must, look into the `lubridate` package to make things a bit easier.
+
+
+### Coercion
+
+
+
+## Data structures
+
+### Vectors
+
+Can only have one type
+
+### Matrices
+
+### Data Frames
+
+### Lists
+
+### Functions
+
+```{r}
+a
+b
+c
+
+mean(x=c(a, b, c))
+```
+
+Let's make our own function to add the variable `a` to the variable `b`.
+
+```{r, error=TRUE}
+a_plus_b = function(a, b){
+  aPlusB = a + b
+  return(aPlusB)
+}
+
+a_plus_b(a=1, b=5)
+```
+
+What if we just use `aPlusB` instead of the whole function?
+
+```{r, error=TRUE}
+aPlusB(a=1, b=5)
+```
+
+Why doesn't this work?
+
+`aPlusB` is a variable, not a function. You can't pass other variables to it.
+
+Let's see what value is stored for the `aPlusB` variable.
+
+```{r, error=TRUE}
+aPlusB
+```
+
+Why doesn't this work?
+
+`aPlusB` only exists inside the `a_plus_b` function. It doesn't have a value assigned to it in the "global environment" that we're working in. (Look in the "Environment" tab in RStudio.) `aPlusB` is called an "internal variable" because it only assigned inside the function when it's called, and is removed as soon as the function is finished running.
+
+
+
+## Operations
+
+### Common Functions
+str()
+names()
+class()
+dim()
+length()
+nrow()
+ncol()
+rownames()
+colnames()
+gc()
+help()/?
+View()
+rm()
+
+### Subsetting
+
+### Conditionals
+
+### Iteration
+
+#### Loops
+
+#### Apply
+
+
+<br><br>
+
+
+([pdf](./lecture01.pdf) / [Rmd](./lecture01.Rmd))
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
