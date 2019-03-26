@@ -50,7 +50,7 @@ output:
 
 ### Lectures
 
-* Tuesday, March 26: **Lecture 01** (pdf / Rmd)
+* Tuesday, March 26: **[Lecture 01](./lectures/lecture01.html)** ([pdf](./lectures/lecture01.pdf) / [Rmd](./lectures/lecture01.Rmd))
 
 * Thursday, March 28: **Lecture 02** (pdf / Rmd)
 
