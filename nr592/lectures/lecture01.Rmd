@@ -231,8 +231,11 @@ output:
 
 ## Setting up a computing workflow
 
-Create a folder structure for this course (see recommendations in required
-reading by FitzJohn):
+Good organization will save you time and frustration. Future you will thank present you. Trust me. You will have analyses that you'll come back to years later and wonder what in the world you were thinking. It also makes collaborative work a whole lot easier when your work is organized.
+
+See the required reading by FitzJohn and their recommendations for organizing a project. Do it for this class and use it to help organize your own research projects, as well. The earlier, the better.
+
+Create a folder structure for this course. I'd recommend something like the following:
 
 ```{r, eval=FALSE}
 nr592/
@@ -245,7 +248,11 @@ nr592/
  └─ lecture01.R
 ```
 
-Create a project for this course:
+You may want to create another folder, like `lectures\`, to keep my R Markdown lecture files in (the `lecture01.R` in the structure above refers to your own notes). Or you could put them in `docs\`.
+
+All of the above are just suggestions. Do what makes sense to you and stick with it.
+
+Now we're going to create an R project file for the course. You should put it in your main class folder, like this:
 
 ```{r, eval=FALSE}
 nr592/
@@ -257,6 +264,26 @@ nr592/
 └── nr592.Rproj
 ```
 
+Use the button in the top right that says "Project: (None)" and select "New Project..." Choose "Existing Directory" if you've already made the class folder, as above. Navigate to the class folder and hit "Create Project."
+
+You're done! Any time you need to work on something for this class, you can open this project and any scripts you had open last time will open up for you.
+
+Importantly, your working directory (the directory where R will look for any files you're loading or saving) is set to your class directory while you are working on scripts in your R project.
+
+You can check your working directory at any time by running:
+
+```{r}
+getwd()
+```
+
+(This is my current working directory.)
+
+And if you need to change it, you can do so using `setwd()` with the full folder path inside quotes, inside the parentheses, like so:
+
+`setwd("C:/My Research/My Big Project/")`
+
+(Note the direction of the slashes.)
+
 
 <br>
 
@@ -264,6 +291,8 @@ nr592/
 ## Basic concepts in R
 
 <big>**DON'T BE AFRAID TO FAIL!**</big>
+
+Type something and run it! It doesn't matter if you get an error; you won't break anything.
 
 Run current line/selection of code:  
 
@@ -290,6 +319,11 @@ b
 c
 ```
 
+Assignment can also be done using the `<-` operator (i.e. `c <- 42`). I like using `=` because it uses fewer keystrokes and is more similar to other programming languages, like Python. You can use either, just pick one and stick with it.
+
+If you use `=`, keep in mind that `=` is used for assignment and `==` is used for logical comparisons, i.e. "Does `a == 7`? `FALSE`".
+
+If you use `<-`, the direction of the arrow matters: `c <- 42` is the same as `42 -> c`, but is different from `c -> 42`. You can also assign a value to multiple variables at once with this operator, i.e. `g <- h <- i <- 6`.
 
 **Operations**
 
@@ -298,6 +332,36 @@ a + b
 a^2 + b^2
 c / (a + b)
 ```
+
+Spacing doesn't matter.
+
+```{r}
+c / (a                                                                     +b )
+```
+
+You can even hit 'Enter'/'Return' in a script (see below) and carry on to the next line.
+
+```{r}
+(a - c) +
+  (a * b) +
+  (c / b)
+```
+
+Or leave empty lines between commands (though you wouldn't want to do this in the middle of a command--it would be confusing and _bad stuff_ could happen).
+
+```{r, eval=FALSE}
+a + b + c - b^2
+
+
+
+
+c * 2
+```
+
+(This code block wasn't evaluated so that you could actually see the spacing, but it works! Try it.)
+
+Use spacing to your advantage to make your code more easily readable. If you have a line of code that goes over 80 characters (the thin line on the right side of your script pane), insert returns after operators (+, -, etc.) for clean breaks in your code. R will auto-indent the next line for you.
+
 
 **Reassignment**
 
@@ -315,10 +379,20 @@ a = a + b
 a
 ```
 
+What is the value of `b`?
+
+```{r}
+b
+```
+
+Why didn't `b` change?
+
+We never reassigned it (`b = ...`), only the value of `a`.
+
 
 ### Scripts
 
-Always work in scripts!
+**Always work in scripts!**
 
 Open a new R script:
 
@@ -354,6 +428,9 @@ irisVe = subset(x=iris, subset=Species == "versicolor")
 cor(x=irisVe$Sepal.Length, y=irisVe$Petal.Length)  # Result: 0.754049
 ```
 
+You can read about the iris data set by entering `?iris` in the console. Notice where R. A. Fisher's paper was published. We'll address this, and the dark side of the origins of statistics, in Week 4.
+
+
 ### Packages
 
 ### Projects
@@ -385,6 +462,8 @@ Factor
 
 ### Date  
 lubridate
+
+### Coercion
 
 
 
@@ -453,9 +532,12 @@ dim()
 length()
 nrow()
 ncol()
+rownames()
+colnames()
 gc()
 ?
 View()
+rm()
 
 ### Subsetting
 

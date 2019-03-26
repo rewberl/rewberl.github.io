@@ -9,7 +9,7 @@ author: |
 date: |
   | Spring 2019
   | &nbsp;
-  | Last Updated: 2019-03-05
+  | Last Updated: 2019-03-25
   | &nbsp;
 output:
   html_document:
@@ -68,7 +68,7 @@ output:
         
 <!-- end of list -->
 
-1. **Assignment 1** (Due April 2)
+1. **[Assignment 1](./assignments/assignment1.html)** ([pdf](./assignments/assignment1.pdf) / [Rmd](./assignments/assignment1.Rmd)) (Due April 2)
 
 ### Resources
 
@@ -126,7 +126,7 @@ output:
 
             <!-- end of list -->
 
-    a. Tukey, J. W. (1977). Preface. In _Exploratory data analysis_ (pp. v-ix). Reading, MA: Addison-Wesley. Available: [here](./resources/tukey1977preface.pdf)
+    a. Tukey, J. W. (1977). Preface. In _Exploratory data analysis_ (pp. v-ix). Reading, MA: Addison-Wesley. Available: [here (pdf)](./resources/tukey1977preface.pdf)
 
 1. **Assignment 2** (Due April 9)
 
@@ -139,6 +139,8 @@ output:
 * Wickham, H., & Grolemund, G. Chapter 12: Tidy data. In _R for data science_. Available: https://r4ds.had.co.nz/tidy-data.html
 
 * Navarro, D. Chapter 7: Pragmatic matters. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/datahandling.html
+
+* Chang, W. Converting data between wide and long format. In _Cookbook for R_. Available: http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/
 
 **Exploratory Data Analysis**
 
@@ -195,6 +197,8 @@ output:
 * Wilke, C. O. Fundamentals of data visualization. Available: https://serialmentor.com/dataviz/
 
 * BBC Open Source. BBC visual and data journalism cookbook for R graphics. Available: https://bbc.github.io/rcookbook/
+
+* The Urban Institute. Urban Institute R graphics guide. Available: https://urbaninstitute.github.io/urban_R_theme/
 
 * Geckoboard. Play your charts right: Tips for effective data visualization. Available: https://www.geckoboard.com/learn/data-literacy/data-visualization-tips/
 
@@ -323,7 +327,7 @@ Confirmatory Factor Analysis
 
 **Geospatial Mapping**
 
-Grossenbacher, T. Beautiful thematic maps with ggplot2 (only). Avalable: https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/
+* Grossenbacher, T. Beautiful thematic maps with ggplot2 (only). Avalable: https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/
 
 
 <br>
