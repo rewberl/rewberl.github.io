@@ -8,7 +8,7 @@ output:
   html_document:
     highlight: haddock
     theme: flatly
-  pdf_document: 
+  pdf_document:
     highlight: haddock
 ---
 
