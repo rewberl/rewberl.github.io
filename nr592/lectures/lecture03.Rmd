@@ -10,6 +10,12 @@ output:
     highlight: haddock
 ---
 
+## Manipulating data
+
+### Subsetting
+
+Subsetting is one of the most common tasks when you're dealing with data. There are multiple ways to subset data, specifically when it is in a data frame.
+
 ## Data cleaning
 
 ### Finding and fixing missing data

@@ -12,9 +12,7 @@ output:
     highlight: haddock
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 
 _Last Updated: 2019-03-28_
 
@@ -31,9 +29,7 @@ Before submitting your assignment, ensure that your code for each question works
 
 Create a vector named `v1` that contains the integers 1 through 5 (without using the `seq()` function).
 
-```{r 1.1}
 
-```
 
 ### 1.2
 
@@ -41,9 +37,7 @@ Using the `seq()` function, create a vector named `v2` that contains the integer
 
 Divide every number in `v2` by 2 and reassign the result to `v2`.
 
-```{r 1.2}
 
-```
 
 ### 1.3
 
@@ -53,31 +47,26 @@ Add `v1sq` to `v2` and assign the result to `v3`.
 
 Remove `v1sq` from the environment.
 
-```{r 1.3}
 
-```
 
 ### 1.4
 
 Inspect the class of each vector (`v1`, `v2`, and `v3`). If any of these vectors are not of the integer class, print (show) their values, coerce (change) their class to integer, and reassign them under the same names.
 
-```{r 1.4}
 
-```
 
 ### 1.5
 
 Print the new values of any vector that was coerced to integer.
 
-```{r 1.5a}
 
-```
 
 What changed when these values were coerced to integers?
 
 Why would it be dangerous to coerce real data without inspecting it first?
 
-```{r 1.5b, eval=FALSE, echo=TRUE}
+
+```r
 Delete this and enter your response here.
 ```
 
@@ -85,21 +74,18 @@ Delete this and enter your response here.
 
 Find and use a function that will reverse the order of `v3`, and reassign the result to `v3`.
 
-```{r 1.6}
 
-```
 
 ### 1.7
 
 Coerce `v1` to an ordered factor (ordinal variable). Inspect the structure of `v1`.
 
-```{r 1.7a}
 
-```
 
 How many levels does `v1` have? Which is the lowest level?
 
-```{r 1.7b, eval=FALSE, echo=TRUE}
+
+```r
 Delete this and enter your response here.
 ```
 
@@ -107,9 +93,7 @@ Delete this and enter your response here.
 
 Identify which values of `v1` are less than the corresponding values of `v2`.
 
-```{r 1.8}
 
-```
 
 
 ## Question 2
@@ -122,9 +106,7 @@ Print the resulting matrix.
 
 (Hint: When you're finished, the first row should read `1    3   30`.)
 
-```{r 2.1}
 
-```
 
 ### 2.2
 
@@ -134,9 +116,7 @@ Coerce `m1` to a data frame named `df1` and assign `m1cols` as its column names.
 
 Print the resulting data frame.
 
-```{r 2.2}
 
-```
 
 ### 2.3
 
@@ -144,9 +124,7 @@ Inspect the structure of `df1`.
 
 If the classes of any of the columns are different than the vectors they were created from, coerce them back to their original types.
 
-```{r 2.3}
 
-```
 
 ### 2.4
 
@@ -154,9 +132,7 @@ Add a new column to `df1` called "id". The values of this column should be strin
 
 Coerce the `id` column to a factor (nominal/categorical variable).
 
-```{r 2.4}
 
-```
 
 ### 2.5
 
@@ -164,9 +140,7 @@ Rearrange `df1` so that `id` is the first column, followed by `age`, `height`, a
 
 Make sure that the class of each column is the same as it was before being reordered.
 
-```{r 2.5}
 
-```
 
 
 ## Question 3 (**Extra Credit**)
@@ -177,9 +151,7 @@ Write a function to calculate and return the mean of any five input numbers (wit
 
 (Hint: You can write your function to handle either: one input variable that is a vector of five numbers; or five different input variables, each of which is a number. Both could work. Read the next part of the problem and think about which will be easier for your input data.)
 
-```{r 3.1}
 
-```
 
 ### 3.2
 
@@ -187,9 +159,7 @@ Plug each variable (column) from your `df1` data frame (except `id`) into your f
 
 (Hint: You may have to coerce the class of one of your variables to numeric when you plug it in.)
 
-```{r 3.2}
 
-```
 
 ### 3.3
 
@@ -214,9 +184,7 @@ Variable 4:
 14.8
 ```
 
-```{r 3.3}
 
-```
 
 
 <br><br>

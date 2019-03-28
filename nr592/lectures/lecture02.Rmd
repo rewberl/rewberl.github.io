@@ -27,15 +27,17 @@ header-includes: \usepackage{pmboxdraw}
 
 #### Variables
 
-**Reassignment**
-
 ```{r}
 a = 1
 b = 2
 c = 42
-a
-b
+```
 
+**Reassignment**
+
+Just like we assign values to variables, we can reassign them and overwrite the old value.
+
+```{r}
 a = a + b
 a
 
@@ -54,7 +56,7 @@ b
 
 Why didn't `b` change?
 
-We never reassigned it (`b = ...`), only the value of `a`.
+We never reassigned `b` (`b = ...`), we only reassigned the value of `a`.
 
 
 ### Scripts
@@ -112,11 +114,11 @@ rownames(installed.packages(priority="high"))
 Additional packages can be installed using the `install.packages()` function, for example:
 
 ```{r, eval=FALSE}
-install.packages("ggplot2")
-install.packages(c("dplyr","tidyr"))
+install.packages("tidyverse")
+install.packages(c("reshape2","Hmisc"))
 ```
 
-Notice that if you're installing multiple packages at once, the list of packages **must** be given as a vector.
+Notice that if you're installing multiple packages at once, the list of packages **must** be given as a vector (i.e. wrapped inside the `c()` function).
 
 Load packages using the `library()` function:
 
@@ -139,7 +141,7 @@ Lists of packages useful for specific tasks, such as machine learning or Bayesia
 
 Source: [Navarro, Section 2.2](https://learningstatisticswithr.com/book/studydesign.html#scales)
 
-In R:
+Corresponding class in R:  
 
 * **Factor**
 
@@ -152,9 +154,11 @@ We'll come back to these later, when we get to data frames.
 
 Source: [Navarro, Section 2.2](https://learningstatisticswithr.com/book/studydesign.html#scales)
 
-In R:  
+Corresponding class in R:  
 
 * **Ordered factor**
+
+We'll have a whole section later on how to deal with ordinal data. Likert-type scales are ordinal.
 
 
 ### Measurement
@@ -165,9 +169,12 @@ In R:
 
 Source: [Navarro, Section 2.2](https://learningstatisticswithr.com/book/studydesign.html#scales)
 
-In R:  
+Corresponding class in R:  
 
 * **Numeric**
+
+This is what we've been working with already (see the variables `a`, `b`, and `c` above). You can perform mathematical operations on a numeric variable (sometimes called a "float," for "floating point number," the "point" part referring to the decimal point), and most statistical procedures are based on the assumption of working with a continuous (numeric) variable.
+
 
 #### Discrete
 
@@ -175,7 +182,7 @@ In R:
 
 Source: [Navarro, Section 2.2](https://learningstatisticswithr.com/book/studydesign.html#scales)
 
-In R:  
+Corresponding classes in R:  
 
 * **Integer**  
 
@@ -184,6 +191,8 @@ m = 5L
 n = 1L
 m + n
 ```
+
+Don't ask what the "L" stands for. Nobody knows. It's just how you specify you want a number as an integer rather than as a numeric variable. Most times it won't matter, and you'll be fine sticking with numeric variables.
 
 * **Logical** (_sometimes_)  
 
@@ -196,6 +205,7 @@ r + s
 ```
 
 This behavior is useful for summing how many of something are present or fit a certain condition, using the `sum()` function.
+
 
 ### Other types
 
@@ -211,15 +221,37 @@ See the following for a list of all basic classes included in R:
 x = "apple"
 y = "orange"
 z = "2.5"
-
-x + y
-
+x
+y
 z
-b
-z + b
 ```
 
 Very common, used to represent plain text. If you want them to be meaningful as data (e.g. Condition A vs. Condition B), you should coerce the variable to a factor (see below).
+
+What happens if we try to put them together?
+
+```{r, error=TRUE}
+x + y
+
+z + b
+```
+
+These don't work, because they're apples and oranges.
+
+Really, it's because you can't perform mathematical operations on characters (but see coercion, below). You _can_ concatenate them using the `paste()` function if you want to combine them with something else, like this:
+
+```{r}
+xy = paste(x, y)
+
+zb = paste(z, b)
+```
+
+You can then split them apart again later, if needed. One way to do this is `strsplit()`:
+
+```{r}
+strsplit(x=xy, split=" ", fixed=TRUE)
+```
+
 
 #### Date and Time
 
@@ -238,26 +270,331 @@ Sys.time()
 str(Sys.time())
 ```
 
-These are **awful** to deal with in R. Avoid doing analyses on dates and times whenever possible. If you must, look into the `lubridate` package to make things a bit easier.
+These are a **nightmare** to deal with in R. Avoid doing analyses on dates and times whenever possible. If you must, look into the `lubridate` package to make things a bit easier.
 
 
 ### Coercion
 
+Remember `z + b` above? What if, instead of concatenating the strings, you wanted to treat `z` as a number and add it to `b`?
+
+```{r, error=TRUE}
+z
+b
+z + b
+```
+
+This doesn't work because R is still treating `z` as a character that reads "2.5" rather than the number 2.5. But we can change a variable's class by "coercing" it to a different class. When R does this, it makes its best guess at how the values should be represented in the other class. With some coercions, such as this one, it is relatively straightforward:
+
+```{r}
+z = as.numeric(z)
+z
+
+z + b
+```
+
+(Coercion functions are usually `as.` and the name of the class.)
+
+Some coercions may not be so intuitive, and R will throw a warning when it can't figure out what to do:
+
+```{r}
+steve = "Steve"
+as.numeric(steve)
+```
+
+What do you mean you want to change "Steve" to a number? I don't know. R doesn't know either. Maybe you want to sum the numbers of each letter of the alphabet that spells "Steve"? Maybe you want to know what number "Steve" appears in a vector or data frame? Whatever it is, you'll need to be more precise in telling R what it is you want.
+
+Bonus activity: What would the answer to the first question be? What is the sum of "Steve"?
+
+
+### NA and other constants
+
+Above, you'll notice that R returned the value `NA` when we tried to coerce "Steve" to numeric. `NA` (without quotes or anything) is a special constant defined in R that indicates a missing value. This will be important later when we deal with real data, and it's important to define any missing values as `NA` so that R treats them appropriately.
+
+There are a few other constants defined in R, which you can see listed by running this line:
+
+```{r, eval=FALSE}
+?base::`Constants`
+```
+
+Try `letters` (compare with `LETTERS`), `pi`, or `month.name`. They come in handy occasionally (like for our "bonus activity" above).
 
 
 ## Data structures
 
 ### Vectors
 
-Can only have one type
+A vector is the most basic data structure in R, and most other structures are made up of vectors. A vector is made up of one or more elements, up to (2^31)-1 (or about 2 billion).
+
+(Note for R markdown users, you can have R evaluate a statement within a line of text like this: (2^31)-1 = `r format((2^31)-1, scientific=FALSE)`.)
+
+You make a vector using the `c()` function, like so:
+
+```{r}
+numVec = c(1,2,3,8,9,10)
+numVec
+
+charVec = c("the","quick","brown","fox")
+charVec
+```
+
+In case you don't believe me, let's make sure that they are both vectors:
+
+```{r}
+is.vector(numVec)
+is.vector(charVec)
+```
+
+You can reference individual elements of a vector by using brackets (`[]`) and the number of the element (the first element is `[1]`):
+
+```{r}
+numVec[6]
+charVec[2]
+```
+
+Note that, if I want the number 8, it's the fourth element in my `numVec` vector, so I have to use `[4]`, not `[8]`:
+
+```{r, error=TRUE}
+numVec[4]
+numVec[8]
+```
+
+You can reassign individual elements of a vector this way:
+
+```{r}
+numVec[1] = 10000
+numVec
+```
+
+Or use the referenced value in some math:
+
+```{r}
+numVec[4] / 2
+```
+
+You can combine vectors:
+
+```{r}
+numVecB = c(75,100,500)
+numVecC = c(numVec, numVecB)
+numVecC
+
+charVecB = c("jumps","over","the","lazy","dog")
+charVecC = c(charVec, charVecB)
+charVecC
+```
+
+But a vector can only contain elements of one class. Let's check the classes of our first two vectors and try to combine them:
+
+```{r, error=TRUE}
+class(numVec)
+class(charVec)
+mixVec = c(numVec, charVec)
+mixVec
+```
+
+Notice how it converted our numeric vector to character (we established that the other way around makes no sense), so that it could combine them like we asked it to.
+
+You can make an empty vector of a specific class by using the function for that class:
+
+```{r}
+emptyNumVec = numeric()
+emptyNumVec
+```
+
+And then add stuff to it later:
+
+```{r}
+emptyNumVec[1] = 2
+emptyNumVec[2] = 4
+emptyNumVec
+```
+
+You can also perform mathematical operations on numeric vectors, the same way that you can with numeric variables. When you do so, it matches the first element of one vector with the first element of the other, and the second element of one vector with the second element of the other, _et cetera_:
+
+```{r}
+numVec
+numVecB
+
+numVec + numVecB
+```
+
+What happened here?
+
+There were twice as many elements in `numVec` as in `numVecB`, so R looped through `numVecB` again when it was looking for more elements to add. So, R did `10000 + 75, 2 + 100, 3 + 500, 8 + 75, 9 + 100, 10 + 500`.
+
+This is a cool feature (and it will throw a warning if one vector is not a multiple of the other), but be careful, because you may do it without meaning to, and end up with a mess. It's usually better to make sure both of your vectors are the same length beforehand.
+
+You can check the length of a vector with... wait for it... `length()`:
+
+```{r}
+length(numVec)
+length(numVecB)
+```
+
 
 ### Matrices
 
+A matrix is a way to store data in a tabular (table) form, made up of rows and columns. There are whole fields of math dealing with matrices and matrix operations (matrix algebra and linear algebra), but we're not going to get into their mathematical properties. For you, and for the purposes of analyzing data in R, a matrix is made up of rows and columns, both of which are represented as vectors.
+
+Let's make one:
+
+```{r}
+firstM = matrix(data=c(4,81,5,84,
+                       70,72,74,69,
+                       29,34,27,3),
+                nrow=3, ncol=4)
+firstM
+```
+
+Wait, that didn't turn out the way we wanted. Look at how we listed our data how the matrix turned out. Let's look at the help documentation for `matrix()`:
+
+```{r, eval=FALSE}
+help(matrix)
+```
+
+Or, as a helpful shortcut, you can also use:
+
+```{r, eval=FALSE}
+?matrix
+```
+
+It looks like the `matrix()` function fills the data in by columns by default. But it has an argument (`byrow`) that we can use to make it fill by row, the way we listed the data. Let's try that.
+
+```{r}
+firstM = matrix(data=c(4,81,5,84,
+                       70,72,74,69,
+                       29,34,27,3),
+                nrow=3, ncol=4, byrow=TRUE)
+firstM
+```
+
+Perfect. We can make sure the dimensions are correct with these functions:
+
+```{r}
+dim(firstM)
+nrow(firstM)
+ncol(firstM)
+```
+
+Now, we can reference values in a matrix the same way we referenced elements in a vector, but now we have two dimensions. So, we use two numbers inside the brackets. The first always refers to the row, and the second always refers to the column. So, if we want the value in row 2, column 4 (69), we use:
+
+```{r}
+firstM[2,4]
+```
+
+And we can replace it by reassignment, the same as an element in a vector. This time we'll ask it to subtract 1 from its current value:
+
+```{r}
+firstM[2,4] = firstM[2,4] - 1
+firstM[2,4]
+```
+
+If we want to reference a whole row or column (vector), we only use the number for that row or column, but make sure to leave the comma so R knows which one you want. So, if we want to get the first row, and then the third column, we would use:
+
+```{r}
+firstM[1,]
+firstM[,3]
+```
+
+If we want multiple rows or columns, we can use vectors to tell R which ones we want.
+
+```{r}
+firstM[1:3,c(1,4)]
+```
+
+(The `1:3` syntax above is an easy way to create a vector that is a sequence of integers. This one is equvalent to `c(1,2,3)` or `seq(from=1, to=3, by=1)`.)
+
+
 ### Data Frames
+
+Data frames are unique to R. They are just like matrices (and most anything you can do to a matrix you can also do to a data frame), but each column has a label and a class assigned to it. This is because, in a data frame, each column is treated as a variable and each row is treated as an observation. You can reference these variable names instead of column numbers, and you can use them in formulas.
+
+For this reason, it's usually much easier to work with data frames than with matrices when doing statistical analyses.
+
+Let's make our matrix `firstM` into a data frame.
+
+```{r}
+firstDF = data.frame(firstM)
+firstDF
+```
+
+Our columns (variables) didn't have names, so R assigned them some. Let's fix that. We can reference the names of the rows or columns of a matrix or data frame with `rownames()` or `colnames()`, respectively.
+
+```{r}
+colnames(firstDF)
+length(colnames(firstDF))
+```
+
+It's a character vector of length 4, so we need to replace it with something of the same type and length:
+
+```{r}
+colnames(firstDF) = c("soil","climate","altitude","rating")
+firstDF
+```
+
+Much better. Now we can reference those columns by name:
+
+```{r}
+firstDF$soil
+firstDF$rating / firstDF$altitude
+```
+
+Remember that these are vectors we're pulling out, so if we want a specific value from a column, we only have one dimension in that column vector to reference.
+
+```{r}
+firstDF$altitude[3]
+```
+
+But we can still use row and column numbers to reference specific values in the data frame, as well:
+
+```{r}
+firstDF[1,4] - firstDF[1,1]
+```
+
+We'll do much, much more work with data frames once we start working with data and running analyses.
+
 
 ### Lists
 
+A list is like a vector that can hold other types of objects, or even more lists, inside it. Check it out:
+
+```{r}
+myList = list(numVec,
+              charVec,
+              list(c(1,2,3), c(3,2,1)),
+              "Franz Liszt")
+myList
+```
+
+Just like a vector, we can use brackets to reference an element of a list:
+
+```{r}
+myList[2]
+```
+
+But this returns another list, containing only the second element. If we want the object itself (a vector), we have to use double brackets.
+
+```{r}
+myList[[2]]
+```
+
+We can also reference elements within the referenced object by adding another set of brackets.
+
+```{r}
+myList[[3]]
+myList[[3]][[2]]
+```
+
+Since lists can contain more lists, you could theoretically keep referencing things down many levels. But it wouldn't be good practice to store data like this, because it becomes very cumbersome to access.
+
+Similar to lists are arrays, which are multi-dimensional matrices (matrices within matrices). These can sometimes be useful, and you can learn more about them by bringing up their help page: `?array`.
+
+
 ### Functions
+
+Functions are the bread and butter, or meat and potatoes, or whatever, of R. Almost every line of code you write will be used to run a function. Functions take one or more input arguments, and spit out some output which, depending on the function, could be a number, or a vector, or a data frame, or some other class of object.
+
+For instance, let's use the base function `mean()` to calculate the mean of the first three variables we defined.
 
 ```{r}
 a
@@ -267,7 +604,49 @@ c
 mean(x=c(a, b, c))
 ```
 
-Let's make our own function to add the variable `a` to the variable `b`.
+#### Common functions
+
+Remember that the `help()` function (or `?`) pulls up the documentation for a function, as long as that function is in one of your installed and loaded packages. To get some practice using it, look up the help pages to learn about these functions that you will use all the time:
+
+* `rep()`  
+* `seq()`  
+* `sum()`  
+* `max()` / `min()`  
+* `mean()`  
+* `sd()`  
+* `summary()`  
+* `paste()` / `paste0()`  
+* `str()`  
+* `class()`  
+* `nchar()`  
+* `length()`  
+* `dim()`  
+* `nrow()` / `ncol()`  
+* `dimnames()`  
+* `rownames()` / `colnames()`  
+* `head()` / `tail()`  
+* `is.na()`  
+* `rm()`  
+* `View()`&nbsp;&nbsp;(_note the capital "V"_)  
+&nbsp;
+
+#### Defining a function
+
+The basic structure of writing a function is `NAME = function(ARGUMENT, ARGUMENT, ...){STATEMENTS}`. To tell the function what to output, you use `return(OUTPUT)` before closing the curly bracket.
+
+The general advice is, for anything you plan on doing more than once, put it in a function so that it's cleaner and more easily repeatable. That said, I have found in my own research that I very rarely use the exact same code twice even when performing the same kinds of analyses, because different types and formats of data always require different ways of dealing with them.
+
+It is useful, however, to make a couple functions on your own to see functions in R work. If you ever want to see the guts of a function from an R library, all you have to do is forget to add the parentheses afterwards, like this one for calculating standard deviation:
+
+```{r}
+sd
+```
+
+On the second line, you can see--amongst the mess of checking classes--it takes the square root of the variance of a vector of numbers, just as it should.
+
+(Some won't be helpful in that they just reference other functions or scripts.)
+
+For practice, let's make our own function, one that adds the variable `a` to the variable `b`.
 
 ```{r, error=TRUE}
 a_plus_b = function(a, b){
@@ -278,7 +657,7 @@ a_plus_b = function(a, b){
 a_plus_b(a=1, b=5)
 ```
 
-What if we just use `aPlusB` instead of the whole function?
+Why don't we just use `aPlusB` instead of the whole function?
 
 ```{r, error=TRUE}
 aPlusB(a=1, b=5)
@@ -286,7 +665,7 @@ aPlusB(a=1, b=5)
 
 Why doesn't this work?
 
-`aPlusB` is a variable, not a function. You can't pass other variables to it.
+`aPlusB` is a variable, not a function. You can't pass other variables to it. Functions are defined to have input arguments (and always have `()` afterwards, even if there is no input) and output a result. Variables just hold a value or values for you, so sending it an input doesn't do anything.
 
 Let's see what value is stored for the `aPlusB` variable.
 
@@ -296,41 +675,153 @@ aPlusB
 
 Why doesn't this work?
 
-`aPlusB` only exists inside the `a_plus_b` function. It doesn't have a value assigned to it in the "global environment" that we're working in. (Look in the "Environment" tab in RStudio.) `aPlusB` is called an "internal variable" because it only assigned inside the function when it's called, and is removed as soon as the function is finished running.
-
+`aPlusB` is called a "local" variable, because it only exists inside the `a_plus_b` function and is removed as soon as the function is finished running. It doesn't have a value assigned to it in the "global" environment that we're working in. (Look in the "Environment" tab in RStudio.)
 
 
 ## Operations
 
-### Common Functions
-str()
-names()
-class()
-dim()
-length()
-nrow()
-ncol()
-rownames()
-colnames()
-gc()
-help()/?
-View()
-rm()
-
-### Subsetting
+Also known as control-flow statements, you can see a list of the operations below by using `?Control`.
 
 ### Conditionals
+
+#### If
+
+`if` statements are common in programming. In R, we use them to evaluate whether a statement is true and, if so, to execute one or more commands. Their structure is `if (CONDITION) {RESULT}`. The conditional statement should evaluate as a logical variable; that is, running it on its own should give a `TRUE` or `FALSE`. The whole condition always needs to be inside the parentheses. The result should be entirely within a set of curly brackets following the condition.
+
+It usually helps visually to break it into multiple lines and have the result commands indented under the `if()` statement (RStudio does this formatting automatically), like so:
+
+```{r}
+myValue = 100
+critValue = 50
+if (myValue > critValue) {
+  print("Yes!")
+}
+```
+
+You can also add an `else{}` after the `if()` result to add an outcome to be executed when the `if()` statement resolves as `FALSE`:
+
+```{r}
+myValue = 10
+if (myValue > critValue) {
+  print("Yes!")
+} else {
+  print("No!")
+}
+```
+
+Sometimes it is also helpful to be able to nest `if()` statements inside one another (but more than a couple levels of this can get confusing fast):
+
+```{r}
+myValue = 50
+if (myValue > critValue) {
+  print("Yes!")
+} else {
+  if (myValue == critValue) {
+    print("Maybe...")
+  } else {
+    print("No!")
+  }
+}
+```
+
+#### Which
+
+`which()` is a function that can be used to find which values of an object meet a certain condition. For instance, let's look at the `rating` variable of `firstDF`:
+
+```{r}
+firstDF
+which(firstDF$rating > 35)
+```
+
+`which()` doesn't return the values themselves, it returns the a vector of the indices whose values match the condition. If you want to get the actual values, you need to take the vector of indices that `which()` produces and plug it in to the brackets to reference those elements of the `rating` vector:
+
+```{r}
+firstDF$rating[which(firstDF$rating > 35)]
+```
+
+This can also be used for subsetting data frames, which we will get into next week.
 
 ### Iteration
 
 #### Loops
 
+Loops are another kind of statement common across programming languages. The general idea is to go through each thing in a list of things and execute a command for each one. The most useful one in R is a `for()` statement. The structure is similar to an `if()` statement, in that you have `for (VARIABLE in SEQUENCE) {RESULT}`. The difference is that, instead of a conditional statement inside the parentheses, you have an internal variable (which can be anything you want, but `i`, `j`, `k`... is conventional) that represents how far you are through your loop, and the sequence of things to loop through (represented as the starting value, a colon, and the ending value).
+
+A simple exmaple is:
+
+```{r}
+for (i in 1:5) {
+  print(i)
+}
+```
+
+This loop goes through the sequence of numbers 1 through 5, and for each one prints the value of `i`. In each loop, R changes the value of `i` to match the current number in the sequence, so referencing it in a command is a good way to see where you are (by printing it) or to reference a different value in an object every loop.
+
+For example, let's imagine that `firstDF$altitude` is measured in meters and we want to convert it to feet. We could do this more easily by just multiplying the whole vector by 3.28084, but here we'll do it with a loop.
+
+(There are often many different ways to accomplish the same result in R, and you can always do what works best for you even if it isn't the most straightforward solution.)
+
+We also make a new, empty numeric variable to hold the converted values, called `altitudeFt`.
+
+```{r}
+firstDF
+length(firstDF$altitude)
+
+altitudeFt = numeric()
+for (i in 1:length(firstDF$altitude)) {
+  altitudeFt[i] = firstDF$altitude[i] * 3.28084
+}
+
+altitudeFt
+```
+
+Remember that we can use the counting variable `i` in the `for()` loop to reference objects. Here, we set the loop to run for as many times as the length of the `firstDF$altitude` vector, and then used `i` to reference both the old vector and our new vector at the same time, so that their values end up corresponding with one another.
+
+Once we have the `altitudeFt` variable, we can add it to our data frame by referencing it as a new column variable:
+
+```{r}
+firstDF$altitudeFt = altitudeFt
+firstDF
+```
+
+Like `if()` statements, we can also nest `for()` loops. Here is an example, where `i` represents the row of `firstM` and `j` represents the column, to make the loop run through every value in the two-dimensional matrix. This loop also uses a variable called `tick` and increases it by one at some point in the loop.
+
+```{r}
+tick = 1
+for (i in 1:nrow(firstM)) {
+  for (j in 1:ncol(firstM)) {
+    firstM[i,j] = firstM[i,j] - tick
+  }
+  tick = tick + 1
+}
+
+firstM
+```
+
+So when does `tick` increase and what does this do to our matrix?
+
+The loop starts at row (`i`) 1, then loops through every column (`j`) of row 1, subtracting the value of `tick` from each element. Then, before advancing to row 2, it increases the value of `tick` by 1. Then, it moves to row 2 and loops through every column, subtracting `tick` (which now has a value of 2) from each element, increases `tick` by 1, and so on for the third row.
+
+These kinds of structures are good for doing something to every value of a specific set of rows or columns in a matrix or data frame. Since they have two dimensions, you need two loops and two indicator values (`i` and `j`).
+
+Two other loop structures are available in R, `while()` and `repeat()`. You can check them out. In my experience, they are much more useful in traditional programming and less so in R when you are manipulating and analyzing data. In addition, anything you could do using `while()` or `repeat()` can also be done with a `for()` loop, so at this point it's best to just concentrate on the more flexible `for()` loops.
+
 #### Apply
+
+`apply()` is actually not one function, but a family of functions each for a different data structure that includes `apply()`, `lapply()`, `sapply()`, `vapply()`, `mapply()`, `rapply()`, and `tapply()`. You can check the help file for each for more information. Essentially, they are a faster and more efficient way of looping through the rows or columns (referred to as "margins" in the help) of an object and applying a function to them.
+
+Here is an example, in which we use the `apply()` function (which works on arrays, and matrices count as two-dimensional arrays, just like variables count as one-dimensional vectors) to loop through the columns of `firstM` and calculate the `sum()` of each column:
+
+```{r}
+apply(firstM, 2, sum)
+```
+
+Works great, and it's fast. But, to be honest, I never learned how to use the `apply()` functions well because `for()` loops have always made better sense to me for complex tasks and I haven't been in many situations where speed mattered enough to change `for()` loops to solutions that used the `apply()` family of functions. So, for the purposes of this course, be aware of them, and if you want or need to use an `apply()` function for a specific task, StackOverflow is a good place to find answers and example code.
 
 
 <br><br>
 
 
-([pdf](./lecture01.pdf) / [Rmd](./lecture01.Rmd))
+([pdf](./lecture02.pdf) / [Rmd](./lecture02.Rmd))
 
 <div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

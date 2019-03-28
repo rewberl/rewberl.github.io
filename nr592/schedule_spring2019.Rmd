@@ -9,7 +9,7 @@ author: |
 date: |
   | Spring 2019
   | &nbsp;
-  | Last Updated: 2019-03-25
+  | Last Updated: 2019-03-28
   | &nbsp;
 output:
   html_document:
@@ -52,7 +52,7 @@ output:
 
 * Tuesday, March 26: **[Lecture 01](./lectures/lecture01.html)** ([pdf](./lectures/lecture01.pdf) / [Rmd](./lectures/lecture01.Rmd))
 
-* Thursday, March 28: **Lecture 02** (pdf / Rmd)
+* Thursday, March 28: **[Lecture 02](./lectures/lecture02.html)** ([pdf](./lectures/lecture02.pdf) / [Rmd](./lectures/lecture02.Rmd))
 
 ### Homework
 
@@ -68,7 +68,7 @@ output:
         
 <!-- end of list -->
 
-1. **[Assignment 1](./assignments/assignment1.html)** ([pdf](./assignments/assignment1.pdf) / [Rmd](./assignments/assignment1.Rmd)) (Due April 2)
+2. **[Assignment 1](./assignments/assignment1.html)** ([pdf](./assignments/assignment1.pdf) / [Rmd](./assignments/assignment1.Rmd)) (Due April 2)
 
 ### Resources
 
@@ -274,7 +274,7 @@ output:
 <br>
 
 
-## Week 5: Advanced statistical methods
+## Week 5: Advanced statistical methods, part I
 
 ### Lectures
 
@@ -290,22 +290,23 @@ output:
 
 ### Resources
 
-**Dimensionality Reduction**
+**Social Network Analysis**
 
-Principal Components Analysis
+**Ecological Analyses**
 
-Exploratory Factor Analysis
+Diversity Indices
 
-Cluster Analysis
+Accumulation Curves
 
-**Structural Equation Modeling**
+**Geospatial Mapping**
 
-Confirmatory Factor Analysis
+* Grossenbacher, T. Beautiful thematic maps with ggplot2 (only). Avalable: https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/
+
 
 <br>
 
 
-## Week 6: Additional topics in statistical computing
+## Week 6: Advanced statistical methods, part II
 
 ### Lectures
 
@@ -325,9 +326,25 @@ Confirmatory Factor Analysis
 
 ### Resources
 
-**Geospatial Mapping**
+**Ordinal Data**
 
-* Grossenbacher, T. Beautiful thematic maps with ggplot2 (only). Avalable: https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/
+Likert-type Scales
+
+When to treat ordinal as continuous
+
+**Dimensionality Reduction**
+
+Multidimensional Scaling (Classical and Nonmetric)
+
+Principal Components Analysis
+
+Exploratory Factor Analysis
+
+Cluster Analysis
+
+**Structural Equation Modeling**
+
+Confirmatory Factor Analysis
 
 
 <br>
@@ -355,11 +372,23 @@ Confirmatory Factor Analysis
 
 ### Resources
 
+**Data Science**
+
+* Gatto, L. An introduction to machine learning with R. Available: https://lgatto.github.io/IntroMachineLearningWithR/
+
+Random Forests
+
+Text Mining, Scraping, and Sentiment Analysis
+
+**Reproducible Research**
+
+* rOpenSci. Reproducibility in science. Available: https://ropensci.github.io/reproducibility-guide/
+
+**Science Communication**
+
 * Hillier, A., Kelly, R. P., & Klinger, T. (2016). Narrative style influences citation frequency in climate change science. PLOS ONE, 11(12), e0167983. doi: [10.1371/journal.pone.0167983](https://doi.org/10.1371/journal.pone.0167983)
 
 * Ratliff, W. The David Attenborough style of scientific presentation. Available: https://www.dropbox.com/s/j1vv2baheiduvip/David%20Attenborough%20talk%20technique%202018.pdf
-
-* rOpenSci. Reproducibility in science. Available: https://ropensci.github.io/reproducibility-guide/
 
 
 <br>
