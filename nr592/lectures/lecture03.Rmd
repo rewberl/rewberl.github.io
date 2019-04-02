@@ -1,7 +1,14 @@
 ---
-title: "Week 2, Lecture 03: Importing, working with, and exploring data, Part I"
-author: "Richard E.W. Berl"
-date: "Spring 2019"
+title: |
+  | &nbsp;
+  | Importing, working with, and exploring data
+  | Week 2, Lecture 03:
+author: |
+  | &nbsp;
+  | Richard E.W. Berl
+date: |
+  | Spring 2019
+  | &nbsp;
 output:
   html_document:
     highlight: haddock
@@ -10,13 +17,52 @@ output:
     highlight: haddock
 ---
 
+## Loading data
+
+### From a package
+
+```{r}
+data("HairEyeColor")
+```
+
+```{r, eval=FALSE}
+?HairEyeColor
+```
+
+```{r}
+HairEyeColor
+```
+
+```{r}
+hairEyeColor = as.data.frame(HairEyeColor)
+hairEyeColor
+rm(HairEyeColor)
+```
+
+### From a CSV
+
+### From a tab-delimited file
+
+Visit: [http://www.randomservices.org/random/data/HorseKicks.html](http://www.randomservices.org/random/data/HorseKicks.html)
+
+Read the description of the data set.
+
+Click the highlighted text "Horse-kick data" at the bottom of the page to download it. Place it in your class `/data` directory (or wherever you are placing your raw data for the course).
+
+```{r}
+getwd()
+# horseKicks = read.table(file="./data/HorseKicks.txt", header=TRUE, sep="\t")
+```
+
+
+
 ## Manipulating data
 
 ### Subsetting
 
 Subsetting is one of the most common tasks when you're dealing with data. There are multiple ways to subset data, specifically when it is in a data frame.
 
-## Data cleaning
+## Cleaning data
 
 ### Finding and fixing missing data
 

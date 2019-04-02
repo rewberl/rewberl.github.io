@@ -1,0 +1,83 @@
+Course Project Information
+
+## Data Sets
+
+### Packages
+
+* `datasets` package  
+* `carData` package  
+* `HistData` package  
+* `BSDA` package  
+
+### Collections
+
+* [Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets)  
+* ["Data Is Plural" Archive](https://data.world/jsvine/data-is-plural-archive)  
+* [r/datasets](https://www.reddit.com/r/datasets/top/?t=all)  
+
+### Government
+
+* [Data.gov](https://www.data.gov/)  
+* [data.Census.gov](https://data.census.gov/)  
+* [World Bank Open Data](https://data.worldbank.org/)  
+* [Integrated Public Use Microdata Series](https://www.ipums.org/)
+
+### Polling and News
+
+* [Pew Research Center](https://www.pewresearch.org/download-datasets/)  
+* [Reuters](http://polling.reuters.com/)  
+* [FiveThirtyEight](https://data.fivethirtyeight.com/)  
+* [BuzzFeed News](https://github.com/BuzzFeedNews)  
+
+### Nonprofits
+
+* [United Nations](http://data.un.org/)
+* [UNESCO Institute for Statistics](http://data.uis.unesco.org/)
+* [Gapminder](https://www.gapminder.org/data/)  
+* [Data for Democracy](https://github.com/Data4Democracy/)  
+
+### Biology, Ecology, and Natural Resources
+
+* [Global Biodiversity Information Facility](https://www.gbif.org/)  
+* [Protected Planet](https://www.protectedplanet.net/)  
+    * `wdpar` package  
+* [Environmental Data Initiative](https://portal.edirepository.org/)
+* [MorphoBank](https://morphobank.org/index.php/Projects/Index)  
+
+### Anthropology and Linguistics
+
+* [D-PLACE: Database of Places, Languages, Culture and Environment](https://d-place.org/)  
+    * [dplace-data](https://github.com/D-PLACE/dplace-data)  
+* [Glottobank](https://glottobank.org/) (TBD)
+* [WALS: World Atlas of Language Structures](https://wals.info/)  
+* [Pulotu: Database of Pacific Religions](https://pulotu.shh.mpg.de/)  
+
+### Historical
+* [John Snow's Cholera Data](http://blog.rtwilson.com/john-snows-cholera-data-in-more-formats/)  
+* [Slave Voyages](https://www.slavevoyages.org/)  
+
+### Modern
+* [Global Database of Events, Language, and Tone](https://www.gdeltproject.org/)
+* [Million Song Dataset](https://labrosa.ee.columbia.edu/millionsong/)  
+* [Yelp Open Dataset](https://www.yelp.com/dataset)  
+
+### Geospatial
+
+* [Natural Earth](http://naturalearthdata.com/)  
+* [USGS EarthExplorer](https://earthexplorer.usgs.gov/)  
+* [TIGER/Line Shapefiles](https://www.census.gov/cgi-bin/geo/shapefiles/index.php)  
+* [Data Basin](https://databasin.org/datasets/)  
+* [GeoDa Data and Lab](https://geodacenter.github.io/data-and-lab/)  
+
+### General Repositories
+
+* [Google Dataset Search](https://toolbox.google.com/datasetsearch)
+* [Dryad](https://datadryad.org/)  
+* [figshare](https://figshare.com/)  
+* [Harvard Dataverse](https://dataverse.harvard.edu/)  
+* [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets.html)  
+* [Stanford Large Network Dataset Collection](http://snap.stanford.edu/data/)  
+* [Open Data on AWS](https://registry.opendata.aws/)  
+* [data.world](https://data.world/)  
+* [Kaggle](https://www.kaggle.com/datasets)  
+
