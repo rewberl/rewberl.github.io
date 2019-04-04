@@ -119,7 +119,7 @@ output:
 
 <!-- end of list -->
 
-* Thursday, April 4: **Lecture 04** (pdf / Rmd)  
+* Thursday, April 4: **[Lecture 04](./lectures/lecture04.html)** ([pdf](./lectures/lecture04.pdf) / [Rmd](./lectures/lecture04.Rmd))  
     * [Fort Collins shelter service data](https://opendata.fcgov.com/Neighborhood-Livability-and-Social-Health/Fort-Collins-Shelter-Service-Data/u8nn-nj59)  
 
 <!-- end of list -->

@@ -13,7 +13,7 @@ output:
   html_document:
     highlight: haddock
     theme: flatly
-  pdf_document: 
+  pdf_document:
     highlight: haddock
 ---
 
@@ -177,10 +177,19 @@ To get our data into the **tall** format, we use the `gather()` function from th
 focoShelterTidy = gather(focoShelter, "variable", "value", 2:11)
 ```
 
+We can use `unique()` to see all the unique values of the `variable` variable, to make sure all of our columns made it.
+
 ```{r}
 unique(focoShelterTidy$variable)
 ```
 
+They did!
+
+But we can see from our variable names that not all of them are split by "Men," "Women," and "Families." Some of them represent total numbers.
+
+So, for our next step, let's split our data frame into two: one that contains only the "Men," "Women," and "Families" variables; and another that has all the others.
+
+One way we can do this is to use `grepl()`, the logical version of the `grep()` function, which searches for partial character matches. We use it to search for any values of `variable` that contain the text "Men," "Women," or "Families," and then we subset the data frame to the rows that contain any of them (with the `|` "OR" operator).
 
 ```{r}
 focoShelterMWF = focoShelterTidy[grepl("Men", focoShelterTidy$variable, fixed=T) |
@@ -188,6 +197,7 @@ focoShelterMWF = focoShelterTidy[grepl("Men", focoShelterTidy$variable, fixed=T)
                                grepl("Families", focoShelterTidy$variable, fixed=T),]
 ```
 
+For our second subset that contains all the other rows, all we have to do is put a `!` before the `grepl()` functions to negate the logical vector that comes out of it (all "TRUE"s become "FALSE" and vice versa). This gives us the complementary set of rows to what we subset before.
 
 ```{r}
 focoShelterNot = focoShelterTidy[!grepl("Men", focoShelterTidy$variable, fixed=T) &
@@ -195,11 +205,14 @@ focoShelterNot = focoShelterTidy[!grepl("Men", focoShelterTidy$variable, fixed=T
                                !grepl("Families", focoShelterTidy$variable, fixed=T),]
 ```
 
+Now let's make sure both of our subsets add up to the whole.
+
 ```{r}
 nrow(focoShelterTidy)
 nrow(focoShelterMWF) + nrow(focoShelterNot)
 ```
 
+And we can take a look at our "MWF" data frame.
 
 ```{r}
 head(focoShelterMWF)
@@ -207,29 +220,54 @@ str(focoShelterMWF)
 colnames(focoShelterMWF)
 ```
 
+Our next task is to split the "Sex" element off of each variable. We can do this easily by using the "..." part of each variable name just before the sex it's referencing. The trouble is that some of the variable names have another "..." earlier in the character string and some don't.
+
+One way to deal with this would be to just rename the variables (you could use `recode()` or `gsub()`) to make them easier to split.
+
+Here, I use a nasty bit of regex (["regular expressions"](https://en.wikipedia.org/wiki/Regular_expression)) to tell the function that I want it to separate based on the last occurrence of "..." for each variable name.
+
+Some functions, like `grepl()` above, use regex but also allow you to just type in the match you want (with the `fixed=TRUE` argument). Unfortunately, `separate()` doesn't, but will often still work with plain text.
+
 ```{r}
 focoShelterMWF = separate(focoShelterMWF, 2, into=c("variable","Sex"),
                           sep="\\.\\.\\.(?!.*\\.\\.\\.)")
 ```
+
+After doing that, we want to merge our two subset data frames back together. But to do that, they both need to have the same structure: the same columns in the same order.
+
+So, for the "Not" data frame, we need to add the "Sex" column and, when we do, we can assign a value of "Total" for all of those variables, since they all refer to the total number of people served regardless of sex or gender.
+
+Then, we reorder the columns to match the "MWF" data frame.
 
 ```{r}
 focoShelterNot$Sex = "Total"
 focoShelterNot = focoShelterNot[,c(1,2,4,3)]
 ```
 
+Let's check them out to make sure they look compatible.
+
 ```{r}
 head(focoShelterMWF)
 head(focoShelterNot)
 ```
+
+They do. So now we can use `rbind()` to join them together row-wise (the second data frame underneath the first). If we needed to join extra columns, we could use `cbind()`, or there are a number of `dplyr` solutions for joining variables from different data sets on the Cheat Sheet.
 
 ```{r}
 focoShelterTidy = rbind(focoShelterMWF, focoShelterNot)
 str(focoShelterTidy)
 ```
 
+Looks good. Our last step is to convert it all back to wide format again.
+
 ```{r}
 focoShelterTidy = spread(focoShelterTidy, variable, value)
+head(focoShelterTidy)
 ```
+
+Our data are now tidy! There are a couple of final details we could take care of, though. Our `Month` variable and `Sex` variable have gotten out of order compared to the original data frame. We can fix them by reassigning them as factors and specifying the order of the levels. For `Month`, we can use the order given in the original data frame. For `Sex` we can write it out manually.
+
+Then, we sort the data frame by those two columns. One way, used below, is to use the `with()` and `order()` functions, but there are others.
 
 ```{r}
 focoShelterTidy$Month = factor(focoShelterTidy$Month,
@@ -242,11 +280,7 @@ head(focoShelterTidy)
 str(focoShelterTidy)
 ```
 
-It would probably make sense to sum the values of `Sex` to the level `Total` for variables that don't have it defined.
-
-
-### Wide versus long
-
+There is more we could do to these data, but we will leave it for now. For one, we can see there are a lot of missing data values. This is just because none of the variables had all of those levels defined in the first place. It would probably make sense for us to sum the other values of `Sex` to the level `Total` for variables that don't have `Total` defined. That way we could use that level for analysis, and look at the other levels if we wanted finer breakdowns by `Men`, `Women`, and `Families` for the variables that have them.
 
 
 ## Problems with data
@@ -255,26 +289,42 @@ It would probably make sense to sum the values of `Sex` to the level `Total` for
 
 #### Finding missing data
 
+As we have seen, some data sets can have a lot of missing data, and this can be a problem when we want to run analyses.
+
+For another example, we can load the built-in `airquality` data set.
+
 ```{r}
 data("airquality")
 head(airquality)
 ```
 
+We can see right away that `airquality` has some `NA` values.
+
+A quick way to see how many missing values our data has is to use the `summary()` function, which lists the number of `NA`s in each column below some summary statistics.
+
 ```{r}
 summary(airquality)
 ```
+
+We can also do this for the `focoShelter` data that we just tidied.
 
 ```{r}
 summary(focoShelterTidy)
 ```
 
+There are other ways to find missing values in a data set. For specific columns, we can subset using the `is.na()` function, which returns `TRUE` if it finds an `NA` value.
+
 ```{r}
 airquality[is.na(airquality$Ozone),]
 ```
 
+If we want to see the rows that have ANY missing values across all columns, we can use `rowSums()` with `is.na()` to return rows where at least one `NA` value exists.
+
 ```{r}
 airquality[rowSums(is.na(airquality)) > 0,]
 ```
+
+With smaller data sets, it can also be easy to pick out `NA` values by scanning the data frame in a spreadsheet format, with `View()` (note the capital "V"):
 
 ```{r, eval=FALSE}
 View(airquality)
@@ -283,35 +333,68 @@ View(airquality)
 
 #### Fixing missing data
 
+Now that we've found our missing values, what do we do with them? Well, there usually isn't a good answer, and it depends on your data and what you plan to do with it.
+
 **Removal**
+
+If you need to do something about them because your analyses require you to, the most straightforward answer is to remove them. However, if you don't have many data points or they were especially expensive or difficult to collect, you may not want to throw them away.
+
+If we want to remove values from just one variable, we can negate the statement that we used before to find the missing values to instead return the inverse where there are no missing values, using `!`.
+
+(Note: I use `head()` below just to avoid flooding the screen with the full data set every time. It is not required for the task.)
 
 ```{r}
 head(airquality[!is.na(airquality$Ozone),])
 ```
 
+Likewise, we can return only rows that have zero `NA` values by slightly modifying our statement from before:
+
 ```{r}
 head(airquality[rowSums(is.na(airquality)) == 0,])
 ```
+
+There is also a function called `complete.cases()` that will return only the observations that have no missing values:
 
 ```{r, error=TRUE}
 head(airquality[complete.cases(airquality)])
 ```
 
+Oops. I forgot to include the `,` after my `complete.cases()` expression to indicate that I'm subsetting by rows and want to keep all the columns. If I fix that, it should work:
+
 ```{r}
 head(airquality[complete.cases(airquality),])
 ```
+
+Another way to return _only_ missing values is to negate this condition:
 
 ```{r}
 airquality[!complete.cases(airquality),]
 ```
 
+Let's go ahead and remove all rows with any missing values from `airquality` and see how many rows were removed.
+
 ```{r}
-nrow(airquality)
 airqualityRem = airquality[complete.cases(airquality),]
+nrow(airquality)
 nrow(airqualityRem)
+nrow(airquality) - nrow(airqualityRem)
+(nrow(airquality) - nrow(airqualityRem)) / nrow(airquality)
 ```
 
+We lost 42 rows, or 27.4% of the original data set. That's a pretty sizeable chunk. So, again, keep in mind what you're throwing away when you remove missing data casewise.
+
 **Replacement**
+
+Another option is replacement. Sometimes this is a good idea if you need to fix missing values by inserting the value that should have been there.
+
+```{r}
+airqualityFix = airquality
+airqualityFix[is.na(airqualityFix$Ozone),][1,1] = 17
+airqualityFix[is.na(airqualityFix$Solar.R),][1,2] = 142
+head(airqualityFix)
+```
+
+Usually, though, you don't want to replace missing values with some other arbitrary value, because R won't treat them as missing values anymore.
 
 ```{r}
 airqualityRep = airquality
@@ -321,37 +404,56 @@ head(airqualityRep)
 
 **Imputation**
 
+Another more advanced method for dealing with missing data, usually when you really need to be able to use those values for analysis, is called imputation. There are a variety of imputation methods that calculate a value to substitute in for each missing value.
+
+One of the most basic is to use the mean of the variable:
+
+```{r}
+airqualityImp = airquality
+mean(airqualityImp$Ozone, na.rm=T)
+airqualityImp$Ozone[is.na(airqualityImp$Ozone)] = mean(airqualityImp$Ozone, na.rm=T)
+airqualityImp$Ozone
+```
+
+Whether this is a statistically valid solution is another question. My inclination is that it's usually a bad idea. The saying goes: "garbage in, garbage out." If you're running analyses using imputed data, you can't really trust the results that come out, because your data were fabricated in the first palce. This is especially questionable if at least a third of your data are imputed. Below that, you might be able to get away with it, but I still think it's usually a bad idea.
+
+More sophisticated imputation methods are available in the `mice` package.
+
 
 ### Collinearity and confounding
+
+Collinearity and confounding can be huge problems in your data that you should be aware of. Sometimes they're more of a theoretical concern in that they may not throw errors in your analyses, but will give you spurious results whether you're aware of them or not.
+
+Collinearity is usually only an issue when you get to running an ANOVA or multiple regression and throw in a bunch of variables to see what best predicts some outcome variable. Collinear variables are a problem because they are highly correlated and represent the same information.
 
 ```{r}
 cor(gombe$dom, gombe$dominance)
 ```
 
+In the `gombe` data set, both of these variables represent dominance (`dom` is an individual attitudinal rating and `dominance` is a combination of several variables). If you were running analyses, you'd want to pick one and use it, not both.
 
-```{r}
-data("mtcars")
-```
+Confounding is, in my opinion, one of the most important problems to understand about data, especially when you're analyzing social data.
 
-```{r, eval=FALSE}
-?mtcars
-```
+The short definition of confounding is when you have variables that influence your predictors and your outcome, so that you think there is a relationship between your variables that is really caused by another factor.
 
-```{r}
-table(mtcars$gear, mtcars$carb)
-```
+Some good (hilarious) examples are available at: http://www.tylervigen.com/spurious-correlations
 
-6 or 8 carburetors
+Not all of these are examples of confounding, but it's easy to imagine how some third factor might be causing the trends in both correlated variables.
 
-GWAS income: https://phys.org/news/2018-07-genetic-variants-chances-success-life.html
+A classic example is that homicide rates are highly correlated with ice cream sales. Why? Does ice cream make people kill each other? No, of course not! It's because both homicide rates and ice cream sales are higher in the summer months.
 
+Confounding is common in social science studies when people are looking for significant relationships between social variables (like [genes that cause "success"](https://phys.org/news/2018-07-genetic-variants-chances-success-life.html)), and forget to think about things like ethnicity and socioeconomic status that are associated with many other demographic and life history variables.
 
 
 ### Outliers
 
 ```{r}
-# windows()
-# quartz()
+# windows()  # Command to open a new plot window on Windows
+# quartz()  # Command to open a new plot window on Mac
+# X11()  # Command to open a new plot window on Linux
+```
+
+```{r}
 boxplot(airquality$Wind)
 ```
 
@@ -369,9 +471,10 @@ boxplot.stats(airquality$Wind)$out
 
 "Tukey's Fences"
 
-< Q1 - 1.5 (Q3 - Q1)
+Quartile plus or minus 1.5 times the interquartile range:
 
-> Q3 + 1.5 (Q3 - Q1)
+    Lower outlier: < Q1 - 1.5 (Q3 - Q1)  
+    Upper outlier: > Q3 + 1.5 (Q3 - Q1)
 
 ```{r}
 quantile(airquality$Wind)
@@ -383,8 +486,6 @@ airquality$Wind[airquality$Wind < (quantile(airquality$Wind)[[2]] - 1.5 * IQR(ai
                   airquality$Wind > (quantile(airquality$Wind)[[4]] + 1.5 * IQR(airquality$Wind))]
 ```
 
-
-
 ```{r}
 plot(airquality$Wind, airquality$Temp)
 ```
@@ -393,13 +494,12 @@ plot(airquality$Wind, airquality$Temp)
 boxplot(Temp ~ Wind, data=airquality)
 ```
 
-Multivariate outlier detection
+Identifying outliers when you're looking at a distribution of more than one variable is known as multivariate outlier detection. One package that handles this is `mvoutlier`.
 
 
+## Exploratory data analysis
 
-## What is EDA?
-
-EDA is NOT "fishing," "data dredging," or "p-hacking"
+EDA is NOT "fishing," "data dredging," or "_p_-hacking." EDA is an important part of understanding your data.
 
 ### Descriptive statistics
 
@@ -407,33 +507,51 @@ EDA is NOT "fishing," "data dredging," or "p-hacking"
 summary(gombe)
 mean(gombe$extraversion)
 median(gombe$extraversion)
-# mode
+```
+
+Note: There is no built-in function to calculate the mode in R, but you can find one online or in a variety of packages.
+
+```{r}
 range(gombe$extraversion)
 min(gombe$extraversion)
 max(gombe$extraversion)
 quantile(gombe$extraversion)
 sd(gombe$extraversion)
 var(gombe$extraversion)
+```
+
+We can verify that variance is the SD squared, and that SD is the square root of the variance.
+
+```{r}
 sd(gombe$extraversion)^2
 sqrt(var(gombe$extraversion))
 ```
 
+
 ### Univariate plots
 
 #### Histograms and density plots
+
+Let's look at all the values from the `horseKicks` data together, regardless of column.
 
 ```{r, error=TRUE}
 horseKicks
 hist(horseKicks[,c(2:ncol(horseKicks))])
 ```
 
+Weird. Okay, let's try to coerce it to numeric.
+
 ```{r, error=TRUE}
 hist(as.numeric(horseKicks[,c(2:ncol(horseKicks))]))
 ```
 
+For some strange reason, it's stored as a list. To get it out, we can use `unlist()`:
+
 ```{r}
-hist(unlist(horseKicks[,c(2:ncol(horseKicks))]))
+unlist(horseKicks[,c(2:ncol(horseKicks))])
 ```
+
+And we can use `unname()` to get just the values of the vector without the column names:
 
 ```{r}
 horseKicksVals = unname(unlist(horseKicks[,c(2:ncol(horseKicks))]))
@@ -441,6 +559,7 @@ horseKicksVals
 ```
 
 ```{r}
+hist(horseKicksVals)
 hist(horseKicksVals, breaks=4)
 ```
 
@@ -458,6 +577,8 @@ plot(density(horseKicksVals))
 ```{r}
 boxplot(airquality$Wind)
 ```
+
+A violin plot displays the same data, but shows the distribution of values on the horizontal (X) axis.
 
 ```{r, eval=FALSE}
 install.packages("vioplot")
@@ -480,11 +601,25 @@ vioplot(airquality$Wind)
 plot(gombe$openness, gombe$extraversion)
 ```
 
+We can add a regression line:
+
 ```{r}
 plot(gombe$openness, gombe$extraversion)
 abline(lm(gombe$extraversion ~ gombe$openness), col="red")
 ```
 
+Or a smoothed LOESS/LOWESS line:
+
+```{r}
+plot(gombe$openness, gombe$extraversion)
+lines(lowess(gombe$openness, gombe$extraversion), col="blue")
+```
+
+```{r}
+pairs(~ dominance + extraversion + conscientiousness +
+        agreeableness + neuroticism + openness,
+      data=gombe)
+```
 
 #### Box plots and violin plots
 
@@ -505,3 +640,29 @@ vioplot(airquality$Wind[airquality$Month == 5],
 cor(gombe$openness, gombe$extraversion)
 ```
 
+```{r}
+cor.test(gombe$openness, gombe$extraversion)
+```
+
+```{r}
+cor(gombe[,28:33])
+gombeCorMat = cor(gombe[,28:33])
+heatmap(gombeCorMat)
+```
+
+```{r, eval=FALSE}
+install.packages("corrplot")
+```
+
+```{r}
+library(corrplot)
+corrplot.mixed(gombeCorMat, lower="ellipse", upper="number")
+```
+
+
+<br><br>
+
+
+([pdf](./lecture04.pdf) / [Rmd](./lecture04.Rmd))
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
