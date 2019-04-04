@@ -167,6 +167,11 @@ First, let's get rid of the last two columns since we don't need them.
 focoShelter = focoShelter[,-c(12:13)]
 ```
 
+Right now our data are in what's called **wide** format. It's called this because all of your variables are columns, so if you have a lot of variables then your data frame will stretch out horizontally. Because of Tidy Data Rule #1, most "tidy" data will be wide.
+
+Our goal is to get these data cleaned up and back into the wide format. But first we have to change it to **tall** format to split some of our variables apart, and then convert it back to wide.
+
+To get our data into the **tall** format, we use the `gather()` function from the Cheat Sheet. Prior to the `tidyr` package being developed, this was called "melting" (by using the `melt()` function from `reshape2`).
 
 ```{r}
 focoShelterTidy = gather(focoShelter, "variable", "value", 2:11)

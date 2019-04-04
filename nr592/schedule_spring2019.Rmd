@@ -136,7 +136,7 @@ output:
 
     a. Tukey, J. W. (1977). Preface. In _Exploratory data analysis_ (pp. v-ix). Reading, MA: Addison-Wesley. Available: [here (pdf)](./resources/tukey1977preface.pdf)
 
-1. **[Assignment 2](./assignments/assignment2.html)** ([pdf](./assignments/assignment2.pdf) / [Rmd](./assignments/assignment2.Rmd)) (Due April 9)
+2. **[Assignment 2](./assignments/assignment2.html)** ([pdf](./assignments/assignment2.pdf) / [Rmd](./assignments/assignment2.Rmd)) (Due April 9)
 
 ### Resources
 
