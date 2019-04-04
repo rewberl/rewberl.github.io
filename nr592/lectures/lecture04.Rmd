@@ -1,0 +1,502 @@
+---
+title: |
+  | &nbsp;
+  | Importing, working with, and exploring data
+  | Week 2, Lecture 03:
+author: |
+  | &nbsp;
+  | Richard E.W. Berl
+date: |
+  | Spring 2019
+  | &nbsp;
+output:
+  html_document:
+    highlight: haddock
+    theme: flatly
+  pdf_document: 
+    highlight: haddock
+---
+
+## Loading data
+
+```{r, warning=FALSE}
+data("HairEyeColor")
+hairEyeColor = as.data.frame(HairEyeColor)
+
+gombe = read.csv(file="./data/gombe_128.csv", header=TRUE)
+
+horseKicks = read.table(file="./data/HorseKicks.txt", header=TRUE, sep="\t")
+
+library(readxl)
+folktales = read_xlsx(path="./data/rsos150645supp1.xlsx",
+                      sheet=1, range="A2:JP52")
+folktales = as.data.frame(folktales)
+colnames(folktales)[1] = "society"
+```
+
+
+## Manipulating data
+
+### Subsetting
+
+Subsetting is one of the most common tasks when you're dealing with data. There are multiple ways to subset data, specifically when it is in a data frame.
+
+#### Using references
+
+The first you've already done: just select the rows or columns you want.
+
+```{r}
+horseKicks[,c(1:2)]
+```
+
+You can do so by name:
+
+```{r}
+horseKicks[c(1,5:10),c("C1","C2","C3")]
+```
+
+You can also exclude rows or columns you **don't** want by putting a `-` before the vector. Here I use a sequence to exclude odd years:
+
+```{r}
+horseKicks[-seq(1, nrow(horseKicks), 2),]
+```
+
+#### Using conditionals
+
+Remember `which()`? You already used it for subsetting. If we just want the rows that match a certain condition, we put the statement in the row reference spot:
+
+```{r}
+gombe[which(gombe$innov > 6),]
+```
+
+Good news is that you can do this without the `which()` function and it still works:
+
+```{r}
+gombe[gombe$innov > 6,]
+```
+
+Why is this? Let's see:
+
+```{r}
+which(gombe$innov > 6)
+gombe$innov > 6
+```
+
+The first returns the row indices that match that condition, and the second returns a logical vector for every row in the data frame. Remember that either can be used to reference a data frame.
+
+You can get rows that must match more than one condition with the `&` operator:
+
+```{r}
+gombe[gombe$innov > 6 & gombe$sex == 1,]
+```
+
+Or return rows that match at least one of the conditions with the `|` (vertical pipe) "OR" operator:
+
+```{r}
+gombe[gombe$innov >= 6.5 | gombe$invt >= 6.5,]
+```
+
+You can also use (or make) another vector that contains the names of the columns you want, and keep only the values that match. This uses the useful operator `%in%`, which asks "Is X `%in%` Y?" and returns `TRUE` or `FALSE` for each element in X.
+
+```{r}
+varsToKeep = c("chimpcode","dom","soc")
+head(gombe[,colnames(gombe) %in% varsToKeep])
+```
+
+#### Using `subset()`
+
+Finally, sometimes the most straightforward way is to use the `subset()` function. You can pull up its help documentation and have a look at the syntax.
+
+```{r}
+subset(hairEyeColor, Hair == "Black" & Eye == "Blue")
+```
+
+Notice that I didn't specify the names of the arguments here (`x=`, `subset=`). If you enter your arguments in the same order they appear in the function definition, you don't have to specify which is which. For functions like subset, it's easy to tell what each argument is referring to (and `x=Hair ==...` would look really confusing). Just make sure you're entering them in the right order, or you may get unexpected results.
+
+
+<big>Remember you need to **assign** your subset if you want to keep it! Otherwise your data frame is unchanged.</big>
+
+You should always keep your original data frame and assign subsets to new data frames, so that you can always go back and see the original or subset it differently.
+
+
+## Cleaning data
+
+### Tidy data
+
+**Three rules:**  
+
+1. Each variable forms a column.  
+2. Each observation forms a row.  
+3. Each type of observational unit forms a table.  
+
+Visit: https://opendata.fcgov.com/Neighborhood-Livability-and-Social-Health/Fort-Collins-Shelter-Service-Data/u8nn-nj59
+
+On the top right, click the "Export" button and then the "CSV" button to download the data. Place it in your class `/data` directory.
+
+Read it into R:
+
+```{r}
+focoShelter = read.csv(file="./data/Fort_Collins_Shelter_Service_Data.csv", header=TRUE)
+```
+
+Let's take a look at the data.
+
+```{r}
+head(focoShelter)
+str(focoShelter)
+colnames(focoShelter)
+```
+
+So... are these data "tidy"?
+
+**No.** Why not?
+
+We've got variables spread across multiple columns. One variable is whether it was a Rescue Mission shelter or a Catholic Charities shelter. Another is whether it is referring to men, women, families, or all. The other variables are split apart by each of these.
+
+So how do we fix it? Let's consult the [Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf).
+
+Then we need to load the `tidyr` package. If you haven't installed the `tidyverse` package (which includes `tidyr`), you can do so now, or just install `tidyr` alone.
+
+```{r}
+library(tidyr)
+```
+
+First, let's get rid of the last two columns since we don't need them.
+
+```{r}
+focoShelter = focoShelter[,-c(12:13)]
+```
+
+
+```{r}
+focoShelterTidy = gather(focoShelter, "variable", "value", 2:11)
+```
+
+```{r}
+unique(focoShelterTidy$variable)
+```
+
+
+```{r}
+focoShelterMWF = focoShelterTidy[grepl("Men", focoShelterTidy$variable, fixed=T) |
+                               grepl("Women", focoShelterTidy$variable, fixed=T) |
+                               grepl("Families", focoShelterTidy$variable, fixed=T),]
+```
+
+
+```{r}
+focoShelterNot = focoShelterTidy[!grepl("Men", focoShelterTidy$variable, fixed=T) &
+                               !grepl("Women", focoShelterTidy$variable, fixed=T) &
+                               !grepl("Families", focoShelterTidy$variable, fixed=T),]
+```
+
+```{r}
+nrow(focoShelterTidy)
+nrow(focoShelterMWF) + nrow(focoShelterNot)
+```
+
+
+```{r}
+head(focoShelterMWF)
+str(focoShelterMWF)
+colnames(focoShelterMWF)
+```
+
+```{r}
+focoShelterMWF = separate(focoShelterMWF, 2, into=c("variable","Sex"),
+                          sep="\\.\\.\\.(?!.*\\.\\.\\.)")
+```
+
+```{r}
+focoShelterNot$Sex = "Total"
+focoShelterNot = focoShelterNot[,c(1,2,4,3)]
+```
+
+```{r}
+head(focoShelterMWF)
+head(focoShelterNot)
+```
+
+```{r}
+focoShelterTidy = rbind(focoShelterMWF, focoShelterNot)
+str(focoShelterTidy)
+```
+
+```{r}
+focoShelterTidy = spread(focoShelterTidy, variable, value)
+```
+
+```{r}
+focoShelterTidy$Month = factor(focoShelterTidy$Month,
+                               levels=as.character(focoShelter$Month))
+focoShelterTidy$Sex = factor(focoShelterTidy$Sex,
+                             levels=c("Men","Women","Families","Total"))
+focoShelterTidy = focoShelterTidy[with(focoShelterTidy, order(Month, Sex)),]
+
+head(focoShelterTidy)
+str(focoShelterTidy)
+```
+
+It would probably make sense to sum the values of `Sex` to the level `Total` for variables that don't have it defined.
+
+
+### Wide versus long
+
+
+
+## Problems with data
+
+### Missing data
+
+#### Finding missing data
+
+```{r}
+data("airquality")
+head(airquality)
+```
+
+```{r}
+summary(airquality)
+```
+
+```{r}
+summary(focoShelterTidy)
+```
+
+```{r}
+airquality[is.na(airquality$Ozone),]
+```
+
+```{r}
+airquality[rowSums(is.na(airquality)) > 0,]
+```
+
+```{r, eval=FALSE}
+View(airquality)
+```
+
+
+#### Fixing missing data
+
+**Removal**
+
+```{r}
+head(airquality[!is.na(airquality$Ozone),])
+```
+
+```{r}
+head(airquality[rowSums(is.na(airquality)) == 0,])
+```
+
+```{r, error=TRUE}
+head(airquality[complete.cases(airquality)])
+```
+
+```{r}
+head(airquality[complete.cases(airquality),])
+```
+
+```{r}
+airquality[!complete.cases(airquality),]
+```
+
+```{r}
+nrow(airquality)
+airqualityRem = airquality[complete.cases(airquality),]
+nrow(airqualityRem)
+```
+
+**Replacement**
+
+```{r}
+airqualityRep = airquality
+airqualityRep[is.na(airqualityRep) == T] = 0
+head(airqualityRep)
+```
+
+**Imputation**
+
+
+### Collinearity and confounding
+
+```{r}
+cor(gombe$dom, gombe$dominance)
+```
+
+
+```{r}
+data("mtcars")
+```
+
+```{r, eval=FALSE}
+?mtcars
+```
+
+```{r}
+table(mtcars$gear, mtcars$carb)
+```
+
+6 or 8 carburetors
+
+GWAS income: https://phys.org/news/2018-07-genetic-variants-chances-success-life.html
+
+
+
+### Outliers
+
+```{r}
+# windows()
+# quartz()
+boxplot(airquality$Wind)
+```
+
+```{r}
+boxplot.stats(airquality$Wind)
+```
+
+```{r}
+names(boxplot.stats(airquality$Wind))
+```
+
+```{r}
+boxplot.stats(airquality$Wind)$out
+```
+
+"Tukey's Fences"
+
+< Q1 - 1.5 (Q3 - Q1)
+
+> Q3 + 1.5 (Q3 - Q1)
+
+```{r}
+quantile(airquality$Wind)
+IQR(airquality$Wind)
+```
+
+```{r}
+airquality$Wind[airquality$Wind < (quantile(airquality$Wind)[[2]] - 1.5 * IQR(airquality$Wind)) |
+                  airquality$Wind > (quantile(airquality$Wind)[[4]] + 1.5 * IQR(airquality$Wind))]
+```
+
+
+
+```{r}
+plot(airquality$Wind, airquality$Temp)
+```
+
+```{r}
+boxplot(Temp ~ Wind, data=airquality)
+```
+
+Multivariate outlier detection
+
+
+
+## What is EDA?
+
+EDA is NOT "fishing," "data dredging," or "p-hacking"
+
+### Descriptive statistics
+
+```{r}
+summary(gombe)
+mean(gombe$extraversion)
+median(gombe$extraversion)
+# mode
+range(gombe$extraversion)
+min(gombe$extraversion)
+max(gombe$extraversion)
+quantile(gombe$extraversion)
+sd(gombe$extraversion)
+var(gombe$extraversion)
+sd(gombe$extraversion)^2
+sqrt(var(gombe$extraversion))
+```
+
+### Univariate plots
+
+#### Histograms and density plots
+
+```{r, error=TRUE}
+horseKicks
+hist(horseKicks[,c(2:ncol(horseKicks))])
+```
+
+```{r, error=TRUE}
+hist(as.numeric(horseKicks[,c(2:ncol(horseKicks))]))
+```
+
+```{r}
+hist(unlist(horseKicks[,c(2:ncol(horseKicks))]))
+```
+
+```{r}
+horseKicksVals = unname(unlist(horseKicks[,c(2:ncol(horseKicks))]))
+horseKicksVals
+```
+
+```{r}
+hist(horseKicksVals, breaks=4)
+```
+
+```{r}
+density(horseKicksVals)
+```
+
+```{r}
+plot(density(horseKicksVals))
+```
+
+
+#### Box plots and violin plots
+
+```{r}
+boxplot(airquality$Wind)
+```
+
+```{r, eval=FALSE}
+install.packages("vioplot")
+```
+
+```{r}
+library(vioplot)
+```
+
+```{r}
+vioplot(airquality$Wind)
+```
+
+
+### Bivariate plots
+
+#### Scatterplots
+
+```{r}
+plot(gombe$openness, gombe$extraversion)
+```
+
+```{r}
+plot(gombe$openness, gombe$extraversion)
+abline(lm(gombe$extraversion ~ gombe$openness), col="red")
+```
+
+
+#### Box plots and violin plots
+
+```{r}
+boxplot(Temp ~ Wind, data=airquality)
+```
+
+```{r}
+vioplot(airquality$Wind[airquality$Month == 5],
+        airquality$Wind[airquality$Month == 6],
+        airquality$Wind[airquality$Month == 7])
+```
+
+
+### Association
+
+```{r}
+cor(gombe$openness, gombe$extraversion)
+```
+

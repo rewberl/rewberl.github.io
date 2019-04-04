@@ -326,7 +326,7 @@ div.tocify {
 
 <h1 class="title toc-ignore"><div style="white-space: pre-line;"> 
 Introduction to R programming and data structures
-Week 1, Lecture 02:</div></h1>
+Week 1, Lecture 02</div></h1>
 <h4 class="author"><em><div style="white-space: pre-line;"> 
 Richard E.W. Berl</div></em></h4>
 <h4 class="date"><em><div style="white-space: pre-line;">Spring 2019
@@ -530,13 +530,13 @@ zb =<span class="st"> </span><span class="kw">paste</span>(z, b)</code></pre></d
 </ul>
 <p>For example, see:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Sys.Date</span>()</code></pre></div>
-<pre><code>## [1] &quot;2019-03-28&quot;</code></pre>
+<pre><code>## [1] &quot;2019-04-02&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(<span class="kw">Sys.Date</span>())</code></pre></div>
-<pre><code>##  Date[1:1], format: &quot;2019-03-28&quot;</code></pre>
+<pre><code>##  Date[1:1], format: &quot;2019-04-02&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Sys.time</span>()</code></pre></div>
-<pre><code>## [1] &quot;2019-03-28 13:59:28 MDT&quot;</code></pre>
+<pre><code>## [1] &quot;2019-04-02 11:23:06 MDT&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(<span class="kw">Sys.time</span>())</code></pre></div>
-<pre><code>##  POSIXct[1:1], format: &quot;2019-03-28 13:59:28&quot;</code></pre>
+<pre><code>##  POSIXct[1:1], format: &quot;2019-04-02 11:23:06&quot;</code></pre>
 <p>These are a <strong>nightmare</strong> to deal with in R. Avoid doing analyses on dates and times whenever possible. If you must, look into the <code>lubridate</code> package to make things a bit easier.</p>
 </div>
 </div>
@@ -814,11 +814,11 @@ myList</code></pre></div>
 </li>
 <li><code>summary()</code><br />
 </li>
-<li><code>paste()</code> / <code>paste0()</code><br />
-</li>
 <li><code>str()</code><br />
 </li>
 <li><code>class()</code><br />
+</li>
+<li><code>paste()</code> / <code>paste0()</code><br />
 </li>
 <li><code>nchar()</code><br />
 </li>
@@ -834,7 +834,11 @@ myList</code></pre></div>
 </li>
 <li><code>head()</code> / <code>tail()</code><br />
 </li>
+<li><code>unique()</code><br />
+</li>
 <li><code>is.na()</code><br />
+</li>
+<li><code>complete.cases()</code><br />
 </li>
 <li><code>rm()</code><br />
 </li>
@@ -851,7 +855,7 @@ myList</code></pre></div>
 <pre><code>## function (x, na.rm = FALSE) 
 ## sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), 
 ##     na.rm = na.rm))
-## &lt;bytecode: 0x00000000189e8118&gt;
+## &lt;bytecode: 0x00000000189f6140&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <p>On the second line, you can see–amongst the mess of checking classes–it takes the square root of the variance of a vector of numbers, just as it should.</p>
 <p>(Some won’t be helpful in that they just reference other functions or scripts.)</p>

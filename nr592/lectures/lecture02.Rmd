@@ -2,7 +2,7 @@
 title: |
   | &nbsp;
   | Introduction to R programming and data structures
-  | Week 1, Lecture 02:
+  | Week 1, Lecture 02
 author: |
   | &nbsp;
   | Richard E.W. Berl
@@ -18,7 +18,6 @@ output:
   pdf_document:
     highlight: haddock
     toc: yes
-header-includes: \usepackage{pmboxdraw}
 ---
 
 ## Basic concepts in R (cont.)
@@ -615,9 +614,9 @@ Remember that the `help()` function (or `?`) pulls up the documentation for a fu
 * `mean()`  
 * `sd()`  
 * `summary()`  
-* `paste()` / `paste0()`  
 * `str()`  
 * `class()`  
+* `paste()` / `paste0()`  
 * `nchar()`  
 * `length()`  
 * `dim()`  
@@ -625,7 +624,9 @@ Remember that the `help()` function (or `?`) pulls up the documentation for a fu
 * `dimnames()`  
 * `rownames()` / `colnames()`  
 * `head()` / `tail()`  
+* `unique()`  
 * `is.na()`  
+* `complete.cases()`  
 * `rm()`  
 * `View()`&nbsp;&nbsp;(_note the capital "V"_)  
 &nbsp;

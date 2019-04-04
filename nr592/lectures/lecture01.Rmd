@@ -2,7 +2,7 @@
 title: |
   | &nbsp;
   | Introduction to R programming and data structures
-  | Week 1, Lecture 01:
+  | Week 1, Lecture 01
 author: |
   | &nbsp;
   | Richard E.W. Berl

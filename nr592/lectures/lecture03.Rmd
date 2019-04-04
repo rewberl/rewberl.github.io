@@ -2,7 +2,7 @@
 title: |
   | &nbsp;
   | Importing, working with, and exploring data
-  | Week 2, Lecture 03:
+  | Week 2, Lecture 03
 author: |
   | &nbsp;
   | Richard E.W. Berl
@@ -13,33 +13,78 @@ output:
   html_document:
     highlight: haddock
     theme: flatly
-  pdf_document: 
+    toc: yes
+    toc_float: yes
+  pdf_document:
     highlight: haddock
+    toc: yes
 ---
 
 ## Loading data
 
 ### From a package
 
+For a full list of data sets included in the base `datasets` R package, use: `data()` or `library(help="datasets")`.
+
+You can load a built-in data set like this:
+
 ```{r}
 data("HairEyeColor")
 ```
+
+There is documentation available for each one.
 
 ```{r, eval=FALSE}
 ?HairEyeColor
 ```
 
+Now let's examine the data.
+
 ```{r}
 HairEyeColor
 ```
 
+Whoa, this isn't a data frame. What is it?
+
+```{r}
+class(HairEyeColor)
+```
+
+It's a three-way contingency table. This makes it easier to look at and is suitable for some analyses. But we can coerce it to a data frame, which will make it easier for us to work with:
+
 ```{r}
 hairEyeColor = as.data.frame(HairEyeColor)
 hairEyeColor
+```
+
+Much better. And since we renamed the data frame (to the "mixedCase" style), we can remove the old object:
+
+```{r}
 rm(HairEyeColor)
 ```
 
-### From a CSV
+
+### From a CSV file
+
+Visit: [https://osf.io/s7d9d/](https://osf.io/s7d9d/)
+
+Read the description of the data set. The source of the data is:  
+
+* Weiss, A., et al. (2017). Personality in the chimpanzees of Gombe National Park. Scientific Data, 4, 170146. doi: [10.1038/sdata.2017.146](https://doi.org/10.1038/sdata.2017.146)
+
+You can also click "Codebook for Gombe data personality variables.pdf" in the "Files" box of the OSF page to learn about how the data are coded.
+
+In the "Files" box, click "gombe_128.csv" and then the "Download" button on the top right of the following page to download it. Place it in your class `/data` directory (or wherever you are placing your raw data for the course).
+
+You can open the file (in Excel or a text editor) to see how it is formatted.
+
+```{r}
+gombe = read.csv(file="./data/gombe_128.csv", header=TRUE)
+```
+
+```{r}
+head(gombe)
+```
 
 ### From a tab-delimited file
 
@@ -47,38 +92,61 @@ Visit: [http://www.randomservices.org/random/data/HorseKicks.html](http://www.ra
 
 Read the description of the data set.
 
-Click the highlighted text "Horse-kick data" at the bottom of the page to download it. Place it in your class `/data` directory (or wherever you are placing your raw data for the course).
+At the bottom of the page, click the highlighted text "Horse-kick data" to download it. Place it in your class `/data` directory (or wherever you are placing your raw data for the course).
+
+You can open the file to see how it is formatted.
 
 ```{r}
-getwd()
-# horseKicks = read.table(file="./data/HorseKicks.txt", header=TRUE, sep="\t")
+horseKicks = read.table(file="./data/HorseKicks.txt", header=TRUE, sep="\t")
+```
+
+```{r}
+horseKicks
+```
+
+### From an Excel spreadsheet
+
+Visit: [https://royalsocietypublishing.org/doi/suppl/10.1098/rsos.150645](https://royalsocietypublishing.org/doi/suppl/10.1098/rsos.150645)
+
+You can click "View Full Text" on the left side to read the article (or just the abstract) to learn about the data set.
+
+Under the "Supplemental Material" heading, click the highlighted text "rsos150645supp1.xlsx" to download it. Place it in your class `/data` directory.
+
+You can open the file to see how it is formatted.
+
+```{r, eval=FALSE}
+install.packages("tidyverse")
+# OR
+install.packages("readxl")
+```
+
+```{r}
+library(readxl)
+```
+
+Documentation is available at: [https://readxl.tidyverse.org/](https://readxl.tidyverse.org/)
+
+```{r}
+folktales = read_xlsx(path="./data/rsos150645supp1.xlsx",
+                      sheet=1, range="A2:JP52")
+folktales
+```
+
+```{r}
+folktales = as.data.frame(folktales)
+folktales[1:5,1:15]
+```
+
+```{r}
+colnames(folktales)[1] = "society"
+folktales[1:5,1:15]
+folktales$society
 ```
 
 
-
-## Manipulating data
-
-### Subsetting
-
-Subsetting is one of the most common tasks when you're dealing with data. There are multiple ways to subset data, specifically when it is in a data frame.
-
-## Cleaning data
-
-### Finding and fixing missing data
-
-## Problems with data
-
-### Missing data
-
-### Confounds
+<br><br>
 
 
+([pdf](./lecture03.pdf) / [Rmd](./lecture03.Rmd))
 
-## What is EDA?
-
-### EDA is NOT "fishing," "data dredging," or "p-hacking"
-
-
-## Descriptive statistics
-
-### Confidence intervals
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

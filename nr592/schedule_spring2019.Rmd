@@ -9,7 +9,7 @@ author: |
 date: |
   | Spring 2019
   | &nbsp;
-  | Last Updated: 2019-04-02
+  | Last Updated: 2019-04-04
   | &nbsp;
 output:
   html_document:
@@ -112,12 +112,17 @@ output:
 
 ### Lectures
 
-* Tuesday, April 2: **Lecture 03** (pdf / Rmd)  
+* Tuesday, April 2: **[Lecture 03](./lectures/lecture03.html)** ([pdf](./lectures/lecture03.pdf) / [Rmd](./lectures/lecture03.Rmd))  
     * [Gombe data](https://osf.io/s7d9d/)  
     * [Prussian horse-kick data](http://www.randomservices.org/random/data/HorseKicks.html)  
     * [Indo-European folktale data](https://royalsocietypublishing.org/doi/suppl/10.1098/rsos.150645)  
 
-* Thursday, April 4: **Lecture 04** (pdf / Rmd)
+<!-- end of list -->
+
+* Thursday, April 4: **Lecture 04** (pdf / Rmd)  
+    * [Fort Collins shelter service data](https://opendata.fcgov.com/Neighborhood-Livability-and-Social-Health/Fort-Collins-Shelter-Service-Data/u8nn-nj59)  
+
+<!-- end of list -->
 
 ### Homework
 
@@ -131,7 +136,7 @@ output:
 
     a. Tukey, J. W. (1977). Preface. In _Exploratory data analysis_ (pp. v-ix). Reading, MA: Addison-Wesley. Available: [here (pdf)](./resources/tukey1977preface.pdf)
 
-1. **Assignment 2** (Due April 9)
+1. **[Assignment 2](./assignments/assignment2.html)** ([pdf](./assignments/assignment2.pdf) / [Rmd](./assignments/assignment2.Rmd)) (Due April 9)
 
 ### Resources
 
@@ -155,7 +160,11 @@ output:
 
 **Problems with Data**
 
+* Navarro, D. Section 5.8: Handling missing values. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/descriptives.html#missing
+
 * van Buuren, S. Section 1.1: The problem of missing data, through Section 1.4: Multiple imputation in a nutshell. In _Flexible imputation of missing data_. Available: https://stefvanbuuren.name/fimd/sec-problem.html
+
+* Prabhakaran, S. Outlier treatment. In _r-statistics.co_. Available: http://r-statistics.co/Outlier-Treatment-With-R.html
 
 * Navarro, D. Section 2.7: Confounds, artifacts and other threats to validity. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/studydesign.html#confounds-artifacts-and-other-threats-to-validity
 
