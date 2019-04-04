@@ -13,10 +13,12 @@ Course Project Information
 
 * [Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets)  
 * ["Data Is Plural" Archive](https://data.world/jsvine/data-is-plural-archive)  
-* [r/datasets](https://www.reddit.com/r/datasets/top/?t=all)  
+* [Reddit r/datasets](https://www.reddit.com/r/datasets/top/?t=all)  
 
 ### Government
 
+* [OpenData Fort Collins](https://opendata.fcgov.com/)
+* [Colorado Information Marketplace](https://data.colorado.gov/)
 * [Data.gov](https://www.data.gov/)  
 * [data.Census.gov](https://data.census.gov/)  
 * [World Bank Open Data](https://data.worldbank.org/)  
@@ -31,10 +33,11 @@ Course Project Information
 
 ### Nonprofits
 
-* [United Nations](http://data.un.org/)
-* [UNESCO Institute for Statistics](http://data.uis.unesco.org/)
+* [United Nations](http://data.un.org/)  
+* [UNESCO Institute for Statistics](http://data.uis.unesco.org/)  
 * [Gapminder](https://www.gapminder.org/data/)  
 * [Data for Democracy](https://github.com/Data4Democracy/)  
+* [ProPublica](https://www.propublica.org/datastore/)
 
 ### Biology, Ecology, and Natural Resources
 
@@ -56,10 +59,22 @@ Course Project Information
 * [John Snow's Cholera Data](http://blog.rtwilson.com/john-snows-cholera-data-in-more-formats/)  
 * [Slave Voyages](https://www.slavevoyages.org/)  
 
-### Modern
-* [Global Database of Events, Language, and Tone](https://www.gdeltproject.org/)
-* [Million Song Dataset](https://labrosa.ee.columbia.edu/millionsong/)  
+### Modern/Fun
+* [Global Database of Events, Language, and Tone](https://www.gdeltproject.org/)  
 * [Yelp Open Dataset](https://www.yelp.com/dataset)  
+* [Million Song Dataset](https://labrosa.ee.columbia.edu/millionsong/)  
+* [Internet Boy Band Database](https://github.com/the-pudding/data/tree/master/boybands) 
+* [So Much Candy Data, Seriously](http://www.scq.ubc.ca/so-much-candy-data-seriously/)
+* Game of Thrones  
+    * [Datasets and Visualizations](https://github.com/jeffreylancaster/game-of-thrones) (json)  
+    * [Character Interaction Networks](https://github.com/mathbeveridge/asoiaf)  
+    * [War of the Five Kings](https://github.com/chrisalbon/war_of_the_five_kings_dataset)  
+    * [Bayesian Survival Analysis](https://allendowney.blogspot.com/2015/03/bayesian-survival-analysis-for-game-of.html)  
+        * [Character Data](https://github.com/benkahle/bayesianGameofThrones/blob/master/char_final.csv)  
+* Dungeons & Dragons
+    * [Character Names](https://github.com/janelleshane/DnD-characters)  
+    * [Character Biographies](https://github.com/janelleshane/DnD_bios)  
+    * [Spell Names](https://github.com/janelleshane/dnd_spells)  
 
 ### Geospatial
 

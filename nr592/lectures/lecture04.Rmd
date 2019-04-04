@@ -2,7 +2,7 @@
 title: |
   | &nbsp;
   | Importing, working with, and exploring data
-  | Week 2, Lecture 03:
+  | Week 2, Lecture 04:
 author: |
   | &nbsp;
   | Richard E.W. Berl

@@ -228,14 +228,14 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore"><div style="white-space: pre-line;">NR 592
-Assignment 1</div></h1>
+Assignment 2</div></h1>
 <h4 class="author"><em>INSERT YOUR NAME HERE</em></h4>
 <h4 class="date"><em>INSERT THE DATE HERE</em></h4>
 
 </div>
 
 
-<p><em>Last Updated: 2019-03-28</em></p>
+<p><em>Last Updated: 2019-04-02</em></p>
 <div id="instructions" class="section level2">
 <h2>Instructions</h2>
 <p><strong>Show your work.</strong> The response to each question should include all of the commands necessary to reproduce your results, and should be commented to give a naive reader an idea of the intent behind each section of code. Answers to questions should be clearly shown in the code output or spelled out in text or comments.</p>
@@ -245,116 +245,78 @@ Assignment 1</div></h1>
 <h2>Question 1</h2>
 <div id="section" class="section level3">
 <h3>1.1</h3>
-<p>Create a vector named <code>v1</code> that contains the integers 1 through 5 (without using the <code>seq()</code> function).</p>
+<p>Find an external public data set (not included in R) that interests you and has at least 2 numeric variables. Download it and load it into R.</p>
+<p>If you’re having trouble finding something, you can look through the data sets available at <a href="https://opendata.fcgov.com/">OpenData Fort Collins</a> or the <a href="https://data.colorado.gov/">Colorado Information Marketplace</a> (and filter by “Datasets” under “View Types” on the left side).</p>
+<p><strong>Important: Include the data file in your submission and include a link to its source here.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Source</span>
+Delete this and paste a link to the source of your data set here.</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load data</span></code></pre></div>
 </div>
 <div id="section-1" class="section level3">
 <h3>1.2</h3>
-<p>Using the <code>seq()</code> function, create a vector named <code>v2</code> that contains the integers 6 through 10.</p>
-<p>Divide every number in <code>v2</code> by 2 and reassign the result to <code>v2</code>.</p>
+<p>Examine the dimensions, class, and structure of your data, using the appropriate R functions.</p>
+<p>If your data set is not already in the format of a data frame, coerce it into a data frame. If any of your variables’ classes are not properly assigned, coerce them into the correct classes.</p>
+<p>Print the head of your data frame.</p>
+<p>(Hint: Check the list of “Common functions” in Lecture 02.)</p>
 </div>
 <div id="section-2" class="section level3">
 <h3>1.3</h3>
-<p>Square each number in <code>v1</code> and assign the result to a vector called <code>v1sq</code>.</p>
-<p>Add <code>v1sq</code> to <code>v2</code> and assign the result to <code>v3</code>.</p>
-<p>Remove <code>v1sq</code> from the environment.</p>
+<p>Check to see whether your data frame has any missing values. If it does, remove or replace them (using any method you choose).</p>
 </div>
 <div id="section-3" class="section level3">
 <h3>1.4</h3>
-<p>Inspect the class of each vector (<code>v1</code>, <code>v2</code>, and <code>v3</code>). If any of these vectors are not of the integer class, print (show) their values, coerce (change) their class to integer, and reassign them under the same names.</p>
+<p>Are your data “tidy”? Why or why not (according to the “three rules”)?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Delete this and enter your response here.</code></pre></div>
+<p>If not, what would you need to do to make them tidy? You do not have to actually do it, just briefly describe the steps you would take and what the final result would look like.</p>
+<p>If your data already are tidy, imagine that you were the one collecting the data. Briefly describe one thing you could have done differently, or a different way of recording the data, that could have resulted in an “un-tidy” data set.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Delete this and enter your response here.</code></pre></div>
 </div>
 <div id="section-4" class="section level3">
 <h3>1.5</h3>
-<p>Print the new values of any vector that was coerced to integer.</p>
-<p>What changed when these values were coerced to integers?</p>
-<p>Why would it be dangerous to coerce real data without inspecting it first?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Delete this and enter your response here.</code></pre></div>
-</div>
-<div id="section-5" class="section level3">
-<h3>1.6</h3>
-<p>Find and use a function that will reverse the order of <code>v3</code>, and reassign the result to <code>v3</code>.</p>
-</div>
-<div id="section-6" class="section level3">
-<h3>1.7</h3>
-<p>Coerce <code>v1</code> to an ordered factor (ordinal variable). Inspect the structure of <code>v1</code>.</p>
-<p>How many levels does <code>v1</code> have? Which is the lowest level?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Delete this and enter your response here.</code></pre></div>
-</div>
-<div id="section-7" class="section level3">
-<h3>1.8</h3>
-<p>Identify which values of <code>v1</code> are less than the corresponding values of <code>v2</code>.</p>
+<p>Subset your data frame using some criterion of your choice and assign the result to a new data frame.</p>
 </div>
 </div>
 <div id="question-2" class="section level2">
 <h2>Question 2</h2>
-<div id="section-8" class="section level3">
+<div id="section-5" class="section level3">
 <h3>2.1</h3>
-<p>Create a matrix named <code>m1</code>, using <code>v1</code>, <code>v2</code>, and <code>v3</code> as the three columns of that matrix.</p>
-<p>Print the resulting matrix.</p>
-<p>(Hint: When you’re finished, the first row should read <code>1    3   30</code>.)</p>
+<p>Choose two numeric variables in your original or subset data frame. For each of the two variables, find its mean, median, standard deviation, and range (maximum value and minimum value).</p>
+</div>
+<div id="section-6" class="section level3">
+<h3>2.2</h3>
+<p>For each of your two numeric variables, create a plot to visualize its distribution.</p>
+<p>If the variable is discrete, create a histogram or density plot.</p>
+<p>If the variable is continuous, create a boxplot or violin plot.</p>
+</div>
+<div id="section-7" class="section level3">
+<h3>2.3</h3>
+<p>Find the correlation between your two numeric variables.</p>
+</div>
+<div id="section-8" class="section level3">
+<h3>2.4</h3>
+<p>Create a scatterplot to visualize the relationship between your two numeric variables.</p>
 </div>
 <div id="section-9" class="section level3">
-<h3>2.2</h3>
-<p>Create a vector named <code>m1cols</code> containing the strings “age”, “height”, and “pred”.</p>
-<p>Coerce <code>m1</code> to a data frame named <code>df1</code> and assign <code>m1cols</code> as its column names.</p>
-<p>Print the resulting data frame.</p>
+<h3>2.5</h3>
+<p>Based on their correlation and by “eyeballing” the plot, do the two variables seem to be related? If so, is the relationship positive (as one variable increases, the other increases) or negative (as one variable increases, the other decreases)?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Delete this and enter your response here.</code></pre></div>
 </div>
 <div id="section-10" class="section level3">
-<h3>2.3</h3>
-<p>Inspect the structure of <code>df1</code>.</p>
-<p>If the classes of any of the columns are different than the vectors they were created from, coerce them back to their original types.</p>
+<h3>2.6</h3>
+<p>Are there any obvious outliers in the plot, or points that could potentially be outliers?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Delete this and enter your response here.</code></pre></div>
 </div>
 <div id="section-11" class="section level3">
-<h3>2.4</h3>
-<p>Add a new column to <code>df1</code> called “id”. The values of this column should be strings, made up of the letter “a” followed by the number “0” and the corresponding value of the <code>age</code> column. (Hint: Check out the documentation for the <code>paste()</code> function, specifically <code>paste0()</code>.)</p>
-<p>Coerce the <code>id</code> column to a factor (nominal/categorical variable).</p>
+<h3>2.7</h3>
+<p>Use the <code>boxplot.stats()</code> function to test each of your two numeric variables for outliers.</p>
 </div>
 <div id="section-12" class="section level3">
-<h3>2.5</h3>
-<p>Rearrange <code>df1</code> so that <code>id</code> is the first column, followed by <code>age</code>, <code>height</code>, and <code>pred</code>.</p>
-<p>Make sure that the class of each column is the same as it was before being reordered.</p>
-</div>
-</div>
-<div id="question-3-extra-credit" class="section level2">
-<h2>Question 3 (<strong>Extra Credit</strong>)</h2>
-<div id="section-13" class="section level3">
-<h3>3.1</h3>
-<p>Write a function to calculate and return the mean of any five input numbers (without using the base <code>mean()</code> function).</p>
-<p>(Hint: You can write your function to handle either: one input variable that is a vector of five numbers; or five different input variables, each of which is a number. Both could work. Read the next part of the problem and think about which will be easier for your input data.)</p>
-</div>
-<div id="section-14" class="section level3">
-<h3>3.2</h3>
-<p>Plug each variable (column) from your <code>df1</code> data frame (except <code>id</code>) into your function to show that it works. For practice doing both, reference some of these variables by column number and some by column name.</p>
-<p>(Hint: You may have to coerce the class of one of your variables to numeric when you plug it in.)</p>
-</div>
-<div id="section-15" class="section level3">
-<h3>3.3</h3>
-<p>Write a loop that will do the following:</p>
-<ul>
-<li>For each column number in <code>df1</code> after <code>id</code> until the last column…
-<ul>
-<li>Store the column’s values in a vector called <code>varVals</code>.<br />
-</li>
-<li>Check if <code>varVals</code> is numeric…
-<ul>
-<li>If not, coerce <code>varVals</code> to numeric and reassign.<br />
-</li>
-</ul></li>
-<li>Run your function to calculate the mean of <code>varVals</code> and store the value in a variable called <code>varMean</code>.<br />
-</li>
-<li>Print a string that reads “Variable ”, followed by the value of the column number, followed by a colon (“:”).<br />
-</li>
-<li>Print the value of <code>varMean</code>.</li>
-</ul></li>
-</ul>
-<p>When it is finished, your output should look like this:</p>
-<pre><code>Variable 2:
-3
-Variable 3:
-3.8
-Variable 4:
-14.8</code></pre>
+<h3>2.8</h3>
+<p>Create one additional plot of your choice depicting one or more of the variables in your data frame.</p>
+<p>Comment briefly on something you learned about your data from this plot.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Delete this and enter your response here.</code></pre></div>
 <p><br><br></p>
-<p>(<a href="./assignment1.pdf">pdf</a> / <a href="./assignment1.Rmd">Rmd</a>)</p>
+<p>(<a href="./assignment2.pdf">pdf</a> / <a href="./assignment2.Rmd">Rmd</a>)</p>
 <div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;">
 
 </div>
