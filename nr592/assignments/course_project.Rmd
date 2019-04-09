@@ -1,5 +1,7 @@
 Course Project Information
 
+REPLICATION IS OKAY
+
 ## Data Sets
 
 ### Packages

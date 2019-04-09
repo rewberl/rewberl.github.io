@@ -265,7 +265,9 @@ focoShelterTidy = spread(focoShelterTidy, variable, value)
 head(focoShelterTidy)
 ```
 
-Our data are now tidy! There are a couple of final details we could take care of, though. Our `Month` variable and `Sex` variable have gotten out of order compared to the original data frame. We can fix them by reassigning them as factors and specifying the order of the levels. For `Month`, we can use the order given in the original data frame. For `Sex` we can write it out manually.
+Our data are now (mostly) tidy! (Note: We actually still have one more variable to split off: the type of shelter being Rescue Mission or Catholic Charities, but we'll leave it for now.)
+
+There are a couple of final details we could take care of, though. Our `Month` variable and `Sex` variable have gotten out of order compared to the original data frame. We can fix them by reassigning them as factors and specifying the order of the levels. For `Month`, we can use the order given in the original data frame. For `Sex` we can write it out manually.
 
 Then, we sort the data frame by those two columns. One way, used below, is to use the `with()` and `order()` functions, but there are others.
 

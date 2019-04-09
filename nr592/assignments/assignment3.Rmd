@@ -1,0 +1,176 @@
+---
+title: |
+  | NR 592
+  | Assignment 2
+author: "INSERT YOUR NAME HERE"
+date: "INSERT THE DATE HERE"
+output:
+  html_document:
+    highlight: haddock
+    theme: flatly
+  pdf_document:
+    highlight: haddock
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+_Last Updated: 2019-04-02_
+
+## Instructions
+
+**Show your work.** The response to each question should include all of the commands necessary to reproduce your results, and should be commented to give a naive reader an idea of the intent behind each section of code. Answers to questions should be clearly shown in the code output or spelled out in text or comments.
+
+Before submitting your assignment, ensure that your code for each question works correctly when the lines are run in sequence, starting with an empty environment. You may submit either this R Markdown document with your code entered into the appropriate code blocks, or a regular R script with the question numbers as comments and the answers following. If you choose to Knit the R Markdown document to HTML or PDF, include those files with your submission (but it is not required that it Knit successfully).
+
+
+## Question 1
+
+### 1.1
+
+Find an external public data set (not included in R) that interests you and has at least 2 numeric variables. Download it and load it into R.
+
+If you're having trouble finding something, you can look through the data sets available at [OpenData Fort Collins](https://opendata.fcgov.com/) or the [Colorado Information Marketplace](https://data.colorado.gov/) (and filter by "Datasets" under "View Types" on the left side).
+
+**Important: Include the data file in your submission and include a link to its source here.**
+
+```{r 1.1a, eval=FALSE, echo=TRUE}
+# Source
+Delete this and paste a link to the source of your data set here.
+```
+
+```{r 1.1b}
+# Load data
+```
+
+### 1.2
+
+Examine the dimensions, class, and structure of your data, using the appropriate R functions.
+
+If your data set is not already in the format of a data frame, coerce it into a data frame. If any of your variables' classes are not properly assigned, coerce them into the correct classes.
+
+Print the head of your data frame.
+
+(Hint: Check the list of "Common functions" in Lecture 02.)
+
+```{r 1.2}
+
+```
+
+### 1.3
+
+Check to see whether your data frame has any missing values. If it does, remove or replace them (using any method you choose).
+
+```{r 1.3}
+
+```
+
+### 1.4
+
+Are your data "tidy"? Why or why not (according to the "three rules")?
+
+```{r 1.4a, eval=FALSE, echo=TRUE}
+Delete this and enter your response here.
+```
+
+If not, what would you need to do to make them tidy? You do not have to actually do it, just briefly describe the steps you would take and what the final result would look like.
+
+If your data already are tidy, imagine that you were the one collecting the data. Briefly describe one thing you could have done differently, or a different way of recording the data, that could have resulted in an "un-tidy" data set.
+
+```{r 1.4b, eval=FALSE, echo=TRUE}
+Delete this and enter your response here.
+```
+
+### 1.5
+
+Subset your data frame using some criterion of your choice and assign the result to a new data frame.
+
+```{r 1.5}
+
+```
+
+
+## Question 2
+
+### 2.1
+
+Choose two numeric variables in your original or subset data frame. For each of the two variables, find its mean, median, standard deviation, and range (maximum value and minimum value).
+
+```{r 2.1}
+
+```
+
+### 2.2
+
+For each of your two numeric variables, create a plot to visualize its distribution.
+
+If the variable is discrete, create a histogram or density plot.
+
+If the variable is continuous, create a boxplot or violin plot.
+
+```{r 2.2}
+
+```
+
+### 2.3
+
+Find the correlation between your two numeric variables.
+
+```{r 2.3}
+
+```
+
+### 2.4
+
+Create a scatterplot to visualize the relationship between your two numeric variables.
+
+```{r 2.4}
+
+```
+
+### 2.5
+
+Based on their correlation and by "eyeballing" the plot, do the two variables seem to be related? If so, is the relationship positive (as one variable increases, the other increases) or negative (as one variable increases, the other decreases)?
+
+```{r 2.5, eval=FALSE, echo=TRUE}
+Delete this and enter your response here.
+```
+
+### 2.6
+
+Are there any obvious outliers in the plot, or points that could potentially be outliers?
+
+```{r 2.6, eval=FALSE, echo=TRUE}
+Delete this and enter your response here.
+```
+
+### 2.7
+
+Use the `boxplot.stats()` function to test each of your two numeric variables for outliers.
+
+```{r 2.7}
+
+```
+
+### 2.8
+
+Create one additional plot of your choice depicting one or more of the variables in your data frame.
+
+```{r 2.8a}
+
+```
+
+Comment briefly on something you learned about your data from this plot.
+
+```{r 2.8b, eval=FALSE, echo=TRUE}
+Delete this and enter your response here.
+```
+
+
+<br><br>
+
+
+([pdf](./assignment2.pdf) / [Rmd](./assignment2.Rmd))
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

@@ -1,0 +1,149 @@
+---
+title: |
+  | &nbsp;
+  | Information design and data visualization
+  | Week 3, Lecture 06:
+author: |
+  | &nbsp;
+  | Richard E.W. Berl
+date: |
+  | Spring 2019
+  | &nbsp;
+output:
+  pdf_document:
+    highlight: haddock
+  html_document:
+    highlight: haddock
+    theme: flatly
+---
+
+## `ggplot2`
+
+```{r, warning=FALSE}
+library(ggplot2)
+```
+
+```{r, warning=FALSE}
+library(readxl)
+
+egg = read_xlsx(path="./data/aaj1945_DataS1_Egg_shape_by_species_v2.xlsx",
+                      sheet=1)
+egg = as.data.frame(egg)
+colnames(egg)[7:9] = c("AvgLength","NumberOfImages","NumberOfEggs")
+egg = egg[-c(1401,1402),]
+```
+
+
+### Facets
+
+```{r}
+eggAsymGalli = egg[egg$Order == "GALLIFORMES",]
+```
+
+```{r}
+head(eggAsymGalli)
+```
+
+```{r}
+ggplot(data=eggAsymGalli, mapping=aes(x=Species, y=Asymmetry)) +
+  facet_grid(cols=vars(Family)) +
+  geom_bar(stat="identity") +
+  theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
+```
+
+```{r}
+ggplot(data=eggAsymGalli, mapping=aes(x=Species, y=Asymmetry)) +
+  facet_grid(cols=vars(Family), scales="free") +
+  geom_bar(stat="identity") +
+  theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
+```
+
+```{r}
+ggplot(data=eggAsymGalli, mapping=aes(x=Species, y=Asymmetry)) +
+  facet_grid(cols=vars(Family), scales="free", space="free") +
+  geom_bar(stat="identity") +
+  theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
+```
+
+```{r}
+unique(eggAsymGalli$Family)
+```
+
+```{r, warning=FALSE}
+library(dplyr)
+
+eggAsymGalli$Family = recode(eggAsymGalli$Family,
+                             Cracidae = "C",
+                             Megapodiidae = "M",
+                             Numididae = "N",
+                             Odontophoridae = "O",
+                             Phasianidae = "P")
+```
+
+```{r}
+ggplot(data=eggAsymGalli, mapping=aes(x=Species, y=Asymmetry)) +
+  facet_grid(cols=vars(Family), scales="free", space="free") +
+  geom_bar(stat="identity") +
+  theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
+```
+
+
+
+### Themes
+
+```{r}
+ggplot(data=eggAsymGalli, mapping=aes(x=Species, y=Asymmetry)) +
+  facet_grid(cols=vars(Family), scales="free", space="free") +
+  geom_bar(stat="identity") +
+  theme_minimal() +
+  theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
+```
+
+```{r}
+ggplot(data=eggAsymGalli, mapping=aes(x=Species, y=Asymmetry)) +
+  facet_grid(cols=vars(Family), scales="free", space="free") +
+  geom_bar(stat="identity") +
+  theme_bw() +
+  theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
+```
+
+Others listed here: https://ggplot2.tidyverse.org/reference/ggtheme.html
+
+```{r, eval=FALSE}
+install.packages("xkcd")
+install.packages("extrafont")
+```
+
+```{r, warning=FALSE}
+library(xkcd)
+```
+
+```{r, message=FALSE, warning=FALSE}
+download.file("http://simonsoftware.se/other/xkcd.ttf",
+              dest="./resources/xkcd.ttf", mode="wb")
+font_import(paths="./resources/", pattern="[X/x]kcd", prompt=FALSE)
+loadfonts(device="win")  # For Mac: loadfonts()
+
+# Also have to put the font in your system fonts directory
+```
+
+
+```{r}
+ggplot(data=eggAsymGalli, mapping=aes(x=Species, y=Asymmetry)) +
+  facet_grid(cols=vars(Family), scales="free", space="free") +
+  geom_bar(stat="identity") +
+  theme_xkcd() +
+  theme(axis.text.x=element_text(angle=50, hjust=1, size=7),
+        text=element_text(family="xkcd"))
+```
+
+```{r}
+?xkcdrect
+?xkcdline
+```
+
+
+
+Color scales
+
+Color blind simulation

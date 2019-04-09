@@ -841,7 +841,8 @@ focoShelterNot =<span class="st"> </span>focoShelterNot[,<span class="kw">c</spa
 ## 4                                   NA                         740
 ## 5                                   NA                          NA
 ## 6                                   NA                        2351</code></pre>
-<p>Our data are now tidy! There are a couple of final details we could take care of, though. Our <code>Month</code> variable and <code>Sex</code> variable have gotten out of order compared to the original data frame. We can fix them by reassigning them as factors and specifying the order of the levels. For <code>Month</code>, we can use the order given in the original data frame. For <code>Sex</code> we can write it out manually.</p>
+<p>Our data are now (mostly) tidy! (Note: We actually still have one more variable to split off: the type of shelter being Rescue Mission or Catholic Charities, but we’ll leave it for now.)</p>
+<p>There are a couple of final details we could take care of, though. Our <code>Month</code> variable and <code>Sex</code> variable have gotten out of order compared to the original data frame. We can fix them by reassigning them as factors and specifying the order of the levels. For <code>Month</code>, we can use the order given in the original data frame. For <code>Sex</code> we can write it out manually.</p>
 <p>Then, we sort the data frame by those two columns. One way, used below, is to use the <code>with()</code> and <code>order()</code> functions, but there are others.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">focoShelterTidy<span class="op">$</span>Month =<span class="st"> </span><span class="kw">factor</span>(focoShelterTidy<span class="op">$</span>Month,
                                <span class="dt">levels=</span><span class="kw">as.character</span>(focoShelter<span class="op">$</span>Month))
