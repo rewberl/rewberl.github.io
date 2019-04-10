@@ -10,7 +10,7 @@ date: |
   | Spring 2019
   | &nbsp;
   | &nbsp;
-  | Last Updated: 2019-04-09
+  | Last Updated: 2019-04-10
 output:
   html_document:
     highlight: haddock
@@ -192,7 +192,7 @@ output:
     
 1. **[Assignment 3](./assignments/assignment3.html)** ([pdf](./assignments/assignment3.pdf) / [Rmd](./assignments/assignment3.Rmd)) (Due April 16)
 
-1. Start thinking about **Project Proposal** (Due April 23, 11:59pm)
+1. Start thinking about **[Project Proposal](./assignments/course_project.html)** (Due April 23, 11:59pm)
 
 ### Resources
 
@@ -248,7 +248,7 @@ output:
 
 1. **Assignment 4** (Due April 23)
 
-1. **Project Proposal** (Due April 23, 11:59pm)
+1. **[Project Proposal](./assignments/course_project.html)** (Due April 23, 11:59pm)
 
 ### Resources
 
@@ -336,9 +336,9 @@ Accumulation Curves
 
 1. **Assignment 6** (Due May 7)
 
-1. Start working on **Project Report** (Due May 17, 11:59pm)
+1. Start working on **[Project Report](./assignments/course_project.html)** (Due May 17, 11:59pm)
 
-1. Start working on **Project Presentation** (Due week of May 13)
+1. Start working on **[Project Presentation](./assignments/course_project.html)** (Due week of May 13)
 
 ### Resources
 
@@ -382,9 +382,9 @@ Confirmatory Factor Analysis
 
 <!-- end of list -->
 
-1. **Project Report** (Due May 17, 11:59pm)
+1. **[Project Report](./assignments/course_project.html)** (Due May 17, 11:59pm)
 
-1. **Project Presentation** (Due week of May 13)
+1. **[Project Presentation](./assignments/course_project.html)** (Due week of May 13)
 
 ### Resources
 
@@ -399,6 +399,10 @@ Text Mining, Scraping, and Sentiment Analysis
 **Reproducible Research**
 
 * rOpenSci. Reproducibility in science. Available: https://ropensci.github.io/reproducibility-guide/
+
+* Hartgerink, C. (2017). Composing reproducible manuscripts using R Markdown. Available: https://elifesciences.org/labs/cad57bcf/composing-reproducible-manuscripts-using-r-markdown
+
+* Lowndes, J. S. S., et al. (2017). Our path to better science in less time using open data science tools. Nature Ecology & Evolution, 1(6), 0160. doi: [10.1038/s41559-017-0160](https://doi.org/10.1038/s41559-017-0160)
 
 **Science Communication**
 
