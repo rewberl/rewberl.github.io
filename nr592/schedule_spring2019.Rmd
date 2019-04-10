@@ -9,15 +9,15 @@ author: |
 date: |
   | Spring 2019
   | &nbsp;
-  | Last Updated: 2019-04-08
   | &nbsp;
+  | Last Updated: 2019-04-09
 output:
   html_document:
     highlight: haddock
     theme: readable
     toc: yes
     toc_float: yes
-  pdf_document: 
+  pdf_document:
     highlight: haddock
     toc: yes
 ---
@@ -190,7 +190,7 @@ output:
     
     a. Wilke, C. O. Chapter 29: Telling a story and making a point. In _Fundamentals of data visualization_. Available: https://serialmentor.com/dataviz/telling-a-story.html
     
-1. **Assignment 3** (Due April 16)
+1. **[Assignment 3](./assignments/assignment3.html)** ([pdf](./assignments/assignment3.pdf) / [Rmd](./assignments/assignment3.Rmd)) (Due April 16)
 
 1. Start thinking about **Project Proposal** (Due April 23, 11:59pm)
 

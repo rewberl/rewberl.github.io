@@ -17,7 +17,7 @@ REPLICATION IS OKAY
 * ["Data Is Plural" Archive](https://data.world/jsvine/data-is-plural-archive)  
 * [Reddit r/datasets](https://www.reddit.com/r/datasets/top/?t=all)  
 
-### Government
+### Government/Global
 
 * [OpenData Fort Collins](https://opendata.fcgov.com/)
 * [Colorado Information Marketplace](https://data.colorado.gov/)
@@ -39,21 +39,22 @@ REPLICATION IS OKAY
 * [UNESCO Institute for Statistics](http://data.uis.unesco.org/)  
 * [Gapminder](https://www.gapminder.org/data/)  
 * [Data for Democracy](https://github.com/Data4Democracy/)  
-* [ProPublica](https://www.propublica.org/datastore/)
+* [Southern Poverty Law Center](https://splc.demo.socrata.com/)  
+* [ProPublica](https://www.propublica.org/datastore/)  
 
 ### Biology, Ecology, and Natural Resources
 
 * [Global Biodiversity Information Facility](https://www.gbif.org/)  
 * [Protected Planet](https://www.protectedplanet.net/)  
     * `wdpar` package  
-* [Environmental Data Initiative](https://portal.edirepository.org/)
+* [Environmental Data Initiative](https://portal.edirepository.org/)  
 * [MorphoBank](https://morphobank.org/index.php/Projects/Index)  
 
 ### Anthropology and Linguistics
 
 * [D-PLACE: Database of Places, Languages, Culture and Environment](https://d-place.org/)  
     * [dplace-data](https://github.com/D-PLACE/dplace-data)  
-* [Glottobank](https://glottobank.org/) (TBD)
+* [Glottobank](https://glottobank.org/) (TBD)  
 * [WALS: World Atlas of Language Structures](https://wals.info/)  
 * [Pulotu: Database of Pacific Religions](https://pulotu.shh.mpg.de/)  
 
@@ -65,15 +66,15 @@ REPLICATION IS OKAY
 * [Global Database of Events, Language, and Tone](https://www.gdeltproject.org/)  
 * [Yelp Open Dataset](https://www.yelp.com/dataset)  
 * [Million Song Dataset](https://labrosa.ee.columbia.edu/millionsong/)  
-* [Internet Boy Band Database](https://github.com/the-pudding/data/tree/master/boybands) 
-* [So Much Candy Data, Seriously](http://www.scq.ubc.ca/so-much-candy-data-seriously/)
+* [Internet Boy Band Database](https://github.com/the-pudding/data/tree/master/boybands)  
+* [So Much Candy Data, Seriously](http://www.scq.ubc.ca/so-much-candy-data-seriously/)  
 * Game of Thrones  
     * [Datasets and Visualizations](https://github.com/jeffreylancaster/game-of-thrones) (json)  
     * [Character Interaction Networks](https://github.com/mathbeveridge/asoiaf)  
     * [War of the Five Kings](https://github.com/chrisalbon/war_of_the_five_kings_dataset)  
     * [Bayesian Survival Analysis](https://allendowney.blogspot.com/2015/03/bayesian-survival-analysis-for-game-of.html)  
         * [Character Data](https://github.com/benkahle/bayesianGameofThrones/blob/master/char_final.csv)  
-* Dungeons & Dragons
+* Dungeons & Dragons  
     * [Character Names](https://github.com/janelleshane/DnD-characters)  
     * [Character Biographies](https://github.com/janelleshane/DnD_bios)  
     * [Spell Names](https://github.com/janelleshane/dnd_spells)  
@@ -88,7 +89,7 @@ REPLICATION IS OKAY
 
 ### General Repositories
 
-* [Google Dataset Search](https://toolbox.google.com/datasetsearch)
+* [Google Dataset Search](https://toolbox.google.com/datasetsearch)  
 * [Dryad](https://datadryad.org/)  
 * [figshare](https://figshare.com/)  
 * [Harvard Dataverse](https://dataverse.harvard.edu/)  
