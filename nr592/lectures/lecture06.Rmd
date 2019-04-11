@@ -10,11 +10,11 @@ date: |
   | Spring 2019
   | &nbsp;
 output:
-  pdf_document:
-    highlight: haddock
   html_document:
     highlight: haddock
     theme: flatly
+  pdf_document:
+    highlight: haddock
 ---
 
 ## `ggplot2`
@@ -24,55 +24,131 @@ library(ggplot2)
 ```
 
 ```{r, warning=FALSE}
-library(readxl)
-
-egg = read_xlsx(path="./data/aaj1945_DataS1_Egg_shape_by_species_v2.xlsx",
-                      sheet=1)
-egg = as.data.frame(egg)
+egg = read.csv("./data/aaj1945_DataS1_Egg_shape_by_species_v2.csv", header=T,
+               stringsAsFactors=F)
 colnames(egg)[7:9] = c("AvgLength","NumberOfImages","NumberOfEggs")
 egg = egg[-c(1401,1402),]
+```
+
+```{r}
+str(egg)
+```
+
+```{r}
+eggGalli = egg[egg$Order == "GALLIFORMES",]
+```
+
+```{r}
+head(eggGalli)
+```
+
+
+### Violin plot
+
+```{r}
+ggplot(data=eggGalli, mapping=aes(x=Family, y=Ellipticity)) +
+  geom_violin()
+```
+
+```{r}
+table(eggGalli$Family)
+```
+
+```{r}
+ggplot(data=eggGalli[eggGalli$Family != "Cracidae" &
+                       eggGalli$Family != "Numididae",],
+       mapping=aes(x=Family, y=Ellipticity)) +
+  geom_violin()
+```
+
+```{r}
+range(egg$Ellipticity)
+```
+
+Change axis
+
+```{r}
+ggplot(data=eggGalli[eggGalli$Family != "Cracidae" &
+                       eggGalli$Family != "Numididae",],
+       mapping=aes(x=Family, y=Ellipticity)) +
+  geom_violin() +
+  scale_y_continuous(breaks=seq(0,1,0.2),
+                     limits=c(0,1),
+                     expand=c(0,0))
+```
+
+Compare to bar plot
+
+```{r out.width=c("50%","50%"), fig.show="hold"}
+ggplot(data=eggGalli[eggGalli$Family != "Cracidae" &
+                       eggGalli$Family != "Numididae",],
+       mapping=aes(x=Family, y=Ellipticity)) +
+  geom_violin() +
+  scale_y_continuous(breaks=seq(0,1,0.2),
+                     limits=c(0,1),
+                     expand=c(0,0))
+
+ggplot(data=eggGalli[eggGalli$Family != "Cracidae" &
+                       eggGalli$Family != "Numididae",],
+       mapping=aes(x=Family, y=Ellipticity)) +
+  geom_bar(stat="summary", fun.y="mean") +
+  geom_errorbar(stat="summary", fun.data="mean_cl_normal",
+               width=0.5) +
+  scale_y_continuous(breaks=seq(0,1,0.2),
+                     limits=c(0,1),
+                     expand=c(0,0))
+```
+
+```{r}
+ggplot(data=eggGalli[eggGalli$Family != "Cracidae" &
+                       eggGalli$Family != "Numididae",],
+       mapping=aes(x=Family, y=Ellipticity)) +
+  geom_violin() +
+  geom_errorbar(stat="summary", fun.data="mean_cl_normal",
+                width=0.1) +
+  scale_y_continuous(breaks=seq(0,1,0.2),
+                     limits=c(0,1),
+                     expand=c(0,0))
 ```
 
 
 ### Facets
 
 ```{r}
-eggAsymGalli = egg[egg$Order == "GALLIFORMES",]
+ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
+  geom_bar(stat="identity") +
+  theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
 ```
 
 ```{r}
-head(eggAsymGalli)
-```
-
-```{r}
-ggplot(data=eggAsymGalli, mapping=aes(x=Species, y=Asymmetry)) +
+ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
   facet_grid(cols=vars(Family)) +
   geom_bar(stat="identity") +
   theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
 ```
 
 ```{r}
-ggplot(data=eggAsymGalli, mapping=aes(x=Species, y=Asymmetry)) +
+ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
   facet_grid(cols=vars(Family), scales="free") +
   geom_bar(stat="identity") +
   theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
 ```
 
 ```{r}
-ggplot(data=eggAsymGalli, mapping=aes(x=Species, y=Asymmetry)) +
+ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
   facet_grid(cols=vars(Family), scales="free", space="free") +
   geom_bar(stat="identity") +
   theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
 ```
 
 ```{r}
-unique(eggAsymGalli$Family)
+unique(eggGalli$Family)
 ```
 
 ```{r, warning=FALSE}
 library(dplyr)
 
-eggAsymGalli$Family = recode(eggAsymGalli$Family,
+eggGalli$Family = recode(eggGalli$Family,
                              Cracidae = "C",
                              Megapodiidae = "M",
                              Numididae = "N",
@@ -81,33 +157,128 @@ eggAsymGalli$Family = recode(eggAsymGalli$Family,
 ```
 
 ```{r}
-ggplot(data=eggAsymGalli, mapping=aes(x=Species, y=Asymmetry)) +
+ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
   facet_grid(cols=vars(Family), scales="free", space="free") +
   geom_bar(stat="identity") +
   theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
 ```
-
 
 
 ### Themes
 
+#### `theme_gray()` is the default
+
+<br>
+
+#### `theme_minimal()`
+
 ```{r}
-ggplot(data=eggAsymGalli, mapping=aes(x=Species, y=Asymmetry)) +
+ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
   facet_grid(cols=vars(Family), scales="free", space="free") +
   geom_bar(stat="identity") +
+  labs(title="Egg ellipticity by family in Galliformes spp.",
+       caption="Data from Stoddard et al. (2017)") +
   theme_minimal() +
   theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
 ```
 
+#### `theme_bw()`
+
 ```{r}
-ggplot(data=eggAsymGalli, mapping=aes(x=Species, y=Asymmetry)) +
+ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
   facet_grid(cols=vars(Family), scales="free", space="free") +
   geom_bar(stat="identity") +
+  labs(title="Egg ellipticity by family in Galliformes spp.",
+       caption="Data from Stoddard et al. (2017)") +
   theme_bw() +
   theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
 ```
 
+#### `theme_dark()`
+
+```{r}
+ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
+  facet_grid(cols=vars(Family), scales="free", space="free") +
+  geom_bar(stat="identity") +
+  labs(title="Egg ellipticity by family in Galliformes spp.",
+       caption="Data from Stoddard et al. (2017)") +
+  theme_dark() +
+  theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
+```
+
+#### `theme_void()`
+
+```{r}
+ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
+  facet_grid(cols=vars(Family), scales="free", space="free") +
+  geom_bar(stat="identity") +
+  labs(title="Egg ellipticity by family in Galliformes spp.",
+       caption="Data from Stoddard et al. (2017)") +
+  theme_void() +
+  theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
+```
+
 Others listed here: https://ggplot2.tidyverse.org/reference/ggtheme.html
+
+Also external packages
+
+```{r, eval=FALSE}
+install.packages("ggthemes")
+```
+
+```{r}
+library(ggthemes)
+```
+
+#### `ggthemes::theme_wsj()`
+
+```{r}
+ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
+  facet_grid(cols=vars(Family), scales="free", space="free") +
+  geom_bar(stat="identity") +
+  labs(title="Egg ellipticity by family in Galliformes spp.",
+       caption="Data from Stoddard et al. (2017)") +
+  theme_wsj() +
+  theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
+```
+
+#### `ggthemes::theme_fivethirtyeight()`
+
+```{r}
+ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
+  facet_grid(cols=vars(Family), scales="free", space="free") +
+  geom_bar(stat="identity") +
+  labs(title="Egg ellipticity by family in Galliformes spp.",
+       caption="Data from Stoddard et al. (2017)") +
+  theme_fivethirtyeight() +
+  theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
+```
+
+#### `ggthemes::theme_economist()`
+
+```{r}
+ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
+  facet_grid(cols=vars(Family), scales="free", space="free") +
+  geom_bar(stat="identity") +
+  labs(title="Egg ellipticity by family in Galliformes spp.",
+       caption="Data from Stoddard et al. (2017)") +
+  theme_economist() +
+  theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
+```
+
+#### `ggthemes::theme_tufte()`
+
+```{r}
+ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
+  facet_grid(cols=vars(Family), scales="free", space="free") +
+  geom_bar(stat="identity") +
+  labs(title="Egg ellipticity by family in Galliformes spp.",
+       caption="Data from Stoddard et al. (2017)") +
+  theme_tufte() +
+  theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
+```
+
+XKCD
 
 ```{r, eval=FALSE}
 install.packages("xkcd")
@@ -127,23 +298,320 @@ loadfonts(device="win")  # For Mac: loadfonts()
 # Also have to put the font in your system fonts directory
 ```
 
-
 ```{r}
-ggplot(data=eggAsymGalli, mapping=aes(x=Species, y=Asymmetry)) +
+ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
   facet_grid(cols=vars(Family), scales="free", space="free") +
   geom_bar(stat="identity") +
+  labs(title="Egg ellipticity by family in Galliformes spp.",
+       caption="Data from Stoddard et al. (2017)") +
   theme_xkcd() +
   theme(axis.text.x=element_text(angle=50, hjust=1, size=7),
         text=element_text(family="xkcd"))
 ```
 
-```{r}
+```{r, eval=FALSE}
 ?xkcdrect
 ?xkcdline
 ```
 
 
 
-Color scales
+## Color scales
 
-Color blind simulation
+```{r}
+ggplot(data=egg, mapping=aes(x=reorder(Species, Ellipticity),
+                             y=Ellipticity)) +
+  geom_bar(stat="identity") +
+  scale_y_continuous(breaks=seq(0,1,0.2),
+                     limits=c(0,1),
+                     expand=c(0,0)) +
+  theme_minimal() +
+  theme(axis.text.x=element_blank(),
+        panel.grid.major=element_blank(),
+        panel.grid.minor=element_blank())
+```
+
+```{r}
+egg[is.na(egg$Species),]
+
+egg$Species[is.na(egg$Species)] = egg$MVZDatabase[is.na(egg$Species)]
+
+egg[is.na(egg$Species),]
+```
+
+```{r}
+ggplot(data=egg, mapping=aes(x=Ellipticity)) +
+  geom_density()
+```
+
+Really close to a normal distribution.
+
+```{r}
+eggCuckoo = egg[egg$Order == "CUCULIFORMES",]
+eggCuckoo$Species
+strsplit(eggCuckoo$Species, " ")
+eggCuckoo$Genus = sapply(strsplit(eggCuckoo$Species, " "), "[", 1)
+unique(eggCuckoo$Genus)
+```
+
+```{r}
+ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
+                             y=Ellipticity,
+                             fill=Genus)) +
+  geom_bar(stat="identity") +
+  scale_y_continuous(breaks=seq(0,1,0.2),
+                     limits=c(0,1),
+                     expand=c(0,0)) +
+  theme_minimal() +
+  theme(axis.text.x=element_text(angle=50, hjust=1))
+```
+
+Clean up a couple things.
+
+```{r}
+ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
+                             y=Ellipticity,
+                             fill=Genus)) +
+  geom_bar(stat="identity") +
+  scale_y_continuous(breaks=seq(0,0.5,0.1),
+                     limits=c(0,0.5),
+                     expand=c(0,0)) +
+  labs(x="Species") +
+  theme_minimal() +
+  theme(axis.text.x=element_text(angle=50, hjust=1))
+```
+
+```{r}
+length(unique(eggCuckoo$Genus))
+```
+
+### Manual
+
+```{r}
+ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
+                             y=Ellipticity,
+                             fill=Genus)) +
+  geom_bar(stat="identity") +
+  scale_y_continuous(breaks=seq(0,0.5,0.1),
+                     limits=c(0,0.5),
+                     expand=c(0,0)) +
+  scale_fill_manual(values=c("#800000","#9A6324","#808000","#469990",
+                              "#000075","#000000","#e6194B")) +
+  labs(x="Species") +
+  theme_minimal() +
+  theme(axis.text.x=element_text(angle=50, hjust=1))
+```
+
+Source: [Sasha Trubetskoy](https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/)
+
+<br>
+
+### Color brewer
+
+```{r}
+ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
+                             y=Ellipticity,
+                             fill=Genus)) +
+  geom_bar(stat="identity") +
+  scale_y_continuous(breaks=seq(0,0.5,0.1),
+                     limits=c(0,0.5),
+                     expand=c(0,0)) +
+  scale_fill_brewer(type="qual", palette="Accent") +
+  labs(x="Species") +
+  theme_minimal() +
+  theme(axis.text.x=element_text(angle=50, hjust=1))
+```
+
+Source: [ColorBrewer 2.0](http://colorbrewer2.org/)
+
+<br>
+
+### Color-blind friendly
+
+#### **`dichromat`**
+
+```{r, eval=FALSE}
+install.packages("dichromat")
+```
+
+```{r}
+library(dichromat)
+```
+
+```{r}
+dichromat(c("goldenrod","lawngreen","firebrick",
+            "darksalmon","dodgerblue","darkviolet",
+            "darkslateblue"),
+          type="protan")
+```
+
+Compare
+
+```{r out.width=c("50%","50%"), fig.show="hold"}
+ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
+                             y=Ellipticity,
+                             fill=Genus)) +
+  geom_bar(stat="identity") +
+  scale_y_continuous(breaks=seq(0,0.5,0.1),
+                     limits=c(0,0.5),
+                     expand=c(0,0)) +
+  scale_fill_manual(values=c("goldenrod","lawngreen","firebrick",
+                             "darksalmon","dodgerblue","darkviolet",
+                             "darkslateblue")) +
+  labs(x="Species") +
+  theme_minimal() +
+  theme(axis.text.x=element_text(angle=50, hjust=1))
+
+ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
+                             y=Ellipticity,
+                             fill=Genus)) +
+  geom_bar(stat="identity") +
+  scale_y_continuous(breaks=seq(0,0.5,0.1),
+                     limits=c(0,0.5),
+                     expand=c(0,0)) +
+  scale_fill_manual(values=dichromat(c("goldenrod","lawngreen","firebrick",
+                                       "darksalmon","dodgerblue","darkviolet",
+                                       "darkslateblue"),
+                                     "protan")) +
+  labs(x="Species") +
+  theme_minimal() +
+  theme(axis.text.x=element_text(angle=50, hjust=1))
+```
+
+```{r}
+ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
+                             y=Ellipticity,
+                             fill=Genus)) +
+  geom_bar(stat="identity") +
+  scale_y_continuous(breaks=seq(0,0.5,0.1),
+                     limits=c(0,0.5),
+                     expand=c(0,0)) +
+  scale_fill_manual(values=dichromat::colorschemes$Categorical.12[1:7]) +
+  labs(x="Species") +
+  theme_minimal() +
+  theme(axis.text.x=element_text(angle=50, hjust=1))
+```
+
+<br>
+
+#### **`viridis`**
+
+```{r, eval=FALSE}
+install.packages("viridis")
+```
+
+```{r}
+library(viridis)
+```
+
+```{r}
+ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
+                             y=Ellipticity,
+                             fill=Genus)) +
+  geom_bar(stat="identity") +
+  scale_y_continuous(breaks=seq(0,0.5,0.1),
+                     limits=c(0,0.5),
+                     expand=c(0,0)) +
+  scale_fill_viridis_d() +
+  labs(x="Species") +
+  theme_minimal() +
+  theme(axis.text.x=element_text(angle=50, hjust=1))
+```
+
+**"magma"**
+
+```{r}
+ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
+                             y=Ellipticity,
+                             fill=Genus)) +
+  geom_bar(stat="identity") +
+  scale_y_continuous(breaks=seq(0,0.5,0.1),
+                     limits=c(0,0.5),
+                     expand=c(0,0)) +
+  scale_fill_viridis_d(option="magma") +
+  labs(x="Species") +
+  theme_minimal() +
+  theme(axis.text.x=element_text(angle=50, hjust=1))
+```
+
+<br>
+
+#### **Paul Tol**
+
+Tol, P. (2018). Colour schemes. SRON Netherlands Institute for Space Research. Available: https://personal.sron.nl/~pault/data/colourschemes.pdf
+
+```{r}
+ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
+                             y=Ellipticity,
+                             fill=Genus)) +
+  geom_bar(stat="identity") +
+  scale_y_continuous(breaks=seq(0,0.5,0.1),
+                     limits=c(0,0.5),
+                     expand=c(0,0)) +
+  scale_fill_manual(values=ggthemes::ptol_pal()(7)) +
+  labs(x="Species") +
+  theme_minimal() +
+  theme(axis.text.x=element_text(angle=50, hjust=1))
+```
+
+<br>
+
+## Saving plots
+
+### `ggplot()`
+
+```{r}
+plotCuckoo = ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
+                             y=Ellipticity,
+                             fill=Genus)) +
+  geom_bar(stat="identity") +
+  scale_y_continuous(breaks=seq(0,0.5,0.1),
+                     limits=c(0,0.5),
+                     expand=c(0,0)) +
+  scale_fill_manual(values=ggthemes::ptol_pal()(7)) +
+  labs(title="Egg ellipticity in Cuculiformes spp.", x="Species",
+       caption="Data from Stoddard et al. (2017)") +
+  theme_minimal() +
+  theme(axis.text.x=element_text(angle=50, hjust=1))
+```
+
+**JPG**
+
+```{r eval=FALSE}
+ggsave("./figs/plotCuckoo.jpg", plotCuckoo, width=8, height=6, units="in",
+       dpi=300)
+```
+
+**PDF**
+
+```{r eval=FALSE}
+ggsave("./figs/plotCuckoo.pdf", plotCuckoo, width=8, height=6, units="in")
+```
+
+
+### `base`
+
+**JPG**
+
+```{r eval=FALSE}
+jpeg("./figs/plotCuckoo2.jpg", width=8, height=6, units="in",
+     res=300)
+plotCuckoo
+dev.off()
+```
+
+**PDF**
+
+```{r eval=FALSE}
+pdf("./figs/plotCuckoo2.pdf", width=8, height=6)
+plotCuckoo
+dev.off()
+```
+
+
+<br><br>
+
+
+([pdf](./lecture06.pdf) / [Rmd](./lecture06.Rmd))
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
