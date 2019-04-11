@@ -2,7 +2,7 @@
 title: |
   | &nbsp;
   | Information design and data visualization
-  | Week 3, Lecture 05:
+  | Week 3, Lecture 05
 author: |
   | &nbsp;
   | Richard E.W. Berl

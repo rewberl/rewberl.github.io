@@ -2,7 +2,7 @@
 title: |
   | &nbsp;
   | Information design and data visualization
-  | Week 3, Lecture 06:
+  | Week 3, Lecture 06
 author: |
   | &nbsp;
   | Richard E.W. Berl
@@ -23,6 +23,8 @@ output:
 library(ggplot2)
 ```
 
+Load the egg data as a [CSV](./lectures/data/aaj1945_DataS1_Egg_shape_by_species_v2.csv).
+
 ```{r, warning=FALSE}
 egg = read.csv("./data/aaj1945_DataS1_Egg_shape_by_species_v2.csv", header=T,
                stringsAsFactors=F)
@@ -33,6 +35,8 @@ egg = egg[-c(1401,1402),]
 ```{r}
 str(egg)
 ```
+
+Subset the full data frame to Order Galliformes, chickens and other fowl.
 
 ```{r}
 eggGalli = egg[egg$Order == "GALLIFORMES",]
@@ -54,6 +58,10 @@ ggplot(data=eggGalli, mapping=aes(x=Family, y=Ellipticity)) +
 table(eggGalli$Family)
 ```
 
+Cracidae and Numididae don't show distributions because they each only have 1 observation.
+
+We can subset the plot to not show them. Alternatively, we could add a `geom_point()` layer to show them as single points.
+
 ```{r}
 ggplot(data=eggGalli[eggGalli$Family != "Cracidae" &
                        eggGalli$Family != "Numididae",],
@@ -61,11 +69,13 @@ ggplot(data=eggGalli[eggGalli$Family != "Cracidae" &
   geom_violin()
 ```
 
+Our axis doesn't start at zero, which can be misleading.
+
 ```{r}
 range(egg$Ellipticity)
 ```
 
-Change axis
+Looks like the range of possible values is probably 0 to 1. Let's change our axis, and add the `expand` argument to get rid of the extra space beyond the axis limits.
 
 ```{r}
 ggplot(data=eggGalli[eggGalli$Family != "Cracidae" &
@@ -77,7 +87,7 @@ ggplot(data=eggGalli[eggGalli$Family != "Cracidae" &
                      expand=c(0,0))
 ```
 
-Compare to bar plot
+Compare this to a bar plot of the same data:
 
 ```{r out.width=c("50%","50%"), fig.show="hold"}
 ggplot(data=eggGalli[eggGalli$Family != "Cracidae" &
@@ -99,6 +109,8 @@ ggplot(data=eggGalli[eggGalli$Family != "Cracidae" &
                      expand=c(0,0))
 ```
 
+If we want, we can take the best of both and lay the confidence intervals on top of the violin plot:
+
 ```{r}
 ggplot(data=eggGalli[eggGalli$Family != "Cracidae" &
                        eggGalli$Family != "Numididae",],
@@ -114,11 +126,15 @@ ggplot(data=eggGalli[eggGalli$Family != "Cracidae" &
 
 ### Facets
 
+Plot all ellipticity values by species.
+
 ```{r}
 ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
   geom_bar(stat="identity") +
   theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
 ```
+
+Add a facet to group them by family.
 
 ```{r}
 ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
@@ -127,6 +143,8 @@ ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
   theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
 ```
 
+... But all of our values appear under each facet. Not what we want. So we add `scales="free"` to allow scales to vary across rows and columns.
+
 ```{r}
 ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
   facet_grid(cols=vars(Family), scales="free") +
@@ -134,12 +152,16 @@ ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
   theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
 ```
 
+Still not quite right, as some bars are now wider than others and may seem like they're communicating some other information. So we add `space="free"` to allow panel sizes to vary.
+
 ```{r}
 ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
   facet_grid(cols=vars(Family), scales="free", space="free") +
   geom_bar(stat="identity") +
   theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
 ```
+
+And we've now made a new problem in that our facet labels don't fit anymore. So let's use the `recode()` function from `dplyr` to change those values.
 
 ```{r}
 unique(eggGalli$Family)
@@ -220,7 +242,7 @@ ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
 
 Others listed here: https://ggplot2.tidyverse.org/reference/ggtheme.html
 
-Also external packages
+Some themes are also available in external packages, such as `ggthemes`.
 
 ```{r, eval=FALSE}
 install.packages("ggthemes")
@@ -278,7 +300,7 @@ ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
   theme(axis.text.x=element_text(angle=50, hjust=1, size=7))
 ```
 
-XKCD
+Or, for fun, `xkcd`... (like [the webcomic](https://xkcd.com/))
 
 ```{r, eval=FALSE}
 install.packages("xkcd")
@@ -309,6 +331,8 @@ ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
         text=element_text(family="xkcd"))
 ```
 
+There are additional functions to make "fuzzy" rectangles and lines, but they're very particular about the input so you'd have to reformat your data:
+
 ```{r, eval=FALSE}
 ?xkcdrect
 ?xkcdline
@@ -317,6 +341,8 @@ ggplot(data=eggGalli, mapping=aes(x=Species, y=Ellipticity)) +
 
 
 ## Color scales
+
+Arrange all species in the original data frame by their ellipticity values (and remove the grid and tick marks):
 
 ```{r}
 ggplot(data=egg, mapping=aes(x=reorder(Species, Ellipticity),
@@ -331,28 +357,47 @@ ggplot(data=egg, mapping=aes(x=reorder(Species, Ellipticity),
         panel.grid.minor=element_blank())
 ```
 
+We're seeing a warning about missing values.
+
 ```{r}
 egg[is.na(egg$Species),]
+```
 
+There are some extinct species without a `Species` value. To get rid of the warning, we can fix it for now by using the `MVZDatabase` values, which are good enough:
+
+```{r}
 egg$Species[is.na(egg$Species)] = egg$MVZDatabase[is.na(egg$Species)]
 
 egg[is.na(egg$Species),]
 ```
+
+We also saw a beautiful sigmoidal curve for the ellipticity values when we lined them all up. Why?
 
 ```{r}
 ggplot(data=egg, mapping=aes(x=Ellipticity)) +
   geom_density()
 ```
 
-Really close to a normal distribution.
+Because the distribution of values is really close to a "normal" Gaussian curve.
+
+Now let's subset the data for Order Cuculiformes, the cuckoos.
 
 ```{r}
 eggCuckoo = egg[egg$Order == "CUCULIFORMES",]
 eggCuckoo$Species
+```
+
+We also want to take these `Species` values and split them to make a `Genus` variable too (since we have Order, Family, and Species, but not Genus).
+
+We do this by using `strsplit()` and a fancy `apply()`-family function:
+
+```{r}
 strsplit(eggCuckoo$Species, " ")
 eggCuckoo$Genus = sapply(strsplit(eggCuckoo$Species, " "), "[", 1)
 unique(eggCuckoo$Genus)
 ```
+
+Now let's plot the cuckoo species, ordered by ellipticity values, with their fill colors according to genus.
 
 ```{r}
 ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
@@ -366,7 +411,7 @@ ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
   theme(axis.text.x=element_text(angle=50, hjust=1))
 ```
 
-Clean up a couple things.
+Let's readjust the Y axis and fix the X axis label.
 
 ```{r}
 ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
@@ -381,11 +426,17 @@ ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
   theme(axis.text.x=element_text(angle=50, hjust=1))
 ```
 
+Now we want to customize the colors instead of using the default R palette.
+
 ```{r}
 length(unique(eggCuckoo$Genus))
 ```
 
+We will need 7 different color values, and those values need to be for discrete or categorical data, not continuous (`Ellipticity`, for instance, would need a continuous scale).
+
 ### Manual
+
+The first option is to assign color values manually, either by name or by hexadecimal value.
 
 ```{r}
 ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
@@ -406,7 +457,11 @@ Source: [Sasha Trubetskoy](https://sashat.me/2017/01/11/list-of-20-simple-distin
 
 <br>
 
-### Color brewer
+### ColorBrewer
+
+Or we can use the `brewer` scales that are included in `ggplot2` and can be viewed online at: http://colorbrewer2.org/
+
+Here, we just specify the type of scale (qualitative) and the palette to be used (here, "Accent"). Other choices are shown in `?scale_fill_brewer`.
 
 ```{r}
 ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
@@ -428,6 +483,8 @@ Source: [ColorBrewer 2.0](http://colorbrewer2.org/)
 
 ### Color-blind friendly
 
+But none of the palettes we've used so far are color-blind friendly, and may not be discernable in print or grayscale (after being photocopied), either. There are better palettes out there that are.
+
 #### **`dichromat`**
 
 ```{r, eval=FALSE}
@@ -438,6 +495,8 @@ install.packages("dichromat")
 library(dichromat)
 ```
 
+The `dichromat()` function will take a list of colors (again, named or hexadecimal values) and convert them into a comparable color-blind friendly palette for a specific [type of color-blindness](https://www.color-blindness.com/types-of-color-blindness/) (here: protanopia, the kind I have). When in doubt, you can use deuteranopia, the most common form of dichromacy.
+
 ```{r}
 dichromat(c("goldenrod","lawngreen","firebrick",
             "darksalmon","dodgerblue","darkviolet",
@@ -445,7 +504,7 @@ dichromat(c("goldenrod","lawngreen","firebrick",
           type="protan")
 ```
 
-Compare
+Compare the original colors (on the left) with the ones substituted by `dichromat()` (on the right):
 
 ```{r out.width=c("50%","50%"), fig.show="hold"}
 ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
@@ -478,6 +537,8 @@ ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
   theme(axis.text.x=element_text(angle=50, hjust=1))
 ```
 
+`dichromat` also comes with some predefined color schemes in the `colorschemes` object. Here, we use `colorschemes$Categorical.12` because we're using categorical data, and subset the first 7 elements for our 7 levels:
+
 ```{r}
 ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
                              y=Ellipticity,
@@ -492,6 +553,8 @@ ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
   theme(axis.text.x=element_text(angle=50, hjust=1))
 ```
 
+I find this one doesn't work great for me personally.
+
 <br>
 
 #### **`viridis`**
@@ -503,6 +566,8 @@ install.packages("viridis")
 ```{r}
 library(viridis)
 ```
+
+The `viridis` package has a number of color-blind friendly palettes, listed under their own functions that end with `_d` (for discrete) or `_c` (for continuous). The default is `"viridis"`:
 
 ```{r}
 ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
@@ -518,7 +583,9 @@ ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
   theme(axis.text.x=element_text(angle=50, hjust=1))
 ```
 
-**"magma"**
+Still not great for me, with all the dark blues/purples.
+
+But there are others, such as `"magma"`:
 
 ```{r}
 ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
@@ -534,11 +601,17 @@ ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
   theme(axis.text.x=element_text(angle=50, hjust=1))
 ```
 
+Again, not my preference, but it's there and could work.
+
 <br>
 
 #### **Paul Tol**
 
+Finally, my absolute favorite:
+
 Tol, P. (2018). Colour schemes. SRON Netherlands Institute for Space Research. Available: https://personal.sron.nl/~pault/data/colourschemes.pdf
+
+The older version of his qualitative color scheme (which I actually like better than the new one) is available in the `ggthemes` package, which we already have loaded. Weirdly, you have to specify the number of levels in parentheses _after_ the function, rather than as an argument in the function.
 
 ```{r}
 ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
@@ -554,11 +627,15 @@ ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
   theme(axis.text.x=element_text(angle=50, hjust=1))
 ```
 
+A variety of other color schemes are available in the document linked above which, in addition to being color-blind friendly, are also distinct in grayscale.
+
 <br>
 
 ## Saving plots
 
 ### `ggplot()`
+
+First, assign your plot to an object:
 
 ```{r}
 plotCuckoo = ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
@@ -575,6 +652,8 @@ plotCuckoo = ggplot(data=eggCuckoo, mapping=aes(x=reorder(Species, Ellipticity),
   theme(axis.text.x=element_text(angle=50, hjust=1))
 ```
 
+Then give it as an argument to the `ggsave()` function:
+
 **JPG**
 
 ```{r eval=FALSE}
@@ -590,6 +669,8 @@ ggsave("./figs/plotCuckoo.pdf", plotCuckoo, width=8, height=6, units="in")
 
 
 ### `base`
+
+These functions let you save any kind of graphic, including `ggplot`s. You have to use the graphic function first to open a "graphic device" (where the plot is sent), then run the code to produce the plot, then close the connection to the device with `dev.off()`.
 
 **JPG**
 

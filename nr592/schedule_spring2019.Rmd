@@ -10,7 +10,7 @@ date: |
   | Spring 2019
   | &nbsp;
   | &nbsp;
-  | Last Updated: 2019-04-10
+  | Last Updated: 2019-04-11
 output:
   html_document:
     highlight: haddock
@@ -180,7 +180,7 @@ output:
 
 * Tuesday, April 9: **[Lecture 05](./lectures/lecture05.html)** ([pdf](./lectures/lecture05.pdf) / [Rmd](./lectures/lecture05.Rmd))  
     * [Egg data](https://science.sciencemag.org/content/suppl/2017/06/21/356.6344.1249.DC1) (Excel format)  
-* Thursday, April 11: **Lecture 06** (pdf / Rmd)  
+* Thursday, April 11: **[Lecture 06](./lectures/lecture06.html)** ([pdf](./lectures/lecture06.pdf) / [Rmd](./lectures/lecture06.Rmd))  
     * [Egg data](./lectures/data/aaj1945_DataS1_Egg_shape_by_species_v2.csv) (CSV format)  
 
 ### Homework
