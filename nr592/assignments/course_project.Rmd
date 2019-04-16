@@ -165,6 +165,7 @@ These will take place during finals week, at a date and time we arrange as a cla
 * [Protected Planet](https://www.protectedplanet.net/)  
     * `wdpar` package  
 * [Environmental Data Initiative](https://portal.edirepository.org/)  
+* [PanTHERIA](http://esapubs.org/archive/ecol/E090/184/)
 * [MorphoBank](https://morphobank.org/index.php/Projects/Index)  
 
 #### Anthropology and Linguistics

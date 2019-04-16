@@ -1,19 +1,292 @@
 ---
-title: "Week 2, Lecture 03: Importing, cleaning, and working with data"
-author: "Richard E.W. Berl"
-date: "Spring 2019"
+title: |
+  | &nbsp;
+  | Hypothesis testing and basic linear models
+  | Week 4, Lecture 07
+author: |
+  | &nbsp;
+  | Richard E.W. Berl
+date: |
+  | Spring 2019
+  | &nbsp;
 output:
   html_document:
     highlight: haddock
     theme: flatly
-  pdf_document: 
+  pdf_document:
     highlight: haddock
 ---
 
+## Hypothesis testing
+
+### **What is a _p_-value?**
+
+<em>"The probability of getting the observed result, or a more extreme result, if the null hypothesis is true."</em>
+
+Source: [McDonald, Basic concepts of hypothesis testing](http://www.biostathandbook.com/hypothesistesting.html)
+
+![](./resources/p-value.jpg){width="552"}  
+Source: [Pomeroy, R. (2016). The biggest myth about p-values. RealClearScience.](https://www.realclearscience.com/blog/2016/11/07/the_biggest_myth_about_p-values.html)
+
+<br>
+
+Now let's get some data!
+
+Go to the page for the PanTHERIA database (hosted by the Ecological Society of America) at: http://esapubs.org/archive/ecol/E090/184/
+
+Near the bottom, download the text file with "WR05" in the name (referring to the 2005 edition of a mammal classification book) and put it in your `/data` folder.
+
+Metadata and descriptions of all the variables are available here: http://esapubs.org/archive/ecol/E090/184/metadata.htm
+
+```{r}
+pan = read.table("./data/PanTHERIA_1-0_WR05_Aug2008.txt", header=T, sep="\t",
+                 na.strings=c("-999","-999.00"), stringsAsFactors=F)
+```
+
+```{r}
+str(pan)
+```
+
+```{r, warning=FALSE}
+library(stringr)
+```
+
+```{r}
+for (i in 1:length(colnames(pan))) {
+  if (grepl("_", colnames(pan)[i])) {
+    colnames(pan)[i] = str_split_fixed(colnames(pan)[i], "_", n=2)[2]
+  }
+}
+
+colnames(pan)
+```
+
+<br>
+
+### 1 Nominal Variable
+
+#### **Exact binomial test**
+
+```{r eval=FALSE}
+?binom.test
+```
+
+**"Is an artiodactyl species more likely to be an herbivore than an omnivore?"**
+
+```{r}
+table(pan$TrophicLevel[pan$Order == "Artiodactyla"])
+
+binom.test(table(pan$TrophicLevel[pan$Order == "Artiodactyla"]),
+           alternative="greater")
+```
+
+<br>
+
+### 2 Nominal Variables
+
+#### **Fisher's exact test**
+
+```{r eval=FALSE}
+?fisher.test
+```
+
+**"Does the time of day that primate species are active differ across families?"**
+
+```{r error=TRUE}
+table(pan$ActivityCycle[pan$Order == "Primates"],
+      pan$Family[pan$Order == "Primates"])
+
+fisher.test(table(pan$ActivityCycle[pan$Order == "Primates"],
+                  pan$Family[pan$Order == "Primates"]))
+```
+
+```{r}
+fisher.test(table(pan$ActivityCycle[pan$Order == "Primates"],
+                  pan$Family[pan$Order == "Primates"]),
+            simulate.p.value=T)
+```
+
+<br>
+
+### 1 Measurement Variable
+
+#### **One-sample t-test**
+
+```{r eval=FALSE}
+?t.test
+```
+
+**"Does the forearm length of fruit bats (Family Pteropodidae) tend to be greater than 100 mm?"**
+
+```{r}
+na.omit(pan$AdultForearmLen_mm[pan$Family == "Pteropodidae"])[1:20]
+
+mean(pan$AdultForearmLen_mm[pan$Family == "Pteropodidae"], na.rm=T)
+
+t.test(na.omit(pan$AdultForearmLen_mm[pan$Family == "Pteropodidae"]),
+       mu=100, alternative="greater")
+```
+
+<br>
+
+### 1 Nominal Variable and 1 Measurement Variable
+
+#### **Two-sample t-test**
+
+```{r eval=FALSE}
+?t.test
+```
+
+**"Does the average forearm length of fruit bats (Family Pteropodidae) differ between species that have one litter of offspring per year and species that have two?"**
+
+```{r}
+na.omit(pan$AdultForearmLen_mm[pan$Family == "Pteropodidae" & pan$LittersPerYear == 1])[1:10]
+
+na.omit(pan$AdultForearmLen_mm[pan$Family == "Pteropodidae" & pan$LittersPerYear == 2])[1:10]
+
+t.test(na.omit(pan$AdultForearmLen_mm[pan$Family == "Pteropodidae" & pan$LittersPerYear == 1]),
+       na.omit(pan$AdultForearmLen_mm[pan$Family == "Pteropodidae" & pan$LittersPerYear == 2]))
+```
+
+<br>
+
+### 2 Measurement Variables
+
+#### **Correlation test**
+
+```{r eval=FALSE}
+?cor.test
+```
+
+**"Is wild mammal population density associated with human population density?"**
+
+```{r}
+pan[complete.cases(pan$PopulationDensity_n.km2, pan$HuPopDen_Mean_n.km2),
+    c("PopulationDensity_n.km2", "HuPopDen_Mean_n.km2")][1:20,]
+
+cor.test(pan[complete.cases(pan$PopulationDensity_n.km2,
+                            pan$HuPopDen_Mean_n.km2),
+             "PopulationDensity_n.km2"],
+         pan[complete.cases(pan$PopulationDensity_n.km2,
+                            pan$HuPopDen_Mean_n.km2),
+             "HuPopDen_Mean_n.km2"])
+```
+
+<br>
+
 ## Regression
 
-### Linear regression
+Difference between correlation and regression? Estimation and prediction
+
+### 2 Measurement Variables
+
+#### **Linear regression**
+
+```{r eval=FALSE}
+?lm
+```
+
+**"Does litter size predict home range in canids?"**
+
+```{r}
+panCanid = pan[pan$Family == "Canidae",]
+panCanid = panCanid[complete.cases(panCanid$LitterSize,
+                                   panCanid$HomeRange_km2),]
+
+panCanidModel = lm(HomeRange_km2 ~ LitterSize, data=panCanid)
+summary(panCanidModel)
+```
+
+Response (Y) variable comes first. Read the `~` as "as a function of" or "as a result of."
+
+So, from this, our model equation would look something like:
+
+`HomeRange_km2` = `-85.60` + `28.07` * `LitterSize`
+
+We can plot our regression line:
+
+```{r, warning=FALSE}
+library(ggplot2)
+```
+
+```{r}
+ggplot(panCanid, aes(x=LitterSize, y=HomeRange_km2)) +
+  geom_point() +
+  geom_smooth(method="lm", se=F, color="red")
+```
+
+But if we want to make sure we're using our own model estimates:
+
+```{r}
+ggplot(panCanid, aes(x=LitterSize, y=HomeRange_km2)) +
+  geom_point() +
+  geom_line(data=fortify(panCanidModel), aes(x=LitterSize, y=.fitted),
+            color="red", size=1)
+```
+
+```{r eval=FALSE}
+?predict
+```
+
+```{r}
+predict(panCanidModel, newdata=data.frame(LitterSize=1:10))
+
+range(panCanid$LitterSize)
+```
+
+Note we can predict for values outside the range of our data.
+
+If we want to use a different "link function" (i.e. if we think our data fit a different distribution), we can use a generalized linear model with `glm()`. We can also do basic linear regression with `glm()`, because `lm()` is a special case of `glm()`.
+
+<br>
+
+### 3+ Measurement Variables
+
+#### **Multiple regression**
+
+```{r}
+panCanidModel2 = lm(HomeRange_km2 ~ LitterSize + DispersalAge_d, data=panCanid)
+summary(panCanidModel2)
+```
+
+Interactions
+
+```{r}
+panCanidModel3 = lm(HomeRange_km2 ~ LitterSize * DispersalAge_d, data=panCanid)
+summary(panCanidModel3)
+```
+
+<em>"The effect of Factor A is different, depending on which level of Factor B we’re talking about."</em>
+
+Source: [Navarro, Section 16.2.1](https://learningstatisticswithr.com/book/anova2.html#interactions)
+
+Have to discretize one of our variables to visualize
+
+```{r}
+panCanid$LitterSizeD = ifelse(panCanid$LitterSize < median(panCanid$LitterSize),
+                              "Low", "High")
+```
+
+```{r}
+ggplot(panCanid, aes(x=DispersalAge_d, y=HomeRange_km2, group=LitterSizeD)) +
+  geom_line(aes(color=as.factor(LitterSizeD)))
+```
+
+
+### Logistic regression
 
 ### ANOVA
 
-### Logistic regression
+### Post-hoc tests
+
+### Residuals
+
+## Fisher, Pearson, & Galton were terrible people
+
+
+<br><br>
+
+
+([pdf](./lecture07.pdf) / [Rmd](./lecture07.Rmd))
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

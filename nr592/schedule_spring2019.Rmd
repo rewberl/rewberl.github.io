@@ -229,8 +229,8 @@ output:
 
 ### Lectures
 
-* Tuesday, April 16: **Lecture 07** (pdf / Rmd)
-
+* Tuesday, April 16: **[Lecture 07](./lectures/lecture07.html)** ([pdf](./lectures/lecture07.pdf) / [Rmd](./lectures/lecture07.Rmd))  
+    * [PanTHERIA data](http://esapubs.org/archive/ecol/E090/184/) ("WR05")  
 * Thursday, April 18: **Lecture 08** (pdf / Rmd)
 
 ### Homework
