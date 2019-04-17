@@ -88,18 +88,6 @@ Print the data from the years (`AD`) 890 to 900 in all three data frames (`cherr
 
 ```
 
-<!-- ### 2.3 -->
-
-<!-- Create a new data frame called `cherryComplete` by subsetting `cherry` to rows that:   -->
-<!-- * do not have a missing value in the "DOY" flowering date variable, and   -->
-<!-- * do not have a missing value in the estimated temperature column -->
-
-<!-- Print the head of this data frame. -->
-
-<!-- ### 2.4 -->
-
-<!-- Print the result of subsetting `cherry` to its complete cases to see why we could not use this method. -->
-
 
 ## Question 3
 

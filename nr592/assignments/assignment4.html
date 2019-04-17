@@ -228,14 +228,14 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore"><div style="white-space: pre-line;">NR 592
-Assignment 3</div></h1>
+Assignment 4</div></h1>
 <h4 class="author"><em>INSERT YOUR NAME HERE</em></h4>
 <h4 class="date"><em>INSERT THE DATE HERE</em></h4>
 
 </div>
 
 
-<p><em>Last Updated: 2019-04-09</em></p>
+<p><em>Last Updated: 2019-04-16</em></p>
 <div id="instructions" class="section level2">
 <h2>Instructions</h2>
 <p><strong>Show your work.</strong> The response to each question should include all of the commands necessary to reproduce your results, and should be commented to give a naive reader an idea of the intent behind each section of code. Answers to questions should be clearly shown in the code output or spelled out in text or comments.</p>
@@ -245,106 +245,92 @@ Assignment 3</div></h1>
 <h2>Question 1</h2>
 <div id="section" class="section level3">
 <h3>1.1</h3>
-<p>Go to the page for “Cherry blossom phenology and temperature reconstructions at Kyoto”: <a href="http://atmenv.envi.osakafu-u.ac.jp/aono/kyophenotemp4/" class="uri">http://atmenv.envi.osakafu-u.ac.jp/aono/kyophenotemp4/</a></p>
-<p>Scroll down to the section labeled “Contents on Excel format (Newest Data)” and download the Excel files from the links labeled “Full-flowering data in Excel varsion” [sic] and “March mean temperature reconstructions (smoothed).” Place both files in your <code>/data</code> directory.</p>
-<p>Load the flowering data into R as <code>cherryFlower</code>, designating empty strings (<code>&quot;&quot;</code>) and hyphens (<code>&quot;-&quot;</code>) as missing values.</p>
-<p>Load the temperature data as <code>cherryTemp</code>, designating <code>-50</code> as a missing value (Note: you may need to use <code>-50.00</code>).</p>
-<p>If you have difficulty loading the Excel sheets into R directly, you may open them in Excel and save them as CSVs (without changing the contents), and read in the CSV files.</p>
-<p>(Hint: Using an argument in your read function, you will need to skip the first several lines of each file that describe the data.)</p>
+<p>Download the following data set, from Wielgus &amp; Peebles (2014), and place it in your <code>/data</code> directory: <a href="https://rewberl.github.io/nr592/assignments/data/wielgus2014.csv" class="uri">https://rewberl.github.io/nr592/assignments/data/wielgus2014.csv</a></p>
+<p>You can read about the data and the analyses performed in the paper:</p>
+<p>Wielgus, R. B., &amp; Peebles, K. A. (2014). Effects of wolf mortality on livestock depredations. PlOS ONE, 9(12), e113505. doi: <a href="https://doi.org/10.1371/journal.pone.0113505">10.1371/journal.pone.0113505</a></p>
+<p>These data were converted and “tidied” from a Word document table in Table S1 of the article’s supporting information: <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0113505#s5" class="uri">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0113505#s5</a></p>
+<p>In addition, time-lagged versions of three variables (<code>cattleDepredated</code>, <code>sheepDepredated</code>, and <code>wolvesKilled</code>) were added to the CSV. Each of these variables were shifted forward one year, so that their values represent those of their respective variables for the previous year.</p>
+<p>Load the data into R as <code>wolf</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load data</span></code></pre></div>
 </div>
 <div id="section-1" class="section level3">
 <h3>1.2</h3>
-<p>Examine the head, dimensions, and structure of each data frame.</p>
-</div>
-<div id="section-2" class="section level3">
-<h3>1.3</h3>
-<p>For the <code>cherryFlower</code> data frame, look at the description of each variable in the original data set and check that any variables with categorical codes are represented as factors in your data frame. If they aren’t, coerce them to factors.</p>
-<p>If there appear to be any problems with the data (e.g. missing or extra rows or columns, incorrect variable names or values, improperly designated missing values, etc.), fix them before proceeding.</p>
+<p>Examine the head, dimensions, and structure of the data frame.</p>
 </div>
 </div>
 <div id="question-2" class="section level2">
 <h2>Question 2</h2>
-<div id="section-3" class="section level3">
+<p><strong>For each of the following questions:</strong></p>
+<p><strong>1. Choose and run the appropriate statistical test.</strong><br />
+<strong>2. Report whether you reject or fail to reject the null hypothesis.</strong></p>
+<p>It is okay to create new data frames (such as subsets), variables, or vectors as needed to run your analyses.</p>
+<div id="section-2" class="section level3">
 <h3>2.1</h3>
-<p>Load the <code>dplyr</code> and <code>tidyr</code> packages (if you haven’t loaded them already).</p>
-<p>Combine <code>cherryFlower</code> and <code>cherryTemp</code> by the <code>AD</code> variable, so that you have one data frame named <code>cherry</code> with all of the variables and values from both data sets.</p>
-<p>(Hint: Check the <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">Data Wrangling Cheat Sheet</a>.)</p>
+<p>Did Wyoming kill fewer wolves than Idaho each year, from 1996 to 2012?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Delete this and enter your response here.</code></pre></div>
+</div>
+<div id="section-3" class="section level3">
+<h3>2.2</h3>
+<p>Did the number of sheep depredated in Wyoming from 1995 to 2012 average over 15?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Delete this and enter your response here.</code></pre></div>
 </div>
 <div id="section-4" class="section level3">
 <h3>2.2</h3>
-<p>Examine the head, dimensions, and structure of <code>cherry</code>.</p>
-<p>Print the data from the years (<code>AD</code>) 890 to 900 in all three data frames (<code>cherryFlower</code>, <code>cherryTemp</code>, and <code>cherry</code>) to check that the columns matched up successfully.</p>
+<p>In Montana, was the number of cattle depredated associated with the total number of cattle, from 1987 to 2011?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Delete this and enter your response here.</code></pre></div>
+<p>If so, was this association positive or negative?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Delete this and enter your response here.</code></pre></div>
 </div>
 </div>
 <div id="question-3" class="section level2">
 <h2>Question 3</h2>
 <div id="section-5" class="section level3">
 <h3>3.1</h3>
-<p>Load the <code>ggplot2</code> package.</p>
-<p>Using <code>ggplot()</code> and adding a <code>geom</code> layer, create a line plot of the estimated temperature by year.</p>
-<p>Note: Pay attention to which variable should be assigned as the predictor (X) and which should be assigned as the response (Y).</p>
+<p>Run a linear regression using <code>cattleDepredated</code> as your outcome variable and <code>wolvesKilledL1</code> (the number of wolves killed the previous year) as your predictor. Assign the result to a variable.</p>
+<p>Display the summary of your model object.</p>
 </div>
 <div id="section-6" class="section level3">
 <h3>3.2</h3>
-<p>Add the upper and lower limits of the 95% confidence interval for estimated temperature as a ribbon to your previous plot. Ensure the ribbon is plotted after (on top of) the line so that both are visible.</p>
-<p>(Hint: If you’re having trouble finding the limits, check the descriptions of the variables in the original data sets.)</p>
-</div>
-<div id="section-7" class="section level3">
-<h3>3.3</h3>
-<p>Add two more lines to your plot to represent the temperature corrected for urban warming bias using Hikone weather station and temperature corrected using Kameoka weather station, each by year. Plot both of these before (below) your estimated temperature line.</p>
-</div>
-<div id="section-8" class="section level3">
-<h3>3.4</h3>
-<p>Using themes and/or individual arguments to your functions and their aesthetic mappings, adjust any or all of the:</p>
-<ul>
-<li>line colors, types, or sizes,<br />
-</li>
-<li>ribbon fill or transparency (“alpha”),<br />
-</li>
-<li>panel color or fill,<br />
-</li>
-<li>background color or fill,<br />
-</li>
-<li>or, any additional changes not listed</li>
-</ul>
-<p>… so that the lines and ribbon are all easily visible and distinguishable, your plot clearly communicates the information, and your plot is aesthetically pleasing overall. You do not need to add or change titles, labels, or legends; focus on the depiction of the data.</p>
-<p>Briefly describe one change that you made as a result of the advice given by the required readings for this week.</p>
-<p>Note: There are no specific criteria here, but you should make a few improvements to avoid the examples of what makes a figure <em>bad</em>. It doesn’t need to be perfect.</p>
+<p>Does <code>wolvesKilledL1</code> have a significant effect on <code>cattleDepredated</code>?</p>
+<p>Is its effect positive or negative?</p>
+<p>What does this relationship mean, in plain language? Do you find it surprising?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Delete this and enter your response here.</code></pre></div>
+</div>
+<div id="extra-credit-1-point" class="section level3">
+<h3>3.3 (<strong>Extra Credit</strong>: 1 point)</h3>
+<p>Load the <code>ggplot2</code> package.</p>
+<p>Using <code>ggplot()</code>, create a plot of your choice that shows the relationship between these two variables.</p>
+<p>Use <code>State</code> as a grouping variable in your plot. Optionally, use colors or fills to distinguish each <code>State</code>.</p>
+<p>Add a regression line for each group of values by <code>State</code>.</p>
 </div>
 </div>
 <div id="question-4" class="section level2">
 <h2>Question 4</h2>
-<div id="section-9" class="section level3">
+<div id="section-7" class="section level3">
 <h3>4.1</h3>
-<p>Using <code>ggplot()</code> and adding a <code>geom</code> layer, create a scatterplot of the flowering date (day of year) by estimated temperature. Color the points according to the data type code variable.</p>
-<p>Note: Pay attention to which variable should be assigned as the predictor (X) and which should be assigned as the response (Y).</p>
+<p>Run an ANOVA using <code>sheepDepredated</code> as your outcome variable, and: <code>sheepDepredatedL1</code>, <code>wolfPopulation</code>, <code>wolvesKilledL1</code>, <code>wolfBreedingPairs</code>, <code>numberOfSheep</code>, and <code>State</code> as your predictors (without interactions). Assign the result to a variable.</p>
+<p>Display the summary of your model object.</p>
 </div>
-<div id="section-10" class="section level3">
+<div id="section-8" class="section level3">
 <h3>4.2</h3>
-<p>Use a different <code>geom</code> or an argument in your current <code>geom</code> to add a small amount of vertical jitter to the points. Set horizontal jitter to zero.</p>
-<p>Increase the size of the points so that they are more easily visible but don’t overlap too much.</p>
+<p>Run Tukey’s Honest Significant Differences (HSD) test on the ANOVA model for the levels of <code>State</code>.</p>
+<p>Were any states significantly different from one another?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Delete this and enter your response here.</code></pre></div>
 </div>
-<div id="section-11" class="section level3">
+<div id="section-9" class="section level3">
 <h3>4.3</h3>
-<p>Change the color scale of your points to one that is color-blind friendly, using any method you choose.</p>
+<p>Examine the normal quantile-quantile plot for the ANOVA model.</p>
+<p>Do you think the data look sufficiently close to a normal distribution?</p>
+<p>Are there any outliers?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Delete this and enter your response here.</code></pre></div>
 </div>
-<div id="section-12" class="section level3">
-<h3>4.4</h3>
-<p>Use <code>geom_smooth()</code> to add a regression line and 95% confidence interval to your plot before (below) your points. Choose any method other than <code>&quot;auto&quot;</code> (the default). Define a color for the <code>geom</code> (such as <code>&quot;black&quot;</code> or <code>&quot;#FFFFFF&quot;</code>) so that it plots one line for all of the points rather than one line per level of <code>color</code>.</p>
-</div>
-<div id="section-13" class="section level3">
-<h3>4.5</h3>
-<p>As in #3.4, make any changes you feel are necessary to improve the depiction of the data as if you were submitting this figure for publication. You must make at least one change, but do not need to explain any of them (beyond the usual requirement of commenting your code).</p>
-</div>
-<div id="extra-credit-1-point" class="section level3">
-<h3>4.6 (<strong>Extra Credit</strong>: 1 point)</h3>
-<p>Assign sensible labels to your X axis, Y axis, and legend.</p>
-<p>Add a plot title and cite the source of the data in a caption (using a function argument or another <code>geom</code>).</p>
-<p>Change the values of each level of the data type code variable displayed in the legend to something short and descriptive.</p>
+<div id="extra-credit-0.5-points" class="section level3">
+<h3>4.4 (<strong>Extra Credit</strong>: 0.5 points)</h3>
+<p>Remove any outliers from the data set and re-run the ANOVA.</p>
+<p>Did your results change?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Delete this and enter your response here.</code></pre></div>
 <p><br><br></p>
-<p>(<a href="./assignment3.pdf">pdf</a> / <a href="./assignment3.Rmd">Rmd</a>)</p>
+<p>(<a href="./assignment4.pdf">pdf</a> / <a href="./assignment4.Rmd">Rmd</a>)</p>
 <div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;">
 
 </div>

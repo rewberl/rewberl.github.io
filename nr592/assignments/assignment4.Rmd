@@ -1,0 +1,210 @@
+---
+title: |
+  | NR 592
+  | Assignment 4
+author: "INSERT YOUR NAME HERE"
+date: "INSERT THE DATE HERE"
+output:
+  html_document:
+    highlight: haddock
+    theme: flatly
+  pdf_document:
+    highlight: haddock
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+_Last Updated: 2019-04-16_
+
+## Instructions
+
+**Show your work.** The response to each question should include all of the commands necessary to reproduce your results, and should be commented to give a naive reader an idea of the intent behind each section of code. Answers to questions should be clearly shown in the code output or spelled out in text or comments.
+
+Before submitting your assignment, ensure that your code for each question works correctly when the lines are run in sequence, starting with an empty environment. You may submit either this R Markdown document with your code entered into the appropriate code blocks, or a regular R script with the question numbers as comments and the answers following. If you choose to Knit the R Markdown document to HTML or PDF, include those files with your submission (but it is not required that it Knit successfully).
+
+
+## Question 1
+
+### 1.1
+
+Download the following data set, from Wielgus & Peebles (2014), and place it in your `/data` directory: https://rewberl.github.io/nr592/assignments/data/wielgus2014.csv
+
+You can read about the data and the analyses performed in the paper:
+
+Wielgus, R. B., & Peebles, K. A. (2014). Effects of wolf mortality on livestock depredations. PlOS ONE, 9(12), e113505. doi: [10.1371/journal.pone.0113505](https://doi.org/10.1371/journal.pone.0113505)
+
+These data were converted and "tidied" from a Word document table in Table S1 of the article's supporting information: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0113505#s5
+
+In addition, time-lagged versions of three variables (`cattleDepredated`, `sheepDepredated`, and `wolvesKilled`) were added to the CSV. Each of these variables were shifted forward one year, so that their values represent those of their respective variables for the previous year.
+
+Load the data into R as `wolf`.
+
+```{r 1.1b}
+# Load data
+```
+
+### 1.2
+
+Examine the head, dimensions, and structure of the data frame.
+
+```{r 1.2}
+
+```
+
+
+## Question 2
+
+**For each of the following questions:**  
+
+**1. Choose and run the appropriate statistical test.**  
+**2. Report whether you reject or fail to reject the null hypothesis.**  
+
+It is okay to create new data frames (such as subsets), variables, or vectors as needed to run your analyses.
+
+### 2.1
+
+Did Wyoming kill fewer wolves than Idaho each year, from 1996 to 2012?
+
+```{r 2.1a}
+
+```
+
+```{r 2.1b, eval=FALSE, echo=TRUE}
+Delete this and enter your response here.
+```
+
+### 2.2
+
+Did the number of sheep depredated in Wyoming from 1995 to 2012 average over 15?
+
+```{r 2.2a}
+
+```
+
+```{r 2.2b, eval=FALSE, echo=TRUE}
+Delete this and enter your response here.
+```
+
+### 2.2
+
+In Montana, was the number of cattle depredated associated with the total number of cattle, from 1987 to 2011?
+
+```{r 2.3a}
+
+```
+
+```{r 2.3b, eval=FALSE, echo=TRUE}
+Delete this and enter your response here.
+```
+
+If so, was this association positive or negative?
+
+```{r 2.3c, eval=FALSE, echo=TRUE}
+Delete this and enter your response here.
+```
+
+
+## Question 3
+
+### 3.1
+
+Run a linear regression using `cattleDepredated` as your outcome variable and `wolvesKilledL1` (the number of wolves killed the previous year) as your predictor. Assign the result to a variable.
+
+Display the summary of your model object.
+
+```{r 3.1}
+
+```
+
+### 3.2
+
+Does `wolvesKilledL1` have a significant effect on `cattleDepredated`?
+
+Is its effect positive or negative?
+
+What does this relationship mean, in plain language? Do you find it surprising?
+
+```{r 3.2, eval=FALSE, echo=TRUE}
+Delete this and enter your response here.
+```
+
+### 3.3 (**Extra Credit**: 1 point)
+
+Load the `ggplot2` package.
+
+Using `ggplot()`, create a plot of your choice that shows the relationship between these two variables.
+
+Use `State` as a grouping variable in your plot. Optionally, use colors or fills to distinguish each `State`.
+
+Add a regression line for each group of values by `State`.
+
+```{r 3.3}
+
+```
+
+
+## Question 4
+
+### 4.1
+
+Run an ANOVA using `sheepDepredated` as your outcome variable, and: `sheepDepredatedL1`, `wolfPopulation`, `wolvesKilledL1`, `wolfBreedingPairs`, `numberOfSheep`, and `State` as your predictors (without interactions). Assign the result to a variable.
+
+Display the summary of your model object.
+
+```{r 4.1}
+
+```
+
+### 4.2
+
+Run Tukey's Honest Significant Differences (HSD) test on the ANOVA model for the levels of `State`.
+
+```{r 4.2}
+
+```
+
+Were any states significantly different from one another?
+
+```{r 4.2b, eval=FALSE, echo=TRUE}
+Delete this and enter your response here.
+```
+
+### 4.3
+
+Examine the normal quantile-quantile plot for the ANOVA model.
+
+```{r 4.3a}
+
+```
+
+Do you think the data look sufficiently close to a normal distribution?
+
+Are there any outliers?
+
+```{r 4.3b, eval=FALSE, echo=TRUE}
+Delete this and enter your response here.
+```
+
+### 4.4 (**Extra Credit**: 0.5 points)
+
+Remove any outliers from the data set and re-run the ANOVA.
+
+```{r 4.4a}
+
+```
+
+Did your results change?
+ 
+```{r 4.4b, eval=FALSE, echo=TRUE}
+Delete this and enter your response here.
+```
+
+
+<br><br>
+
+
+([pdf](./assignment4.pdf) / [Rmd](./assignment4.Rmd))
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

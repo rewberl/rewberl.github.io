@@ -10,7 +10,7 @@ date: |
   | Spring 2019
   | &nbsp;
   | &nbsp;
-  | Last Updated: 2019-04-11
+  | Last Updated: 2019-04-16
 output:
   html_document:
     highlight: haddock
@@ -247,9 +247,9 @@ output:
 
     a. Joselson, N. (2016). Eugenics and statistics, discussing Karl Pearson and R. A. Fisher. Available: https://njoselson.github.io/Fisher-Pearson/
 
-1. **Assignment 4** (Due April 23)
+2. **[Assignment 4](./assignments/assignment4.html)** ([pdf](./assignments/assignment4.pdf) / [Rmd](./assignments/assignment4.Rmd)) (Due April 23)
 
-1. **[Project Proposal](./assignments/course_project.html)** (Due April 23, 11:59pm)
+3. **[Project Proposal](./assignments/course_project.html)** (Due April 23, 11:59pm)
 
 ### Resources
 
@@ -282,6 +282,8 @@ output:
 * Aschwanden, C. (2015). Science isn't broken. FiveThirtyEight. Available: https://fivethirtyeight.com/features/science-isnt-broken/
 
 * Angwin, J., et al. (2016). Machine bias. ProPublica. Available: https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
+
+* Lum, K., & Isaac, W. (2016). To predict and serve?. Significance, 13(5), 14-19. doi: [10.1111/j.1740-9713.2016.00960.x](https://rss.onlinelibrary.wiley.com/doi/full/10.1111/j.1740-9713.2016.00960.x)
 
 * Rodriguez-Lonebear, D. (2016). Chapter 14: Building a data revolution in Indian country. In Kukutai, T., & Taylor, J. (Eds.), _Indigenous data sovereignty_ (pp. 253-272). Available: http://press-files.anu.edu.au/downloads/press/n2140/pdf/ch14.pdf
 
@@ -335,11 +337,9 @@ Accumulation Curves
 
 1. **Required Reading**  
 
-1. **Assignment 6** (Due May 7)
+2. Start working on **[Project Report](./assignments/course_project.html)** (Due May 17, 11:59pm)
 
-1. Start working on **[Project Report](./assignments/course_project.html)** (Due May 17, 11:59pm)
-
-1. Start working on **[Project Presentation](./assignments/course_project.html)** (Due week of May 13)
+3. Start working on **[Project Presentation](./assignments/course_project.html)** (Due week of May 13)
 
 ### Resources
 
@@ -379,13 +379,13 @@ Confirmatory Factor Analysis
 
 1. **Required Reading**  
 
-    a. rOpenSci. Introduction. In _Reproducibility in science_. Available: https://ropensci.github.io/reproducibility-guide/sections/introduction/
+    None
 
 <!-- end of list -->
 
-1. **[Project Report](./assignments/course_project.html)** (Due May 17, 11:59pm)
+2. **[Project Report](./assignments/course_project.html)** (Due May 17, 11:59pm)
 
-1. **[Project Presentation](./assignments/course_project.html)** (Due week of May 13)
+3. **[Project Presentation](./assignments/course_project.html)** (Due week of May 13)
 
 ### Resources
 

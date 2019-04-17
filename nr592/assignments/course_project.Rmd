@@ -141,7 +141,8 @@ These will take place during finals week, at a date and time we arrange as a cla
 * [Data.gov](https://www.data.gov/)  
 * [data.Census.gov](https://data.census.gov/)  
 * [World Bank Open Data](https://data.worldbank.org/)  
-* [Integrated Public Use Microdata Series](https://www.ipums.org/)
+* [Integrated Public Use Microdata Series](https://www.ipums.org/)  
+* [Recreation Information Database](https://ridb.recreation.gov/)  
 
 #### Polling and News
 

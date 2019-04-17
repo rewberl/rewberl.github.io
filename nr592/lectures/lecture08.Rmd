@@ -1,0 +1,38 @@
+---
+title: |
+  | &nbsp;
+  | Hypothesis testing and basic linear models
+  | Week 4, Lecture 08
+author: |
+  | &nbsp;
+  | Richard E.W. Berl
+date: |
+  | Spring 2019
+  | &nbsp;
+output:
+  html_document:
+    highlight: haddock
+    theme: flatly
+  pdf_document:
+    highlight: haddock
+---
+
+## Regression
+
+### Logistic regression
+
+### ANOVA
+
+### Post-hoc tests
+
+### Residuals
+
+## Fisher, Pearson, & Galton were terrible people
+
+
+<br><br>
+
+
+([pdf](./lecture08.pdf) / [Rmd](./lecture08.Rmd))
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

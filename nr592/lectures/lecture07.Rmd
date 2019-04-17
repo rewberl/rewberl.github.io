@@ -47,9 +47,13 @@ pan = read.table("./data/PanTHERIA_1-0_WR05_Aug2008.txt", header=T, sep="\t",
 str(pan)
 ```
 
+Column names are messy. Let's try to clean them up.
+
 ```{r, warning=FALSE}
 library(stringr)
 ```
+
+Loop through each column name, check if it has an underscore, and try to split it into two pieces using the underscore as a separator:
 
 ```{r}
 for (i in 1:length(colnames(pan))) {
@@ -63,6 +67,8 @@ colnames(pan)
 
 <br>
 
+## Statistical tests
+
 ### 1 Nominal Variable
 
 #### **Exact binomial test**
@@ -70,6 +76,8 @@ colnames(pan)
 ```{r eval=FALSE}
 ?binom.test
 ```
+
+Classic example: toss a coin a bunch of times and test whether the probability of getting a heads is different from 0.5.
 
 **"Is an artiodactyl species more likely to be an herbivore than an omnivore?"**
 
@@ -90,15 +98,23 @@ binom.test(table(pan$TrophicLevel[pan$Order == "Artiodactyla"]),
 ?fisher.test
 ```
 
+Tests a contingency table to ask whether the values of each category differ across groups.
+
 **"Does the time of day that primate species are active differ across families?"**
 
-```{r error=TRUE}
+```{r}
 table(pan$ActivityCycle[pan$Order == "Primates"],
       pan$Family[pan$Order == "Primates"])
+```
 
+Notice it's still a 2x2 table, even though each variable has a bunch of categories.
+
+```{r error=TRUE}
 fisher.test(table(pan$ActivityCycle[pan$Order == "Primates"],
                   pan$Family[pan$Order == "Primates"]))
 ```
+
+It doesn't want to do it, because it's a big table, but we can force it to simulate a _p_-value, which will be good enough for now (see the McDonald page for alternatives).
 
 ```{r}
 fisher.test(table(pan$ActivityCycle[pan$Order == "Primates"],
@@ -115,6 +131,8 @@ fisher.test(table(pan$ActivityCycle[pan$Order == "Primates"],
 ```{r eval=FALSE}
 ?t.test
 ```
+
+Is the mean of a set of values different from some value I specify?
 
 **"Does the forearm length of fruit bats (Family Pteropodidae) tend to be greater than 100 mm?"**
 
@@ -137,6 +155,8 @@ t.test(na.omit(pan$AdultForearmLen_mm[pan$Family == "Pteropodidae"]),
 ?t.test
 ```
 
+Do the means of two sets of values differ?
+
 **"Does the average forearm length of fruit bats (Family Pteropodidae) differ between species that have one litter of offspring per year and species that have two?"**
 
 ```{r}
@@ -148,6 +168,8 @@ t.test(na.omit(pan$AdultForearmLen_mm[pan$Family == "Pteropodidae" & pan$Litters
        na.omit(pan$AdultForearmLen_mm[pan$Family == "Pteropodidae" & pan$LittersPerYear == 2]))
 ```
 
+Note that if you have paired values (like pre- and post-test values from the same individuals), then a paired t-test is more powerful (better chance of detecting a significant effect with a smaller sample size) and you should use that instead. You can do this in R by setting the `t.test()` argument `paired=TRUE`.
+
 <br>
 
 ### 2 Measurement Variables
@@ -157,6 +179,8 @@ t.test(na.omit(pan$AdultForearmLen_mm[pan$Family == "Pteropodidae" & pan$Litters
 ```{r eval=FALSE}
 ?cor.test
 ```
+
+Are two variables correlated (positively or negatively)?
 
 **"Is wild mammal population density associated with human population density?"**
 
@@ -176,7 +200,13 @@ cor.test(pan[complete.cases(pan$PopulationDensity_n.km2,
 
 ## Regression
 
-Difference between correlation and regression? Estimation and prediction
+Correlation and regression can both examine how two variables are associated.
+
+So what's the difference between correlation and regression?  
+
+1. Causality: Correlation measures association, but regression measures one variable's ability to predict the value of another variable (which is "predictive," not necessarily always causal).  
+2. Estimation: Regression estimates parameter values (e.g. the `m` and `b` of a `y = mx + b` equation) so that you can create a model of your data and plot a line of best fit through it.  
+3. Prediction: Using the model you estimate, you can plug in new values to predict what the response should be.  
 
 ### 2 Measurement Variables
 
@@ -185,6 +215,8 @@ Difference between correlation and regression? Estimation and prediction
 ```{r eval=FALSE}
 ?lm
 ```
+
+Does one variable predict another (positively or negatively)?
 
 **"Does litter size predict home range in canids?"**
 
@@ -197,9 +229,11 @@ panCanidModel = lm(HomeRange_km2 ~ LitterSize, data=panCanid)
 summary(panCanidModel)
 ```
 
-Response (Y) variable comes first. Read the `~` as "as a function of" or "as a result of."
+Response (Y variable) comes first, followed by predictors (X variables). Read the `~` as "as a function of" or "as a result of."
 
 So, from this, our model equation would look something like:
+
+`Y` = `b` + `m` * `X`
 
 `HomeRange_km2` = `-85.60` + `28.07` * `LitterSize`
 
@@ -215,7 +249,15 @@ ggplot(panCanid, aes(x=LitterSize, y=HomeRange_km2)) +
   geom_smooth(method="lm", se=F, color="red")
 ```
 
-But if we want to make sure we're using our own model estimates:
+This re-runs the `lm()` function with the specified variables to plot the line.
+
+But if we want to make sure we're using our own model estimates, we can `fortify()` our model results, which turns them into a data frame:
+
+```{r}
+fortify(panCanidModel)
+```
+
+We can then use the `.fitted` values (the result of plugging each of those `LitterSize` values into the model) as the values for our line:
 
 ```{r}
 ggplot(panCanid, aes(x=LitterSize, y=HomeRange_km2)) +
@@ -223,6 +265,8 @@ ggplot(panCanid, aes(x=LitterSize, y=HomeRange_km2)) +
   geom_line(data=fortify(panCanidModel), aes(x=LitterSize, y=.fitted),
             color="red", size=1)
 ```
+
+Finally, we can use our model to predict new responses.
 
 ```{r eval=FALSE}
 ?predict
@@ -234,9 +278,11 @@ predict(panCanidModel, newdata=data.frame(LitterSize=1:10))
 range(panCanid$LitterSize)
 ```
 
-Note we can predict for values outside the range of our data.
+Note we can predict the results of values outside the range of our data.
 
 If we want to use a different "link function" (i.e. if we think our data fit a different distribution), we can use a generalized linear model with `glm()`. We can also do basic linear regression with `glm()`, because `lm()` is a special case of `glm()`.
+
+We also see, with our plot, that we probably should have checked for and removed outliers first. Outliers can have a huge effect on the parameters of your model and its accuracy, because the model fitting procedure has to take those outliers into account when it's trying to find the line that fits everything as closely as possible.
 
 <br>
 
@@ -244,44 +290,64 @@ If we want to use a different "link function" (i.e. if we think our data fit a d
 
 #### **Multiple regression**
 
+Do any of these variables predict another (positively or negatively)?
+
+First, let's make sure we're working with the complete cases for our new variable, `DispersalAge_d`.
+
 ```{r}
-panCanidModel2 = lm(HomeRange_km2 ~ LitterSize + DispersalAge_d, data=panCanid)
+panCanid2 = pan[pan$Family == "Canidae",]
+panCanid2 = panCanid2[complete.cases(panCanid2$LitterSize,
+                                     panCanid2$DispersalAge_d,
+                                     panCanid2$HomeRange_km2),]
+```
+
+Same function, we just add predictor variables with `+`:
+
+```{r}
+panCanidModel2 = lm(HomeRange_km2 ~ LitterSize + DispersalAge_d, data=panCanid2)
 summary(panCanidModel2)
 ```
 
-Interactions
+Now that we take the effect of dispersal age into account, litter size is no longer significant. But dispersal age isn't significant either ("almost significant" or "marginally significant" don't count--it's either below your alpha value or it's not), which is incredibly frustrating. There must be something going on.
+
+Let's check for interactions. We can do so in the model by changing the `+` to a `*` to specify it should include an interaction term between our main effects:
 
 ```{r}
-panCanidModel3 = lm(HomeRange_km2 ~ LitterSize * DispersalAge_d, data=panCanid)
+panCanidModel3 = lm(HomeRange_km2 ~ LitterSize * DispersalAge_d, data=panCanid2)
 summary(panCanidModel3)
 ```
+
+Now everything is significant, including our interaction term.
+
+What is an interaction?
 
 <em>"The effect of Factor A is different, depending on which level of Factor B we’re talking about."</em>
 
 Source: [Navarro, Section 16.2.1](https://learningstatisticswithr.com/book/anova2.html#interactions)
 
-Have to discretize one of our variables to visualize
+Significant interactions are generally bad news, because it can be very difficult to explain them in a way that is biologically (or physically, or socially...) meaningful.
+
+Sometimes it is helpful to visualize the effects of the two predictors to see what the interaction is. But to do so with measurement variables, we have to make them discrete so we can see the change according to different levels. There are different ways to do this "binning." For `LitterSize`, let's split it by `Low` and `High` based on the median value:
 
 ```{r}
-panCanid$LitterSizeD = ifelse(panCanid$LitterSize < median(panCanid$LitterSize),
+panCanid2$LitterSizeD = ifelse(panCanid2$LitterSize < median(panCanid2$LitterSize),
                               "Low", "High")
 ```
 
+And for `DispersalAge_d`, we'll tell R we want to split it into 5 intervals using the `cut()` function:
+
 ```{r}
-ggplot(panCanid, aes(x=DispersalAge_d, y=HomeRange_km2, group=LitterSizeD)) +
-  geom_line(aes(color=as.factor(LitterSizeD)))
+panCanid2$DispersalAge_dD = cut(panCanid2$DispersalAge_d, 5)
 ```
 
+You could also use quantiles or `cut2()` from the `Hmisc` package to cut by intervals of equal numbers of values rather than equal spacing.
 
-### Logistic regression
+```{r}
+ggplot(panCanid2, aes(x=DispersalAge_dD, y=HomeRange_km2, group=LitterSizeD)) +
+  geom_line(aes(color=LitterSizeD))
+```
 
-### ANOVA
-
-### Post-hoc tests
-
-### Residuals
-
-## Fisher, Pearson, & Galton were terrible people
+Like I mentioned before, difficult to interpret. Usually, in an interaction plot, the lines will cross each other (showing that the relationships are different for each level of the factor), instead of being parallel (which would show similar effects); here, they do cross in the first level of dispersal age, though it's difficult to see.
 
 
 <br><br>
