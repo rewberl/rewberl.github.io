@@ -10,7 +10,7 @@ date: |
   | Spring 2019
   | &nbsp;
   | &nbsp;
-  | Last Updated: 2019-04-16
+  | Last Updated: 2019-04-17
 output:
   html_document:
     highlight: haddock
@@ -231,7 +231,8 @@ output:
 
 * Tuesday, April 16: **[Lecture 07](./lectures/lecture07.html)** ([pdf](./lectures/lecture07.pdf) / [Rmd](./lectures/lecture07.Rmd))  
     * [PanTHERIA data](http://esapubs.org/archive/ecol/E090/184/) ("WR05")  
-* Thursday, April 18: **Lecture 08** (pdf / Rmd)
+* Thursday, April 18: **[Lecture 08](./lectures/lecture08.html)** ([pdf](./lectures/lecture08.pdf) / [Rmd](./lectures/lecture08.Rmd))  
+    * [Sage-Grouse data](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0150798#sec020) ("S5 Table")  
 
 ### Homework
 
@@ -269,9 +270,21 @@ output:
 
 * Wickham, H., & Grolemund, G. Chapter 24: Model building. In _R for data science_. Available: https://r4ds.had.co.nz/model-building.html
 
+* McDonald, J. H. Simple logistic regression. In _Handbook of biological statistics_. Available: http://www.biostathandbook.com/simplelogistic.html
+
+* McDonald, J. H. Multiple logistic regression. In _Handbook of biological statistics_. Available: http://www.biostathandbook.com/multiplelogistic.html
+
 * Navarro, D. Chapter 15: Linear regression. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/regression.html
 
+* McDonald, J. H. One-way anova. In _Handbook of biological statistics_. Available: http://www.biostathandbook.com/onewayanova.html
+
+* McDonald, J. H. Two-way anova. In _Handbook of biological statistics_. Available: http://www.biostathandbook.com/twowayanova.html
+
+* Navarro, D. Chapter 14: Comparing several means (one-way ANOVA). In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/anova.html
+
 * Navarro, D. Chapter 16: Factorial ANOVA. In _Learning statistics with R_. Available: https://learningstatisticswithr.com/book/anova2.html
+
+* McDonald, J. H. Multiple comparisons. In _Handbook of biological statistics_. Available: http://www.biostathandbook.com/multiplecomparisons.html
 
 * Faraway, J. J. Practical regression and anova using R. Available: https://cran.r-project.org/doc/contrib/Faraway-PRA.pdf
 
@@ -291,7 +304,7 @@ output:
 <br>
 
 
-## Week 5: Advanced statistical methods, part I
+## Week 5: Advanced statistical methods, part I: Ecological analyses, ordinal data, and dimensionality reduction
 
 ### Lectures
 
@@ -303,11 +316,9 @@ output:
 
 1. **Required Reading**  
 
-1. **Assignment 5** (Due April 30)
+1. **Assignment 5** **(ATTENTION: Due May 7)**
 
 ### Resources
-
-**Social Network Analysis**
 
 **Ecological Analyses**
 
@@ -315,17 +326,29 @@ Diversity Indices
 
 `diverse` package
 
-Accumulation Curves
+Accumulation Curves?
 
-**Geospatial Mapping**
+**Ordinal Data**
 
-* Grossenbacher, T. Beautiful thematic maps with ggplot2 (only). Avalable: https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/
+Likert-type Scales
+
+When to treat ordinal as continuous
+
+**Dimensionality Reduction**
+
+Multidimensional Scaling (Classical and Nonmetric)
+
+Principal Component Analysis
+
+Exploratory Factor Analysis
+
+Cluster Analysis
 
 
 <br>
 
 
-## Week 6: Advanced statistical methods, part II
+## Week 6: Advanced statistical methods, part II: Structural equation modeling, social network analysis, and geospatial analyses
 
 ### Lectures
 
@@ -343,31 +366,21 @@ Accumulation Curves
 
 ### Resources
 
-**Ordinal Data**
-
-Likert-type Scales
-
-When to treat ordinal as continuous
-
-**Dimensionality Reduction**
-
-Multidimensional Scaling (Classical and Nonmetric)
-
-Principal Components Analysis
-
-Exploratory Factor Analysis
-
-Cluster Analysis
-
 **Structural Equation Modeling**
 
 Confirmatory Factor Analysis
+
+**Social Network Analysis**
+
+**Geospatial Mapping**
+
+* Grossenbacher, T. Beautiful thematic maps with ggplot2 (only). Avalable: https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/
 
 
 <br>
 
 
-## Week 7: Additional topics and analyses for individual projects
+## Week 7: Additional topics and workshops for course project
 
 ### Lectures
 
