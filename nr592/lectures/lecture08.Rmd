@@ -32,17 +32,16 @@ Dinkins, J. B., et al. (2016). Microhabitat conditions in Wyoming’s sage-grous
 Descriptions of the variables are scattered around the paper and in the four other identically-titled supporting tables.
 
 ```{r}
-grouse = read.csv("./data/journal.pone.0150798.s005.CSV", header=T,
-                  stringsAsFactors=F)
+grouse = read.csv("./data/journal.pone.0150798.s005.CSV", header=T)
 ```
 
 ```{r}
 str(grouse)
 ```
 
+For these analyses, we'll convert `YEAR` to a factor (categorical variable).
+
 ```{r}
-grouse$Type = as.factor(grouse$Type)
-grouse$Fate = as.factor(grouse$Fate)
 grouse$YEAR = as.factor(grouse$YEAR)
 ```
 
@@ -99,7 +98,7 @@ summary(grouseME)
 
 <br>
 
-### ANOVA
+### Analysis of variance (ANOVA)
 
 #### One-way (1 Nominal Variable and 1 Measurement Variable)
 
@@ -110,17 +109,20 @@ Do the means of a variable differ by group?
 ```{r}
 grouseAOV = aov(Shrub_10M ~ YEAR,
                 data=grouse[grouse$Type=="Nest" & grouse$Fate=="hatch",])
-summary(grouseAOV)
+anova(grouseAOV)  # summary() works fine too
 ```
 
-<br>
+But this didn't really answer our question. Year matters, but which years are different?
 
-#### Post-hoc tests
+#### Multiple comparisons (or "post hoc" tests)
 
 ```{r}
 TukeyHSD(grouseAOV)
 ```
 
+Notice the _p_-values have been "adjusted." We'll come back to why soon.
+
+<br>
 
 #### Two-way (2 Nominal Variables and 1 Measurement Variable)
 
@@ -132,15 +134,19 @@ grouseAOV2 = aov(Bground_10M ~ CORE_AREA + Type,
 summary(grouseAOV2)
 ```
 
-Nested ANOVA
+Nested ANOVA is a different type of analysis, when one variable is nested within another (e.g. plots and subplots within each plot). Look into it for more detail if you have this kind of data.
 
 <br>
 
 #### Quantile-quantile plots
 
+Check for normality, one of the assumptions of ANOVA.
+
 ```{r}
 plot(grouseAOV2)
 ```
+
+If we just want the Q-Q plot, we can also use `qqnorm()`.
 
 ```{r eval=FALSE}
 ?qqnorm
@@ -157,7 +163,7 @@ qqline(grouseAOV2$residuals, col="red")
 
 <br>
 
-### Multiple comparisons
+### Correcting for multiple comparisons
 
 ```{r}
 myT1 = t.test(grouse$ARTR_10M[grouse$Fate == "hatch"],
@@ -211,7 +217,11 @@ p.adjust(myPVals, method="fdr")
 
 <br>
 
-## Galton, Pearson, and Fisher were terrible people
+And now a quick diversion into the _alternative_ history of statistics, where we talk about how...
+
+<br>
+
+## **Galton, Pearson, and Fisher were terrible people**
 
 ### Sir Francis Galton
 
@@ -219,6 +229,8 @@ p.adjust(myPVals, method="fdr")
 Source: [National Portrait Gallery, London](https://www.npg.org.uk/collections/search/portrait/mw127193)  
 
 Charles Darwin's half-cousin  
+
+Contributions:
 
 * Correlation  
 * Regression  
@@ -233,6 +245,8 @@ and...
 
 Source: _[Africa for the Chinese: To the Editor of The Times (1873)](http://galton.org/letters/africa-for-chinese/AfricaForTheChinese.htm)_
 
+It's worth thinking about how these ideas continue in our own field (using different language) in the thinking and intent behind both local and international conservation practices.
+
 <br>
 
 ### Karl Pearson
@@ -241,6 +255,8 @@ Source: _[Africa for the Chinese: To the Editor of The Times (1873)](http://galt
 
 ![](./resources/pearson.jpg){width="250"}  
 Source: [National Portrait Gallery, London](https://www.npg.org.uk/collections/search/portrait/mw160879/)  
+
+Contributions:
 
 * Correlation coefficient  
 * _p_-value  
@@ -262,14 +278,23 @@ Source: _[National Life from the Stand-point of Science: An Address Delivered at
 ![](./resources/fisher.jpg){width="250"}  
 Source: [University of Adelaide Library](https://drmc.library.adelaide.edu.au/dspace/handle/2440/81669)  
 
+Contributions:
+
 * Null hypothesis  
 * Analysis of variance (ANOVA)  
 * Maximum likelihood  
 * Experimental randomization  
+* Modern synthesis of biology  
 
 <em>"In one respect the theory of selection by climate and disease appears to possess an advantage over that of race mixture. If the latter were the only agency at work, the disappearance of the ruling class would be accompanied by a permanent improvement of the natives. The effect of successive conquests should accumulate; so that we should expect that a people, such as the Egyptians, should be reasonably far advanced towards the type of a ruling race. The reverse appears to be the case. The effect of the selective influence of climate and disease, on the other hand, would appear to undo completely the racial benefits of an invasion."</em>  
 
 Source: _[The Genetical Theory of Natural Selection (1930)](https://archive.org/details/geneticaltheoryo031631mbp/page/n267)_
+
+<br>
+
+**IMPORTANT NOTE:**
+
+I vehemently oppose the abhorrent notions expressed in the above quotations. They represent the worst misuses of social science--social Darwinism and scientific racism--and have been used to justify centuries of colonialism and oppression. The excuse that they were "products of their time" is inadequate, because they were among the most prominent proponents of these ideas and lent their authority and legitimacy to them. Moreover, they developed and incorrectly applied a number of their methods specifically in attempts to support their biased views on race (and see the "rejoinder" at the end of Galton's letter for evidence that not everyone thought this way, even in Galton's time). Their advancement of racist "science" directly influenced the rise of white supremacism in Nazi Germany and elsewhere, and its legacy continues today with the recent resurgence of so-called "race realism." These men have done enduring damage to science and to generations of people and do not deserve to be celebrated.
 
 
 <br><br>
