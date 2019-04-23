@@ -74,7 +74,7 @@ order: 3
 
 <dl>
 <dt><a href="https://rewberl.github.io/nr592/" target="_blank">n(R) 592</a></dt>
-<dd>My R course for graduate students. First taught Spring 2019 for the College of Natural Resources at Colorado State University.</dd>
+<dd>My R course for graduate-level students. First taught Spring 2019 for the College of Natural Resources at Colorado State University.</dd>
 <dt><a href="https://learningstatisticswithr.com/" target="_blank">Learning Statistics with R</a></dt>
 <dd>An online textbook by Danielle Navarro that covers the contents of an introductory statistics class focusing on the use of the R statistical software.</dd>
 <dt><a href="https://swirlstats.com/" target="_blank">swirl</a></dt>
