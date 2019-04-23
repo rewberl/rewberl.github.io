@@ -10,7 +10,7 @@ date: |
   | Spring 2019
   | &nbsp;
   | &nbsp;
-  | Last Updated: 2019-04-17
+  | Last Updated: 2019-04-23
 output:
   html_document:
     highlight: haddock
@@ -308,13 +308,16 @@ output:
 
 ### Lectures
 
-* Tuesday, April 23: **Lecture 09** (pdf / Rmd)
-
+* Tuesday, April 23: **[Lecture 09](./lectures/lecture09.html)** ([pdf](./lectures/lecture09.pdf) / [Rmd](./lectures/lecture09.Rmd))  
+    * [Christmas Bird Count data](http://netapp.audubon.org/CBCObservation/Historical/ResultsByCount.aspx) (Fort Collins, 1900-2017)  
+    * [Bob Marshall Wilderness Complex visitor data](https://www.fs.usda.gov/rds/archive/Product/RDS-2017-0016)  
 * Thursday, April 25: **Lecture 10** (pdf / Rmd)
 
 ### Homework
 
 1. **Required Reading**  
+
+    None
 
 1. **Assignment 5** **(ATTENTION: Due May 7)**
 
@@ -322,27 +325,37 @@ output:
 
 **Ecological Analyses**
 
-Diversity Indices
+* Simpson, G. CRAN Task View: Analysis of Ecological and Environmental Data. Available: https://cran.r-project.org/web/views/Environmetrics.html  
 
-`diverse` package
+* Oksanen, J. Vegan: An introduction to ordination. Available: https://cran.r-project.org/web/packages/vegan/vignettes/intro-vegan.pdf  
 
-Accumulation Curves?
+* Guevara, M. R., et al. (2016). diverse: An R Package to analyze diversity in complex systems. The R Journal, 8(2), 60-78. doi: [10.32614/rj-2016-033](https://journal.r-project.org/archive/2016/RJ-2016-033/RJ-2016-033.pdf)  
 
 **Ordinal Data**
 
-Likert-type Scales
+* Mangiafico, S. S. Introduction to Likert data. In _Summary and analysis of extension program evaluation in R_. Available: http://rcompanion.org/handbook/E_01.html  
 
-When to treat ordinal as continuous
+* Barry, D. Do not use averages with Likert scale data. Available: https://bookdown.org/Rmadillo/likert/  
+
+* Mangiafico, S. S. One-way permutation test of independence for ordinal data. In _Summary and analysis of extension program evaluation in R_. Available: http://rcompanion.org/handbook/K_02.html  
+
+* Holgado–Tello, F. P., et al. (2010). Polychoric versus Pearson correlations in exploratory and confirmatory factor analysis of ordinal variables. Quality & Quantity, 44(1), 153. doi: [10.1007/s11135-008-9190-y](https://doi.org/10.1007/s11135-008-9190-y)  
+
+* Rhemtulla, M., et al. (2012). When can categorical variables be treated as continuous? A comparison of robust continuous and categorical SEM estimation methods under suboptimal conditions. Psychological Methods, 17(3), 354. doi: [10.1037/a0029315](https://doi.org/10.1037/a0029315)  
 
 **Dimensionality Reduction**
+
+Hierarchical Clustering
 
 Multidimensional Scaling (Classical and Nonmetric)
 
 Principal Component Analysis
 
+Cluster Analysis
+
 Exploratory Factor Analysis
 
-Cluster Analysis
+Mantel Tests?
 
 
 <br>

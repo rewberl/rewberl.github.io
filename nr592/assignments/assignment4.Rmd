@@ -33,11 +33,11 @@ Download the following data set, from Wielgus & Peebles (2014), and place it in 
 
 You can read about the data and the analyses performed in the paper:
 
-Wielgus, R. B., & Peebles, K. A. (2014). Effects of wolf mortality on livestock depredations. PlOS ONE, 9(12), e113505. doi: [10.1371/journal.pone.0113505](https://doi.org/10.1371/journal.pone.0113505)
+Wielgus, R. B., & Peebles, K. A. (2014). Effects of wolf mortality on livestock depredations. PLOS ONE, 9(12), e113505. doi: [10.1371/journal.pone.0113505](https://doi.org/10.1371/journal.pone.0113505)
 
-These data were converted and "tidied" from a Word document table in Table S1 of the article's supporting information: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0113505#s5
+I converted and "tidied" the data from a Word document table in Table S1 of the article's supporting information: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0113505#s5
 
-In addition, time-lagged versions of three variables (`cattleDepredated`, `sheepDepredated`, and `wolvesKilled`) were added to the CSV. Each of these variables were shifted forward one year, so that their values represent those of their respective variables for the previous year.
+In addition, I also added time-lagged versions of three variables (`cattleDepredated`, `sheepDepredated`, and `wolvesKilled`) to the CSV. Each of these variables were shifted forward one year, so that their values represent those of their respective variables for the previous year.
 
 Load the data into R as `wolf`.
 

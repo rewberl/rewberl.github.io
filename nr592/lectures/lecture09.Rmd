@@ -1,0 +1,421 @@
+---
+title: |
+  | &nbsp;
+  | Week 5, Lecture 09
+  | Advanced statistical methods, part I: Ecological analyses, ordinal data, and dimensionality reduction
+author: |
+  | &nbsp;
+  | Richard E.W. Berl
+date: |
+  | Spring 2019
+  | &nbsp;
+output:
+  html_document:
+    highlight: haddock
+    theme: flatly
+  pdf_document:
+    highlight: haddock
+---
+
+## Ecological analyses
+
+Download the data from the annual Audubon Christmas Bird Count here: http://netapp.audubon.org/CBCObservation/Historical/ResultsByCount.aspx
+
+Let's get all of the data available for Fort Collins: For "Start Year," select Count 1 in 1900; leave "End Year" at 2017; select "United States" and "Colorado" and flip through the pages until you find "Fort Collins" (was at the bottom of page 2 for me). Click the bubble, select CSV and Export.
+
+Place the data in your `/data` folder.
+
+```{r}
+library(readr)
+```
+
+```{r}
+fcbird = as.data.frame(read_csv("./data/HistoricalResultsByCount [COFC-1901-2018].csv",
+                    skip=208, n_max=18031))
+```
+
+```{r}
+head(fcbird)
+tail(fcbird)
+```
+
+```{r}
+library(stringr)
+```
+
+```{r}
+fcbird$SPEC_NAME = str_split_fixed(fcbird$COM_NAME, "\\r\\n", 2)[,2]
+fcbird$SPEC_NAME = gsub("\\[|\\]", "", fcbird$SPEC_NAME)
+fcbird$COM_NAME = str_split_fixed(fcbird$COM_NAME, "\r\n", 2)[,1]
+fcbird$CountYear = as.integer(substr(fcbird$CountYear, 1, 4))
+
+fcbird = fcbird[,c("COM_NAME","SPEC_NAME","CountYear","how_manyCW")]
+```
+
+```{r}
+head(fcbird)
+tail(fcbird)
+```
+
+[Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+
+```{r, warning=FALSE}
+library(tidyr)
+```
+
+```{r}
+fcbirdW = spread(fcbird[,-2], "COM_NAME", "how_manyCW")
+```
+
+`vegan` doesn't accept missing values :(
+
+```{r}
+l1 = combn(2:length(fcbirdW[,-1]), 2, function(x) fcbirdW[,-1][x[1]:x[2]], simplify = FALSE)
+# If you also need "combinations" of only single columns, then uncomment the next line
+# l1 = c(d[-1], l1)
+l2 = sapply(l1, function(x) sum(complete.cases(x)))
+
+score = sapply(1:length(l1), function(i) NCOL(l1[[i]]) * l2[i])
+best_score = which.max(score)
+best = l1[[best_score]]
+```
+Source: [dww on StackOverflow, 12/4/18](https://stackoverflow.com/a/53616117/6408008)
+
+```{r}
+rownames(best) = fcbirdW$CountYear
+best = best[complete.cases(best),]
+# best = apply(best, as.numeric)
+best = data.frame(lapply(best, function(x) as.numeric(as.character(x))),
+                  check.names=F, row.names=rownames(best))
+
+head(best)
+str(best)
+```
+
+```{r, eval=FALSE}
+install.packages("vegan")
+```
+
+```{r, warning=FALSE}
+library(vegan)
+```
+
+<br>
+
+### Diversity
+
+```{r, eval=FALSE}
+?diversity
+```
+
+```{r}
+diversity(best, index="shannon")
+diversity(best, index="simpson")
+```
+
+```{r}
+bestDiv = diversity(best, index="simpson")
+
+plot(as.numeric(names(bestDiv)), bestDiv)
+abline(lm(bestDiv ~ as.numeric(names(bestDiv))), col="red")
+
+cor.test(as.numeric(names(bestDiv)), bestDiv)
+```
+
+<br>
+
+### Evenness
+
+```{r}
+diversity(best, index="shannon") / log(specnumber(best))
+```
+
+<br>
+
+### Richness
+
+```{r, eval=FALSE}
+?rarefy
+```
+
+```{r}
+rarefy(best, sample=10)
+head(rarefy(best, sample=c(5, 15)))
+```
+
+```{r}
+rarecurve(t(best))
+```
+
+```{r, eval=FALSE}
+?specaccum
+```
+
+<br>
+
+`diverse` package
+
+<br><br>
+
+## Ordinal data
+
+Let's get some Human Dimensions data for once! Go to the US Forest Service page for the 2004 visitor preference and usage data set for the Bob Marshall Wilderness Complex in Montana: https://www.fs.usda.gov/rds/archive/Product/RDS-2017-0016
+
+At the bottom, click "Download data publication," which gives you a ZIP archive. Open it up, go into the "Data" folder and pull out both CSVs for your `/data` directory. You can hang on to the other files in the archive as well, for the metadata.
+
+For now, let's load in the onsite data:
+
+```{r}
+bm = read.csv("./data/BMWC2004_onsitedata.csv", header=T, na.strings="88",
+              stringsAsFactors=F)
+```
+
+```{r}
+head(bm)
+```
+
+### Likert data
+
+```{r}
+summary(bm[,36:45])
+```
+
+<big>You can't take the mean of an ordinal variable!</big>
+
+But you can take the median.
+
+```{r}
+hist(bm$familiar)
+```
+
+<br>
+
+### Hypothesis testing
+
+Permutation tests
+
+```{r, eval=FALSE}
+install.packages("coin")
+```
+
+```{r, warning=FALSE}
+library(coin)
+```
+
+```{r}
+bmLik = bm
+bmLik$st = factor(ifelse(bmLik$st != "MT", "Not MT", "MT"))
+bmLik$familiar = ordered(bmLik$familiar)
+```
+
+```{r}
+table(bmLik$st, bmLik$familiar)
+```
+
+```{r, eval=FALSE}
+?independence_test
+```
+
+```{r}
+independence_test(familiar ~ st, data=bmLik)
+```
+
+Two-way tests, regression, etc. available on Mangiafico page
+
+<br>
+
+### Polychoric correlations
+
+```{r, eval=FALSE}
+install.packages("lavaan")
+```
+
+```{r, warning=FALSE}
+library(lavaan)
+```
+
+```{r, eval=FALSE}
+?lavCor
+```
+
+```{r, eval=FALSE}
+?psych::tetrachor
+```
+
+```{r}
+bmLik[,36:45] = lapply(bmLik[,36:45], function(x) ordered(x))
+str(bmLik)
+```
+
+```{r}
+bmLik$recent_f
+```
+
+```{r}
+bmLikCor = lavCor(bmLik[,36:45])
+bmLikCor
+```
+
+```{r, warning=FALSE}
+library(corrplot)
+```
+
+```{r}
+corrplot.mixed(bmLikCor, lower="ellipse", upper="number")
+```
+
+<br>
+
+### Treating ordinal data as continuous
+
+If you have at least 6 levels and good sample size, you're usually okay.
+
+See:
+
+Rhemtulla, M., et al. (2012). When can categorical variables be treated as continuous? A comparison of robust continuous and categorical SEM estimation methods under suboptimal conditions. Psychological Methods, 17(3), 354. doi: [10.1037/a0029315](https://doi.org/10.1037/a0029315)
+
+<br><br>
+
+## Dimensionality reduction
+
+### Multidimensional scaling
+
+```{r, eval=FALSE}
+install.packages("psych")
+```
+
+```{r, warning=FALSE}
+library(psych)
+```
+
+```{r, eval=FALSE}
+?cor2dist
+```
+
+```{r}
+bmLikDist = as.dist(cor2dist(bmLikCor))
+bmLikDist
+```
+
+<br>
+
+#### **Classical**
+
+```{r, eval=FALSE}
+?cmdscale
+```
+
+```{r}
+bmCMD = cmdscale(bmLikDist)
+bmCMD
+```
+
+```{r}
+plot(bmCMD[,1], bmCMD[,2])
+text(bmCMD[,1], bmCMD[,2] + 0.025, labels=row.names(bmCMD), col="blue")
+```
+
+<br>
+
+#### **Nonmetric**
+
+Tries to reproduce ranks of distances rather than distance values themselves
+
+```{r, warning=FALSE}
+library(MASS)
+```
+
+```{r, eval=FALSE}
+?isoMDS
+```
+
+```{r}
+bmNMD = isoMDS(bmLikDist)
+bmNMD
+```
+
+```{r}
+plot(bmNMD$points[,1], bmNMD$points[,2])
+text(bmNMD$points[,1], bmNMD$points[,2] + 0.02,
+     labels=row.names(bmNMD$points), col="blue", cex=0.7)
+```
+
+<br>
+
+```{r, eval=FALSE}
+?vegan::metaMDS
+```
+
+```{r}
+head(best)
+```
+
+```{r}
+bestNMD = metaMDS(best)
+bestNMD
+```
+
+```{r}
+plot(bestNMD)
+text(bestNMD$points[,1], bestNMD$points[,2] + 0.02,
+     labels=row.names(bestNMD$points), col="blue", cex=0.7)
+text(bestNMD$species[,1], bestNMD$species[,2] + 0.02,
+     labels=row.names(bestNMD$species), col="red", cex=0.7)
+```
+
+<br><br>
+
+### Cluster analysis
+
+#### Hierarchical clustering
+
+```{r, eval=FALSE}
+?hclust
+```
+
+```{r}
+bmHC = hclust(bmLikDist, method="ward.D2")
+```
+
+```{r}
+plot(bmHC)
+```
+
+```{r}
+heatmap(bmLikCor, hclustfun=function(x) hclust(x, method="ward.D2"))
+```
+
+```{r, eval=FALSE}
+install.packages("pvclust")
+```
+
+```{r, warning=FALSE}
+library(pvclust)
+```
+
+```{r, eval=FALSE}
+?pvclust
+```
+
+Needs raw data; does not allow distance matrix as input
+
+```{r}
+bmPVHC = pvclust(bm[,36:45], method.hclust="ward.D2")
+```
+
+```{r}
+plot(bmPVHC)
+pvrect(bmPVHC)
+```
+
+Red = "AU" (Approximately Unbiased) _p_value: 1 - _p_-value (>95 is "significant")
+
+Green = "BP" (Bootstrap Probability): percent of times the tree-building algorithm produced that branch
+
+
+<br><br>
+
+
+([pdf](./lecture09.pdf) / [Rmd](./lecture09.Rmd))
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
