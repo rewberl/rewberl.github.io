@@ -39,7 +39,7 @@ A free game for the classroom and home, designed to help understand the theory o
 
 ## Teaching
 <br>
-<div class="circular200 fa-pull-left" style="background-image: url(/nr592/lectures/resources/prestige_edet.jpg); margin: 0rem 2rem 2rem 0rem;"></div>
+<div class="circular200 fa-pull-left" style="background-image: url(/nr592/lectures/resources/pineridge_corr.jpg); margin: 0rem 2rem 2rem 0rem;"></div>
 
 <strong style="font-size: 1.25rem;"><a href="/nr592">n(R) 592</a></strong>
 
