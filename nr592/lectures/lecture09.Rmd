@@ -25,7 +25,9 @@ Let's get all of the data available for Fort Collins: For "Start Year," select C
 
 Place the data in your `/data` folder.
 
-```{r}
+If you open up the CSV and take a look, you'll see that the data are an absolute mess. Multiple tables are all provided one after another in the same spreadsheet. To get the data that we want, we need to skip some rows, read some rows, and skip some more rows. To make this easier, I opted to use `read_csv()` from the `readr` package, rather than the base `read.csv()` function, because it tries to figure out what the columns should be for messy data.
+
+```{r, warning=FALSE}
 library(readr)
 ```
 
@@ -39,7 +41,9 @@ head(fcbird)
 tail(fcbird)
 ```
 
-```{r}
+Let's clean up our variables a bit.
+
+```{r, warning=FALSE}
 library(stringr)
 ```
 
@@ -57,7 +61,9 @@ head(fcbird)
 tail(fcbird)
 ```
 
-[Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+Now, for the analyses we'll be doing (with the `vegan` package), we need our species as columns and our years (typically different sampling "sites") as rows. So we need to _spread_ the rows of our `COM_NAME` variable across columns, using `how_manyCW` as its values.
+
+If we refer back to the D[ata Wrangling Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf), we see that we need to use the `spread()` function from `tidyr`.
 
 ```{r, warning=FALSE}
 library(tidyr)
@@ -67,7 +73,15 @@ library(tidyr)
 fcbirdW = spread(fcbird[,-2], "COM_NAME", "how_manyCW")
 ```
 
-`vegan` doesn't accept missing values :(
+```{r}
+head(fcbirdW)
+```
+
+Looks good. However, we can see there are a lot of missing values, and `vegan` can't deal with any missing values.
+
+`complete.cases()` would remove every row, so we want to find a way to include as much of our data as we can while eliminating missing values. This is an optimization problem that R doesn't have a base function for, so I Googled it and came to [this thread](https://stackoverflow.com/questions/53613882/how-to-get-the-largest-possible-column-sequence-with-the-least-possible-row-nas) on StackOverflow.
+
+From one of the responses, I copied the code below to find the "best" subset of the data:
 
 ```{r}
 l1 = combn(2:length(fcbirdW[,-1]), 2, function(x) fcbirdW[,-1][x[1]:x[2]], simplify = FALSE)
@@ -81,6 +95,8 @@ best = l1[[best_score]]
 ```
 Source: [dww on StackOverflow, 12/4/18](https://stackoverflow.com/a/53616117/6408008)
 
+And then I want to take the complete cases of those variables, so that we do have complete data with no missing values.
+
 ```{r}
 rownames(best) = fcbirdW$CountYear
 best = best[complete.cases(best),]
@@ -91,6 +107,8 @@ best = data.frame(lapply(best, function(x) as.numeric(as.character(x))),
 head(best)
 str(best)
 ```
+
+Great. Now we can load up `vegan`.
 
 ```{r, eval=FALSE}
 install.packages("vegan")
@@ -144,8 +162,16 @@ head(rarefy(best, sample=c(5, 15)))
 ```
 
 ```{r}
+rarecurve(best)
+```
+
+We can also transpose our matrix with `t()` to look at it by species:
+
+```{r}
 rarecurve(t(best))
 ```
+
+Species accumulation curves
 
 ```{r, eval=FALSE}
 ?specaccum
@@ -153,13 +179,13 @@ rarecurve(t(best))
 
 <br>
 
-`diverse` package
+The `diverse` package has a number of different measures for "complex systems" research, which includes social sciences. A thorough description is available in [a published paper](https://journal.r-project.org/archive/2016/RJ-2016-033/RJ-2016-033.pdf) on the package.
 
 <br><br>
 
 ## Ordinal data
 
-Let's get some Human Dimensions data for once! Go to the US Forest Service page for the 2004 visitor preference and usage data set for the Bob Marshall Wilderness Complex in Montana: https://www.fs.usda.gov/rds/archive/Product/RDS-2017-0016
+For these exercises, let's get some Human Dimensions data for once! Go to the US Forest Service page for the 2004 visitor preference and usage data set for the Bob Marshall Wilderness Complex in Montana: https://www.fs.usda.gov/rds/archive/Product/RDS-2017-0016
 
 At the bottom, click "Download data publication," which gives you a ZIP archive. Open it up, go into the "Data" folder and pull out both CSVs for your `/data` directory. You can hang on to the other files in the archive as well, for the metadata.
 
@@ -182,17 +208,41 @@ summary(bm[,36:45])
 
 <big>You can't take the mean of an ordinal variable!</big>
 
+Why not? Remember: we can't assume the intervals between ordinal levels are equal. For example, for this survey, the participants' perceptions of the distance between "Not Important" and "Somewhat Important" may be different from the distance between "Somewhat Important" and "Very Important." So, a mean doesn't make sense.
+
 But you can take the median.
+
+We can also see that one of the Likert variables, `recent_f` has a 0 in it.
+
+```{r}
+bm$recent_f
+```
+
+Since there's only one 0, and the scale goes from 1 to 3 on the survey, this is likely a coding mistake. Might as well fix it and recode it as a missing value.
+
+```{r}
+bm$recent_f[bm$recent_f == 0] = NA
+```
+
+A good way of visualizing ordinal variables is through the use of a histogram.
 
 ```{r}
 hist(bm$familiar)
 ```
 
+A specialized package named `likert` has some additional options.
+
 <br>
 
 ### Hypothesis testing
 
-Permutation tests
+How do we test whether Likert responses are different by group?
+
+#### **Permutation tests**
+
+Permutation tests shuffle around the data to see how often the observed result occurs, to generate a _p_-value. They don't require the assumptions that normal parametric tests do, and can work regardless of the expected distribution, which is why they're good for ordinal data. This is a one-way test, but others are described in the [online textbook by Mangiafico](http://rcompanion.org/handbook/).
+
+Functions for permutation tests in R are in the `coin` package:
 
 ```{r, eval=FALSE}
 install.packages("coin")
@@ -202,15 +252,21 @@ install.packages("coin")
 library(coin)
 ```
 
+Let's examine whether the importance of familiarity was different for Montana residents versus visitors from elsewhere. So, we recode the `st` (state) variable to represent this. We also go ahead and declare our Likert variable as ordered, to make sure R treats it as ordinal.
+
 ```{r}
 bmLik = bm
 bmLik$st = factor(ifelse(bmLik$st != "MT", "Not MT", "MT"))
 bmLik$familiar = ordered(bmLik$familiar)
 ```
 
+We can take a look at the contingency table.
+
 ```{r}
 table(bmLik$st, bmLik$familiar)
 ```
+
+Difficult to tell, since the row sums are different.
 
 ```{r, eval=FALSE}
 ?independence_test
@@ -220,11 +276,23 @@ table(bmLik$st, bmLik$familiar)
 independence_test(familiar ~ st, data=bmLik)
 ```
 
-Two-way tests, regression, etc. available on Mangiafico page
+Not significant. Interesting, because we might have expected Montanans to care more about familiarity with the natural area.
+
+As mentioned above, two-way tests, regression, etc. are available on the Mangiafico page.
 
 <br>
 
 ### Polychoric correlations
+
+For ordinal data, we can't use regular Pearson correlations (or Spearman, etc.). Instead, we need to calculate polychoric correlations, which assume that each variable is actually normally distributed, but represented ordinally in the data.
+
+I like to use the `lavCor()` function in the `lavaan` package, because it can take a mix of variable types (numeric, ordinal) and calculate appropriate correlations for each. Other options are available, such as the `tetrachor()` function in the `psych` package:
+
+```{r, eval=FALSE}
+?psych::tetrachor
+```
+
+But for now we'll stick with `lavaan`, which we will also use later for structural equation modeling.
 
 ```{r, eval=FALSE}
 install.packages("lavaan")
@@ -234,27 +302,25 @@ install.packages("lavaan")
 library(lavaan)
 ```
 
-```{r, eval=FALSE}
-?lavCor
-```
-
-```{r, eval=FALSE}
-?psych::tetrachor
-```
+Change all of the numeric Likert variables to ordered:
 
 ```{r}
 bmLik[,36:45] = lapply(bmLik[,36:45], function(x) ordered(x))
 str(bmLik)
 ```
 
-```{r}
-bmLik$recent_f
+And calculate our correlation matrix:
+
+```{r, eval=FALSE}
+?lavCor
 ```
 
 ```{r}
 bmLikCor = lavCor(bmLik[,36:45])
 bmLikCor
 ```
+
+We can also plot it to have a look. I like `corrplot` for its different visualization options.
 
 ```{r, warning=FALSE}
 library(corrplot)
@@ -268,149 +334,13 @@ corrplot.mixed(bmLikCor, lower="ellipse", upper="number")
 
 ### Treating ordinal data as continuous
 
-If you have at least 6 levels and good sample size, you're usually okay.
+If you have fewer than 5 levels (like we did here), **don't do it**. Your data are unlikely to meet the assumptions of the tests you want to run. You often won't get errors or warnings for doing so, and R will spit out a result, but it's statistically incorrect and your results won't mean anything.
+
+If you have at least 5 levels and good sample size, you're usually okay. Data with 6 or 7 levels are essentially indistinguishable from continuous data. So, when you're designing a survey, go for 6 or 7.
 
 See:
 
 Rhemtulla, M., et al. (2012). When can categorical variables be treated as continuous? A comparison of robust continuous and categorical SEM estimation methods under suboptimal conditions. Psychological Methods, 17(3), 354. doi: [10.1037/a0029315](https://doi.org/10.1037/a0029315)
-
-<br><br>
-
-## Dimensionality reduction
-
-### Multidimensional scaling
-
-```{r, eval=FALSE}
-install.packages("psych")
-```
-
-```{r, warning=FALSE}
-library(psych)
-```
-
-```{r, eval=FALSE}
-?cor2dist
-```
-
-```{r}
-bmLikDist = as.dist(cor2dist(bmLikCor))
-bmLikDist
-```
-
-<br>
-
-#### **Classical**
-
-```{r, eval=FALSE}
-?cmdscale
-```
-
-```{r}
-bmCMD = cmdscale(bmLikDist)
-bmCMD
-```
-
-```{r}
-plot(bmCMD[,1], bmCMD[,2])
-text(bmCMD[,1], bmCMD[,2] + 0.025, labels=row.names(bmCMD), col="blue")
-```
-
-<br>
-
-#### **Nonmetric**
-
-Tries to reproduce ranks of distances rather than distance values themselves
-
-```{r, warning=FALSE}
-library(MASS)
-```
-
-```{r, eval=FALSE}
-?isoMDS
-```
-
-```{r}
-bmNMD = isoMDS(bmLikDist)
-bmNMD
-```
-
-```{r}
-plot(bmNMD$points[,1], bmNMD$points[,2])
-text(bmNMD$points[,1], bmNMD$points[,2] + 0.02,
-     labels=row.names(bmNMD$points), col="blue", cex=0.7)
-```
-
-<br>
-
-```{r, eval=FALSE}
-?vegan::metaMDS
-```
-
-```{r}
-head(best)
-```
-
-```{r}
-bestNMD = metaMDS(best)
-bestNMD
-```
-
-```{r}
-plot(bestNMD)
-text(bestNMD$points[,1], bestNMD$points[,2] + 0.02,
-     labels=row.names(bestNMD$points), col="blue", cex=0.7)
-text(bestNMD$species[,1], bestNMD$species[,2] + 0.02,
-     labels=row.names(bestNMD$species), col="red", cex=0.7)
-```
-
-<br><br>
-
-### Cluster analysis
-
-#### Hierarchical clustering
-
-```{r, eval=FALSE}
-?hclust
-```
-
-```{r}
-bmHC = hclust(bmLikDist, method="ward.D2")
-```
-
-```{r}
-plot(bmHC)
-```
-
-```{r}
-heatmap(bmLikCor, hclustfun=function(x) hclust(x, method="ward.D2"))
-```
-
-```{r, eval=FALSE}
-install.packages("pvclust")
-```
-
-```{r, warning=FALSE}
-library(pvclust)
-```
-
-```{r, eval=FALSE}
-?pvclust
-```
-
-Needs raw data; does not allow distance matrix as input
-
-```{r}
-bmPVHC = pvclust(bm[,36:45], method.hclust="ward.D2")
-```
-
-```{r}
-plot(bmPVHC)
-pvrect(bmPVHC)
-```
-
-Red = "AU" (Approximately Unbiased) _p_value: 1 - _p_-value (>95 is "significant")
-
-Green = "BP" (Bootstrap Probability): percent of times the tree-building algorithm produced that branch
 
 
 <br><br>
