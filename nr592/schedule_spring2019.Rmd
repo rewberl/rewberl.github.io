@@ -10,7 +10,7 @@ date: |
   | Spring 2019
   | &nbsp;
   | &nbsp;
-  | Last Updated: 2019-04-23
+  | Last Updated: 2019-04-24
 output:
   html_document:
     highlight: haddock
@@ -317,9 +317,9 @@ output:
 
 1. **Required Reading**  
 
-    None
+    None  
 
-1. **Assignment 5** **(ATTENTION: Due May 7)**
+2. **[Assignment 5](./assignments/assignment5.html)** ([pdf](./assignments/assignment5.pdf) / [Rmd](./assignments/assignment5.Rmd)) **(ATTENTION: Due May 7)**
 
 ### Resources
 
@@ -329,7 +329,7 @@ output:
 
 * Oksanen, J. Vegan: An introduction to ordination. Available: https://cran.r-project.org/web/packages/vegan/vignettes/intro-vegan.pdf  
 
-* Guevara, M. R., et al. (2016). diverse: An R Package to analyze diversity in complex systems. The R Journal, 8(2), 60-78. doi: [10.32614/rj-2016-033](https://journal.r-project.org/archive/2016/RJ-2016-033/RJ-2016-033.pdf)  
+* Guevara, M. R., et al. (2016). `diverse`: An R Package to analyze diversity in complex systems. The R Journal, 8(2), 60-78. doi: [10.32614/rj-2016-033](https://journal.r-project.org/archive/2016/RJ-2016-033/RJ-2016-033.pdf)  
 
 **Ordinal Data**
 
@@ -373,9 +373,13 @@ Mantel Tests?
 
 1. **Required Reading**  
 
-2. Start working on **[Project Report](./assignments/course_project.html)** (Due May 17, 11:59pm)
+    None  
 
-3. Start working on **[Project Presentation](./assignments/course_project.html)** (Due week of May 13)
+2. **[Assignment 5](./assignments/assignment5.html)** ([pdf](./assignments/assignment5.pdf) / [Rmd](./assignments/assignment5.Rmd)) **(ATTENTION: Due May 7)**
+
+3. Start working on **[Project Report](./assignments/course_project.html)** (Due May 17, 11:59pm)
+
+4. Start working on **[Project Presentation](./assignments/course_project.html)** (Due week of May 13)
 
 ### Resources
 
@@ -388,6 +392,10 @@ Confirmatory Factor Analysis
 **Geospatial Mapping**
 
 * Grossenbacher, T. Beautiful thematic maps with ggplot2 (only). Avalable: https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/
+
+tidygraph?
+
+ggraph?
 
 
 <br>
@@ -405,9 +413,7 @@ Confirmatory Factor Analysis
 
 1. **Required Reading**  
 
-    None
-
-<!-- end of list -->
+    None  
 
 2. **[Project Report](./assignments/course_project.html)** (Due May 17, 11:59pm)
 
