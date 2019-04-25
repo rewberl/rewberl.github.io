@@ -74,7 +74,7 @@ fcbirdW = spread(fcbird[,-2], "COM_NAME", "how_manyCW")
 ```
 
 ```{r}
-head(fcbirdW)
+fcbirdW[1:5,1:10]
 ```
 
 Looks good. However, we can see there are a lot of missing values, and `vegan` can't deal with any missing values.
@@ -342,6 +342,37 @@ See:
 
 Rhemtulla, M., et al. (2012). When can categorical variables be treated as continuous? A comparison of robust continuous and categorical SEM estimation methods under suboptimal conditions. Psychological Methods, 17(3), 354. doi: [10.1037/a0029315](https://doi.org/10.1037/a0029315)
 
+<br><br>
+
+## Saving data
+
+Before we go, let's save our cleaned bird count data for next time.
+
+We can save it in CSV format, similar to the way we read CSVs in:
+
+```{r, eval=FALSE}
+?write.csv
+```
+
+```{r}
+write.csv(fcbirdW, "./data/fcbirdW.csv")
+write.csv(best, "./data/fcbirdbest.csv")
+```
+
+If we have a substantially larger data frame (or other object), and we know we'll only need to work with it in R or share it with others using R, we can save any R object as a compressed RDS file to save space:
+
+```{r, eval=FALSE}
+?saveRDS
+```
+
+```{r}
+saveRDS(fcbirdW, "./data/fcbirdW.RDS")
+saveRDS(best, "./data/fcbirdbest.RDS")
+```
+
+We could then reload it later with `readRDS()`.
+
+Saving as RDS is also useful if you're working with and processing large files (geospatial raster layers, for example), and want to save the result to load later instead of having to do the processing steps every time.
 
 <br><br>
 

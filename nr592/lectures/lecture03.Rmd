@@ -120,7 +120,7 @@ install.packages("tidyverse")
 install.packages("readxl")
 ```
 
-```{r}
+```{r, warning=FALSE}
 library(readxl)
 ```
 

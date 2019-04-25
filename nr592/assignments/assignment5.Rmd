@@ -99,13 +99,13 @@ Conduct one of the following sequences of analyses described in Week 5 or Week 6
     a. Diversity, Richness, Evenness, and Species accumulation curve  
     b. Diversity, Richness, Evenness, and Multidimensional scaling plot (classical or nonmetric)  
     c. Diversity, Richness, Evenness, and Geospatial plot (if spatial data are included)  
-    d. Principal component analysis, Principal component plot  
-    e. Cluster analysis, Silhouette plot, and Cluster plot  
+    d. Principal component analysis, Principal component plot, and Regression  
+    e. Cluster analysis, Silhouette plot and/or Cluster plot  
 2. Likert survey data  
     a. Exploratory factor analysis and Confirmatory factor analysis  
         i. Note: Randomly subset your data set into two halves: one for EFA and the other for CFA  
-    b. Principal component analysis, Principal component plot  
-    c. Cluster analysis, Silhouette plot, and Cluster plot  
+    b. Principal component analysis, Principal component plot, and Regression  
+    c. Cluster analysis, Silhouette plot and/or Cluster plot  
 3. Network data  
     a. Two descriptive statistics (e.g. centrality, diameter, distance, edge density), Network visualization, Community detection  
 4. Geospatial data  

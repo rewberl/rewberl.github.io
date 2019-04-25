@@ -311,7 +311,8 @@ output:
 * Tuesday, April 23: **[Lecture 09](./lectures/lecture09.html)** ([pdf](./lectures/lecture09.pdf) / [Rmd](./lectures/lecture09.Rmd))  
     * [Christmas Bird Count data](http://netapp.audubon.org/CBCObservation/Historical/ResultsByCount.aspx) (Fort Collins, 1900-2017)  
     * [Bob Marshall Wilderness Complex visitor data](https://www.fs.usda.gov/rds/archive/Product/RDS-2017-0016)  
-* Thursday, April 25: **Lecture 10** (pdf / Rmd)
+* Thursday, April 25: **[Lecture 10](./lectures/lecture10.html)** ([pdf](./lectures/lecture10.pdf) / [Rmd](./lectures/lecture10.Rmd))  
+    * ["Best" maximally complete Christmas Bird Coount data](./lectures/data/fcbirdbest.csv)  
 
 ### Homework
 
@@ -345,17 +346,19 @@ output:
 
 **Dimensionality Reduction**
 
-Hierarchical Clustering
-
 Multidimensional Scaling (Classical and Nonmetric)
 
-Principal Component Analysis
+* Boehmke, B. Hierarchical cluster analysis. In _University of Cincinnati Business Analytics R programming guide_. Available: https://uc-r.github.io/hc_clustering  
 
-Cluster Analysis
+* Boehmke, B. Principal components analysis. In _University of Cincinnati Business Analytics R programming guide_. Available: https://uc-r.github.io/pca  
+
+* Boehmke, B. K-means cluster analysis. In _University of Cincinnati Business Analytics R programming guide_. Available: https://uc-r.github.io/kmeans_clustering  
 
 Exploratory Factor Analysis
 
-Mantel Tests?
+* Revelle, W. (2018). How to: Use the `psych` package for factor analysis and data reduction. Available: http://personality-project.org/r/psych/HowTo/factor.pdf
+
+* Savalei, V. (2011). What to do about zero frequency cells when estimating polychoric correlations. Structural Equation Modeling, 18(2), 253-273. doi: [10.1080/10705511.2011.557339](https://doi.org/10.1080/10705511.2011.557339)  
 
 
 <br>
@@ -390,6 +393,8 @@ Confirmatory Factor Analysis
 **Social Network Analysis**
 
 **Geospatial Mapping**
+
+Mantel Tests?
 
 * Grossenbacher, T. Beautiful thematic maps with ggplot2 (only). Avalable: https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/
 

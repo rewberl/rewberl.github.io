@@ -1,1 +1,18 @@
 https://www.fs.usda.gov/rds/archive/Product/RDS-2017-0016
+
+
+
+
+
+
+```{r, eval=FALSE}
+install.packages("semTools")
+```
+
+```{r, warning=FALSE}
+library(semTools)
+```
+
+```{r, eval=FALSE}
+?semTools::efaUnrotate
+```
