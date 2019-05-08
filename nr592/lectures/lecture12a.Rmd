@@ -1,0 +1,245 @@
+---
+title: |
+  | &nbsp;
+  | Week 6, Lecture 12
+  | Advanced statistical methods, part II: Structural equation modeling, social network analysis, and geospatial analyses
+author: |
+  | &nbsp;
+  | Richard E.W. Berl
+date: |
+  | Spring 2019
+  | &nbsp;
+output:
+  html_document:
+    highlight: haddock
+    theme: flatly
+  pdf_document:
+    highlight: haddock
+---
+
+## Social network analysis
+
+Download Ancestral Pueblo food web network: https://www.sciencedirect.com/science/article/pii/S0305440317300377#appsec1
+
+"Download spreadsheet (329KB)"
+
+```{r, warning=FALSE}
+library(readxl)
+library(igraph)
+```
+
+```{r}
+foodN = as.data.frame(read_xlsx("./data/1-s2.0-S0305440317300377-mmc1.xlsx", sheet=1))
+foodE.AP = as.data.frame(read_xlsx("./data/1-s2.0-S0305440317300377-mmc1.xlsx", sheet=2,
+                                   range="G2:H1398"))
+```
+
+```{r}
+head(foodN)
+str(foodN)
+
+head(foodE.AP)
+str(foodE.AP)
+```
+
+```{r}
+foodN$Class = substr(foodN$Species, 1, 1)
+foodN$Species = substr(foodN$Species, 3, nchar(foodN$Species))
+```
+
+```{r}
+foodN.AP = foodN[foodN$ID %in% unique(unname(unlist(foodE.AP))),]
+```
+
+```{r}
+foodE.AP = foodE.AP[,c(2,1)]
+```
+
+```{r}
+foodNet = graph_from_data_frame(foodE.AP, vertices=foodN.AP)
+foodNet
+```
+
+```{r, fig.width=8, fig.height=8}
+plot(foodNet)
+```
+
+```{r, eval=FALSE}
+?igraph::igraph.plotting
+```
+
+```{r, fig.width=8, fig.height=8}
+plot(foodNet,
+     vertex.size=6, vertex.shape="none",
+     vertex.label.cex=ifelse(V(foodNet)$Species == "human", 1, 0.75),
+     vertex.label.font=ifelse(V(foodNet)$Species == "human", 2, 1),
+     vertex.label.color=as.numeric(as.factor(V(foodNet)$Class)),
+     edge.arrow.size=0.5, edge.color=adjustcolor("darkgrey", alpha.f=0.15),
+     layout=layout_with_kk)
+```
+
+<br>
+
+### Descriptive statistics
+
+**Edge density**
+
+Ratio of the number of edges to all possible edges
+
+```{r}
+edge_density(foodNet, loops=F)
+```
+
+**Reciprocity**
+
+Proportion of mutual connections
+
+```{r}
+reciprocity(foodNet, ignore.loops=T)
+dyad_census(foodNet)
+```
+
+**Transitivity**
+
+Probability of three vertices being connected
+
+```{r}
+transitivity(foodNet, type="global")
+triad_census(foodNet)
+```
+
+```{r, eval=FALSE}
+?triad_census
+```
+
+**Diameter and distance**
+
+Longest chain of connections
+
+```{r}
+diameter(foodNet, directed=T)
+get_diameter(foodNet, directed=T)
+```
+
+Bottle gourd -> human -> dog -> tick -> sage grouse -> coyote -> snowshoe hare
+
+```{r}
+mean_distance(foodNet, directed=T)
+```
+
+Shortest distance from humans to pinyon jay
+
+```{r}
+shortest_paths(foodNet, from="96", to="43", output="both")
+```
+
+Human -> dog -> tick -> centipede -> pinyon jay
+
+<br>
+
+#### Centrality
+
+**Degree**
+
+Number of connections
+
+```{r}
+degree(foodNet, v="96", mode="out")
+degree(foodNet, v="96", mode="in")
+```
+
+```{r}
+ego(foodNet, nodes="96", mode="out")
+```
+
+Domestic dog
+
+```{r}
+ego(foodNet, nodes="96", mode="in")
+```
+
+**Closeness**
+
+Inverse distance to all other nodes
+
+```{r}
+closeness(foodNet, vids="96", mode="all")
+closeness(foodNet, mode="all")[which.max(closeness(foodNet, mode="all"))]
+```
+
+Colorado chipmunk
+
+**Betweenness**
+
+Number of paths passing through a node
+
+```{r}
+betweenness(foodNet, v="96", directed=T)
+betweenness(foodNet, directed=T)[which.max(betweenness(foodNet, directed=T))]
+```
+
+**Eigenvector**
+
+Values of the first eigenvector
+
+```{r}
+eigen_centrality(foodNet, directed=T)$vector[names(eigen_centrality(foodNet, directed=T)$vector) == "96"]
+eigen_centrality(foodNet, directed=T)$vector[which.max(eigen_centrality(foodNet,
+                                                                        directed=T)$vector)]
+```
+
+Domestic dog
+
+**Hub**
+
+```{r}
+hub_score(foodNet)$vector[names(hub_score(foodNet)$vector) == "96"]
+hub_score(foodNet)$vector[which.max(hub_score(foodNet)$vector)]
+```
+
+Maize
+
+**Authority**
+
+```{r}
+authority_score(foodNet)$vector[names(authority_score(foodNet)$vector) == "96"]
+authority_score(foodNet)$vector[which.max(authority_score(foodNet)$vector)]
+```
+
+Mule deer
+
+<br>
+
+#### Community detection
+
+```{r, eval=FALSE}
+?igraph::communities
+```
+
+```{r}
+foodNetU = as.undirected(foodNet, mode="mutual")
+```
+
+**By greedy optimization of modularity**
+
+```{r}
+foodNetCFG = cluster_fast_greedy(foodNetU)
+foodNetCFG
+dendPlot(foodNetCFG, mode="hclust")
+```
+
+**By edge betweenness**
+
+```{r}
+foodNetCB = cluster_edge_betweenness(foodNetU)
+foodNetCB
+dendPlot(foodNetCB, mode="hclust")
+foodNetCB[20]
+```
+
+
+
+
+([pdf](./lecture12.pdf) / [Rmd](./lecture12.Rmd))
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

@@ -63,7 +63,7 @@ tail(fcbird)
 
 Now, for the analyses we'll be doing (with the `vegan` package), we need our species as columns and our years (typically different sampling "sites") as rows. So we need to _spread_ the rows of our `COM_NAME` variable across columns, using `how_manyCW` as its values.
 
-If we refer back to the D[ata Wrangling Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf), we see that we need to use the `spread()` function from `tidyr`.
+If we refer back to the [Data Wrangling Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf), we see that we need to use the `spread()` function from `tidyr`.
 
 ```{r, warning=FALSE}
 library(tidyr)

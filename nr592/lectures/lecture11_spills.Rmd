@@ -1,0 +1,162 @@
+---
+title: |
+  | &nbsp;
+  | Week 6, Lecture 11
+  | Advanced statistical methods, part II: Structural equation modeling, social network analysis, and geospatial analyses
+author: |
+  | &nbsp;
+  | Richard E.W. Berl
+date: |
+  | Spring 2019
+  | &nbsp;
+output:
+  html_document:
+    highlight: haddock
+    theme: flatly
+  pdf_document:
+    highlight: haddock
+---
+
+## Structural equation modeling
+
+https://cogcc.state.co.us/data2.html#/downloads
+
+"Spill Data (Updated Monthly)"
+
+Extract from ZIP, open, save as CSV
+
+
+```{r}
+spill = read.csv("./data/Spills.csv", header=T, stringsAsFactors=F,
+                 na.strings=c("","Unknown","-1"))
+```
+
+```{r}
+head(spill)
+str(spill)
+colnames(spill)
+```
+
+```{r}
+nrow(spill[complete.cases(spill),])
+```
+
+```{r}
+nrow(spill[!is.na(spill$Oil.Spill.Volume),])
+```
+
+```{r}
+spillSub = spill[!is.na(spill$Oil.Spill.Volume),]
+```
+
+```{r}
+spillSub$Spilled.outside.of.berms = as.numeric(ifelse(spillSub$Spilled.outside.of.berms == "Y",
+                                                      1, 0))
+spillSub$Oil.Spill.Volume = ordered(spillSub$Oil.Spill.Volume,
+                                    levels=c("0",">0 and <1",
+                                             ">=1 and <5",
+                                             ">=5 and <100",">=100"))
+spillSub$Condensate.Spill.Volume = ordered(spillSub$Condensate.Spill.Volume,
+                                           levels=c("0",">0 and <1",
+                                                    ">=1 and <5",
+                                                    ">=5 and <100",">=100"))
+spillSub$Flow.Back.Spill.Volume = ordered(spillSub$Flow.Back.Spill.Volume,
+                                          levels=c("0",">0 and <1",
+                                                   ">=1 and <5",
+                                                   ">=5 and <100",">=100"))
+spillSub$Produced.Water.Spill.Volume = ordered(spillSub$Produced.Water.Spill.Volume,
+                                               levels=c("0",">0 and <1",
+                                                        ">=1 and <5",
+                                                        ">=5 and <100",">=100"))
+spillSub$E.P.Waste.Spill.Volume = ordered(spillSub$E.P.Waste.Spill.Volume,
+                                          levels=c("0",">0 and <1",
+                                                   ">=1 and <5",
+                                                   ">=5 and <100",">=100"))
+spillSub$Drilling.Fluid.Spill.Volume = ordered(spillSub$Drilling.Fluid.Spill.Volume,
+                                               levels=c("0",">0 and <1",
+                                                        ">=1 and <5",
+                                                        ">=5 and <100",">=100"))
+# spillSub$Current.Land.Use = factor(spillSub$Current.Land.Use)
+# spillSub$Surface.Owner = factor(spillSub$Surface.Owner)
+spillSub$Waters.of.the.State = as.numeric(spillSub$Waters.of.the.State)
+spillSub$Residence...Occupied.Structure = as.numeric(spillSub$Residence...Occupied.Structure)
+spillSub$livestock = as.numeric(spillSub$livestock)
+spillSub$Public.Byway = as.numeric(spillSub$Public.Byway)
+spillSub$Surface.Water.Supply.Area = as.numeric(spillSub$Surface.Water.Supply.Area)
+spillSub$Corrective.Actions.Completed = as.numeric(spillSub$Corrective.Actions.Completed)
+```
+
+
+
+### Exploratory factor analysis
+
+```{r, warning=FALSE}
+library(psych)
+```
+
+```{r, warning=FALSE}
+library(lavaan)
+```
+
+```{r, eval=FALSE}
+install.packages("semTools")
+```
+
+```{r, warning=FALSE}
+library(semTools)
+```
+
+```{r}
+spillCor = lavCor(spillSub[,c("Spilled.outside.of.berms",
+                              "Oil.Spill.Volume",
+                              "Condensate.Spill.Volume",
+                              "Flow.Back.Spill.Volume",
+                              "Produced.Water.Spill.Volume",
+                              "E.P.Waste.Spill.Volume",
+                              "Drilling.Fluid.Spill.Volume",
+                              # "Current.Land.Use",
+                              # "Surface.Owner",
+                              "Waters.of.the.State",
+                              "Residence...Occupied.Structure",
+                              "livestock",
+                              "Public.Byway",
+                              "Surface.Water.Supply.Area",
+                              "Corrective.Actions.Completed")])
+```
+
+```{r, eval=FALSE}
+?semTools::efaUnrotate
+```
+
+```{r}
+fa.parallel(spillCor, fm="wls", n.obs=nrow(spillSub))
+```
+
+```{r}
+spillEFA = efaUnrotate(spillSub[,c("Spilled.outside.of.berms",
+                              "Oil.Spill.Volume",
+                              "Condensate.Spill.Volume",
+                              "Flow.Back.Spill.Volume",
+                              "Produced.Water.Spill.Volume",
+                              "E.P.Waste.Spill.Volume",
+                              "Drilling.Fluid.Spill.Volume",
+                              # "Current.Land.Use",
+                              # "Surface.Owner",
+                              "Waters.of.the.State",
+                              "Residence...Occupied.Structure",
+                              "livestock",
+                              "Public.Byway",
+                              "Surface.Water.Supply.Area",
+                              "Corrective.Actions.Completed")],
+                       nf=5, estimator="mlr")
+```
+
+
+
+
+<br><br>
+
+
+([pdf](./lecture10.pdf) / [Rmd](./lecture10.Rmd))
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

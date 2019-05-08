@@ -1,9 +1,61 @@
-https://www.fs.usda.gov/rds/archive/Product/RDS-2017-0016
+---
+title: |
+  | &nbsp;
+  | Week 6, Lecture 11
+  | Advanced statistical methods, part II: Structural equation modeling, social network analysis, and geospatial analyses
+author: |
+  | &nbsp;
+  | Richard E.W. Berl
+date: |
+  | Spring 2019
+  | &nbsp;
+output:
+  html_document:
+    highlight: haddock
+    theme: flatly
+  pdf_document:
+    highlight: haddock
+---
 
+## Structural equation modeling
 
+Download data for the "Nerdy Personality Attributes Scale": https://openpsychometrics.org/_rawdata/
 
+On the right side, click "NPAS-data-16December2018.zip" to download the ZIP file with the data and codebook. More info is available on the page for the scale itself (and the link below on its development): https://openpsychometrics.org/tests/NPAS/
 
+After extracting the CSV file, place it in your `/data` folder and rename it to `npas.txt` (since it's actually tab delimited, not comma delimited).
 
+Then load it in, using the `readr` package due to a few messed up rows:
+
+```{r, message=FALSE}
+library(readr)
+```
+
+```{r}
+nerd = as.data.frame(read_tsv("./data/npas.txt"))
+```
+
+```{r}
+head(nerd)
+str(nerd, give.attr=F)
+colnames(nerd)
+```
+
+```{r}
+nerd[,c(1:26,31:40,57,79)] = lapply(nerd[,c(1:26,31:40,57,79)], function(x) ordered(x))
+```
+
+<br>
+
+### Exploratory factor analysis
+
+```{r, warning=FALSE}
+library(psych)
+```
+
+```{r, warning=FALSE}
+library(lavaan)
+```
 
 ```{r, eval=FALSE}
 install.packages("semTools")
@@ -13,6 +65,235 @@ install.packages("semTools")
 library(semTools)
 ```
 
+```{r}
+set.seed(20190430)
+trainSet = sample(nrow(nerd), round(nrow(nerd)/2))
+nerdTrain = nerd[trainSet,]
+nerdTest = nerd[-trainSet,]
+```
+
+```{r}
+nerdCor = lavCor(nerdTrain[,c(1:26)])
+```
+
+```{r}
+dim(nerdCor)
+nerdCor[1:10,1:10]
+```
+
 ```{r, eval=FALSE}
 ?semTools::efaUnrotate
 ```
+
+```{r}
+fa.parallel(nerdCor, fm="wls", n.obs=nrow(nerdTrain))
+```
+
+```{r, cache=TRUE}
+# Note: long run time
+nerdEFA = efaUnrotate(nerdTrain[,c(1:26)],
+                      nf=7, estimator="WLSMV")
+```
+
+```{r}
+nerdEFA.O = oblqRotate(nerdEFA, method="oblimin")
+nerdEFA.O
+```
+
+* van der Eijk, C., & Rose, J. (2015). Risky business: Factor analysis of survey data -- Assessing the probability of incorrect dimensionalisation. *PLOS ONE, 10*(3), e0118900.
+
+```{r, cache=TRUE}
+# Note: long run time
+nerdEFA = efaUnrotate(nerdTrain[,c(1:26)],
+                      nf=6, estimator="WLSMV")
+```
+
+```{r}
+nerdEFA.O = oblqRotate(nerdEFA, method="oblimin")
+nerdEFA.O
+```
+
+```{r}
+summary(nerdEFA.O)
+fitMeasures(nerdEFA, c("chisq","df","pvalue","cfi","tli","rmsea","srmr"))
+inspect(nerdEFA, "rsquare")
+```
+
+Factor 1 ("Reader"):  
+```
+Q9	I like science fiction.
+Q26	I can be socially awkward at times.
+Q24	I am a strange person.
+Q5	I collect books.
+Q23	I get excited about my ideas and research.
+Q6	I prefer academic success to social success.
+Q18	I love to read challenging material.
+Q21	I sometimes prefer fictional people to real ones.
+Q22	I enjoy learning more than I need to.
+```
+
+Factor 2 ("Introvert"):  
+```
+Q17	I am more comfortable interacting online than in person.
+Q13	I would describe my smarts as bookish.
+Q16	I gravitate towards introspection.
+Q3	I like to play RPGs. (Ex. D&D)
+Q20	I was a very odd child.
+Q8	I spend recreational time researching topics others might find dry or overly rigorous.
+Q14	I like to read technology news reports.
+Q10	I would rather read a book than go to a party.
+```
+
+Factor 3 ("Pop Culture Geek"):  
+```
+Q7	I watch science related shows.
+Q12	I spend more time at the library than any other public place.
+Q25	I care about super heroes.
+Q2	I was in advanced classes.
+```
+
+Factor 4 ("Gamer"):  
+```
+Q19	I have played a lot of video games.
+Q11	I am more comfortable with my hobbies than I am with other people.
+```
+
+Factor 5 ("Writer"):  
+```
+Q15	I have started writing a novel.
+```
+
+Factor 6 ("Thinker"):  
+```
+Q1	I am interested in science.
+Q4	My appearance is not as important as my intelligence.
+```
+
+```{r}
+nerdModel =  "nerd =~ reader + introvert + popculture + gamer + writer + thinker
+              reader =~ Q9 + Q26 + Q24 + Q5 + Q23 + Q6 + Q18 + Q21 + Q22
+              introvert =~ Q17 + Q13 + Q16 + Q3 + Q20 + Q8 + Q14 + Q10
+              popculture =~ Q7 + Q12 + Q25 + Q2
+              gamer =~ Q19 + Q11
+              writer =~ Q15
+              thinker =~ Q1 + Q4"
+```
+
+<br>
+
+### Confirmatory factor analysis
+
+```{r}
+# devtools::install_version("lavaan", version="0.6.3")
+# devtools::install_version("semTools", version="0.4-14")
+```
+
+
+```{r}
+nerdFit = cfa(nerdModel, nerdTest[,c(1:26)], estimator="WLSMV")
+summary(nerdFit)
+fitMeasures(nerdFit, c("chisq","df","pvalue","cfi","tli","rmsea","srmr"))
+```
+
+Comparative Fit Index (“CFI”) > 0.95  
+Tucker-Lewis Index (“TLI”) > 0.96  
+Root Mean Square Error of Approximation (“RMSEA”) < 0.05  
+Standardized Root Mean Square Residual (“SRMR”) < 0.07  
+
+* Hu L, Bentler PM (1999) Cutoff criteria for fit indexes in covariance structure analysis: Conventional criteria versus new alternatives. Structural Equation Modeling 6(1):1–55.  
+
+* Yu C-Y (2002) Evaluating cutoff criteria of model fit indices for latent variable models with binary and continuous outcomes. Dissertation (University of California, Los Angeles).  
+
+<br>
+
+```{r, eval=FALSE}
+install.packages("semPlot")
+# devtools::install_version("semPlot", version="1.1")
+```
+
+```{r, message=FALSE}
+library(semPlot)
+```
+
+```{r}
+semPaths(nerdFit, what="std", nCharNodes=0, intercepts=F)
+```
+
+
+```{r, eval=FALSE}
+?lavaan::sem
+```
+
+http://lavaan.ugent.be/tutorial/sem.html
+
+<br><br>
+
+## Social network analysis
+
+Download Northern Alaskan community helping network: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0204343#sec016
+
+S1 File
+
+```{r}
+helpnet = read.csv("./data/Edge data.csv")
+```
+
+```{r}
+head(helpnet)
+```
+
+```{r}
+min(helpnet$NodeA.01.)
+max(helpnet$NodeA.01.)
+min(helpnet$NodeB.02.)
+max(helpnet$NodeB.02.)
+```
+
+```{r}
+helpnetP = helpnet[helpnet$NodeA.01. > 0 & helpnet$NodeB.02. > 0,]
+```
+
+
+```{r, eval=FALSE}
+install.packages("igraph")
+```
+
+```{r, message=FALSE}
+library(igraph)
+```
+
+```{r, eval=FALSE}
+?graph_from_data_frame
+```
+
+```{r}
+helpnetG = graph_from_data_frame(helpnetP)
+helpnetG
+```
+
+```{r}
+V(helpnetG)
+E(helpnetG)
+edge_attr(helpnetG)
+helpnetG[1,]
+```
+
+```{r}
+par(mar=c(0,0,0,0))
+plot(helpnetG)
+```
+
+```{r}
+par(mar=c(0,0,0,0))
+plot(helpnetG, layout=layout_in_circle)
+```
+
+
+
+
+<br><br>
+
+
+([pdf](./lecture11.pdf) / [Rmd](./lecture11.Rmd))
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

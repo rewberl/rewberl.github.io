@@ -10,7 +10,7 @@ date: |
   | Spring 2019
   | &nbsp;
   | &nbsp;
-  | Last Updated: 2019-04-24
+  | Last Updated: 2019-05-08
 output:
   html_document:
     highlight: haddock
@@ -128,15 +128,15 @@ output:
 
 1. **Required Reading**  
 
-    a. Wickham, H. (2014). Tidy data. Journal of Statistical Software, 59(10), 1-23. doi: [	10.18637/jss.v059.i10](https://www.jstatsoft.org/article/view/v059i10)
+    a. Wickham, H. (2014). Tidy data. Journal of Statistical Software, 59(10), 1-23. doi: [	10.18637/jss.v059.i10](https://www.jstatsoft.org/article/view/v059i10)  
     
-        * "Informal and code heavy" version in the `tidyr` package vignette, available: https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html
+        * "Informal and code heavy" version in the `tidyr` package vignette, available: https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html  
 
             <!-- end of list -->
 
-    a. Tukey, J. W. (1977). Preface. In _Exploratory data analysis_ (pp. v-ix). Reading, MA: Addison-Wesley. Available: [here (pdf)](./resources/tukey1977preface.pdf)
+    a. Tukey, J. W. (1977). Preface. In _Exploratory data analysis_ (pp. v-ix). Reading, MA: Addison-Wesley. Available: [here (pdf)](./resources/tukey1977preface.pdf)  
 
-2. **[Assignment 2](./assignments/assignment2.html)** ([pdf](./assignments/assignment2.pdf) / [Rmd](./assignments/assignment2.Rmd)) (Due April 9)
+2. **[Assignment 2](./assignments/assignment2.html)** ([pdf](./assignments/assignment2.pdf) / [Rmd](./assignments/assignment2.Rmd)) (Due April 9)  
 
 ### Resources
 
@@ -180,6 +180,9 @@ output:
 
 * Tuesday, April 9: **[Lecture 05](./lectures/lecture05.html)** ([pdf](./lectures/lecture05.pdf) / [Rmd](./lectures/lecture05.Rmd))  
     * [Egg data](https://science.sciencemag.org/content/suppl/2017/06/21/356.6344.1249.DC1) (Excel format)  
+
+<!-- end of list -->
+
 * Thursday, April 11: **[Lecture 06](./lectures/lecture06.html)** ([pdf](./lectures/lecture06.pdf) / [Rmd](./lectures/lecture06.Rmd))  
     * [Egg data](./lectures/data/aaj1945_DataS1_Egg_shape_by_species_v2.csv) (CSV format)  
 
@@ -231,6 +234,9 @@ output:
 
 * Tuesday, April 16: **[Lecture 07](./lectures/lecture07.html)** ([pdf](./lectures/lecture07.pdf) / [Rmd](./lectures/lecture07.Rmd))  
     * [PanTHERIA data](http://esapubs.org/archive/ecol/E090/184/) ("WR05")  
+
+<!-- end of list -->
+
 * Thursday, April 18: **[Lecture 08](./lectures/lecture08.html)** ([pdf](./lectures/lecture08.pdf) / [Rmd](./lectures/lecture08.Rmd))  
     * [Sage-Grouse data](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0150798#sec020) ("S5 Table")  
 
@@ -311,8 +317,11 @@ output:
 * Tuesday, April 23: **[Lecture 09](./lectures/lecture09.html)** ([pdf](./lectures/lecture09.pdf) / [Rmd](./lectures/lecture09.Rmd))  
     * [Christmas Bird Count data](http://netapp.audubon.org/CBCObservation/Historical/ResultsByCount.aspx) (Fort Collins, 1900-2017)  
     * [Bob Marshall Wilderness Complex visitor data](https://www.fs.usda.gov/rds/archive/Product/RDS-2017-0016)  
+
+<!-- end of list -->
+
 * Thursday, April 25: **[Lecture 10](./lectures/lecture10.html)** ([pdf](./lectures/lecture10.pdf) / [Rmd](./lectures/lecture10.Rmd))  
-    * ["Best" maximally complete Christmas Bird Coount data](./lectures/data/fcbirdbest.csv)  
+    * ["Best" maximally complete Christmas Bird Count data](./lectures/data/fcbirdbest.csv)  
 
 ### Homework
 
@@ -354,11 +363,11 @@ Multidimensional Scaling (Classical and Nonmetric)
 
 * Boehmke, B. K-means cluster analysis. In _University of Cincinnati Business Analytics R programming guide_. Available: https://uc-r.github.io/kmeans_clustering  
 
-Exploratory Factor Analysis
-
-* Revelle, W. (2018). How to: Use the `psych` package for factor analysis and data reduction. Available: http://personality-project.org/r/psych/HowTo/factor.pdf
+* Revelle, W. (2018). How to: Use the `psych` package for factor analysis and data reduction. Available: http://personality-project.org/r/psych/HowTo/factor.pdf  
 
 * Savalei, V. (2011). What to do about zero frequency cells when estimating polychoric correlations. Structural Equation Modeling, 18(2), 253-273. doi: [10.1080/10705511.2011.557339](https://doi.org/10.1080/10705511.2011.557339)  
+
+EFA
 
 
 <br>
@@ -368,9 +377,15 @@ Exploratory Factor Analysis
 
 ### Lectures
 
-* Tuesday, April 30: **Lecture 11** (pdf / Rmd)
+* Tuesday, April 30: **[Lecture 11](./lectures/lecture11.html)** (pdf / [Rmd](./lectures/lecture11.Rmd))  
+    * [Nerdy Personality Attributes Scale](https://openpsychometrics.org/_rawdata/) ("12/16/2018"", NPAS-data-16December2018.zip)  
+    * [Northern Alaskan community helping network](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0204343#sec016) ("S1 File")  
 
-* Thursday, May 2: **Lecture 12** (pdf / Rmd)
+<!-- end of list -->
+
+* Thursday, May 2: **[Lecture 12](./lectures/lecture12.html)** (pdf / [Rmd](./lectures/lecture12.Rmd))  
+    * [Ancestral Pueblo food web network](https://www.sciencedirect.com/science/article/pii/S0305440317300377#appsec1) (Supplementary data spreadsheet) ([available here](./lectures/data/1-s2.0-S0305440317300377-mmc1.xlsx))  
+    * [Ethiopian plant occurrence data](https://www.gbif.org/occurrence/search?country=ET&has_coordinate=true&has_geospatial_issue=false&taxon_key=6)  
 
 ### Homework
 
@@ -378,11 +393,11 @@ Exploratory Factor Analysis
 
     None  
 
-2. **[Assignment 5](./assignments/assignment5.html)** ([pdf](./assignments/assignment5.pdf) / [Rmd](./assignments/assignment5.Rmd)) **(ATTENTION: Due May 7)**
+2. **[Assignment 5](./assignments/assignment5.html)** ([pdf](./assignments/assignment5.pdf) / [Rmd](./assignments/assignment5.Rmd)) **(ATTENTION: Due May 14)**  
 
-3. Start working on **[Project Report](./assignments/course_project.html)** (Due May 17, 11:59pm)
+3. Start working on **[Project Report](./assignments/course_project.html)** (Due May 17, 11:59pm)  
 
-4. Start working on **[Project Presentation](./assignments/course_project.html)** (Due week of May 13)
+4. Start working on **[Project Presentation](./assignments/course_project.html)** (Due week of May 13)  
 
 ### Resources
 
@@ -390,13 +405,29 @@ Exploratory Factor Analysis
 
 Confirmatory Factor Analysis
 
+* Rosseel, Y. lavaan: Tutorial. Available: http://lavaan.ugent.be/tutorial/index.html  
+
+* Hartman, R. lavaan: A CFA example. Available: http://www.understandingdata.net/2017/03/22/cfa-in-lavaan/  
+
+* Hartman, R. lavaan: A SEM example. Available: http://lavaan.ugent.be/tutorial/sem.html  
+
+* Hartman, R. lavaan: Estimators and more. Available: http://lavaan.ugent.be/tutorial/est.html  
+
 **Social Network Analysis**
 
+* Getting started with R igraph. Available: https://igraph.org/r/
+
+* https://kateto.net/netscix2016.html
+
 **Geospatial Mapping**
+
+* https://cran.r-project.org/web/views/Spatial.html
 
 Mantel Tests?
 
 * Grossenbacher, T. Beautiful thematic maps with ggplot2 (only). Avalable: https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/
+
+* https://www.shanelynn.ie/massive-geocoding-with-r-and-google-maps/
 
 tidygraph?
 
@@ -410,9 +441,9 @@ ggraph?
 
 ### Lectures
 
-* Tuesday, May 7: **Lecture 13** (pdf / Rmd)
+* Tuesday, May 7: Workshop
 
-* Thursday, May 9: **Lecture 14** (pdf / Rmd)
+* Thursday, May 9: Workshop
 
 ### Homework
 
@@ -420,9 +451,11 @@ ggraph?
 
     None  
 
-2. **[Project Report](./assignments/course_project.html)** (Due May 17, 11:59pm)
+2. **[Assignment 5](./assignments/assignment5.html)** ([pdf](./assignments/assignment5.pdf) / [Rmd](./assignments/assignment5.Rmd)) **(ATTENTION: Due May 14)**  
 
-3. **[Project Presentation](./assignments/course_project.html)** (Due week of May 13)
+3. **[Project Report](./assignments/course_project.html)** (Due May 17, 11:59pm)  
+
+4. **[Project Presentation](./assignments/course_project.html)** (Due week of May 13)  
 
 ### Resources
 
@@ -454,7 +487,7 @@ Text Mining, Scraping, and Sentiment Analysis
 
 ## Week 8: Project presentations
 
-Meeting date and time TBD
+* Tuesday, May 14: 12:00pm - 1:00pm, Michael Smith Natural Resources Building (MSNR) 142   
 
 
 <br><br>

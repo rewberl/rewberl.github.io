@@ -19,6 +19,10 @@ output:
 
 ## Dimensionality reduction
 
+Dimensionality reduction, like its name suggests, is used to reduce the number of dimensions in our data set. In other words, we want to reduce the number of variables to be used to model the data without losing too much of the variance those variables explain.
+
+This is a common problem. It's difficult to imagine points laid out in 12-dimensional space. It's easier to see points in a 2-dimensional (X x Y) or 3-dimensional (X x Y x Z) space. It's also useful to see how our data can be simplified and clustered.
+
 Let's load our Bob Marshall onsite survey data back in:
 
 ```{r}
@@ -60,7 +64,11 @@ colnames(folktales)[1] = "society"
 
 ### Multidimensional scaling
 
-Primarily used as a way to visualize a distance matrix
+In my experience, primarily used as a way to visualize a distance matrix. However, there are other applications in ecology.
+
+We'll use our Bob Marshall Wilderness survey data, but right now we have a correlation matrix. We need to convert this from a measure of similarity or association (correlation) to a measure of dissimilarity (distance).
+
+We could do it manually, but luckily there's a function in the `psych` package, which we were planning on loading later anyway, to do it for us.
 
 ```{r, eval=FALSE}
 install.packages("psych")
@@ -83,6 +91,8 @@ bmLikDist
 
 #### **Classical**
 
+Represents the distance between points on a two-dimensional plane.
+
 ```{r, eval=FALSE}
 ?cmdscale
 ```
@@ -91,6 +101,8 @@ bmLikDist
 bmCMD = cmdscale(bmLikDist)
 bmCMD
 ```
+
+We can use these coordinates to plot the points, and add text labels.
 
 ```{r}
 plot(bmCMD[,1], bmCMD[,2])
@@ -102,7 +114,7 @@ text(bmCMD[,1], bmCMD[,2] + 0.04,
 
 #### **Nonmetric**
 
-Tries to reproduce ranks of distances rather than distance values themselves
+Tries to reproduce ranks of distances (furthest, second furthest, etc.) rather than the distance values themselves.
 
 ```{r, warning=FALSE}
 library(MASS)
@@ -125,6 +137,8 @@ text(bmNMD$points[,1], bmNMD$points[,2] + 0.04,
 
 <br>
 
+A more thorough version is available in the `vegan` package, `metaMDS()`, which has some additional features and compares the results of a bunch of attempts.
+
 ```{r, warning=FALSE}
 library(vegan)
 ```
@@ -142,6 +156,8 @@ bestNMD = metaMDS(best)
 bestNMD
 ```
 
+Here we can plot the sites and the species on the same axes.
+
 ```{r}
 plot(bestNMD)
 text(bestNMD$points[,1], bestNMD$points[,2] + 0.025,
@@ -154,16 +170,20 @@ text(bestNMD$species[,1], bestNMD$species[,2] + 0.025,
 
 ### Principal components analysis
 
+Principal components analysis (PCA) is very commonly used in the literature, and breaks the data down into a number of components that explain the most variance (in the first component) to the least variance (in the last component).
+
+One of the main challenges in dimensionality reduction is determining the number of components or factors that is most appropriate for the data. Here we're going to assume we only want two components, but in the following sections we'll go over some methods that also apply to PCA.
+
+There are a number of functions in different packages that can perform PCA. One is in `base` R.
+
 ```{r, eval=FALSE}
 ?princomp
 ```
 
-```{r, eval=FALSE}
-?psych::principal
-```
+The one we'll use here is `principal()`, from the `psych` package, mainly because it allows us to input our own correlation matrix instead of calculating correlations itself from raw data (like `princomp()`). We definitely wouldn't want to do that with the data we intend to use here, which are the dichotomous presence/absence folktale data.
 
 ```{r, eval=FALSE}
-?psych::tetrachoric
+?psych::principal
 ```
 
 ```{r}
@@ -178,23 +198,33 @@ str(folk)
 
 **Tetrachoric correlation**
 
-Binary data
+Just as we used polychoric correlations for ordinal data, we need to use a specialized method for dichotomous (binary) data. This is the tetrachoric correlation, a specific case of the polychoric correlation. The `psych` package has a function to handle this:
+
+```{r, eval=FALSE}
+?psych::tetrachoric
+```
 
 ```{r}
 folkCor = tetrachoric(folk)$rho
 folkCor[1:10,1:10]
 ```
 
-Note warnings about bivariate cell corrections. Okay to leave as 0.5. Source:
+Note the warnings about bivariate cell corrections, but it should be okay to leave it at the default correction of 0.5.
+
+For more information, see:
 
 Savalei, V. (2011). What to do about zero frequency cells when estimating polychoric correlations. Structural Equation Modeling, 18(2), 253-273. doi: [10.1080/10705511.2011.557339](https://doi.org/10.1080/10705511.2011.557339)
 
-Smoothing ensures the matrix isn't singular and is usually also okay.
+Smoothing ensures the matrix isn't singular and is usually also okay, but be cautious. A singular matrix could be a sign of multicollinearity in your data.
+
+Now we can go ahead with the PCA:
 
 ```{r}
 folkPCA = principal(folkCor, 2, rotate="none")
 folkPCA
 ```
+
+And plot it:
 
 ```{r}
 plot(folkPCA$loadings[,1], folkPCA$loadings[,2])
@@ -207,7 +237,13 @@ text(folkPCA$loadings[,1], folkPCA$loadings[,2] + 0.04,
 
 ### Cluster analysis
 
+We often want to know what groups exist in our data, either to get a better sense of what our data looks like, how it represents groups that we know exist in the data, or for classification if we want to predict which group an observation would fall in given a set of values. For all this, there's cluster analysis.
+
 #### **Hierarchical clustering**
+
+Hierarchical clustering builds a tree (or "dendrogram") out of our data, successively linking the most closely associated observations or variables. It's one of the simplest and most widely used methods, and is a good EDA method.
+
+There are a variety of clustering methods within hierarchical clustering. Ward's method usually gives good results, but check others to see what's most appropriate for your data.
 
 ```{r, eval=FALSE}
 ?hclust
@@ -221,10 +257,14 @@ bmHC = hclust(bmLikDist, method="ward.D2")
 plot(bmHC)
 ```
 
+We've seen hierarchical clustering before, in the trees shown alongside the output of the `heatmap()` function:
+
 ```{r}
 heatmap(as.matrix(bmLikDist),
         hclustfun=function(x) hclust(x, method="ward.D2"))
 ```
+
+Another implementation is available in the `pvclust` package, which is handy because it gives us some estimates of our confidence in the different clusters. The bad news is that it only takes raw numeric data and does not allow a distance matrix as input. Therefore, our conclusions about this with ordinal data will not be great, but we can do it anyway to demonstrate.
 
 ```{r, eval=FALSE}
 install.packages("pvclust")
@@ -237,8 +277,6 @@ library(pvclust)
 ```{r, eval=FALSE}
 ?pvclust
 ```
-
-Needs raw numeric data; does not allow distance matrix as input
 
 ```{r}
 # Note: Takes some time to run
@@ -258,13 +296,17 @@ Green = "BP" (Bootstrap Probability): percent of times the tree-building algorit
 
 #### **K-means clustering**
 
+A very common and flexible method, especially in machine learning.
+
 ```{r, eval=FALSE}
 ?kmeans
 ```
 
-Does not work with missing values
+It does not work with any missing values, so you have to remove or impute them beforehand. Since we've already done that for our bird count data set, let's use it.
 
-"Elbow method"
+As mentioned before, we need some way to decide how many clusters to split the data into--these clustering methods don't do it for us automatically. One way is the "elbow method," in which we plot the total within sum of squares (how far our points are from the values predicted by a model) that result from using different numbers of clusters, and pick the lowest cluster number that shows a substantial drop in SS from the previous number. This forms an "elbow" or inflection point where the line changes direction.
+
+A method for doing this (aside from doing it manually) is built into the `factoextra` package as `fviz_nbclust()`.
 
 ```{r, eval=FALSE}
 install.packages("factoextra")
@@ -278,33 +320,55 @@ library(factoextra)
 fviz_nbclust(best, kmeans, "wss")
 ```
 
+We can see big drops in SS from 1 to 2, 2 to 3, and 3 to 4 clusters, but from 4 to 5 it stays more or less the same, so we wouldn't get much benefit from adding more clusters.
+
+Another method for deciding the number of clusters is based on the average "silhouette width" value of each observation or variable, which is a measure of how well that item fits in its respective cluster. The solution with the highest average silhouette value across all items should logically be the one that fits all of them the best.
+
 ```{r}
 fviz_nbclust(best, kmeans, "silhouette")
 ```
+
+This one suggests 2 clusters. Since the two methods disagree, let's try both and see which one looks like it makes the most sense.
 
 ```{r}
 bestKM4 = kmeans(best, 4)
 bestKM4
 ```
 
+We see a breakdown of our results. First, we can see that it is clustering by "site" (year, in this case), so if that's not what we want we'd have to transpose our data to have it cluster by species. It gives us information on the mean values of each species within each of the 4 clusters, and which cluster each year was assigned to.
+
+Let's visualize our clusters with `fviz_cluster()` from `factoextra`.
+
 ```{r}
 fviz_cluster(bestKM4, data=best, show.clust.cent=F)
 ```
+
+Doesn't look like a great solution to me, personally. There's a lot of overlap in our 4 clusters and it's not immediately clear what could cause the separation.
+
+Let's take a look at a 2-cluster solution.
 
 ```{r}
 bestKM2 = kmeans(best, 2)
 fviz_cluster(bestKM2, data=best, show.clust.cent=F)
 ```
 
-This clustered by row (year). What if we want to cluster by column (species) instead?
+Looks much better to me, so I'd probably favor this solution. We can see (generally) earlier years in the cluster on the left, and later years (plus 1976, oddly) on the right.
+
+As we observed, this clustered by row (year). What if we want to cluster by column (species) instead?
+
+We need to check again for the appropriate number of clusters. This time, since we have so few variables, we'll need to limit the maximum number of clusters to the number of observations minus one, which is the most possible without having each individual point as its own cluster.
 
 ```{r}
 fviz_nbclust(t(best), kmeans, "wss", k.max=nrow(t(best)) - 1)
 ```
 
+Looks like 2.
+
 ```{r}
 fviz_nbclust(t(best), kmeans, "silhouette", k.max=nrow(t(best)) - 1)
 ```
+
+Again, we get 2. It always helps us be more confident in the result when different methods agree.
 
 ```{r}
 bestTKM2 = kmeans(t(best), 2)
@@ -315,9 +379,15 @@ bestTKM2
 fviz_cluster(bestTKM2, data=t(best), show.clust.cent=F)
 ```
 
+Looks good overall, though we have so few variables to cluster that it doesn't mean a whole lot. But we see American Crow on its own, and all the rest in a separate cluster. I could imagine American Goldfinch breaking off in a different cluster if we had more data.
+
 <br>
 
 #### **K-medoids clustering**
+
+A type of clustering in the same family of methods as k-means, but using median values in each cluster instead of means. The algorithm we'll use here is called Partitioning Around Medoids (or PAM) and is implemented as `pam()` in the `cluster` package.
+
+FOr our purposes, PAM is most useful because of its ability to accept distance matrices (while `kmeans` only takes raw data), meaning we can conduct comparable clustering analyses on all kinds of different data as long as we can generate distance matrices from them. It also has a nice method (using the `pamk()` function in the `fpc` package) to calculate the appropriate number of clusters on its own, using average silhouette widths.
 
 ```{r, eval=FALSE}
 install.packages("cluster")
@@ -343,33 +413,58 @@ library(fpc)
 ?pamk
 ```
 
+We'll use our folktale data again, and convert our correlation matrix to a distance matrix.
+
 ```{r}
 folkDist = as.dist(cor2dist(folkCor))
 as.matrix(folkDist)[1:10,1:10]
 ```
+
+But how many societies did we have, again? We need to know to see what maximum to give for our number of clusters.
 
 ```{r}
 dim(folkDist)
 nrow(folkDist)
 ncol(folkDist)
 class(folkDist)
+```
 
+Because the object's class is `dist` rather than `matrix`, none of these commands work. Instead we need to reference its `attributes()`.
+
+```{r}
 attributes(folkDist)
 ```
+
+Now we can use `pamk()` to find the appropriate number of clusters.
 
 ```{r}
 folkPAMK = pamk(folkDist, diss=T, krange=2:attributes(folkDist)$Size-1)
 folkPAMK
+names(folkPAMK)
 ```
+
+Looks like it settled on 2 clusters, and we can reference this with `$nc`.
+
+Note: Really, we could just use this object, but out of personal habit I like to go back and run the function myself using the value for the number of clusters.
 
 ```{r}
 folkPAM = pam(folkDist, diss=T, k=folkPAMK$nc)
 folkPAM
 ```
 
+The results look the same either way.
+
+We can plot the silhouette values by cluster to see how well the observations fit.
+
 ```{r}
 plot(folkPAM)
 ```
+
+With fewer observations, we would see labels next to each observation so we could see which is which. Here, we see one actually has a negative value, which means it does not fit well within its assigned cluster (but not badly enough to warrant its own cluster, or it would have returned 3 clusters).
+
+In general, the fit is not good, because we see almost all the silhouette values are below 0.2--ideally, we'd want them all above 0.5. Some of this I've found is a result of the dichotomous data, I think because it just doesn't carry enough information to create good correlations and cleanly-separated clusters. So keep that in mind when interpreting your results, if using dichotomous or ordinal data.
+
+The `factoextra` functions don't work with PAM objects, but we can use the `clusplot()` function in `cluster` to get a similar visualization.
 
 ```{r, eval=FALSE}
 ?clusplot
@@ -379,21 +474,33 @@ plot(folkPAM)
 clusplot(folkPAM, lines=0, color=T, labels=3)
 ```
 
+Even though the fit isn't great (and, as we can see, the first two components only explain 26% of the variance, which is also not good) the clusters it formed and the distances between societies make good intuitive sense.
+
 <br><br>
 
 ### Exploratory factor analysis
+
+Exploratory factor analysis (EFA) is another commonly used method, to look at underlying ("latent") relationships between variables. It's also a prerequisite to confirmatory factor analysis (CFA), a method in structural equation modeling that we'll cover next time.
+
+R `base` has a factor analysis function:
 
 ```{r, eval=FALSE}
 ?factanal
 ```
 
+Here, for our Bob Marshall data again, we'll use `fa()` in the `psych` package, since it has some extra useful options.
+
 ```{r, eval=FALSE}
 ?psych::fa
 ```
 
+We also need the `GPArotation` package to rotate our result, which is a way of making factors easier to interpret by rotating their axes. Don't worry about the math for now, just know that it's a typical stage in factor analysis.
+
 ```{r, eval=FALSE}
 install.packages("GPArotation")
 ```
+
+The `psych` package has a couple methods to determine how many factors we should use. One of which uses the "Very Simple Structure" criterion (which you can read about on its help page) and the other is parallel analysis, which is a good, reliable method based on randomly permuting (mixing around) the data.
 
 ```{r, eval=FALSE}
 ?psych::vss
@@ -404,14 +511,26 @@ install.packages("GPArotation")
 vss(bmLikCor, n=nrow(bmLikCor)-1, rotate="oblimin", fm="ml", n.obs=nrow(bmLik))
 ```
 
+VSS seems to give us 4 or 5 factors pretty consistently.
+
 ```{r}
 fa.parallel(bmLikCor, fm="ml", n.obs=nrow(bmLik))
 ```
 
+And parallel analysis says 5. Given the agreement, this seems like a good place to start. Notice that it gives us an estimate for the number of components, too, if we were running PCA.
+
+Back to the point on rotation, we need to specify a method to use. The two options are an orthogonal rotation, which assumes that factors should not be correlated with one another at all, or an oblique rotation, which allows for correlations between factors. Unless we have a good basis for saying that the different factors we find should be completely distinct from one another, I tend toward oblique rotations. It usually doesn't make much of a difference. The most common orthogonal rotation is `varimax` and a good oblique rotation is `oblimin`. You can always run both and compare, since EFA is exploratory by nature--just don't do it to go "fishing" for better structure.
+
+We also use a maximum likelihood estimator (`"ml"`) to fit our model. There are other options, which we'll explore a little more in CFA.
+
 ```{r}
-bmEFA = fa(bmLikCor, nfactors=4, rotate="oblimin", fm="ml", n.obs=nrow(bmLik))
+bmEFA = fa(bmLikCor, nfactors=5, rotate="oblimin", fm="ml", n.obs=nrow(bmLik))
 bmEFA
 ```
+
+We see our loadings of each item on each of the 4 factors, and a whole bunch of additional information. Anything between 0.2 and -0.2 doesn't mean much and is usually omitted. As a rule, you want an item that loads around 0.5 or higher on one factor, and less than 0.3 on all other factors for it to make sense as only contributing to that factor. If it doesn't, I'd think you should be using an oblique rotation.
+
+We can also pull out the item loadings on their own, and it masks values < 0.2 and > -0.2. You'll notice one loading is above 1, which R warned us about. I've found that this is usually okay if it's not too much above 1 (and sometimes occurs for no real reason related to data quality), but you'd want to check your results more thoroughly if you have a bunch of them--you probably need more factors.
 
 ```{r}
 bmEFA$loadings

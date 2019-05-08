@@ -1,0 +1,253 @@
+---
+title: |
+  | &nbsp;
+  | Week 6, Lecture 12
+  | Advanced statistical methods, part II: Structural equation modeling, social network analysis, and geospatial analyses
+author: |
+  | &nbsp;
+  | Richard E.W. Berl
+date: |
+  | Spring 2019
+  | &nbsp;
+output:
+  html_document:
+    highlight: haddock
+    theme: flatly
+  pdf_document:
+    highlight: haddock
+---
+
+## Geospatial analyses
+
+### Points
+
+https://www.gbif.org/occurrence/search?country=ET&has_coordinate=true&has_geospatial_issue=false&taxon_key=6
+
+"DOWNLOAD" "CSV" -> "DOWNLOAD"
+
+Rename to .txt
+
+```{r, eval=FALSE}
+install.packages("rgbif")
+```
+
+https://ropensci.org/tutorials/rgbif_tutorial/
+
+```{r, warning=FALSE}
+library(readr)
+```
+
+```{r}
+ethPlants = as.data.frame(read_tsv("./data/0009408-190415153152247.txt"))
+```
+
+```{r}
+head(ethPlants)
+tail(ethPlants)
+str(ethPlants, give.attr=F)
+```
+
+```{r}
+unique(ethPlants$class)
+```
+
+```{r}
+ethPlants = ethPlants[!is.na(ethPlants$class),]
+```
+
+```{r}
+library(ggplot2)
+library(ggthemes)
+```
+
+```{r}
+ggplot(ethPlants, aes(x=decimalLongitude, y=decimalLatitude)) +
+  geom_point(aes(color=class))
+```
+
+```{r}
+ggplot(ethPlants, aes(x=decimalLongitude, y=decimalLatitude)) +
+  geom_point(aes(color=class), shape=16, alpha=0.25) +
+  scale_color_manual(values=c(ptol_pal()(12), "#DDDDDD")) +
+  guides(color=guide_legend(title=NULL)) +
+  coord_cartesian() +
+  theme_void()
+```
+
+<br>
+
+### Shapefiles
+
+https://www.naturalearthdata.com/downloads/10m-cultural-vectors/
+
+"Admin 0 – Boundary Lines" "Download land boundaries"
+
+"Admin 1 – States, provinces" "Download boundary lines"
+
+```{r, eval=FALSE}
+install.packages("rgdal")
+```
+
+```{r, warning=FALSE}
+library(rgdal)
+```
+
+```{r}
+neCountries = readOGR(dsn="./data",layer="ne_10m_admin_0_countries")
+neProvinces = readOGR(dsn="./data",layer="ne_10m_admin_1_states_provinces_lines")
+
+neCountETH = neCountries[neCountries$NAME == "Ethiopia",]
+neProvETH = neProvinces[neProvinces$adm0_name == "Ethiopia",]
+
+rm(neCountries)
+rm(neProvinces)
+```
+
+```{r, eval=F}
+?geom_polygon
+?geom_path
+```
+
+```{r}
+ggplot(ethPlants, aes(x=decimalLongitude, y=decimalLatitude)) +
+  geom_path(data=neCountETH, aes(x=long, y=lat, group=group),
+              color = "#000000", size=0.5, lty="solid") +
+  geom_path(data=neProvETH, aes(x=long, y=lat, group=group),
+            color = "#000000", size=0.5, lty="solid") +
+  geom_point(aes(color=class), shape=16, alpha=0.4) +
+  scale_color_manual(values=c(ptol_pal()(12), "#DDDDDD")) +
+  guides(color=guide_legend(title=NULL)) +
+  coord_cartesian(xlim=c(32.7, 48.3), ylim=c(2.9, 15.3)) +
+  theme_void()
+```
+
+https://geonode.wfp.org/layers/ogcserver.gis.wfp.org%3Ageonode%3Aeth_trs_roads_osm
+
+"Download Layer"
+
+```{r}
+roadsETH = readOGR(dsn="./data",layer="eth_trs_roads_osm")
+
+roadsETH = roadsETH[roadsETH$ntlclass == "primary" |
+                      roadsETH$ntlclass == "secondary" |
+                      roadsETH$ntlclass == "tertiary",]
+```
+
+```{r}
+ggplot(ethPlants, aes(x=decimalLongitude, y=decimalLatitude)) +
+  geom_path(data=neCountETH, aes(x=long, y=lat, group=group),
+              color = "#000000", size=0.5, lty="solid") +
+  geom_path(data=neProvETH, aes(x=long, y=lat, group=group),
+            color = "#000000", size=0.5, lty="solid") +
+  geom_point(aes(color=class), shape=16, alpha=0.4) +
+  geom_path(data=roadsETH, aes(x=long, y=lat, group=group),
+            color = "gray", size=0.2, lty="solid") +
+  scale_color_manual(values=c(ptol_pal()(12), "#DDDDDD")) +
+  guides(color=guide_legend(title=NULL)) +
+  coord_cartesian(xlim=c(32.7, 48.3), ylim=c(2.9, 15.3)) +
+  theme_void()
+```
+
+<br>
+
+### Rasters
+
+https://www.naturalearthdata.com/downloads/50m-raster-data/50m-natural-earth-1/
+
+"Natural Earth I with Shaded Relief" "Download small size"
+
+```{r, eval=FALSE}
+install.packages("raster")
+```
+
+```{r, warning=FALSE}
+library(raster)
+```
+
+```{r}
+ne1 = brick("./data/NE1_50M_SR.tif")
+
+ne1ETH = crop(ne1, c(32.7, 48.3, 2.9, 15.3))
+rm(ne1)
+
+ne1ETHdf = as.data.frame(ne1ETH, xy=T)
+
+head(ne1ETHdf)
+str(ne1ETHdf)
+
+ne1ETHdf$color=rgb(ne1ETHdf$NE1_50M_SR.1, ne1ETHdf$NE1_50M_SR.2,
+                   ne1ETHdf$NE1_50M_SR.3, maxColorValue=255)
+```
+
+```{r}
+# Warning: Long!
+ggplot(ethPlants, aes(x=decimalLongitude, y=decimalLatitude)) +
+  geom_raster(data=ne1ETHdf, aes(x=x, y=y), fill=ne1ETHdf$color) +
+  geom_point(aes(color=class), shape=16, alpha=0.4) +
+  scale_color_manual(values=c(ptol_pal()(12), "#DDDDDD")) +
+  guides(color=guide_legend(title=NULL)) +
+  coord_cartesian(xlim=c(32.7, 48.3), ylim=c(2.9, 15.3)) +
+  theme_void()
+```
+
+<br>
+
+### Point-in-polygon
+
+```{r}
+neProvShape = readOGR(dsn="./data",layer="ne_10m_admin_1_states_provinces")
+
+neProvShapeETH = neProvShape[neProvShape$adm0_a3 == "ETH",]
+```
+
+```{r, eval=F}
+?sp::over
+```
+
+```{r}
+ethPlantsSP = ethPlants[!is.na(ethPlants$decimalLongitude) &
+                          !is.na(ethPlants$decimalLatitude),]
+coordinates(ethPlantsSP) = ~ decimalLongitude + decimalLatitude
+proj4string(ethPlantsSP) = CRS(proj4string(neProvShapeETH))
+```
+
+```{r}
+ethPlantsInGambela = over(ethPlantsSP,
+                          neProvShapeETH[neProvShapeETH$name == "Gambela Peoples",])
+ethPlantsInGambela = ethPlants[!is.na(ethPlantsInGambela$name),]
+head(ethPlantsInGambela$class, 20)
+```
+
+```{r}
+ggplot(ethPlantsInGambela, aes(x=decimalLongitude, y=decimalLatitude)) +
+  geom_path(data=neCountETH, aes(x=long, y=lat, group=group),
+              color = "#000000", size=0.5, lty="solid") +
+  geom_path(data=neProvETH, aes(x=long, y=lat, group=group),
+            color = "#000000", size=0.5, lty="solid") +
+  geom_point(aes(color=class), shape=16, alpha=0.4) +
+  scale_color_manual(values=c(ptol_pal()(12), "#DDDDDD")) +
+  guides(color=guide_legend(title=NULL)) +
+  coord_cartesian(xlim=c(32.7, 48.3), ylim=c(2.9, 15.3)) +
+  theme_void()
+```
+
+<br>
+
+### Geocoding
+
+```{r, eval=FALSE}
+install.packages("ggmap")
+```
+
+```{r, eval=F}
+?ggmap::geocode
+```
+
+
+
+<br><br>
+
+
+([pdf](./lecture12.pdf) / [Rmd](./lecture12.Rmd))
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

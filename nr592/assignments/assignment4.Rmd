@@ -87,7 +87,7 @@ Did the number of sheep depredated in Wyoming from 1995 to 2012 average over 15?
 Delete this and enter your response here.
 ```
 
-### 2.2
+### 2.3
 
 In Montana, was the number of cattle depredated associated with the total number of cattle, from 1987 to 2011?
 
