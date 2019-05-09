@@ -1,0 +1,4 @@
+\contentsline {subsection}{Course Information}{1}{section*.2}
+\contentsline {subsection}{Course Materials}{2}{section*.3}
+\contentsline {subsection}{\href {./schedule_spring2019.html}{Course Schedule}}{3}{section*.4}
+\contentsline {subsection}{Course Policies}{3}{section*.5}

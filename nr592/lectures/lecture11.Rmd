@@ -19,7 +19,9 @@ output:
 
 ## Structural equation modeling
 
-Download data for the "Nerdy Personality Attributes Scale": https://openpsychometrics.org/_rawdata/
+One common use of structural equation modeling (SEM) is confirmatory factor analysis (CFA), which allows us to test how well our data fit in the factors that we think they should in our model. Naturally, a good way to find this model in the first place is through EFA, and doing this process all together in an SEM framework is sometimes called E/CFA. There are other types of SEM analyses, including path analysis. Here we'll focus on EFA and CFA, but the methods and tools are similar across other types of SEM.
+
+We'll use the items from the "Nerdy Personality Attributes Scale" to build and evaluate our model. Download the data here: https://openpsychometrics.org/_rawdata/
 
 On the right side, click "NPAS-data-16December2018.zip" to download the ZIP file with the data and codebook. More info is available on the page for the scale itself (and the link below on its development): https://openpsychometrics.org/tests/NPAS/
 
@@ -38,16 +40,20 @@ nerd = as.data.frame(read_tsv("./data/npas.txt"))
 ```{r}
 head(nerd)
 str(nerd, give.attr=F)
-colnames(nerd)
 ```
 
+We can see that, along with the "nerdiness" questions, there are a number of other scale items and demographic variables represented. Let's change each of the Likert variables (and education) to ordered, using `lapply()`.
+
 ```{r}
+colnames(nerd)
 nerd[,c(1:26,31:40,57,79)] = lapply(nerd[,c(1:26,31:40,57,79)], function(x) ordered(x))
 ```
 
 <br>
 
 ### Exploratory factor analysis
+
+First we'll load up the packages we'll need: `psych` for parallel analysis to determine our number of factors, and `lavaan` and `semTools` for the EFA and CFA.
 
 ```{r, warning=FALSE}
 library(psych)
@@ -65,12 +71,20 @@ install.packages("semTools")
 library(semTools)
 ```
 
+One important point in the E/CFA process is that we can't build our model and evaluate our model using the same data. If we did, we would risk building a model that is only valid for that particular data set. The best way to counteract this would be to collect two separate data sets and use one for EFA an the other for CFA. Since here we only have one data set to work with, we'll do the next best thing, which is to split it randomly into two sets that we use for the two steps of E/CFA. Following convention in machine learning, in which this kind of splitting is common for training and validating predictive models, we'll call them the "train" and "test" sets, respectively.
+
+To split the data, we'll use the `sample()` function to randomly select half of the rows in the data frame (rounded to an even digit). We use those rows are our train set, and the rest of the rows for our test set. Before sampling, we set the seed for the random number generator in R, so that if someone else goes to run our code they will get the same result. I tend to use the current date as my seed, but you could use any number.
+
 ```{r}
 set.seed(20190430)
 trainSet = sample(nrow(nerd), round(nrow(nerd)/2))
 nerdTrain = nerd[trainSet,]
 nerdTest = nerd[-trainSet,]
+head(nerdTrain)
+head(nerdTest)
 ```
+
+Then, to proceed with our EFA, we build a correlation matrix of the "nerdiness" scale items.
 
 ```{r}
 nerdCor = lavCor(nerdTrain[,c(1:26)])
@@ -81,13 +95,21 @@ dim(nerdCor)
 nerdCor[1:10,1:10]
 ```
 
+To stick with a consistent set of tools, we'll use `efaUnrotate()` in the `semTools` package to run our EFA this time.
+
 ```{r, eval=FALSE}
 ?semTools::efaUnrotate
 ```
 
+Before we do, we need to determine the appropriate number of factors. Instead of maximum likelihood estimation (`ml`), in this case we'll use weighted least squares methods (`wls`) because they tend to be more appropriate for ordinal data.
+
 ```{r}
 fa.parallel(nerdCor, fm="wls", n.obs=nrow(nerdTrain))
 ```
+
+Looks like 7. Let's give it a try. `efaUnrotate()` takes raw data, but knows what to do with our ordinal variables, so it's okay to use them.
+
+Here we use `WLSMV` as our estimator, which is a statistically robust variant (meaning: good for both normal and non-normal data) of WLS available in `lavaan` and `semTools`. A list of options are available on the `lavaan` "Estimators" webpage: http://lavaan.ugent.be/tutorial/est.html
 
 ```{r, cache=TRUE}
 # Note: long run time
@@ -95,12 +117,22 @@ nerdEFA = efaUnrotate(nerdTrain[,c(1:26)],
                       nf=7, estimator="WLSMV")
 ```
 
+Then, just like our previous work with EFA, we rotate the result. Here I use `oblimin` rotation again, because we expect our different factors may be correlated (since they all measure "nerdiness").
+
 ```{r}
 nerdEFA.O = oblqRotate(nerdEFA, method="oblimin")
 nerdEFA.O
 ```
 
-* van der Eijk, C., & Rose, J. (2015). Risky business: Factor analysis of survey data -- Assessing the probability of incorrect dimensionalisation. *PLOS ONE, 10*(3), e0118900.
+And we get our 7 factors with the loadings for each item. It conveniently organizes them from highest-to-lowest loading (positive or negative) for the first factor, then for the next factor, and so on. It's okay to see high negative loadings for some items on some factors--it means that those items are strongly opposed to the positive items in that factor.
+
+However, this immediately alerts us to a problem with this model, in that we don't have _any_ high positive loadings on the first factor. The highest is Q18 ("I love to read challenging material"), but it's below 0.2, which means it really doesn't fit there either.
+
+The problem here is that we have too many factors, even though parallel analysis said this was the best fit. This is called "overdimensionalization" and sometimes happens with ordinal data like Likert surveys. Here is a reference to read more about it:
+
+* van der Eijk, C., & Rose, J. (2015). Risky business: Factor analysis of survey data -- Assessing the probability of incorrect dimensionalisation. *PLOS ONE, 10*(3), e0118900. doi: [10.1371/journal.pone.0118900](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0118900)
+
+The solution is just to drop a factor. So we do:
 
 ```{r, cache=TRUE}
 # Note: long run time
@@ -113,98 +145,137 @@ nerdEFA.O = oblqRotate(nerdEFA, method="oblimin")
 nerdEFA.O
 ```
 
+Looks better, but we have only negative loadings on factor 5 now (and spoiler: 5 factors doesn't work well either). At this point the better approach would probably be for us to drop some of the more problematic items and re-run analyses from the start. For this lecture, I'm just going to cut it down to 4 factors so we have something to use for our CFA.
+
+```{r, cache=TRUE}
+# Note: long run time
+nerdEFA = efaUnrotate(nerdTrain[,c(1:26)],
+                      nf=4, estimator="WLSMV")
+```
+
 ```{r}
+nerdEFA.O = oblqRotate(nerdEFA, method="oblimin")
+nerdEFA.O
+```
+
+If we want more details, like standard error values and confidence intervals, we could run:
+
+```{r, eval=FALSE}
 summary(nerdEFA.O)
+```
+
+We can use `fitMeasures()` to look at a number of different criteria used to assess the fit of the EFA. We can also look at the r squared values ("communalities") for each item to see how well it fits. We'll come back to these for the CFA.
+
+```{r}
 fitMeasures(nerdEFA, c("chisq","df","pvalue","cfi","tli","rmsea","srmr"))
 inspect(nerdEFA, "rsquare")
 ```
 
-Factor 1 ("Reader"):  
-```
-Q9	I like science fiction.
-Q26	I can be socially awkward at times.
-Q24	I am a strange person.
-Q5	I collect books.
-Q23	I get excited about my ideas and research.
-Q6	I prefer academic success to social success.
-Q18	I love to read challenging material.
-Q21	I sometimes prefer fictional people to real ones.
-Q22	I enjoy learning more than I need to.
-```
+Here are how each of our factors breaks down. Sometimes it's helpful to assign labels to your constructs to help make sense of them (though the labels themselves are arbitrary).
 
-Factor 2 ("Introvert"):  
-```
-Q17	I am more comfortable interacting online than in person.
-Q13	I would describe my smarts as bookish.
-Q16	I gravitate towards introspection.
-Q3	I like to play RPGs. (Ex. D&D)
-Q20	I was a very odd child.
-Q8	I spend recreational time researching topics others might find dry or overly rigorous.
-Q14	I like to read technology news reports.
-Q10	I would rather read a book than go to a party.
-```
-
-Factor 3 ("Pop Culture Geek"):  
+Factor 1 ("Geek"):  
 ```
 Q7	I watch science related shows.
 Q12	I spend more time at the library than any other public place.
+Q26	I can be socially awkward at times.
+Q5	I collect books.
 Q25	I care about super heroes.
-Q2	I was in advanced classes.
+Q9	I like science fiction.
+Q24	I am a strange person.
+Q18	I love to read challenging material.
+Q14	I like to read technology news reports.
+```
+
+Factor 2 ("Reader"):  
+```
+Q13	I would describe my smarts as bookish.
+Q23	I get excited about my ideas and research.
+Q22	I enjoy learning more than I need to.
+Q8	I spend recreational time researching topics others might find dry or overly rigorous.
+Q17	I am more comfortable interacting online than in person.
+Q6	I prefer academic success to social success.
+Q20	I was a very odd child.
+Q21	I sometimes prefer fictional people to real ones.
+Q16	I gravitate towards introspection.
+Q10	I would rather read a book than go to a party.
+```
+
+Factor 3 ("Know-it-all"):  
+```
+Q1	I am interested in science.
+Q4	My appearance is not as important as my intelligence.
+Q3	I like to play RPGs. (Ex. D&D)
 ```
 
 Factor 4 ("Gamer"):  
 ```
 Q19	I have played a lot of video games.
 Q11	I am more comfortable with my hobbies than I am with other people.
-```
-
-Factor 5 ("Writer"):  
-```
+Q2	I was in advanced classes.
 Q15	I have started writing a novel.
 ```
 
-Factor 6 ("Thinker"):  
-```
-Q1	I am interested in science.
-Q4	My appearance is not as important as my intelligence.
-```
+Then, for our subsequent analysis, we'll need to define this model in a way that `lavaan` can understand. There are details on the syntax in their tutorial [here (part 1)](http://lavaan.ugent.be/tutorial/syntax1.html) and [here (part 2)](http://lavaan.ugent.be/tutorial/syntax2.html).
 
 ```{r}
-nerdModel =  "nerd =~ reader + introvert + popculture + gamer + writer + thinker
-              reader =~ Q9 + Q26 + Q24 + Q5 + Q23 + Q6 + Q18 + Q21 + Q22
-              introvert =~ Q17 + Q13 + Q16 + Q3 + Q20 + Q8 + Q14 + Q10
-              popculture =~ Q7 + Q12 + Q25 + Q2
-              gamer =~ Q19 + Q11
-              writer =~ Q15
-              thinker =~ Q1 + Q4"
+nerdModel =  "nerd =~ geek + reader + knowitall + gamer
+              geek =~ Q7 + Q12 + Q26 +Q5 + Q25 + Q9 + Q24 + Q18 + Q14
+              reader =~ Q13 + Q23 + Q22 + Q8 + Q17 + Q6 + Q20 + Q21 + Q16 + Q10
+              knowitall =~ Q1 + Q4 + Q3
+              gamer =~ Q19 + Q11 + Q2 + Q15"
 ```
+
+Essentially we're telling it that `geek`, `reader`, `knowitall` and `gamer` are our 4 factors, and that they all contribute to a second-order factor called `nerd`.
 
 <br>
 
 ### Confirmatory factor analysis
 
-```{r}
-# devtools::install_version("lavaan", version="0.6.3")
-# devtools::install_version("semTools", version="0.4-14")
+Note: The most recent versions of the `lavaan` and `semTools` packages refused to fit the model for me. I had to roll back to older versions, using the commands below. If you're trying to replicate it and can't get it to work, try doing the same.
+
+```{r, eval=FALSE}
+remove.packages(c("lavaan","semTools"))
+install.packages("devtools")
+devtools::install_version("lavaan", version="0.6.3")
+devtools::install_version("semTools", version="0.4-14")
 ```
 
+Now that we have our model, built using our train subset, we can test the fit of our test subset to that model using CFA. It's fairly straightforward here (but more details are available on the `lavaan` webpage):
 
 ```{r}
 nerdFit = cfa(nerdModel, nerdTest[,c(1:26)], estimator="WLSMV")
+```
+
+We get the warning again about empty bivariate cells, which we're okay to ignore.
+
+```{r}
 summary(nerdFit)
+```
+
+We see the results for all 4 factors and the items that they're constructed from, as well as a bunch of other information. But how well does the model fit the data?
+
+```{r}
 fitMeasures(nerdFit, c("chisq","df","pvalue","cfi","tli","rmsea","srmr"))
 ```
+
+Chi-square statistics (including degrees of freedom and _p_-value) are commonly reported in the literature and are expected by some reviewers, but really mean nothing in this context as they're almost always significant given a decent sample size. The ones to pay attention to are the last 4: CFI, TLI, RMSEA, and (sometimes) SRMR. Good criteria to use to evaluate them are:
 
 Comparative Fit Index (“CFI”) > 0.95  
 Tucker-Lewis Index (“TLI”) > 0.96  
 Root Mean Square Error of Approximation (“RMSEA”) < 0.05  
 Standardized Root Mean Square Residual (“SRMR”) < 0.07  
 
-* Hu L, Bentler PM (1999) Cutoff criteria for fit indexes in covariance structure analysis: Conventional criteria versus new alternatives. Structural Equation Modeling 6(1):1–55.  
+So, does our model fit? No, not well at all--all of our fit indices are outside the criteria. This means we'd have to go back, probably trim down some of the less well-fitting items, and see if we can build a better model.
 
-* Yu C-Y (2002) Evaluating cutoff criteria of model fit indices for latent variable models with binary and continuous outcomes. Dissertation (University of California, Los Angeles).  
+Note: These values come from the following sources (of which, Hu and Bentler is the classic source and Yu updated a couple of the scores based on additional analyses):
+
+* Hu L, Bentler PM (1999) Cutoff criteria for fit indexes in covariance structure analysis: Conventional criteria versus new alternatives. Structural Equation Modeling 6(1):1–55. doi: [10.1080/10705519909540118](https://www.tandfonline.com/doi/abs/10.1080/10705519909540118)  
+
+* Yu C-Y (2002) Evaluating cutoff criteria of model fit indices for latent variable models with binary and continuous outcomes. Dissertation (University of California, Los Angeles). Available: https://www.statmodel.com/download/Yudissertation.pdf  
 
 <br>
+
+Before we go, let's plot our model using the `semPlot` package.
 
 ```{r, eval=FALSE}
 install.packages("semPlot")
@@ -215,24 +286,37 @@ install.packages("semPlot")
 library(semPlot)
 ```
 
-```{r}
+```{r, fig.width=8, fig.height=8}
 semPaths(nerdFit, what="std", nCharNodes=0, intercepts=F)
 ```
 
+You'd need to know a bit more about CFA and SEM to be able to interpret everything properly, but the lines from latent factors to lower factors and items represent loadings, so you can see the relative strength of each.
+
+The figure could use some cleaning up, using additional parameters (see `?semPaths`), to make everything a bit more visible. But here, we'll leave it as-is and move on.
+
+CFA is just a specialized instance of SEM, so there are many more ways to do SEM using the `lavaan` package. More details are available here: http://lavaan.ugent.be/tutorial/sem.html
+
+The general function is `sem()`:
 
 ```{r, eval=FALSE}
 ?lavaan::sem
 ```
 
-http://lavaan.ugent.be/tutorial/sem.html
-
 <br><br>
 
 ## Social network analysis
 
-Download Northern Alaskan community helping network: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0204343#sec016
+To have a data set to explore as a first look into social networks, we'll use data on a Northern Alaskan community helping network from the following paper:
 
-S1 File
+Lee, H. W., et al. (2018). Mapping the structure of perceptions in helping networks of Alaska Natives. PLOS ONE, 13(11), e0204343. doi: [10.1371/journal.pone.0204343](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0204343)
+
+In the Supporting Information, download "S1 File" and extract "Edge data.csv" to your `/data` folder: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0204343#sec016
+
+A little network data terminology: networks are made up of nodes and edges. Nodes are the individual points in the network, usually people, and are often represented as numerical IDs. Edges are the connections between nodes, and can represent any kind of association or interaction (time spent together, citations, etc.). When we read in the data, we can have separate lists of nodes and edges, and edge lists often contain other variables that relate to the links between nodes.
+
+There are two types of networks: directed and undirected. In directed networks, the edges have a direction, e.g. A does something to B. In undirected networks, A is connected to B, but there is no direction to the connection, they're just associated.
+
+Here, all we have is an edge list and, from the paper, it's directed (A helps B). We read it in:
 
 ```{r}
 helpnet = read.csv("./data/Edge data.csv")
@@ -242,17 +326,24 @@ helpnet = read.csv("./data/Edge data.csv")
 head(helpnet)
 ```
 
+We can see the network has some negative values for the nodes.
+
 ```{r}
-min(helpnet$NodeA.01.)
-max(helpnet$NodeA.01.)
-min(helpnet$NodeB.02.)
-max(helpnet$NodeB.02.)
+summary(helpnet$NodeA.01.)
+summary(helpnet$NodeB.02.)
 ```
+
+This is actually what's called a "signed" network, in that it has edges with positive and negative signs. Positive values represent positive interactions (from the paper: "e.g. liking, loving, supporting") and negative interactions ("disliking, hating, opposing"). To simplify things here, we're just going to look at the positive edges.
 
 ```{r}
 helpnetP = helpnet[helpnet$NodeA.01. > 0 & helpnet$NodeB.02. > 0,]
+dim(helpnetP)
+length(unique(unname(unlist(helpnetP[,1:2]))))
 ```
 
+Looks like it's still a very big network, with 64,262 connections between 254 nodes.
+
+There are a number of social network packages in R, the main ones being `network`, `sna`, and `igraph`. Here we'll use `igraph` because it seems to be the most commonly used package, and is also cross-platform with other programming languages such as Python. But depending on your analyses and your needs, feel free to check the others out too.
 
 ```{r, eval=FALSE}
 install.packages("igraph")
@@ -261,6 +352,8 @@ install.packages("igraph")
 ```{r, message=FALSE}
 library(igraph)
 ```
+
+We'll use the `graph_from_data_frame()` function to make our data frame into an igraph object.
 
 ```{r, eval=FALSE}
 ?graph_from_data_frame
@@ -271,24 +364,46 @@ helpnetG = graph_from_data_frame(helpnetP)
 helpnetG
 ```
 
+Looks like it loaded in correctly. We can see the other variables from the data frame as attributes, and the beginning of the edge list, with direction indicated. We can get vectors of the nodes (in `igraph`, called "vertices") with `V()` and the edges with `E()`.
+
 ```{r}
 V(helpnetG)
 E(helpnetG)
-edge_attr(helpnetG)
+```
+
+If we want to pull out any of the other attributes from our original edge list, we can use the `edge_attr()` function:
+
+```{r}
+edge_attr(helpnetG, "Avg_Dist.18.")[1:10]
+```
+
+If we reference it like a matrix, we can see the connections between nodes:
+
+```{r}
 helpnetG[1,]
 ```
 
+It looks like every node is connected to every other node. This may not make for a very informative graph, but we can still plot it to take a look:
+
 ```{r}
-par(mar=c(0,0,0,0))
 plot(helpnetG)
 ```
 
+Yep, just a total mess. This can often be a downfall of social network diagrams, in that they can be very pretty, but contain such a high density of information that they don't really communicate anything (refer back to our resources on information design).
+
+We can try to remedy it by changing the layout of the data:
+
 ```{r}
-par(mar=c(0,0,0,0))
 plot(helpnetG, layout=layout_in_circle)
 ```
 
+Nope. Still a mess. If we had less data, perhaps by looking at meaningful subsets, it could be better. Since all nodes are connected, it would be good to use those attributes to, for instance, display different line weights for our edges. Though we won't notice a difference here, we could do it like so:
 
+```{r}
+plot(helpnetG, layout=layout_in_circle, edge.width=E(helpnetG)$Avg_Dist.18.)
+```
+
+We'll do more with plotting next time, using a more tractable data set.
 
 
 <br><br>

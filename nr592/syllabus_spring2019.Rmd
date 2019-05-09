@@ -88,6 +88,8 @@ You are encouraged to seek additional information on your own, especially to go 
 
 _Official Manuals and References_  
 
+* Fox, J. CRAN Task View: Statistics for the Social Sciences. Available: https://cran.r-project.org/web/views/SocialSciences.html  
+
 * RStudio. RStudio cheat sheets. Available: https://www.rstudio.com/resources/cheatsheets/
 
 * Short, T. R reference card. Available: https://cran.r-project.org/doc/contrib/Short-refcard.pdf

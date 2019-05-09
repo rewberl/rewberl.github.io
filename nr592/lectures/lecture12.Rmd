@@ -10,18 +10,24 @@ date: |
   | Spring 2019
   | &nbsp;
 output:
-  pdf_document:
-    highlight: haddock
   html_document:
     highlight: haddock
     theme: flatly
+  pdf_document:
+    highlight: haddock
 ---
 
 ## Social network analysis
 
-Download Ancestral Pueblo food web network: https://www.sciencedirect.com/science/article/pii/S0305440317300377#appsec1
+Let's use another network that will hopefully be a bit more workable: a data set of food web relationships in Ancestral Pueblo sites in southwestern Colorado in and around the Ute Mountain Reservation: https://www.sciencedirect.com/science/article/pii/S0305440317300377#appsec1
 
-"Download spreadsheet (329KB)"
+The source paper is:
+
+Crabtree, S. A., Vaughn, L. J., & Crabtree, N. T. (2017). Reconstructing Ancestral Pueblo food webs in the southwestern United States. Journal of Archaeological Science, 81, 116-127. doi: [10.1016/j.jas.2017.03.005](https://www.sciencedirect.com/science/article/pii/S0305440317300377)
+
+In Appendix A: Supplementary data, click "Download spreadsheet (329KB)" to get the data and put it in your `/data` directory. If you can't access the data because of journal restrictions, you can get it [here](./lectures/data/1-s2.0-S0305440317300377-mmc1.xlsx).
+
+If we take a look at the Excel file, we can see there are separate sheets for the node list (1) and edge lists (2). In the edge list sheet, there are different lists for each archaeological site, and a combined list. For this exercise, we'll stick to the data from the Albert Porter Pueblo Food Web because it's the smallest. So, we specify that when we read in the sheet.
 
 ```{r, warning=FALSE}
 library(readxl)
@@ -42,31 +48,47 @@ head(foodE.AP)
 str(foodE.AP)
 ```
 
+Species are noted by a letter to represent their class, then their common name. Let's split those apart so we can use the class as a variable later.
+
 ```{r}
 foodN$Class = substr(foodN$Species, 1, 1)
 foodN$Species = substr(foodN$Species, 3, nchar(foodN$Species))
 ```
 
+Dince we subset the edge list to the Albert Porter site, let's make sure we only have the nodes that are present in that site.
+
 ```{r}
 foodN.AP = foodN[foodN$ID %in% unique(unname(unlist(foodE.AP))),]
 ```
 
+And just to make it more intuitive (in my mind, at least) let's make the direction of the edges flow from the resource to the consumer.
+
 ```{r}
 foodE.AP = foodE.AP[,c(2,1)]
 ```
+
+Now let's make it into a network, specifying the edge list and node list.
 
 ```{r}
 foodNet = graph_from_data_frame(foodE.AP, vertices=foodN.AP)
 foodNet
 ```
 
+And take a look by plotting it:
+
 ```{r, fig.width=8, fig.height=8}
 plot(foodNet)
 ```
 
+Kind of unintelligible given the default formatting, but we can tell there are some outer isolated nodes.
+
+We can take a look at all the options available to tweak our plot:
+
 ```{r, eval=FALSE}
 ?igraph::igraph.plotting
 ```
+
+And make some changes to the node ("vertex") labels and edges, color labels by class, make edges partially transparent, and try a new layout to try to make things more visible:
 
 ```{r, fig.width=8, fig.height=8}
 plot(foodNet,
@@ -78,9 +100,17 @@ plot(foodNet,
      layout=layout_with_kk)
 ```
 
+Great! Still a little dense, but I think it's about as good as it can get without a lot more manual tweaking. I also enlarged and bolded the label for node 96, which we can see on the node list corresponds to humans. It looks like a lot of things are utilizing humans as a resource, but not so much the other way around.
+
+But now we can dive into more of the details of our network.
+
 <br>
 
 ### Descriptive statistics
+
+There isn't much hypothesis testing that I've encountered in social network analysis; most of the analysis is simply used to characterize the network as a whole, compare nodes with one another, and compare statistics with other networks.
+
+A variety of descriptive measures are listed below, many of them taken from the excellent tutorial located here, where you can find some additional information on them: https://kateto.net/netscix2016.html
 
 **Edge density**
 
@@ -212,15 +242,23 @@ Mule deer
 
 #### Community detection
 
+Community detection, essentially a way of finding clusters in our network, is another common type of analysis. There are a variety of methods available in `igraph`, described here:
+
 ```{r, eval=FALSE}
 ?igraph::communities
 ```
+
+None of them can deal with directed networks, like we have here, so we need to convert it to an undirected network.
 
 ```{r}
 foodNetU = as.undirected(foodNet, mode="mutual")
 ```
 
+Now we can try two different options that are both good to try for different uses:
+
 **By greedy optimization of modularity**
+
+Fast, but potentially less accurate
 
 ```{r}
 foodNetCFG = cluster_fast_greedy(foodNetU)
@@ -228,32 +266,51 @@ foodNetCFG
 dendPlot(foodNetCFG, mode="hclust")
 ```
 
+We can see that there are two real "communities" found here, shown as groups 1 and 2 above, and that almost all other nodes cluster by themselves in increasing distance from those communities.
+
 **By edge betweenness**
+
+Slow with larger data sets, potentially more accurate
 
 ```{r}
 foodNetCB = cluster_edge_betweenness(foodNetU)
 foodNetCB
 dendPlot(foodNetCB, mode="hclust")
+```
+
+Roughly the same result, except we now have one community...
+
+```{r}
 foodNetCB[20]
 ```
 
+... that is the same as the other two communities found by the previous method, merged.
+
+So, it seems that these nodes (mainly birds, arthropod parasites, and a couple mice) form a cohesive group in the food web, with everything else relatively isolated.
+
+
 <br><br>
+
 
 ## Geospatial analyses
 
+There is so much that one can do with geospatial data that this will only be able to act as a cursory overview. For more details, you can consult some of the resources available.
+
+I'll (briefly) cover three types of data that can be plotted spatially: points, polygons, and rasters.
+
 ### Points
 
-https://www.gbif.org/occurrence/search?country=ET&has_coordinate=true&has_geospatial_issue=false&taxon_key=6
+For this, let's use some data from the Global Biodiversity Information Facility, which is a worldwide database of species occurrences. We'll subset the data we work with here to plants in Ethiopia with non-missing geospatial data: https://www.gbif.org/occurrence/search?country=ET&has_coordinate=true&has_geospatial_issue=false&taxon_key=6
 
-"DOWNLOAD" "CSV" -> "DOWNLOAD"
+Click "DOWNLOAD" on the top, then wait for it to prepare the data and download the CSV file by clicking "CSV" and "DOWNLOAD." However, at least for the file I got, it turns out it's not comma separated, but tab separated, so change its extension to ".txt" and place it in your `/data` folder.
 
-Rename to .txt
+In this lecture, I download files manually and import them into R to show you how to do it the hard and messy way. However, many databases now, especially those with open GIS data, have their own R packages to load the data directly into R with reproducible code. The GBIF has one, `rgbif`, and you can learn more about how to use it from the rOpenSci tutorial: https://ropensci.org/tutorials/rgbif_tutorial/
 
 ```{r, eval=FALSE}
 install.packages("rgbif")
 ```
 
-https://ropensci.org/tutorials/rgbif_tutorial/
+However, here, we go ahead and load in the text file we loaded, using `readr`:
 
 ```{r, warning=FALSE}
 library(readr)
@@ -263,29 +320,46 @@ library(readr)
 ethPlants = as.data.frame(read_tsv("./data/0009408-190415153152247.txt"))
 ```
 
+There are quite a few errors, but we're going to ignore them here and remove the last row that has all of the 10,000 messed up values in it. We're still left with 79,632 entries to work with.
+
 ```{r}
+ethPlants = ethPlants[-79633,]
 head(ethPlants)
 tail(ethPlants)
 str(ethPlants, give.attr=F)
 ```
 
+We can see how many distinct classes of plants are represented in Ethiopia.
+
 ```{r}
 unique(ethPlants$class)
 ```
 
+13, not including `NA`s. Let's remove those.
+
 ```{r}
 ethPlants = ethPlants[!is.na(ethPlants$class),]
 ```
+
+Now let's load up `ggplot2` so we can plot some maps. There are lots of other packages that can handle geospatial mapping in R (and you can see some of them on the CRAN task view: https://cran.r-project.org/web/views/Spatial.html), including `sp` and `maps`. I prefer to use methods that are compatible with `ggplot2`, because it makes it easy to combine different data sources just by adding another layer. There are some quirks to navigate, however, and we'll encounter a few.
+
+Note: Keep an eye on the `sf` package (for "simple features"), which is moving toward a common, open format for spatial data and is now supported in `ggplot2` with `geom_sf`: https://ggplot2.tidyverse.org/reference/ggsf.html
 
 ```{r}
 library(ggplot2)
 library(ggthemes)
 ```
 
+Let's go ahead and do a quick plot of the points, colored by class, using their latitude and longitude as Y and X values, respectively.
+
 ```{r}
 ggplot(ethPlants, aes(x=decimalLongitude, y=decimalLatitude)) +
   geom_point(aes(color=class))
 ```
+
+Well, there's a ton of overlapping points, so it's hard to tell what's going on, but we can at least clearly see the outline of Ethiopia, so we know it's plotting correctly.
+
+Let's simplify a bit, because I prefer minimal and clean spatial plots. We also critically add the `coord_cartesian()` layer, which will maintain the correct ratio for our axes.
 
 ```{r}
 ggplot(ethPlants, aes(x=decimalLongitude, y=decimalLatitude)) +
@@ -300,11 +374,19 @@ ggplot(ethPlants, aes(x=decimalLongitude, y=decimalLatitude)) +
 
 ### Shapefiles
 
-https://www.naturalearthdata.com/downloads/10m-cultural-vectors/
+Shapefiles are vector polygons (meaning they're represented as mathematical shapes and look good at any resolution) which usually represent spatial lines or boundaries.
 
-"Admin 0 – Boundary Lines" "Download land boundaries"
+A resource called [Natural Earth](https://www.naturalearthdata.com/) has public domain shapefiles and rasters for areas across the world. Some areas (particularly outside the U.S. and Canada) are not represented at all resolutions, but it's good enough for most purposes.
 
-"Admin 1 – States, provinces" "Download boundary lines"
+We're going to download two "cultural" shapefiles (opposed to physical features or rasters) at 1:10m resolution: https://www.naturalearthdata.com/downloads/10m-cultural-vectors/
+
+First, get "Admin 0 – Boundary Lines" by clicking "Download land boundaries."
+
+Then, get "Admin 1 – States, Provinces" by clicking "Download boundary lines."
+
+Place the contents of both ZIP files in your `/data` directory. You need all the files, not just the one with the ".shp" extension.
+
+We then need to install the `rgdal` package (the R version of commonly used geospatial library [GDAL](https://www.gdal.org/)) to read in our shapefiles with the `readOGR()` function.
 
 ```{r, eval=FALSE}
 install.packages("rgdal")
@@ -314,21 +396,50 @@ install.packages("rgdal")
 library(rgdal)
 ```
 
+```{r, eval=FALSE}
+?readOGR
+```
+
 ```{r}
-neCountries = readOGR(dsn="./data",layer="ne_10m_admin_0_countries")
-neProvinces = readOGR(dsn="./data",layer="ne_10m_admin_1_states_provinces_lines")
+neCountries = readOGR(dsn="./data", layer="ne_10m_admin_0_countries")
+neProvinces = readOGR(dsn="./data", layer="ne_10m_admin_1_states_provinces_lines")
+```
+
+The format is a little strange, in that the `dsn` argument is the path to the file, and the `layer` argument is the name of the files (without any extension). You'll notice a shapefile actually consists of the ".shp" file plus a bunch of other files with the same name that hold additional information. `readOGR()` wants all of them, so you just tell it the name that all the files share and it will load everything.
+
+We then subset both spatial objects to Ethiopia (we don't need the whole world on our plot). We can find what variable we should use (because they're essentially data frames with other data included) by using `names()` first.
+
+```{r}
+names(neCountries)
+names(neProvinces)
 
 neCountETH = neCountries[neCountries$NAME == "Ethiopia",]
 neProvETH = neProvinces[neProvinces$adm0_name == "Ethiopia",]
+```
 
+And we can now remove the original objects from memory in R. This can be important, especially in geospatial work, because the files tend to be large and R requires that all of its objects are stored in memory. Your computer only has so much memory, and R has a limit to the amount of memory it can utilize, so freeing up space is important to keep R from freezing up.
+
+```{r}
 rm(neCountries)
 rm(neProvinces)
 ```
+
+If you find you're having memory issues even after removing extraneous objects, you can run the `gc()` function (for "garbage collection") to free up any other memory that's tied up in R.
+
+```{r, eval=FALSE}
+?gc
+```
+
+Taking a break to save your post-processed geospatial objects using `saveRDS()` for later loading (and keeping all of that separate in a "data prep" script) can also save you the hassle of processing them every time.
+
+Now, to plot shapefiles in `ggplot()` we have two options, `geom_polygon()` (for closed shapes) and `geom_path()` (for lines). We downloaded lines for our administrative boundaries, so we use `geom_path()` to add them to our previous plot.
 
 ```{r, eval=F}
 ?geom_polygon
 ?geom_path
 ```
+
+Note: It's important to include `group=group` in your aesthetics so the lines stay grouped into the intended shapes.
 
 ```{r}
 ggplot(ethPlants, aes(x=decimalLongitude, y=decimalLatitude)) +
@@ -343,17 +454,26 @@ ggplot(ethPlants, aes(x=decimalLongitude, y=decimalLatitude)) +
   theme_void()
 ```
 
-https://geonode.wfp.org/layers/ogcserver.gis.wfp.org%3Ageonode%3Aeth_trs_roads_osm
+Now, because I have a suspicion about those long continuous lines of points, let's find a shapefile of Ethiopian roads to plot on top.
 
-"Download Layer"
+We can get one from the World Food Programme: https://geonode.wfp.org/layers/ogcserver.gis.wfp.org%3Ageonode%3Aeth_trs_roads_osm
+
+Click "Download Layer," choose "Zipped Shapefile," and place the unzipped files in the `/data` directory, as usual.
+
+We then load it in the same way, and subset it to only show the main roads rather than every road in the country.
 
 ```{r}
 roadsETH = readOGR(dsn="./data",layer="eth_trs_roads_osm")
+
+names(roadsETH)
+unique(roadsETH$ntlclass)
 
 roadsETH = roadsETH[roadsETH$ntlclass == "primary" |
                       roadsETH$ntlclass == "secondary" |
                       roadsETH$ntlclass == "tertiary",]
 ```
+
+Then we can plot the roads atop the points, as intended:
 
 ```{r}
 ggplot(ethPlants, aes(x=decimalLongitude, y=decimalLatitude)) +
@@ -370,13 +490,21 @@ ggplot(ethPlants, aes(x=decimalLongitude, y=decimalLatitude)) +
   theme_void()
 ```
 
+And we see that they match up perfectly with the long lines of points, showing that most sampling has taken place on roadsides. If we were using these data for a project, it would be good to consider what influences that biased sampling may have on the data and our analyses.
+
 <br>
 
 ### Rasters
 
-https://www.naturalearthdata.com/downloads/50m-raster-data/50m-natural-earth-1/
+Rasters are static image files, usually used as backgrounds or "basemaps" for geospatial work. GeoTIFFs are commonly used for this purpose (though there are other formats), which are TIFF image files with geographic coordinates embedded in them.
 
-"Natural Earth I with Shaded Relief" "Download small size"
+We can get a variety of different rasters with varying color palettes from Natural Earth: https://www.naturalearthdata.com/downloads/50m-raster-data/
+
+In this case, we'll use "Natural Earth 1" at 1:50m resolution: https://www.naturalearthdata.com/downloads/50m-raster-data/50m-natural-earth-1/
+
+Under "Natural Earth I with Shaded Relief", click "Download small size" and place the files in your `/data` directory.
+
+To import raster files, we need the `raster` package.
 
 ```{r, eval=FALSE}
 install.packages("raster")
@@ -386,9 +514,17 @@ install.packages("raster")
 library(raster)
 ```
 
+As we'll see, this raster file is actually composed of three layers, each of which represents one of the Red, Green, and Blue color channels. Normally we would use the `raster()` function to load it in, but since we know it's a "multi-band" raster, we need to use the `stack()` or `brick()` function. There are minor differences between the two; we'll use `brick()` here.
+
 ```{r}
 ne1 = brick("./data/NE1_50M_SR.tif")
+```
 
+Then we want to crop the raster to a bounding box around the rough extent of Ethiopia (again, because we don't need to represent the whole world and it would take a lot longer to plot). We've used these points as our axis limits previously. There are different tools you can use to find a bounding box, including [this one](https://boundingbox.klokantech.com/) and [this one](http://bboxfinder.com/).
+
+We then remove the full raster object and convert our raster shape to a data frame, because `ggplot2` can't work with raster files directly (another function to accomplish this conversion is `fortify()`).
+
+```{r}
 ne1ETH = crop(ne1, c(32.7, 48.3, 2.9, 15.3))
 rm(ne1)
 
@@ -396,10 +532,16 @@ ne1ETHdf = as.data.frame(ne1ETH, xy=T)
 
 head(ne1ETHdf)
 str(ne1ETHdf)
+```
 
+Remember how our raster file had three layers for different color channels? Now it's time to convert those to hexadecimal values, so we can plot the correct colors:
+
+```{r}
 ne1ETHdf$color=rgb(ne1ETHdf$NE1_50M_SR.1, ne1ETHdf$NE1_50M_SR.2,
                    ne1ETHdf$NE1_50M_SR.3, maxColorValue=255)
 ```
+
+And we plot it (underneath our points):
 
 ```{r}
 # Warning: Long!
@@ -412,33 +554,55 @@ ggplot(ethPlants, aes(x=decimalLongitude, y=decimalLatitude)) +
   theme_void()
 ```
 
+Looks good. For a finished plot we might want a higher resolution raster, but it would take longer to process and plot. `ggplot2`, for whatever reason, really does not do well with raster files and takes a lot of time and memory plotting them. If you have to do a lot of raster work, you might be better off checking out another plotting package.
+
 <br>
 
 ### Point-in-polygon
 
+There are a variety of other tasks we can do with geospatial data aside from just visualizing it. Maybe we want to find which points are within a particular polygon's boundaries? This is called, appropriately, "point-in-polygon" analysis.
+
+We'll need to go back to Natural Earth to get the actual shapes for the provinces, instead of just the lines: https://www.naturalearthdata.com/downloads/10m-cultural-vectors/
+
+This time, click "Download states and provinces" and put the contents in `/data`.
+
 ```{r}
 neProvShape = readOGR(dsn="./data",layer="ne_10m_admin_1_states_provinces")
 
+names(neProvShape)
 neProvShapeETH = neProvShape[neProvShape$adm0_a3 == "ETH",]
+rm(neProvShape)
 ```
+
+We'll use the `over()` function from the `sp` package to do this.
 
 ```{r, eval=F}
 ?sp::over
 ```
+
+The operation itself is a little tricky. We need our plant occurrence points (currently a data frame) to be a `SpatialPointsDataFrame` object, with coordinates and a map projection (which we haven't covered, but is important in geospatial tasks). We add these with `coordinates()` and `proj4string()`, respectively.
 
 ```{r}
 ethPlantsSP = ethPlants[!is.na(ethPlants$decimalLongitude) &
                           !is.na(ethPlants$decimalLatitude),]
 coordinates(ethPlantsSP) = ~ decimalLongitude + decimalLatitude
 proj4string(ethPlantsSP) = CRS(proj4string(neProvShapeETH))
+class(ethPlantsSP)
 ```
 
+Then we can see which plants fall within a specific province of Ethiopia (here we'll use the border region of Gambela). To get the actual subset of those points, though, we then have to subset the original plant data frame by the rows of the returned version of our shapefile that are not `NA`. It's unintuitive but, if you do it this way, it should work out fine.
+
 ```{r}
+names(neProvShapeETH)
 ethPlantsInGambela = over(ethPlantsSP,
                           neProvShapeETH[neProvShapeETH$name == "Gambela Peoples",])
 ethPlantsInGambela = ethPlants[!is.na(ethPlantsInGambela$name),]
-head(ethPlantsInGambela$class, 20)
+
+nrow(ethPlants)
+nrow(ethPlantsInGambela)
 ```
+
+Let's plot the resulting set of points to do a visual check.
 
 ```{r}
 ggplot(ethPlantsInGambela, aes(x=decimalLongitude, y=decimalLatitude)) +
@@ -453,9 +617,100 @@ ggplot(ethPlantsInGambela, aes(x=decimalLongitude, y=decimalLatitude)) +
   theme_void()
 ```
 
+Yep! All in Gambela, which is that far western region. Looks good. We could then use this method do some statistical comparisons of species occurrences or community composition in other provinces, if we wished.
+
+<br>
+
+### Geodesic distance
+
+We've dealt with distance matrices before, and one very easy-to-understand application is to calculate a distance matrix of geographic points, which is the literal geographic distance between those points. This isn't quite as simple as taking Euclidean distances of lat-long coordinates, however, because we need to account for the curvature and shape of the Earth. Luckily, there are a number of packages that can do it for us. The one we'll use here is `geosphere`, and the function is `distm()`.
+
+```{r, eval=FALSE}
+install.packages("geosphere")
+```
+
+```{r, warning=FALSE}
+library(geosphere)
+```
+
+```{r, eval=FALSE}
+?geosphere::distm
+```
+
+Then it's as simple as feeding in our longitudes and latitudes (in that order). We also subset the plants data frame to ocurrences with species data (in anticipation of our next step).
+
+```{r}
+gambelaDist = distm(ethPlantsInGambela[!is.na(ethPlantsInGambela$species),
+                                       c("decimalLongitude","decimalLatitude")])
+gambelaDist = as.dist(gambelaDist)
+as.matrix(gambelaDist)[1:10,1:10]
+```
+
+We get a very big distance matrix, because it calculated pairwise distances between every combination of points in Gambela (the unit of the values shown is meters).
+
+#### Mantel tests
+
+When you have geographic distances, one common analysis is to compare that matrix to a distance matrix for another variable that those points share. This is usually done to check for spatial autocorrelation, or how much points are similar simply due to their being geographically close to one another (and affected by common conditions or processes that cause that similarity).
+
+One option that we have data for here is to compute taxonomic distance between species. We can then see if the taxonomic distance is correlated with the geographic distance. An interesting question!
+
+We'll need a couple functions in the `vegan` package.
+
+```{r, warning=FALSE}
+library(vegan)
+```
+
+We determine the taxonomic distance (number of steps through a taxonomic tree) between each pair of species...
+
+```{r}
+gambelaTaxa = ethPlantsInGambela[!duplicated(ethPlantsInGambela$species) &
+                                   !is.na(ethPlantsInGambela$species),9:5]
+rownames(gambelaTaxa) = ethPlantsInGambela[!duplicated(ethPlantsInGambela$species) &
+                                   !is.na(ethPlantsInGambela$species),]$species
+gambelaTaxa[1:10,]
+gambelaTaxaDist = taxa2dist(gambelaTaxa)
+gambelaTaxaDist = as.matrix(gambelaTaxaDist)
+gambelaTaxaDist[1:10,1:10]
+```
+
+And then we manually construct a matrix with a row and column for each row in our data, and fill it with the appropriate taxonomic distances using nested `for()` loops.
+
+```{r}
+ethPlantsInGambela = ethPlantsInGambela[!is.na(ethPlantsInGambela$species),]
+gambelaTaxaDistByRow = matrix(data=0,
+                              nrow=nrow(ethPlantsInGambela),
+                              ncol=nrow(ethPlantsInGambela))
+for (i in 1:nrow(ethPlantsInGambela)) {
+  for (j in 1:nrow(ethPlantsInGambela)) {
+    gambelaTaxaDistByRow[i,j] = gambelaTaxaDist[rownames(as.matrix(gambelaTaxaDist)) ==
+                                                  ethPlantsInGambela[i, "species"],
+                                                colnames(as.matrix(gambelaTaxaDist)) ==
+                                                  ethPlantsInGambela[j, "species"]]
+  }
+}
+gambelaTaxaDistByRow = as.dist(gambelaTaxaDistByRow)
+as.matrix(gambelaTaxaDistByRow)[1:10,1:10]
+```
+
+And finally we can run our test, which is called a Mantel test:
+
+```{r, eval=FALSE}
+?vegan::mantel
+```
+
+```{r}
+mantel(gambelaDist, gambelaTaxaDistByRow)
+```
+
+We can say with good confidence that the taxonomic distance between occurrences is independent of geographic distance.
+
 <br>
 
 ### Geocoding
+
+Another fun thing to do is to turn text descriptions of locations (like you would type into Google Maps) into sets of latitude and longitude coordinates.
+
+One way to do this is to use the `geocode()` function in the `ggmap` package. Unfortunately, Google now requires you to sign up for an API key, which I won't get into here, but it can be very useful to turn something like open survey responses on locations into points you can easily plot on a map (or export to KML format for Google Earth).
 
 ```{r, eval=FALSE}
 install.packages("ggmap")
@@ -463,18 +718,6 @@ install.packages("ggmap")
 
 ```{r, eval=F}
 ?ggmap::geocode
-```
-
-<br>
-
-### Distance matrix
-
-```{r, eval=FALSE}
-install.packages("geodist")
-```
-
-```{r, eval=FALSE}
-?geodist::geodist
 ```
 
 

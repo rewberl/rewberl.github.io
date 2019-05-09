@@ -377,13 +377,13 @@ EFA
 
 ### Lectures
 
-* Tuesday, April 30: **[Lecture 11](./lectures/lecture11.html)** (pdf / [Rmd](./lectures/lecture11.Rmd))  
+* Tuesday, April 30: **[Lecture 11](./lectures/lecture11.html)** ([pdf](./lectures/lecture11.pdf) / [Rmd](./lectures/lecture11.Rmd))  
     * [Nerdy Personality Attributes Scale](https://openpsychometrics.org/_rawdata/) ("12/16/2018"", NPAS-data-16December2018.zip)  
     * [Northern Alaskan community helping network](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0204343#sec016) ("S1 File")  
 
 <!-- end of list -->
 
-* Thursday, May 2: **[Lecture 12](./lectures/lecture12.html)** (pdf / [Rmd](./lectures/lecture12.Rmd))  
+* Thursday, May 2: **[Lecture 12](./lectures/lecture12.html)** ([pdf](./lectures/lecture12.pdf) / [Rmd](./lectures/lecture12.Rmd))  
     * [Ancestral Pueblo food web network](https://www.sciencedirect.com/science/article/pii/S0305440317300377#appsec1) (Supplementary data spreadsheet) ([available here](./lectures/data/1-s2.0-S0305440317300377-mmc1.xlsx))  
     * [Ethiopian plant occurrence data](https://www.gbif.org/occurrence/search?country=ET&has_coordinate=true&has_geospatial_issue=false&taxon_key=6)  
 
@@ -421,7 +421,7 @@ Confirmatory Factor Analysis
 
 **Geospatial Mapping**
 
-* https://cran.r-project.org/web/views/Spatial.html
+* Bivand, R. CRAN Task View: Analysis of Spatial Data. Available: https://cran.r-project.org/web/views/Spatial.html  
 
 Mantel Tests?
 
