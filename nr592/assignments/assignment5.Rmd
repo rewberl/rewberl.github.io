@@ -110,7 +110,7 @@ Conduct one of the following sequences of analyses described in Week 5 or Week 6
     a. Two descriptive statistics (e.g. centrality, diameter, distance, edge density), Network visualization, Community detection  
 4. Geospatial data  
     a. Geospatial plot  
-        i. Note: Must include basemap layer and at least one layer of shapefiles of your choice  
+        i. Note: Must include raster layer and at least one layer of shapefiles of your choice  
     b. Geographic distance matrix, Distance matrix of additional variable for the same points, Mantel test, Hierarchical clustering plots of each distance matrix  
     
 **Notes: Analyses should be fully commented, with results shown. If the analyses include a plot, the plot should be as polished and publication-ready as possible. Different analyses are permitted if they are comparable in effort and scope to those given above.**
