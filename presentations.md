@@ -7,6 +7,14 @@ title: Presentations
 
 <br>
 
+<strong><a href="https://pathways2019.exordo.com/programme/presentation/337" target="_blank">Social Habitats for Wildlife in the U.S. with an Application to Wolf Reintroduction in Colorado</a></strong>
+<br>September 23, 2019
+<br>Pathways 2019: Human Dimensions of Wildlife Conference, Estes Park, CO
+
+<strong><a href="https://docs.google.com/presentation/d/1v0A65mccly-ln48XBtmsX1bwy24UyIh8lbYycwq5lXU/edit?usp=sharing" target="_blank">Prestige: Concept, Measurement, and the Transmission of Culture</a> (<a href="https://youtu.be/wzCKuocGpR4" target="_blank">Video</a>)</strong>
+<br>May 15, 2019
+<br>Doctoral Defense Public Seminar, Colorado State University, Fort Collins, CO
+
 <strong><a href="https://docs.google.com/presentation/d/1qairhtd0OvDC2WDiaB9rP2j_nBl1IksoTmjVgHvmdIw/edit?usp=sharing" target="_blank">Tell Me a Story: Comparing the Effects of Prestige and Content Biases on Cultural Transmission</a></strong>
 <br>October 24, 2018
 <br>Second Meeting of the Cultural Evolution Society, Arizona State University, Tempe, AZ

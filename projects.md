@@ -49,8 +49,26 @@ A course designed to introduce graduate-level students in natural resources and 
 
 ## Current Projects
 
+**The Social Habitat for Wildlife**
+<br>PI: <a href="https://warnercnr.colostate.edu/person/?user=johmNF1GvmZ8Fou%2FBJ6DWw%3D%3D" target="_blank">Michael Manfredo</a>, Colorado State University
+<br>Co-Investigator: <a href="https://warnercnr.colostate.edu/person/?user=zXLRUnfFEzEGjJEqWYGUMg%3D%3D" target="_blank">Tara Teel</a>, Colorado State University
+
+The notion of habitat is commonly used to convey the biophysical conditions necessary for survival of a wildlife species. Yet, in the era of the Anthropocene, it is generally recognized that the actual presence or absence of a species in a place is largely contingent on human factors. The traditional habitat concept also implicitly supports the idea of human-nature separation, while recent efforts in conservation advance social-ecological approaches that recognize the interrelationship of humans and the natural environment. Based on the concept of wildlife values, we advance the notion of social habitat for wildlife in the United States.
+
+<br>
+
+**Organizational Change for Effective Adaptation in State Fish and Wildlife Agencies**
+<br>PIs: <a href="https://warnercnr.colostate.edu/person/?user=johmNF1GvmZ8Fou%2FBJ6DWw%3D%3D" target="_blank">Michael Manfredo</a>, Colorado State University and <a href="https://www.colorado.edu/business/mark-gasta" target="_blank">Mark Gasta</a>, University of Colorado, Boulder
+<br>Co-Investigator: <a href="https://www.linkedin.com/in/leeann-sullivan-95429327/" target="_blank">Leeann Sullivan</a>, Colorado State University
+
+Many state fish and wildlife agencies in the U.S. face a changing social climate noted in declining hunter populations and agency revenues, shifting social values, and agency values that are not widely representative of the general public. The Roadmap to Relevancy initiative is a noteworthy attempt to broaden agency’s stakeholder base and the Recovering America’s Wildlife Act (H.R. 4647) aims to expand the funding base for wildlife management. A broader question, which we hope to address, asks how agencies can embrace organizational change to facilitate effective adaptation.
+
+<br>
+
+## Recent and Ongoing Projects
+
 **The Effects of Social Transmission Biases on Human Cultural Evolution**
-<br>PIs: <a href="https://michaelcgavin.com/" target="_blank">Dr. Michael Gavin</a>, Colorado State University and <a href="https://excd.org/" target="_blank">Dr. Fiona Jordan</a>, University of Bristol
+<br>PIs: <a href="https://michaelcgavin.com/" target="_blank">Michael Gavin</a>, Colorado State University and <a href="https://excd.org/" target="_blank">Fiona Jordan</a>, University of Bristol
 <br>Co-Investigator: <a href="https://excd.org/people/" target="_blank">Alarna Samarasinghe</a>, University of Bristol
 
 How influential are the personal characteristics of those we choose to learn from (model biases) and the characteristics of the information itself (content biases) in determining what and how people learn? We intend to examine this from cultural evolutionary and sociolinguistic contexts to identify the relative effect of prestige on cultural transmission and its interactions with narrative content.
@@ -58,24 +76,22 @@ How influential are the personal characteristics of those we choose to learn fro
 <br>
 
 **Demography, Subsistence, Culture, and Genetic Variation of the Chabu Hunter-Gatherers of Southwest Ethiopia**
-<br>Co-PIs: <a href="https://anthro.vancouver.wsu.edu/faculty/hewlett/" target="_blank">Dr. Barry Hewlett</a> and <a href="https://anthro.vancouver.wsu.edu/faculty/bonnie-hewlett/" target="_blank">Dr. Bonnie Hewlett</a>, Washington State University, Vancouver, and <a href="https://uwf.edu/cassh/departments/anthropology-and-archaeology/our-faculty-and-staff/department-of-anthropology/" target="_blank">Dr. Samuel Jilo Dira</a>, University of West Florida
-<br>Co-Investigators: <a href="https://anthro.vancouver.wsu.edu/grads/zgarfield/" target="_blank">Zachary Garfield</a>, Washington State University, Vancouver, <a href="https://hennlab.ucdavis.edu/" target="_blank">Dr. Brenna Henn</a>, University of California, Davis, <a href="https://ecoevo.stonybrook.edu/hennlab/people/" target="_blank">Shyamalika Gopalan</a>, Stony Brook University, <a href="https://www-evo.stanford.edu/marc.html" target="_blank">Marc Feldman</a>, Stanford University, and <a href="https://cgat.weebly.com/" target="_blank">Chris Gignoux</a>, University of Colorado
+<br>Co-PIs: <a href="https://anthro.vancouver.wsu.edu/faculty/hewlett/" target="_blank">Barry Hewlett</a> and <a href="https://anthro.vancouver.wsu.edu/faculty/bonnie-hewlett/" target="_blank">Bonnie Hewlett</a>, Washington State University, Vancouver, and <a href="https://uwf.edu/cassh/departments/anthropology-and-archaeology/our-faculty-and-staff/department-of-anthropology/" target="_blank">Samuel Jilo Dira</a>, University of West Florida
+<br>Co-Investigators: <a href="https://anthro.vancouver.wsu.edu/grads/zgarfield/" target="_blank">Zachary Garfield</a>, Washington State University, Vancouver, <a href="https://hennlab.ucdavis.edu/" target="_blank">Brenna Henn</a>, University of California, Davis, <a href="https://ecoevo.stonybrook.edu/hennlab/people/" target="_blank">Shyamalika Gopalan</a>, Stony Brook University, <a href="https://www-evo.stanford.edu/marc.html" target="_blank">Marc Feldman</a>, Stanford University, and <a href="https://cgat.weebly.com/" target="_blank">Chris Gignoux</a>, University of Colorado
 
 The Chabu are one of the last remaining hunter-gatherer societies in Africa. They are thought to be a linguistic isolate, are ethnographically unknown, and are not recognized as a legitimate ethnic group by the Ethiopian government. We are working to understand who the Chabu are and their relationships with other groups across Ethiopia and East Africa, with the aim of preserving their culture, their human rights, and their way of life, which are under threat from encroaching settlers and coffee plantations.
-
-
 
 <br>
 
 ## Recent Presentations
 
-<strong><a href="https://docs.google.com/presentation/d/1qairhtd0OvDC2WDiaB9rP2j_nBl1IksoTmjVgHvmdIw/edit?usp=sharing" target="_blank">Tell Me a Story: Comparing the Effects of Prestige and Content Biases on Cultural Transmission</a></strong>
-<br>October 24, 2018
-<br>Second Meeting of the Cultural Evolution Society, Arizona State University, Tempe, AZ
+<strong><a href="https://pathways2019.exordo.com/programme/presentation/337" target="_blank">Social Habitats for Wildlife in the U.S. with an Application to Wolf Reintroduction in Colorado</a></strong>
+<br>September 23, 2019
+<br>Pathways 2019: Human Dimensions of Wildlife Conference, Estes Park, CO
 
-<strong><a href="https://docs.google.com/presentation/d/1v0It3DyVYsoUA9ll6lO80Yg94gK8MLHOZ-OTZdlfKL4/edit?usp=sharing" target="_blank">Demographic and Cultural History of the Chabu Hunter-Gatherers of Southwestern Ethiopia</a></strong>
-<br>October 23, 2018
-<br>Second Meeting of the Cultural Evolution Society, Arizona State University, Tempe, AZ
+<strong><a href="https://docs.google.com/presentation/d/1v0A65mccly-ln48XBtmsX1bwy24UyIh8lbYycwq5lXU/edit?usp=sharing" target="_blank">Prestige: Concept, Measurement, and the Transmission of Culture</a> (<a href="https://youtu.be/wzCKuocGpR4" target="_blank">Video</a>)</strong>
+<br>May 15, 2019
+<br>Doctoral Defense Public Seminar, Colorado State University, Fort Collins, CO
 
 <a href="/presentations">Past Presentations</a>
 
