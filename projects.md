@@ -100,6 +100,20 @@ The Chabu are one of the last remaining hunter-gatherer societies in Africa. The
 ## Publications
 **\*** Co-first authors
 
+Niemiec, R.M., **Berl, R.E.W.**, Gonzalez, M., Teel, T., Camara, C., Collins, M., Salerno, J., Crooks, K., Schultz, C., Breck, S., and Hoag, D. (*in review*). Public perspectives and media reporting of wolf reintroduction in Colorado.
+
+**Berl, R.E.W.\***, Samarasinghe, A.N.**\***, Roberts, S.G., Jordan, F.M., & Gavin, M.C. (*in review*). Prestige and content biases together shape the cultural transmission of narratives.
+
+Samarasinghe, A.N., **Berl, R.E.W.**, Gavin, M.C., & Jordan, F.M. (*in review*). Evaluations of accents can be used as a measure of prestige. Preprint: <a href="https://osf.io/preprints/socarxiv/abgue/" target="_blank">*SocArXiv*</a>
+&nbsp;&nbsp;<a href="https://osf.io/preprints/socarxiv/abgue/" target="_blank"><i class="ai ai-osf ai-lg"></i></a>
+&nbsp;&nbsp;<a href="/public/pdf/samarasinghe2019evaluations_of_accents_can_be_used_as_a_measure_of_prestige.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
+
+**Berl, R.E.W.**, Samarasinghe, A.N., Jordan, F.M., & Gavin, M.C. (*in review*). The Position-Reputation-Information (PRI) scale of individual prestige. Preprint: <a href="https://osf.io/preprints/socarxiv/426n8/" target="_blank">*SocArXiv*</a>
+&nbsp;&nbsp;<a href="https://osf.io/preprints/socarxiv/426n8/" target="_blank"><i class="ai ai-osf ai-lg"></i></a>
+&nbsp;&nbsp;<a href="/public/pdf/berl2019the_position-reputation-information_pri_scale_of_individual_prestige.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
+
+Manfredo, M.J., **Berl, R.E.W.**, Teel, T.L., & Bruskotter, J.T. (*in review*). Social values will define suitable habitat for megafauna in the Anthropocene.
+
 Gopalan, S.**\***, **Berl, R.E.W.\***, Belbin, G., Negash, A.N., Gignoux, C.R., Feldman, M.W., Hewlett, B.S., & Henn, B.M. (*in review*). Hunter-gatherer genomes reveal diverse demographic trajectories following the rise of farming in Eastern Africa. Preprint: <a href="https://www.biorxiv.org/content/10.1101/517730v1.abstract" target="_blank">*bioRxiv*, 517730</a>
 &nbsp;&nbsp;<a href="https://www.biorxiv.org/content/10.1101/517730v1.abstract" target="_blank"><i class="ai ai-biorxiv ai-lg"></i></a>
 &nbsp;&nbsp;<a href="/public/pdf/gopalan2019hunter-gatherer_genomes_reveal_diverse_demographic_trajectories.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
@@ -118,6 +132,9 @@ Gopalan, S.**\***, **Berl, R.E.W.\***, Belbin, G., Negash, A.N., Gignoux, C.R., 
 
 
 ### Non-Peer Reviewed
+Niemiec, R.M., **Berl, R.E.W.**, Gonzalez, M., Teel, T., Camara, C., Collins, M., Salerno, J., Crooks, K., Schultz, C., Breck, S., & Hoag, D. 2020. Working report: Public	perspectives on wolf reintroduction and management in Colorado. Fort Collins, CO: Colorado State University, Department of Human Dimensions of Natural Resources.
+&nbsp;&nbsp;<a href="/public/pdf/niemiec2020working_report_public_perspectives_on_wolf_reintroduction_and_management_in_colorado.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
+
 Hewlett, B.S., **Berl, R.E.W.**, & Roulette, C.J. 2016. Teaching and overimitation among Aka hunter-gatherers. In: Terashima, H. & Hewlett, B.S., editors. *Social learning and innovation in contemporary hunter-gatherers*. Springer. pp. 35–45. doi: <a href="https://dx.doi.org/10.1007/978-4-431-55997-9_3" target="_blank">10.1007/978-4-431-55997-9_3</a>
 &nbsp;&nbsp;<a href="/public/pdf/hewlett2016teaching_and_overimitation_among_aka_hunter-gatherers.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
 
