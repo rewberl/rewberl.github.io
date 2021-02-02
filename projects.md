@@ -85,6 +85,10 @@ The Chabu are one of the last remaining hunter-gatherer societies in Africa. The
 
 ## Recent Presentations
 
+<strong><a href="https://wildlifemanagement.institute/conference/adaptive-opportunities-state-fish-wildlife-agencies-invite-only" target="_blank">Adaptive Opportunities for State Fish & Wildlife Agencies</a></strong>
+<br>March 11, 2020
+<br>North American Wildlife & Natural Resources Conference, Omaha, NE
+
 <strong><a href="https://pathways2019.exordo.com/programme/presentation/337" target="_blank">Social Habitats for Wildlife in the U.S. with an Application to Wolf Reintroduction in Colorado</a></strong>
 <br>September 23, 2019
 <br>Pathways 2019: Human Dimensions of Wildlife Conference, Estes Park, CO
@@ -100,29 +104,41 @@ The Chabu are one of the last remaining hunter-gatherer societies in Africa. The
 ## Publications
 **\*** Co-first authors
 
-Niemiec, R.M., **Berl, R.E.W.**, Gonzalez, M., Teel, T., Camara, C., Collins, M., Salerno, J., Crooks, K., Schultz, C., Breck, S., and Hoag, D. (*in review*). Public perspectives and media reporting of wolf reintroduction in Colorado.
+### Peer Reviewed
+Manfredo, M.J., **Berl, R.E.W.**, Teel, T.L., & Bruskotter, J.T. (*in press*). Bringing social values to wildlife conservation decisions. *Frontiers in Ecology and the Environment*.
 
-**Berl, R.E.W.\***, Samarasinghe, A.N.**\***, Roberts, S.G., Jordan, F.M., & Gavin, M.C. (*in review*). Prestige and content biases together shape the cultural transmission of narratives.
+Manfredo, M.J., Teel, T.L., **Berl, R.E.W.**, Bruskotter, J.T., & Kitayama, S. (2020). Social value shift in favour of biodiversity conservation in the United States. *Nature Sustainability 3*(12). doi: <a href="https://dx.doi.org/10.1038/s41893-020-00655-6" target="_blank">10.1038/s41893-020-00655-6</a>
+&nbsp;&nbsp;<a href="/public/pdf/manfredo2020social_value_shift_in_favour_of_biodiversity_conservation.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
 
-Samarasinghe, A.N., **Berl, R.E.W.**, Gavin, M.C., & Jordan, F.M. (*in review*). Evaluations of accents can be used as a measure of prestige. Preprint: <a href="https://osf.io/preprints/socarxiv/abgue/" target="_blank">*SocArXiv*</a>
-&nbsp;&nbsp;<a href="https://osf.io/preprints/socarxiv/abgue/" target="_blank"><i class="ai ai-osf ai-lg"></i></a>
-&nbsp;&nbsp;<a href="/public/pdf/samarasinghe2019evaluations_of_accents_can_be_used_as_a_measure_of_prestige.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
-
-**Berl, R.E.W.**, Samarasinghe, A.N., Jordan, F.M., & Gavin, M.C. (*in review*). The Position-Reputation-Information (PRI) scale of individual prestige. Preprint: <a href="https://osf.io/preprints/socarxiv/426n8/" target="_blank">*SocArXiv*</a>
+**Berl, R.E.W.**, Samarasinghe, A.N., Jordan, F.M., & Gavin, M.C. (2020). The Position-Reputation-Information (PRI) scale of individual prestige. *PLOS ONE 15*(6): e0234428. doi: <a href="https://dx.doi.org/10.1371/journal.pone.0234428" target="_blank">10.1371/journal.pone.0234428</a>
+&nbsp;&nbsp;<a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0234428" target="_blank"><i class="ai ai-open-access ai-lg"></i></a>
+&nbsp;&nbsp;<a href="/public/pdf/berl2020the_position-reputation-information_pri_scale_of_individual_prestige.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
 &nbsp;&nbsp;<a href="https://osf.io/preprints/socarxiv/426n8/" target="_blank"><i class="ai ai-osf ai-lg"></i></a>
-&nbsp;&nbsp;<a href="/public/pdf/berl2019the_position-reputation-information_pri_scale_of_individual_prestige.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
 
-Manfredo, M.J., **Berl, R.E.W.**, Teel, T.L., & Bruskotter, J.T. (*in review*). Social values will define suitable habitat for megafauna in the Anthropocene.
+<ul>
+<li>Supplementary Info</li>
+    <ul>
+    <li><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0234428#sec008" target="_blank">Full dataset and R scripts used in analyses and the generation of figures</a></li>
+    </ul>
+</ul>
 
-Gopalan, S.**\***, **Berl, R.E.W.\***, Belbin, G., Negash, A.N., Gignoux, C.R., Feldman, M.W., Hewlett, B.S., & Henn, B.M. (*in review*). Hunter-gatherer genomes reveal diverse demographic trajectories following the rise of farming in Eastern Africa. Preprint: <a href="https://www.biorxiv.org/content/10.1101/517730v1.abstract" target="_blank">*bioRxiv*, 517730</a>
-&nbsp;&nbsp;<a href="https://www.biorxiv.org/content/10.1101/517730v1.abstract" target="_blank"><i class="ai ai-biorxiv ai-lg"></i></a>
-&nbsp;&nbsp;<a href="/public/pdf/gopalan2019hunter-gatherer_genomes_reveal_diverse_demographic_trajectories.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
+Niemiec, R.M., **Berl, R.E.W.**, Gonzalez, M., Teel, T., Camara, C., Collins, M., Salerno, J., Crooks, K., Schultz, C., Breck, S., & Hoag, D. (2020). Public perspectives and media reporting of wolf reintroduction in Colorado. *PeerJ 8*:e9074. doi: <a href="https://dx.doi.org/10.7717/peerj.9074" target="_blank">10.7717/peerj.9074</a>
+&nbsp;&nbsp;<a href="https://peerj.com/articles/9074/" target="_blank"><i class="ai ai-open-access ai-lg"></i></a>
+&nbsp;&nbsp;<a href="/public/pdf/niemiec2020public_perspectives_and_media_reporting_on_wolf_reintroduction.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
+
+<ul>
+<li>Supplementary Info</li>
+    <ul>
+    <li><a href="https://peerj.com/articles/9074/#supplementary-material" target="_blank">Full dataset and R scripts used in analyses and the generation of figures</a></li>
+    </ul>
+</ul>
 
 **Berl, R.E.W.** & Hewlett, B.S. 2015. Cultural variation in the use of overimitation by the Aka and Ngandu of the Congo Basin. *PLOS ONE 10*(3): e0120180. doi: <a href="https://dx.doi.org/10.1371/journal.pone.0120180" target="_blank">10.1371/journal.pone.0120180</a>
 &nbsp;&nbsp;<a href="https://dx.doi.org/10.1371/journal.pone.0120180" target="_blank"><i class="ai ai-open-access ai-lg"></i></a>
 &nbsp;&nbsp;<a href="/public/pdf/berl2015cultural_variation_in_the_use_of_overimitation_by_the_aka_and_ngandu.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
 
 <ul>
+<li><strong>Top 10% most cited PLOS ONE papers in 2015</strong></li>
 <li>Supplementary Info</li>
     <ul>
     <li><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0120180#pone.0120180.s007" target="_blank">Full dataset used in analyses and the generation of figures</a></li>
@@ -130,6 +146,17 @@ Gopalan, S.**\***, **Berl, R.E.W.\***, Belbin, G., Negash, A.N., Gignoux, C.R., 
     </ul>
 </ul>
 
+**Berl, R.E.W.\***, Samarasinghe, A.N.**\***, Roberts, S.G., Jordan, F.M., & Gavin, M.C. (*in review*). Prestige and content biases together shape the cultural transmission of narratives. Preprint: <a href="https://osf.io/preprints/socarxiv/9jk6g/" target="_blank">*SocArXiv*</a>
+&nbsp;&nbsp;<a href="https://osf.io/preprints/socarxiv/9jk6g/" target="_blank"><i class="ai ai-osf ai-lg"></i></a>
+&nbsp;&nbsp;<a href="/public/pdf/berl2020prestige_and_content_biases_together_shape_the_cultural_transmission_of_narratives.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
+
+Samarasinghe, A.N., **Berl, R.E.W.**, Gavin, M.C., & Jordan, F.M. (*in review*). Evaluations of accents can be used as a measure of prestige. Preprint: <a href="https://osf.io/preprints/socarxiv/abgue/" target="_blank">*SocArXiv*</a>
+&nbsp;&nbsp;<a href="https://osf.io/preprints/socarxiv/abgue/" target="_blank"><i class="ai ai-osf ai-lg"></i></a>
+&nbsp;&nbsp;<a href="/public/pdf/samarasinghe2019evaluations_of_accents_can_be_used_as_a_measure_of_prestige.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
+
+Gopalan, S.**\***, **Berl, R.E.W.\***, Belbin, G., Negash, A.N., Gignoux, C.R., Feldman, M.W., Hewlett, B.S., & Henn, B.M. (*in review*). Hunter-gatherer genomes reveal diverse demographic trajectories following the rise of farming in Eastern Africa. Preprint: <a href="https://www.biorxiv.org/content/10.1101/517730v1.abstract" target="_blank">*bioRxiv*, 517730</a>
+&nbsp;&nbsp;<a href="https://www.biorxiv.org/content/10.1101/517730v1.abstract" target="_blank"><i class="ai ai-biorxiv ai-lg"></i></a>
+&nbsp;&nbsp;<a href="/public/pdf/gopalan2019hunter-gatherer_genomes_reveal_diverse_demographic_trajectories.pdf" target="_blank"><i class="far fa-file-pdf fa-lg"></i></a>
 
 ### Non-Peer Reviewed
 Niemiec, R.M., **Berl, R.E.W.**, Gonzalez, M., Teel, T., Camara, C., Collins, M., Salerno, J., Crooks, K., Schultz, C., Breck, S., & Hoag, D. 2020. Working report: Public	perspectives on wolf reintroduction and management in Colorado. Fort Collins, CO: Colorado State University, Department of Human Dimensions of Natural Resources.

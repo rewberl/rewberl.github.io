@@ -7,6 +7,10 @@ title: Presentations
 
 <br>
 
+<strong><a href="https://wildlifemanagement.institute/conference/adaptive-opportunities-state-fish-wildlife-agencies-invite-only" target="_blank">Adaptive Opportunities for State Fish & Wildlife Agencies</a></strong>
+<br>March 11, 2020
+<br>North American Wildlife & Natural Resources Conference, Omaha, NE
+
 <strong><a href="https://pathways2019.exordo.com/programme/presentation/337" target="_blank">Social Habitats for Wildlife in the U.S. with an Application to Wolf Reintroduction in Colorado</a></strong>
 <br>September 23, 2019
 <br>Pathways 2019: Human Dimensions of Wildlife Conference, Estes Park, CO
